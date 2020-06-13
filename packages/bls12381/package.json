@@ -1,12 +1,9 @@
 {
-  "name": "@transmute/did-key.js",
+  "name": "@transmute/did-key-bls12381",
   "author": "Orie Steele",
-  "module": "dist/did-key.js.esm.js",
+  "module": "dist/bls12381.esm.js",
   "version": "0.1.0",
   "license": "Apache-2.0",
-  "publishConfig": {
-    "access": "public"
-  },
   "main": "dist/index.js",
   "typings": "dist/index.d.ts",
   "files": [
@@ -23,12 +20,7 @@
     "lint": "tsdx lint src --fix",
     "prepare": "tsdx build"
   },
-  "peerDependencies": {
-    "@transmute/did-key-secp256k1": "0.1.0",
-    "@transmute/did-key-ed25519": "0.1.0",
-    "@transmute/did-key-x25519": "0.1.0",
-    "@transmute/did-key-bls12381": "0.1.0"
-  },
+  "peerDependencies": {},
   "husky": {
     "hooks": {
       "pre-commit": "npm run lint"
@@ -44,10 +36,10 @@
     "husky": "^4.2.5",
     "tsdx": "^0.13.2",
     "tslib": "^2.0.0",
-    "typescript": "^3.9.5",
-    "@transmute/did-key-secp256k1": "0.1.0",
-    "@transmute/did-key-ed25519": "0.1.0",
-    "@transmute/did-key-x25519": "0.1.0",
-    "@transmute/did-key-bls12381": "0.1.0"
+    "typescript": "^3.9.5"
+  },
+  "dependencies": {
+    "@mattrglobal/bls12381-key-pair": "^0.3.0",
+    "bs58": "^4.0.1"
   }
 }

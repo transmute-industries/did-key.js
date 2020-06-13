@@ -1,6 +1,7 @@
 import { driver as secp256k1_driver } from '@transmute/did-key-secp256k1';
 import { driver as ed25519_driver } from '@transmute/did-key-ed25519';
 import { driver as x25519_driver } from '@transmute/did-key-x25519';
+import { driver as bls12381_driver } from '@transmute/did-key-bls12381';
 
 export const resolver = {
   resolve: (did: string) => {
@@ -14,6 +15,8 @@ export const resolver = {
         return ed25519_driver.get({ did });
       case 'z6LS':
         return x25519_driver.get({ did });
+      case 'zUC7':
+        return bls12381_driver.get({ did });
       case 'zQ3s':
         return secp256k1_driver.get({ did });
       default:
