@@ -2,9 +2,6 @@ import { Bls12381G2KeyPair as MattrKeyPair } from '@mattrglobal/bls12381-key-pai
 import bs58 from 'bs58';
 
 export class Bls12381G2KeyPair extends MattrKeyPair {
-  constructor(args: any) {
-    super(args);
-  }
   static fromFingerprint({ fingerprint }: any) {
     // skip leading `z` that indicates base58 encoding
     const buffer = bs58.decode(fingerprint.substr(1));

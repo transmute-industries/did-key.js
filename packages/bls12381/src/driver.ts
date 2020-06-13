@@ -1,5 +1,5 @@
 import { Bls12381G2KeyPair } from './Bls12381G2KeyPair';
-
+import bs58 from 'bs58';
 export const keyToDidDoc = (bls12381Key: any) => {
   const did = `did:key:${bls12381Key.fingerprint()}`;
   const keyId = `#${bls12381Key.fingerprint()}`;
@@ -16,7 +16,7 @@ export const keyToDidDoc = (bls12381Key: any) => {
         id: keyId,
         type: bls12381Key.type,
         controller: did,
-        publicKeyBase58: bls12381Key.publicKeyBase58,
+        publicKeyBase58: bs58.encode(bls12381Key.publicKeyBuffer),
       },
     ],
     authentication: [keyId],
