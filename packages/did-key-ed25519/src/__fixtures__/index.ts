@@ -80,7 +80,16 @@ export const didDocument = {
       id: '#z6LScqmY9kirLuY22G6CuqBjuMpoqtgWk7bahWjuxFw5xH6G',
       type: 'X25519KeyAgreementKey2019',
       controller: 'did:key:z6Mkf5rGMoatrSj1f4CyvuHBeXJELe9RPdzo2PKGNCKVtZxP',
-      publicKeyBase58: '2AbNdSuzFSpGvsiSPBfnamcKzk9Q3WRRpY2EToHZEuKW'
-    }
-  ]
+      publicKeyBase58: '2AbNdSuzFSpGvsiSPBfnamcKzk9Q3WRRpY2EToHZEuKW',
+    },
+  ],
 };
+
+export const payload = {
+  hello: 'world',
+};
+export const jws =
+  'eyJhbGciOiJFZERTQSJ9.eyJoZWxsbyI6IndvcmxkIn0.yynMlIHyj6nAEIJy7S_LUdg6VqFlNSmjjp4nvz7XeJRcCz3_0jAxUkL-b4kUAUT_JsbOT9cn1D26wfeRbeDSCw';
+
+export const detached_jws =
+  'eyJhbGciOiJFZERTQSIsImI2NCI6ZmFsc2UsImNyaXQiOlsiYjY0Il19..oJS9B0Pb7js6O7BdXZhoI9OsVz0tcCRQX9PW8PsZQuhpDIjVQ38BG5uYP3Q0HbqezfkB5Fg0wBIewDSrVznEAA';
