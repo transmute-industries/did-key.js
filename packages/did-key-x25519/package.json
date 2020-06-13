@@ -36,7 +36,8 @@
     "husky": "^4.2.5",
     "tsdx": "^0.13.2",
     "tslib": "^2.0.0",
-    "typescript": "^3.9.5"
+    "typescript": "^3.9.5",
+    "x25519-key-pair": "^2.0.0"
   },
   "dependencies": {
     "@stablelib/ed25519": "^1.0.1",
