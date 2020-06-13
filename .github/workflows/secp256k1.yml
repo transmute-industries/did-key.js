@@ -4,7 +4,7 @@ jobs:
   build:
     runs-on: ubuntu-latest
     env:
-      working-directory: ./packages/did-key-secp256k1
+      working-directory: ./packages/secp256k1
     steps:
       - name: Begin CI...
         uses: actions/checkout@v2

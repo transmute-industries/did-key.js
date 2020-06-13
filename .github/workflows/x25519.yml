@@ -4,7 +4,7 @@ jobs:
   build:
     runs-on: ubuntu-latest
     env:
-      working-directory: ./packages/did-key-x25519
+      working-directory: ./packages/x25519
     steps:
       - name: Begin CI...
         uses: actions/checkout@v2
