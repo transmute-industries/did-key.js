@@ -1,5 +1,7 @@
 # @transmute/did-key.js
 
+![ci](https://github.com/transmute-industries/did-key.js/workflows/ci/badge.svg)
+
 ### [DID Key Method Specification](https://github.com/w3c-ccg/did-method-key)
 
 ### Supported Keys

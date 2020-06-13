@@ -17,7 +17,7 @@ describe('driver', () => {
   describe('get', () => {
     it('resolve a key from id', async () => {
       let _didDocument: any = await get({
-        did: didDocument.publicKey[0].id,
+        did: didDocument.id,
       });
       expect(_didDocument).toEqual(didDocument);
     });
