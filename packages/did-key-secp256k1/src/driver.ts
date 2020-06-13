@@ -34,7 +34,7 @@ export const get = async ({ did, url }: any = {}) => {
   if (!did) {
     throw new TypeError('"did" must be a string.');
   }
-  const fingerprint = did.split('#').pop();
+  const fingerprint = did.split('#')[0].split('did:key:').pop();
   const publicKey = await Secp256k1KeyPair.fromFingerprint({ fingerprint });
   const didDoc = keyToDidDoc(publicKey);
   return didDoc;

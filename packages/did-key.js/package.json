@@ -1,7 +1,7 @@
 {
-  "name": "@transmute/did-key-secp256k1",
+  "name": "@transmute/did-key.js",
   "author": "Orie Steele",
-  "module": "dist/did-key-secp256k1.esm.js",
+  "module": "dist/did-key.js.esm.js",
   "version": "0.1.0",
   "license": "Apache-2.0",
   "main": "dist/index.js",
@@ -20,7 +20,10 @@
     "lint": "tsdx lint src --fix",
     "prepare": "tsdx build"
   },
-  "peerDependencies": {},
+  "peerDependencies": {
+    "@transmute/did-key-secp256k1": "0.1.0",
+    "@transmute/did-key-ed25519": "0.1.0"
+  },
   "husky": {
     "hooks": {
       "pre-commit": "npm run lint"
@@ -36,13 +39,8 @@
     "husky": "^4.2.5",
     "tsdx": "^0.13.2",
     "tslib": "^2.0.0",
-    "typescript": "^3.9.5"
-  },
-  "dependencies": {
-    "@trust/keyto": "^1.0.1",
-    "base64url": "^3.0.1",
-    "bitcoin-ts": "^1.14.2",
-    "bs58": "^4.0.1",
-    "canonicalize": "^1.0.1"
+    "typescript": "^3.9.5",
+    "@transmute/did-key-secp256k1": "0.1.0",
+    "@transmute/did-key-ed25519": "0.1.0"
   }
 }

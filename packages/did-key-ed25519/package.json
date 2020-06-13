@@ -1,5 +1,5 @@
 {
-  "name": "did-key-ed25519",
+  "name": "@transmute/did-key-ed25519",
   "author": "Orie Steele",
   "module": "dist/did-key-ed25519.esm.js",
   "version": "0.1.0",
