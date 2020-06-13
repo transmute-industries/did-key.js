@@ -23,7 +23,9 @@ describe('Ed25519KeyPair', () => {
       expect(key.id).toBe(fixtures.ed25519_base58btc.id);
       expect(key.type).toBe(fixtures.ed25519_base58btc.type);
       expect(key.controller).toBe(fixtures.ed25519_base58btc.controller);
-      expect(key.publicKeyBase58).toBe(fixtures.ed25519_base58btc.publicKeyBase58);
+      expect(key.publicKeyBase58).toBe(
+        fixtures.ed25519_base58btc.publicKeyBase58
+      );
       expect(key.privateKeyBase58).toBe(
         fixtures.ed25519_base58btc.privateKeyBase58
       );
@@ -125,6 +127,23 @@ describe('Ed25519KeyPair', () => {
       expect(_publicKeyHex).toBe(fixtures.ed25519_hex.publicKeyHex);
       let _privateKeyHex = await key.toHex(true);
       expect(_privateKeyHex).toBe(fixtures.ed25519_hex.privateKeyHex);
+    });
+  });
+
+  describe('toX25519KeyPair', () => {
+    it('can convert to x25519', async () => {
+      let key = await Ed25519KeyPair.generate({
+        seed: Buffer.from(fixtures.seed, 'hex'),
+      });
+      let _key1 = await key.toX25519KeyPair(false);
+      expect(_key1.id).toBe(
+        '#z6LScqmY9kirLuY22G6CuqBjuMpoqtgWk7bahWjuxFw5xH6G'
+      );
+      expect(_key1.privateKeyBase58).toBeUndefined();
+      _key1 = await key.toX25519KeyPair(true);
+      expect(_key1.privateKeyBase58).toBe(
+        '96do29HaLryHStVdCD7jB5TdbM1iGwPUDJvnPkfcqhMB'
+      );
     });
   });
 });

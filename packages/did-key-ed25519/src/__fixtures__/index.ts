@@ -75,4 +75,12 @@ export const didDocument = {
   assertionMethod: ['#z6Mkf5rGMoatrSj1f4CyvuHBeXJELe9RPdzo2PKGNCKVtZxP'],
   capabilityDelegation: ['#z6Mkf5rGMoatrSj1f4CyvuHBeXJELe9RPdzo2PKGNCKVtZxP'],
   capabilityInvocation: ['#z6Mkf5rGMoatrSj1f4CyvuHBeXJELe9RPdzo2PKGNCKVtZxP'],
+  keyAgreement: [
+    {
+      id: '#z6LScqmY9kirLuY22G6CuqBjuMpoqtgWk7bahWjuxFw5xH6G',
+      type: 'X25519KeyAgreementKey2019',
+      controller: 'did:key:z6Mkf5rGMoatrSj1f4CyvuHBeXJELe9RPdzo2PKGNCKVtZxP',
+      publicKeyBase58: '2AbNdSuzFSpGvsiSPBfnamcKzk9Q3WRRpY2EToHZEuKW'
+    }
+  ]
 };

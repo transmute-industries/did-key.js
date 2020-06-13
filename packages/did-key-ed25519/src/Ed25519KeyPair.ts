@@ -3,6 +3,8 @@ import bs58 from 'bs58';
 import * as ed25519 from '@stablelib/ed25519';
 import * as keyUtils from './KeyUtils';
 
+import { X25519KeyPair } from 'did-key-x25519';
+
 export class Ed25519KeyPair {
   public id: string;
   public type: string;
@@ -192,16 +194,16 @@ export class Ed25519KeyPair {
     return keyUtils.publicKeyHexFromPublicKeyBase58(this.publicKeyBase58);
   }
 
-  async toX25519(_private: boolean = false) {
-    // const _x25519PublicKey = ed25519.convertPublicKeyToX25519(key.publicKey);
-    // expect(Buffer.from(_x25519PublicKey).toString('hex')).toBe(
-    //   fixtures.x25519.publicKeyHex
-    // );
-    // const _x25519PrivateKey = ed25519.convertSecretKeyToX25519(key.secretKey);
-    if (_private) {
-      return keyUtils.privateKeyHexFromPrivateKeyBase58(this.privateKeyBase58);
+  toX25519KeyPair(_private: boolean = false) {
+    const x25519 = X25519KeyPair.fromEdKeyPair({
+      controller: this.controller,
+      publicKeyBase58: this.publicKeyBase58,
+      privateKeyBase58: this.privateKeyBase58,
+    });
+    if (!_private) {
+      delete x25519.privateKeyBase58;
     }
-    return keyUtils.publicKeyHexFromPublicKeyBase58(this.publicKeyBase58);
+    return x25519;
   }
 
   signer() {

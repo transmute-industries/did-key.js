@@ -104,7 +104,7 @@ export class X25519KeyPair {
     });
   }
 
-  static async from(options: any) {
+  static from(options: any) {
     let privateKeyBase58 = options.privateKeyBase58;
     let publicKeyBase58 = options.publicKeyBase58;
 

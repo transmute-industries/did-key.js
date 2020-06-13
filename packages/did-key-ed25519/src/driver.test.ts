@@ -3,7 +3,7 @@ import { seed, didDocument } from './__fixtures__';
 
 import {
   keyToDidDoc,
-  // get
+  get
 } from './driver';
 
 describe('driver', () => {
@@ -13,17 +13,16 @@ describe('driver', () => {
         seed: Buffer.from(seed, 'hex'),
       });
       const _didDocument = keyToDidDoc(key);
-      console.log(_didDocument);
       expect(_didDocument).toEqual(didDocument);
     });
   });
 
-  //   describe('get', () => {
-  //     it('resolve a key from id', async () => {
-  //       let _didDocument: any = await get({
-  //         did: didDocument.publicKey[0].id,
-  //       });
-  //       expect(_didDocument).toEqual(didDocument);
-  //     });
-  //   });
+    describe('get', () => {
+      it('resolve a key from id', async () => {
+        let _didDocument: any = await get({
+          did: didDocument.id,
+        });
+        expect(_didDocument).toEqual(didDocument);
+      });
+    });
 });
