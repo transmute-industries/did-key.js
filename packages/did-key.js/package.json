@@ -22,7 +22,8 @@
   },
   "peerDependencies": {
     "@transmute/did-key-secp256k1": "0.1.0",
-    "@transmute/did-key-ed25519": "0.1.0"
+    "@transmute/did-key-ed25519": "0.1.0",
+    "@transmute/did-key-x25519": "0.1.0"
   },
   "husky": {
     "hooks": {
@@ -41,6 +42,7 @@
     "tslib": "^2.0.0",
     "typescript": "^3.9.5",
     "@transmute/did-key-secp256k1": "0.1.0",
-    "@transmute/did-key-ed25519": "0.1.0"
+    "@transmute/did-key-ed25519": "0.1.0",
+    "@transmute/did-key-x25519": "0.1.0"
   }
 }

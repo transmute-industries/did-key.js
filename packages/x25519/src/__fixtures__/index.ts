@@ -81,3 +81,21 @@ export const x25519_from_ed25519 = {
 
 export const derivedSecret =
   '81232958479a431146e32a440a8d7fe0cef9e2621bd2bb326ece26d13200f479';
+
+export const didDocument = {
+  '@context': [
+    'https://www.w3.org/ns/did/v1',
+    {
+      '@base': 'did:key:z6LSnjagzhe8Df6gZmroW3wjDd7XQLwAuYfwa4ZeTBCGFoYc',
+    },
+  ],
+  id: 'did:key:z6LSnjagzhe8Df6gZmroW3wjDd7XQLwAuYfwa4ZeTBCGFoYc',
+  keyAgreement: [
+    {
+      id: '#z6LSnjagzhe8Df6gZmroW3wjDd7XQLwAuYfwa4ZeTBCGFoYc',
+      type: 'X25519KeyAgreementKey2019',
+      controller: 'did:key:z6LSnjagzhe8Df6gZmroW3wjDd7XQLwAuYfwa4ZeTBCGFoYc',
+      publicKeyBase58: 'C4QXUPqG8CNwUPV2yQRmu2u3ZCQ4CwVnh5qxxiYjYRmr',
+    },
+  ],
+};

@@ -3,7 +3,7 @@ import bs58 from 'bs58';
 import * as ed25519 from '@stablelib/ed25519';
 import * as keyUtils from './keyUtils';
 
-import { X25519KeyPair } from 'did-key-x25519';
+import { X25519KeyPair } from '@transmute/did-key-x25519';
 
 export class Ed25519KeyPair {
   public id: string;

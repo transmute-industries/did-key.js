@@ -1,9 +1,9 @@
 {
-  "name": "@transmute/did-key-ed25519",
+  "name": "@transmute/did-key-x25519",
   "author": "Orie Steele",
-  "module": "dist/did-key-ed25519.esm.js",
+  "module": "dist/did-key-x25519.esm.js",
   "version": "0.1.0",
-  "license": "MIT",
+  "license": "Apache-2.0",
   "main": "dist/index.js",
   "typings": "dist/index.d.ts",
   "files": [
@@ -34,17 +34,17 @@
   },
   "devDependencies": {
     "husky": "^4.2.5",
-    "jose": "^1.27.1",
     "tsdx": "^0.13.2",
     "tslib": "^2.0.0",
-    "typescript": "^3.9.5"
+    "typescript": "^3.9.5",
+    "x25519-key-pair": "^2.0.0"
   },
   "dependencies": {
     "@stablelib/ed25519": "^1.0.1",
+    "@stablelib/x25519": "^1.0.0",
     "@trust/keyto": "^1.0.1",
     "base64url": "^3.0.1",
     "bs58": "^4.0.1",
-    "canonicalize": "^1.0.1",
-    "did-key-x25519": "0.1.0"
+    "canonicalize": "^1.0.1"
   }
 }
