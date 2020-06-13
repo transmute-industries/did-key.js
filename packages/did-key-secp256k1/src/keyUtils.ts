@@ -213,29 +213,3 @@ export const publicKeyHexFromPrivateKeyHex = async (privateKeyHex: string) => {
   );
   return Buffer.from(publicKey).toString('hex');
 };
-
-export default {
-  binToHex,
-  getKid,
-  hexToBin,
-
-  privateKeyJwkFromPrivateKeyPem,
-  publicKeyJwkFromPublicKeyPem,
-
-  publicKeyHexFromJwk,
-  privateKeyHexFromJwk,
-
-  publicKeyUInt8ArrayFromJwk,
-  privateKeyUInt8ArrayFromJwk,
-
-  privateKeyUInt8ArrayFromPrivateKeyBase58,
-  publicKeyUInt8ArrayFromPublicKeyBase58,
-
-  publicKeyJwkFromPublicKeyHex,
-  privateKeyJwkFromPrivateKeyHex,
-
-  publicKeyBase58FromPublicKeyHex,
-  privateKeyBase58FromPrivateKeyHex,
-
-  publicKeyHexFromPrivateKeyHex,
-};

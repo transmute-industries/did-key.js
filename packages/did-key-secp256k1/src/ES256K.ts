@@ -196,13 +196,3 @@ export const decode = (jws: string, options = { complete: false }) => {
   }
   return JSON.parse(base64url.decode(encodedPayload));
 };
-
-export default {
-  decode,
-
-  sign,
-  signDetached,
-
-  verify,
-  verifyDetached,
-};

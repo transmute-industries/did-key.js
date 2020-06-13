@@ -1,6 +1,6 @@
 import crypto from 'crypto';
 import { generatePrivateKey, instantiateSecp256k1 } from 'bitcoin-ts';
-import keyUtils from './keyUtils';
+import * as keyUtils from './keyUtils';
 import bs58 from 'bs58';
 
 export class Secp256k1KeyPair {
