@@ -4,6 +4,9 @@
   "module": "dist/did-key.js.esm.js",
   "version": "0.1.0",
   "license": "Apache-2.0",
+  "publishConfig": {
+    "access": "public"
+  },
   "main": "dist/index.js",
   "typings": "dist/index.d.ts",
   "files": [

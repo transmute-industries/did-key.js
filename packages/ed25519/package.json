@@ -3,6 +3,9 @@
   "author": "Orie Steele",
   "module": "dist/did-key-ed25519.esm.js",
   "version": "0.1.0",
+  "publishConfig": {
+    "access": "public"
+  },
   "license": "MIT",
   "main": "dist/index.js",
   "typings": "dist/index.d.ts",
