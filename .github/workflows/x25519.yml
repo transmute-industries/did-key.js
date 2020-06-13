@@ -1,10 +1,10 @@
-name: secp256k1
+name: x25519
 on: [push]
 jobs:
   build:
     runs-on: ubuntu-latest
     env:
-      working-directory: ./packages/did-key-secp256k1
+      working-directory: ./packages/did-key-x25519
     steps:
       - name: Begin CI...
         uses: actions/checkout@v2
