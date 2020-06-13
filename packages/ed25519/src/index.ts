@@ -1,4 +1,6 @@
+import * as EdDSA from './EdDSA';
+import * as keyUtils from './keyUtils';
+import * as driver from './driver';
+
 export * from './Ed25519KeyPair';
-export * as EdDSA from './EdDSA'
-export * as keyUtils from './keyUtils'
-export * as driver from './driver'
+export { keyUtils, driver, EdDSA };
