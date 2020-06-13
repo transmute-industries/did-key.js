@@ -1,6 +1,5 @@
 import * as secp256k1 from '../index';
-
-import { seed } from '../__fixtures__';
+import * as fixtures from '../__fixtures__';
 
 describe('e2e', () => {
   let key: secp256k1.Secp256k1KeyPair;
@@ -10,19 +9,14 @@ describe('e2e', () => {
 
   it('key from seed', async () => {
     key = await secp256k1.Secp256k1KeyPair.generate({
-      seed: Buffer.from(seed, 'hex'),
+      seed: Buffer.from(fixtures.seed, 'hex'),
     });
-    expect(key.id).toBe('#zQ3shP2mWsZYWgvgM11nenXRTx9L1yiJKmkf9dfX7NaMKb1pX');
+    expect(key.id).toBe(fixtures.secp256k1_key_base58btc.id);
   });
 
   it('did doc from key', async () => {
     didDoc = await secp256k1.driver.keyToDidDoc(key);
-    expect(didDoc.id).toBe(
-      'did:key:zQ3shP2mWsZYWgvgM11nenXRTx9L1yiJKmkf9dfX7NaMKb1pX'
-    );
-    expect(didDoc.publicKey[0].id).toBe(
-      '#zQ3shP2mWsZYWgvgM11nenXRTx9L1yiJKmkf9dfX7NaMKb1pX'
-    );
+    expect(didDoc).toEqual(fixtures.didDocument);
   });
 
   it('can sign with key', async () => {
