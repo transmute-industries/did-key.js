@@ -1,4 +1,4 @@
-import * as keyUtils from './KeyUtils';
+import * as keyUtils from './keyUtils';
 import * as fixtures from './__fixtures__';
 
 it('publicKeyBase58FromPublicKeyHex', async () => {
