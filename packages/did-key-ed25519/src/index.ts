@@ -1,6 +1,4 @@
-export const sum = (a: number, b: number) => {
-  if ('development' === process.env.NODE_ENV) {
-    console.log('boop');
-  }
-  return a + b;
-};
+export * from './Ed25519KeyPair';
+export * as EdDSA from './EdDSA'
+export * as keyUtils from './keyUtils'
+export * as driver from './driver'
