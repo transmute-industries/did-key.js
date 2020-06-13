@@ -20,6 +20,12 @@
 
 `did:key:z6LS...`
 
+#### [Bls12381](./packages/bls12381)
+
+![bls12381](https://github.com/transmute-industries/did-key.js/workflows/bls12381/badge.svg)
+
+`did:key:zUC7...`
+
 #### [Secp256k1](./packages/secp256k1)
 
 ![secp256k1](https://github.com/transmute-industries/did-key.js/workflows/secp256k1/badge.svg)
