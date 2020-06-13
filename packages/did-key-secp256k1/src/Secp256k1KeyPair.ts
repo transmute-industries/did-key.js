@@ -98,7 +98,7 @@ export class Secp256k1KeyPair {
     // skip leading `z` that indicates base58 encoding
     const buffer = bs58.decode(fingerprint.substr(1));
 
-    // buffer is: 0xed 0x01 <public key bytes>
+    // https://github.com/multiformats/multicodec/blob/master/table.csv#L77
     if (buffer[0] === 0xe7 && buffer[1] === 0x01) {
       const publicKeyBase58 = bs58.encode(buffer.slice(2));
       const did = `did:key:${Secp256k1KeyPair.fingerprintFromPublicKey({
