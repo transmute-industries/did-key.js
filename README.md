@@ -1,5 +1,3 @@
-# @transmute/did-key.js
-
 <p align="center">
   <img src="./transmute-banner.png"/>
 </p>
@@ -61,4 +59,5 @@ npm i @transmute/did-key-secp256k1@latest --save
 ### Alternatives
 
 - [digitalbazaar/did-method-key-js](https://github.com/digitalbazaar/did-method-key-js)
+- [digitalbazaar/crypto-ld](https://github.com/digitalbazaar/crypto-ld)
 - [mattrglobal/bls12381-key-pair](https://github.com/mattrglobal/bls12381-key-pair)
