@@ -6,6 +6,12 @@
 npm i @transmute/did-key.js@latest --save
 ```
 
+🚧 Under Construction.
+
+<p align="center">
+  <img src="./transmute-banner.png"/>
+</p>
+
 ### [DID Key Method Specification](https://github.com/w3c-ccg/did-method-key)
 
 `did:key` is a [DID Method](https://w3c.github.io/did-core/) which is offline friendly, cryptographically self certifying, requires no trust of blockchain or certificate authoritites and is ideal for ephemeral use.
