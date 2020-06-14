@@ -1,6 +1,6 @@
 # @transmute/did-key.js
 
-![CI](https://github.com/transmute-industries/did-key.js/workflows/CI/badge.svg) 🚧 Under Construction.
+🚧 Under Construction. ![CI](https://github.com/transmute-industries/did-key.js/workflows/CI/badge.svg)
 
 ```
 npm i @transmute/did-key.js@latest --save
