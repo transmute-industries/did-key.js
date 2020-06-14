@@ -23,7 +23,6 @@
     "lint": "tsdx lint src --fix",
     "prepare": "tsdx build"
   },
-  "peerDependencies": {},
   "husky": {
     "hooks": {
       "pre-commit": "npm run lint"
