@@ -1,4 +1,4 @@
-import { Bls12381G2KeyPair } from '../Bls12381G2KeyPair';
+import { Bls12381G2KeyPair } from '@mattrglobal/bls12381-key-pair';
 
 import bs58 from 'bs58';
 
