@@ -2,7 +2,7 @@
   "name": "@transmute/did-key-secp256k1",
   "author": "Orie Steele",
   "module": "dist/did-key-secp256k1.esm.js",
-  "version": "0.1.0",
+  "version": "0.2.0",
   "publishConfig": {
     "access": "public"
   },
@@ -35,11 +35,11 @@
     "trailingComma": "es5"
   },
   "devDependencies": {
+    "bitcoin-ts": "1.14.2",
     "husky": "^4.2.5",
     "tsdx": "^0.13.2",
     "tslib": "^2.0.0",
-    "typescript": "^3.9.5",
-    "bitcoin-ts": "1.14.2"
+    "typescript": "^3.9.5"
   },
   "dependencies": {
     "@trust/keyto": "^1.0.1",
