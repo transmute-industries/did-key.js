@@ -6,9 +6,18 @@
     "bootstrap": "lerna bootstrap",
     "release:canary": "lerna publish --canary",
     "release": "lerna publish",
-    "shove": "git add -A; git commit -m 'chore(ci): test ci'; git push origin master"
+    "shove": "git add -A; git commit -m 'chore(ci): test ci'; git push origin master",
+    "deploy:workbench": "firebase deploy --only hosting",
+    "deploy:resolver": "firebase deploy --only functions"
   },
   "devDependencies": {
     "lerna": "^3.22.0"
+  },
+  "dependencies": {
+    "@transmute/did-key-bls12381": "^0.1.0",
+    "@transmute/did-key-ed25519": "^0.1.0",
+    "@transmute/did-key-secp256k1": "^0.1.0",
+    "@transmute/did-key-x25519": "^0.1.0",
+    "@transmute/did-key.js": "^0.1.0"
   }
 }

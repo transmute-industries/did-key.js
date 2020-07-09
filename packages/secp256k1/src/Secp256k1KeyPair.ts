@@ -1,7 +1,18 @@
 import crypto from 'crypto';
-import { generatePrivateKey, instantiateSecp256k1 } from 'bitcoin-ts';
+
 import * as keyUtils from './keyUtils';
 import bs58 from 'bs58';
+import secp256k1 from 'secp256k1';
+
+const _generate = (secureRandom: any) => {
+  let privateKey;
+  do {
+    privateKey = secureRandom();
+  } while (!secp256k1.privateKeyVerify(privateKey));
+
+  const publicKey = secp256k1.publicKeyCreate(privateKey);
+  return { publicKey, privateKey };
+};
 
 export class Secp256k1KeyPair {
   public id: string;
@@ -24,18 +35,19 @@ export class Secp256k1KeyPair {
   }
 
   static async generate(options: any = {}) {
-    const secp256k1 = await instantiateSecp256k1();
     let privateKey;
+    let publicKey;
     if (options.secureRandom) {
-      privateKey = generatePrivateKey(options.secureRandom);
+      ({ privateKey, publicKey } = _generate(options.secureRandom));
     }
     if (options.seed) {
-      privateKey = new Uint8Array(options.seed);
+      ({ privateKey, publicKey } = _generate(() => {
+        return new Uint8Array(options.seed);
+      }));
     }
     if (!privateKey) {
       throw new Error('Cannot generate private key.');
     }
-    const publicKey = secp256k1.derivePublicKeyCompressed(privateKey);
 
     const publicKeyBase58 = keyUtils.publicKeyBase58FromPublicKeyHex(
       Buffer.from(publicKey).toString('hex')
@@ -145,7 +157,6 @@ export class Secp256k1KeyPair {
     let privateKeyBase58 = this.privateKeyBase58;
     return {
       async sign({ data }: any) {
-        const secp256k1 = await instantiateSecp256k1();
         const messageHashUInt8Array = crypto
           .createHash('sha256')
           .update(data)
@@ -153,11 +164,12 @@ export class Secp256k1KeyPair {
         const privateKeyUInt8Array = await keyUtils.privateKeyUInt8ArrayFromPrivateKeyBase58(
           privateKeyBase58
         );
-        const signatureUInt8Array = secp256k1.signMessageHashCompact(
-          privateKeyUInt8Array,
-          messageHashUInt8Array
+        const sigObj: any = secp256k1.ecdsaSign(
+          messageHashUInt8Array,
+          privateKeyUInt8Array
         );
-        return signatureUInt8Array;
+
+        return sigObj.signature;
       },
     };
   }
@@ -173,7 +185,6 @@ export class Secp256k1KeyPair {
     let publicKeyBase58 = this.publicKeyBase58;
     return {
       async verify({ data, signature }: any) {
-        const secp256k1 = await instantiateSecp256k1();
         const messageHashUInt8Array = crypto
           .createHash('sha256')
           .update(data)
@@ -185,10 +196,10 @@ export class Secp256k1KeyPair {
 
         let verified = false;
         try {
-          verified = secp256k1.verifySignatureCompact(
+          verified = secp256k1.ecdsaVerify(
             signature,
-            publicKeyUInt8Array,
-            messageHashUInt8Array
+            messageHashUInt8Array,
+            publicKeyUInt8Array
           );
         } catch (e) {
           console.error('An error occurred when verifying signature: ', e);

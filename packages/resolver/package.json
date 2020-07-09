@@ -1,0 +1,34 @@
+{
+  "name": "@transmute/did-key-resolver",
+  "description": "Firebase Cloud Functions for DID Key Resolver",
+  "main": "index.js",
+  "private": true,
+  "scripts": {
+    "shell": "firebase functions:shell",
+    "start": "firebase serve --only functions --port 5010",
+    "deploy": "firebase deploy --only functions",
+    "logs": "firebase functions:log",
+    "serve:local": "node ./server/index.js"
+  },
+  "engines": {
+    "node": "8"
+  },
+  "dependencies": {
+    "@transmute/did-key-bls12381": "^0.1.0",
+    "@transmute/did-key-ed25519": "^0.1.0",
+    "@transmute/did-key-secp256k1": "^0.1.0",
+    "@transmute/did-key-x25519": "^0.1.0",
+    "@transmute/did-key.js": "^0.1.0",
+    "did-method-key": "^0.6.1",
+    "dotenv": "^8.2.0",
+    "fastify": "^3.0.0",
+    "fastify-cors": "^4.0.0",
+    "fastify-swagger": "^3.1.1",
+    "firebase-admin": "^8.6.0",
+    "firebase-functions": "^3.3.0"
+  },
+  "devDependencies": {
+    "firebase-functions-test": "^0.1.6",
+    "firebase-tools": "^7.6.2"
+  }
+}

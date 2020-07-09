@@ -141,6 +141,19 @@ export class Ed25519KeyPair {
     return publicKeyNode;
   }
 
+  public publicNode({controller = this.controller}:any = {}) {
+    const publicNode:any = {
+      id: this.id,
+      type: this.type,
+    };
+    if(controller) {
+      publicNode.controller = controller;
+    }
+   
+    this.addEncodedPublicKey(publicNode); // Subclass-specific
+    return publicNode;
+  }
+
   fingerprint() {
     const { publicKeyBase58 } = this;
     return Ed25519KeyPair.fingerprintFromPublicKey({ publicKeyBase58 });

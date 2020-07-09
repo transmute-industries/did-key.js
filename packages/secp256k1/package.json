@@ -38,13 +38,14 @@
     "husky": "^4.2.5",
     "tsdx": "^0.13.2",
     "tslib": "^2.0.0",
-    "typescript": "^3.9.5"
+    "typescript": "^3.9.5",
+    "bitcoin-ts": "1.14.2"
   },
   "dependencies": {
     "@trust/keyto": "^1.0.1",
     "base64url": "^3.0.1",
-    "bitcoin-ts": "^1.14.2",
     "bs58": "^4.0.1",
-    "canonicalize": "^1.0.1"
+    "canonicalize": "^1.0.1",
+    "secp256k1": "^4.0.1"
   }
 }

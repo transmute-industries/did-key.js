@@ -2,8 +2,7 @@ import keyto from '@trust/keyto';
 import base64url from 'base64url';
 import crypto from 'crypto';
 import bs58 from 'bs58';
-
-import { binToHex, hexToBin, instantiateSecp256k1 } from 'bitcoin-ts';
+import secp256k1 from 'secp256k1';
 
 import canonicalize from 'canonicalize';
 
@@ -92,10 +91,13 @@ export const privateKeyJwkFromPrivateKeyHex = async (privateKeyHex: string) => {
 
 /** convert compressed hex encoded public key to jwk */
 export const publicKeyJwkFromPublicKeyHex = async (publicKeyHex: string) => {
-  const secp256k1 = await instantiateSecp256k1();
   let key = publicKeyHex;
   if (publicKeyHex.length === compressedHexEncodedPublicKeyLength) {
-    key = binToHex(secp256k1.uncompressPublicKey(hexToBin(publicKeyHex)));
+    const keyBin = secp256k1.publicKeyConvert(
+      Buffer.from(publicKeyHex, 'hex'),
+      false
+    );
+    key = Buffer.from(keyBin).toString('hex');
   }
   const jwk = {
     ...keyto.from(key, 'blk').toJwk('public'),
@@ -152,7 +154,6 @@ export const privateKeyHexFromJwk = async (jwk: ISecp256k1PrivateKeyJwk) =>
 
 /** convert jwk to hex encoded public key */
 export const publicKeyHexFromJwk = async (jwk: ISecp256k1PublicKeyJwk) => {
-  const secp256k1 = await instantiateSecp256k1();
   const uncompressedPublicKey = keyto
     .from(
       {
@@ -162,10 +163,12 @@ export const publicKeyHexFromJwk = async (jwk: ISecp256k1PublicKeyJwk) => {
       'jwk'
     )
     .toString('blk', 'public');
-  const compressed = secp256k1.compressPublicKey(
-    hexToBin(uncompressedPublicKey)
+
+  const compressed = secp256k1.publicKeyConvert(
+    Buffer.from(uncompressedPublicKey, 'hex'),
+    true
   );
-  return binToHex(compressed);
+  return Buffer.from(compressed).toString('hex');
 };
 
 /** convert jwk to binary encoded private key */
@@ -173,7 +176,7 @@ export const privateKeyUInt8ArrayFromJwk = async (
   jwk: ISecp256k1PrivateKeyJwk
 ) => {
   const privateKeyHex = await privateKeyHexFromJwk(jwk);
-  return hexToBin(privateKeyHex);
+  return Buffer.from(privateKeyHex, 'hex');
 };
 
 /** convert jwk to binary encoded public key */
@@ -181,7 +184,7 @@ export const publicKeyUInt8ArrayFromJwk = async (
   jwk: ISecp256k1PublicKeyJwk
 ) => {
   const publicKeyHex = await publicKeyHexFromJwk(jwk);
-  return hexToBin(publicKeyHex);
+  return Buffer.from(publicKeyHex, 'hex');
 };
 
 /** convert publicKeyHex to base58 */
@@ -207,8 +210,7 @@ export const publicKeyUInt8ArrayFromPublicKeyBase58 = async (
 };
 
 export const publicKeyHexFromPrivateKeyHex = async (privateKeyHex: string) => {
-  const secp256k1 = await instantiateSecp256k1();
-  const publicKey = secp256k1.derivePublicKeyCompressed(
+  const publicKey = secp256k1.publicKeyCreate(
     new Uint8Array(Buffer.from(privateKeyHex, 'hex'))
   );
   return Buffer.from(publicKey).toString('hex');
