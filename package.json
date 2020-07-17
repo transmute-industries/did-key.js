@@ -8,6 +8,10 @@
     "release": "lerna publish",
     "shove": "git add -A; git commit -m 'chore(ci): test ci'; git push origin master",
     "deploy:workbench": "firebase deploy --only hosting",
+    "publish:stable:patch": "lerna publish patch",
+    "publish:stable:minor": "lerna publish minor",
+    "publish:stable:major": "lerna publish major",
+    "publish:unstable": "lerna publish prerelease --preid unstable --yes",
     "deploy:resolver": "firebase deploy --only functions"
   },
   "husky": {

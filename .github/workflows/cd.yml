@@ -1,0 +1,40 @@
+name: CD
+
+on:
+  push
+  #:
+  #  branches:
+  #    - master
+
+jobs:
+  release-unstable:
+    # Don't run on any commit that features [skip ci] in the commit message
+    if: "! contains(github.event.head_commit.message, '[skip ci]')"
+    name: Publish unstable release
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+
+      - name: Use Node 12
+        uses: actions/setup-node@v1
+        with:
+          node-version: 12.x
+
+      - name: Install
+        run: npm install
+
+      - name: Setup npm profile
+        run: |
+          echo "//registry.npmjs.org/:_authToken=${NPM_TOKEN}" > .npmrc
+          # Gives a clean failure prior to attempting a release if npm token is incorrect
+          npm whoami
+        env:
+          NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
+
+      - name: Setup git profile
+        run: |
+          git config user.name "Transmute CD"
+          git config user.email "engineers@transmute.industries"
+
+      - name: Publish unstable version with lerna
+        run: npm run publish:unstable
