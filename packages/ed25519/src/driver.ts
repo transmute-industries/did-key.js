@@ -33,8 +33,8 @@ export const keyToDidDoc = (ed25519Key: Ed25519KeyPair) => {
         type: x25519.type,
         controller: did,
         publicKeyBase58: x25519.publicKeyBase58,
-      }
-    ]
+      },
+    ],
   };
 };
 
@@ -43,7 +43,10 @@ export const get = async ({ did, url }: any = {}) => {
   if (!did) {
     throw new TypeError('"did" must be a string.');
   }
-  const fingerprint = did.split('#')[0].split('did:key:').pop();
+  const fingerprint = did
+    .split('#')[0]
+    .split('did:key:')
+    .pop();
   const publicKey = await Ed25519KeyPair.fromFingerprint({ fingerprint });
   const didDoc = keyToDidDoc(publicKey);
   return didDoc;
