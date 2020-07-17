@@ -10,7 +10,16 @@
     "deploy:workbench": "firebase deploy --only hosting",
     "deploy:resolver": "firebase deploy --only functions"
   },
+  "husky": {
+    "hooks": {
+      "commit-msg": "commitlint -E HUSKY_GIT_PARAMS",
+      "pre-push": "npm run lint"
+    }
+  },
   "devDependencies": {
+    "@commitlint/cli": "^9.1.1",
+    "@commitlint/config-conventional": "^9.1.1",
+    "husky": "^4.2.5",
     "lerna": "^3.22.0"
   },
   "dependencies": {
