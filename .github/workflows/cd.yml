@@ -1,10 +1,9 @@
 name: CD
 
 on:
-  push
-  #:
-  #  branches:
-  #    - master
+  push:
+    branches:
+      - master
 
 jobs:
   release-unstable:
