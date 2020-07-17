@@ -25,12 +25,5 @@
     "@commitlint/config-conventional": "^9.1.1",
     "husky": "^4.2.5",
     "lerna": "^3.22.0"
-  },
-  "dependencies": {
-    "@transmute/did-key-bls12381": "^0.1.0",
-    "@transmute/did-key-ed25519": "^0.1.0",
-    "@transmute/did-key-secp256k1": "^0.1.0",
-    "@transmute/did-key-x25519": "^0.1.0",
-    "@transmute/did-key.js": "^0.1.0"
   }
 }
