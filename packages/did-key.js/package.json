@@ -30,11 +30,6 @@
     "@transmute/did-key-x25519": "0.1.0",
     "bitcoin-ts": "^1.14.2"
   },
-  "husky": {
-    "hooks": {
-      "pre-commit": "npm run lint"
-    }
-  },
   "prettier": {
     "printWidth": 80,
     "semi": true,
@@ -46,7 +41,6 @@
     "@transmute/did-key-ed25519": "^0.2.0",
     "@transmute/did-key-secp256k1": "^0.2.0",
     "@transmute/did-key-x25519": "^0.2.0",
-    "husky": "^4.2.5",
     "tsdx": "^0.13.2",
     "tslib": "^2.0.0",
     "typescript": "^3.9.5"
