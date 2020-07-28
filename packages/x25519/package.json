@@ -2,7 +2,7 @@
   "name": "@transmute/did-key-x25519",
   "author": "Orie Steele",
   "module": "dist/did-key-x25519.esm.js",
-  "version": "0.2.1-unstable.1",
+  "version": "0.2.1-unstable.2",
   "publishConfig": {
     "access": "public"
   },
