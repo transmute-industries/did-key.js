@@ -92,7 +92,11 @@ Stable releases are triggered by a dev locally
 - A PR is made to fix bug D. When it's merged a release is made: v0.1.1-unstable-0
 - etc...
 
-### Hosting
+### Deployment
+
+```
+npm run deploy
+```
 
 Because `did:key` is just a deterministic transformer of public key bytes...
 
@@ -134,6 +138,8 @@ Tools > Terminal
 ```
 refresh
 ```
+
+7. Setup npm scripts to automate deployments according to your preferences.
 
 ### License
 
