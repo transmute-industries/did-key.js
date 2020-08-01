@@ -62,7 +62,6 @@ npm i @transmute/did-key-secp256k1@latest --save
 - [digitalbazaar/crypto-ld](https://github.com/digitalbazaar/crypto-ld)
 - [mattrglobal/bls12381-key-pair](https://github.com/mattrglobal/bls12381-key-pair)
 
-
 ## Release process
 
 ### Unstable releases
@@ -93,6 +92,48 @@ Stable releases are triggered by a dev locally
 - A PR is made to fix bug D. When it's merged a release is made: v0.1.1-unstable-0
 - etc...
 
+### Hosting
+
+Because `did:key` is just a deterministic transformer of public key bytes...
+
+You really ought to never resolve it over a network.
+
+However, it can be useful for testing purposes.
+
+In order to avoid costs, recommend a hosting provider that is free / rate limited.
+
+glitch.com is one such provider... firebase used to be 😢
+
+#####
+
+1.  Create a new glitch.com project.
+2.  Allow git pushes for the project.
+
+Tools > Terminal
+
+```
+git config receive.denyCurrentBranch updateInstead
+```
+
+3. Get the project git url
+
+Tools > Import & Export > Project_Git_URL
+
+4. Set the project as a submodule
+
+```
+git submodule add <Project_Git_URL> glitch-hosting
+```
+
+5. Make some changes and push
+
+6. Refresh glitch project to see changes.
+
+Tools > Terminal
+
+```
+refresh
+```
 
 ### License
 
