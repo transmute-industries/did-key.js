@@ -1,3 +1,3 @@
 import * as driver from './driver';
-export * from '@mattrglobal/bls12381-key-pair';
+export * from './Bls12381G2KeyPair';
 export { driver };
