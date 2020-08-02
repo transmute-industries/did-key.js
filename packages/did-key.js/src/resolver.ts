@@ -14,6 +14,8 @@ export const resolver = {
         return require('@transmute/did-key-bls12381').driver.get({ did });
       case 'zQ3s':
         return require('@transmute/did-key-secp256k1').driver.get({ did });
+      case 'zUew':
+        return require('@transmute/did-key-p384').driver.get({ did });
       default:
         throw new Error('Unknown DID Key type: ' + encodedType);
     }

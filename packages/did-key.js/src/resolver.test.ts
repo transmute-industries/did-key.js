@@ -29,3 +29,11 @@ it('resolve secp256k1', async () => {
     '@base': 'did:key:zQ3shP2mWsZYWgvgM11nenXRTx9L1yiJKmkf9dfX7NaMKb1pX',
   });
 });
+
+it('resolve p384', async () => {
+  const didDocument = await resolver.resolve(fixtures.p384_did);
+  expect(didDocument['@context'][1]).toEqual({
+    '@base':
+      'did:key:zUewNx6pAKABMemqTqcEWAEPVxht1ktr9ugLyXkoHiSAzhQBDNRdC2nLauoLKcwstytQCYeCazJ8m4rowp27ivJS4NmofDMAMjLqbqcn1tVKQTAk45d7wzcJZwJaZaAkSu78wFK',
+  });
+});
