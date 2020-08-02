@@ -2,7 +2,7 @@
   "name": "@transmute/did-key.js",
   "author": "Orie Steele",
   "module": "dist/did-key.js.esm.js",
-  "version": "0.2.1-unstable.5",
+  "version": "0.2.1-unstable.6",
   "license": "Apache-2.0",
   "publishConfig": {
     "access": "public"
@@ -37,10 +37,10 @@
     "trailingComma": "es5"
   },
   "devDependencies": {
-    "@transmute/did-key-bls12381": "^0.2.1-unstable.5",
-    "@transmute/did-key-ed25519": "^0.2.1-unstable.5",
-    "@transmute/did-key-secp256k1": "^0.2.1-unstable.5",
-    "@transmute/did-key-x25519": "^0.2.1-unstable.5",
+    "@transmute/did-key-bls12381": "^0.2.1-unstable.6",
+    "@transmute/did-key-ed25519": "^0.2.1-unstable.6",
+    "@transmute/did-key-secp256k1": "^0.2.1-unstable.6",
+    "@transmute/did-key-x25519": "^0.2.1-unstable.6",
     "@transmute/did-key-p384": "0.0.0",
     "tsdx": "^0.13.2",
     "tslib": "^2.0.0",
