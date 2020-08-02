@@ -1,6 +1,6 @@
 import { Crypto } from 'node-webcrypto-ossl';
 
-const crypto = new Crypto();
+const crypto = window && window.crypto ? window.crypto : new Crypto();
 
 const generate = async () => {
   let key = await crypto.subtle.generateKey(

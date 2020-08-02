@@ -12,6 +12,7 @@
     "@transmute/did-key-ed25519": "^0.2.1-unstable.5",
     "@transmute/did-key-secp256k1": "^0.2.1-unstable.5",
     "@transmute/did-key-x25519": "^0.2.1-unstable.5",
+    "@transmute/did-key-p384": "0.0.0",
     "@transmute/did-key.js": "^0.2.1-unstable.5",
     "@transmute/material-did-core": "0.0.8",
     "@transmute/universal-wallet": "0.0.6",
