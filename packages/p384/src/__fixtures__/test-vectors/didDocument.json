@@ -22,5 +22,6 @@
   "authentication": ["#gtZoQMOcycn67I20GIiWHnzFieHPbUtOEOvcqMKA7FA"],
   "assertionMethod": ["#gtZoQMOcycn67I20GIiWHnzFieHPbUtOEOvcqMKA7FA"],
   "capabilityDelegation": ["#gtZoQMOcycn67I20GIiWHnzFieHPbUtOEOvcqMKA7FA"],
-  "capabilityInvocation": ["#gtZoQMOcycn67I20GIiWHnzFieHPbUtOEOvcqMKA7FA"]
+  "capabilityInvocation": ["#gtZoQMOcycn67I20GIiWHnzFieHPbUtOEOvcqMKA7FA"],
+  "keyAgreement": ["#gtZoQMOcycn67I20GIiWHnzFieHPbUtOEOvcqMKA7FA"]
 }
