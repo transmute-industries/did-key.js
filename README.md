@@ -104,6 +104,8 @@ You really ought to never resolve it over a network.
 
 However, it can be useful for testing purposes.
 
+For example: [https://key.did.ai/did/did:key:z6MkndnfMMECHMNK11dGgkXJ1N1PweGhU5mTVJMcSWR7GXoo](https://key.did.ai/did/did:key:z6MkndnfMMECHMNK11dGgkXJ1N1PweGhU5mTVJMcSWR7GXoo).
+
 In order to avoid costs, recommend a hosting provider that is free / rate limited.
 
 glitch.com is one such provider... firebase used to be 😢
