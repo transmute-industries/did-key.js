@@ -68,4 +68,39 @@ const verify = async (
   );
 };
 
-export { generate, sign, verify };
+const deriveSecret = async (
+  privateKeyJwk: any,
+  publicKeyJwk: any
+): Promise<Uint8Array> => {
+  const privateKey = await crypto.subtle.importKey(
+    'jwk',
+    privateKeyJwk,
+    {
+      name: 'ECDH',
+      namedCurve: 'P-384',
+    },
+    true,
+    ['deriveBits']
+  );
+  const publicKey = await crypto.subtle.importKey(
+    'jwk',
+    publicKeyJwk,
+    {
+      name: 'ECDH',
+      namedCurve: 'P-384',
+    },
+    true,
+    ['deriveBits']
+  );
+  const result = await crypto.subtle.deriveBits(
+    {
+      name: 'ECDH',
+      public: publicKey,
+    },
+    privateKey,
+    256
+  );
+  return new Uint8Array(result);
+};
+
+export { generate, sign, verify, deriveSecret };

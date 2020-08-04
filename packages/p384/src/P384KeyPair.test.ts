@@ -43,3 +43,13 @@ it('sign & verify', async () => {
   const verified = await verifier.verify({ data: fixtures.message, signature });
   expect(verified).toBe(true);
 });
+
+it('deriveSecret', async () => {
+  const key = await P384KeyPair.from({
+    privateKeyJwk: fixtures.privateKeyJwk,
+  });
+  const secret = await key.deriveSecret({
+    publicKey: fixtures.didDocument.publicKey[0],
+  });
+  expect(Buffer.from(secret)).toEqual(fixtures.derivedBits);
+});

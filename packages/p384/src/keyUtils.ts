@@ -2,9 +2,9 @@ import crypto from 'crypto';
 import canonicalize from 'canonicalize';
 import base64url from 'base64url';
 import * as bs58 from 'bs58';
-import { IP384PublicKeyJwk, IP384PrivateKeyJwk } from './types';
+import { P384PublicKeyJwk, P384PrivateKeyJwk } from './types';
 
-export const getKid = (jwk: IP384PublicKeyJwk | IP384PrivateKeyJwk) => {
+export const getKid = (jwk: P384PublicKeyJwk | P384PrivateKeyJwk) => {
   const digest = crypto
     .createHash('sha256')
     .update(
@@ -20,7 +20,7 @@ export const getKid = (jwk: IP384PublicKeyJwk | IP384PrivateKeyJwk) => {
 };
 
 export const publicKeyJwkToPublicKeyBase58 = (
-  publicKeyJwk: IP384PublicKeyJwk
+  publicKeyJwk: P384PublicKeyJwk
 ) => {
   const publicKeyBuffer = Buffer.concat([
     base64url.toBuffer(publicKeyJwk.x),
@@ -31,7 +31,7 @@ export const publicKeyJwkToPublicKeyBase58 = (
 
 export const publicKeyBase58toPublicKeyJwk = (publicKeyBase58: string) => {
   const buffer = bs58.decode(publicKeyBase58);
-  const jwk: IP384PublicKeyJwk = {
+  const jwk: P384PublicKeyJwk = {
     crv: 'P-384',
     x: base64url.encode(buffer.slice(0, 48)),
     y: base64url.encode(buffer.slice(48, 96)),
@@ -42,7 +42,7 @@ export const publicKeyBase58toPublicKeyJwk = (publicKeyBase58: string) => {
 };
 
 export const privateKeyJwkToPrivateKeyBase58 = (
-  privateKeyJwk: IP384PrivateKeyJwk
+  privateKeyJwk: P384PrivateKeyJwk
 ) => {
   return bs58.encode(base64url.toBuffer(privateKeyJwk.d));
 };

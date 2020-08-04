@@ -28,6 +28,13 @@ const privateKeyBase58 = fs
   .readFileSync(path.resolve(__dirname, './test-vectors/privateKeyBase58.txt'))
   .toString();
 
+const derivedBits = Buffer.from(
+  fs
+    .readFileSync(path.resolve(__dirname, './test-vectors/derivedBits.txt'))
+    .toString(),
+  'base64'
+);
+
 export {
   publicKeyJwk,
   privateKeyJwk,
@@ -38,4 +45,5 @@ export {
   publicKeyBase58,
   privateKeyBase58,
   didDocument,
+  derivedBits,
 };

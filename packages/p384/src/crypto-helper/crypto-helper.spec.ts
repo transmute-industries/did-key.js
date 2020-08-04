@@ -1,6 +1,7 @@
 import * as help from './crypto-helper-node';
 import * as fixtures from '../__fixtures__';
 
+jest.setTimeout(10 * 1000);
 it('generate ', async () => {
   const key = await help.generate();
   expect(key.publicKeyJwk).toBeDefined();
@@ -21,4 +22,12 @@ it('sign & verify', async () => {
     fixtures.publicKeyJwk
   );
   expect(verified).toBe(true);
+});
+
+it('deriveSecret', async () => {
+  const secret = await help.deriveSecret(
+    fixtures.privateKeyJwk,
+    fixtures.publicKeyJwk
+  );
+  expect(Buffer.from(secret)).toEqual(fixtures.derivedBits);
 });

@@ -4,10 +4,12 @@ import * as help from './crypto-helper';
 
 import * as keyUtils from './keyUtils';
 
+import { JsonWebKey2020, verificationMethodType } from './types';
+
 export class P384KeyPair {
   public id: string;
   public controller: string;
-  public type: string = 'JsonWebKey2020';
+  public type = verificationMethodType;
   public publicKeyBuffer: Buffer;
   public privateKeyBuffer: Buffer;
 
@@ -129,12 +131,12 @@ export class P384KeyPair {
     );
   }
 
-  toVerificationMethod() {
+  toVerificationMethod(): JsonWebKey2020 {
     const publicKeyJwk = this.toJwk();
     delete publicKeyJwk.kid;
     return {
       id: this.id,
-      type: this.type,
+      type: verificationMethodType,
       controller: this.controller,
       publicKeyJwk,
     };
@@ -190,5 +192,19 @@ export class P384KeyPair {
         return help.verify(data, signature, publicKeyJwk);
       },
     };
+  }
+
+  async deriveSecret({ publicKey }: any) {
+    let privateKeyBase58 = bs58.encode(this.privateKeyBuffer);
+    let publicKeyBase58 = bs58.encode(this.publicKeyBuffer);
+    let privateKeyJwk = keyUtils.privateKeyBase58toPrivateKeyJwk(
+      privateKeyBase58,
+      publicKeyBase58
+    );
+    const secret = await help.deriveSecret(
+      privateKeyJwk,
+      publicKey.publicKeyJwk
+    );
+    return secret;
   }
 }
