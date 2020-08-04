@@ -56,6 +56,16 @@ npm i @transmute/did-key-bls12381@latest --save
 npm i @transmute/did-key-secp256k1@latest --save
 ```
 
+#### [P-384](./packages/p384)
+
+![p384](https://github.com/transmute-industries/did-key.js/workflows/p384/badge.svg)
+
+`did:key:zUew...`
+
+```
+npm i @transmute/did-key-secp384p256k1@latest --save
+```
+
 ### Alternatives
 
 - [digitalbazaar/did-method-key-js](https://github.com/digitalbazaar/did-method-key-js)
