@@ -2,7 +2,7 @@
   "name": "@transmute/did-key.js",
   "author": "Orie Steele",
   "module": "dist/did-key.js.esm.js",
-  "version": "0.2.1-unstable.6",
+  "version": "0.2.1-unstable.7",
   "license": "Apache-2.0",
   "publishConfig": {
     "access": "public"
@@ -26,9 +26,9 @@
   "peerDependencies": {
     "@transmute/did-key-bls12381": "^0.2.1-unstable.5",
     "@transmute/did-key-ed25519": "^0.2.1-unstable.5",
+    "@transmute/did-key-p384": "0.0.0",
     "@transmute/did-key-secp256k1": "^0.2.1-unstable.5",
-    "@transmute/did-key-x25519": "^0.2.1-unstable.5",
-    "@transmute/did-key-p384": "0.0.0"
+    "@transmute/did-key-x25519": "^0.2.1-unstable.5"
   },
   "prettier": {
     "printWidth": 80,
@@ -37,11 +37,11 @@
     "trailingComma": "es5"
   },
   "devDependencies": {
-    "@transmute/did-key-bls12381": "^0.2.1-unstable.6",
-    "@transmute/did-key-ed25519": "^0.2.1-unstable.6",
-    "@transmute/did-key-secp256k1": "^0.2.1-unstable.6",
-    "@transmute/did-key-x25519": "^0.2.1-unstable.6",
-    "@transmute/did-key-p384": "0.0.0",
+    "@transmute/did-key-bls12381": "^0.2.1-unstable.7",
+    "@transmute/did-key-ed25519": "^0.2.1-unstable.7",
+    "@transmute/did-key-p384": "^0.2.1-unstable.7",
+    "@transmute/did-key-secp256k1": "^0.2.1-unstable.7",
+    "@transmute/did-key-x25519": "^0.2.1-unstable.7",
     "tsdx": "^0.13.2",
     "tslib": "^2.0.0",
     "typescript": "^3.9.5"
