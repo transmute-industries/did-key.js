@@ -51,7 +51,8 @@
     "start": "env-cmd -f ./.env.local react-scripts start",
     "eject": "react-scripts eject",
     "lint:fix": "eslint src --fix",
-    "build": "NODE_OPTIONS=--max_old_space_size=4096 react-scripts build"
+    "build": "NODE_OPTIONS=--max_old_space_size=4096 react-scripts build",
+    "deploy": "rm -rf ../../glitch-hosting/public/* && cp -R ./build/* ../../glitch-hosting/public"
   },
   "browserslist": {
     "production": [

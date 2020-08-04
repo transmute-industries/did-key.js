@@ -29,6 +29,7 @@ export const keyToDidDoc = (secp256k1Key: P384KeyPair) => {
     assertionMethod: [keyId],
     capabilityDelegation: [keyId],
     capabilityInvocation: [keyId],
+    keyAgreement: [keyId],
   };
 };
 

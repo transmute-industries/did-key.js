@@ -56,6 +56,16 @@ npm i @transmute/did-key-bls12381@latest --save
 npm i @transmute/did-key-secp256k1@latest --save
 ```
 
+#### [P-384](./packages/p384)
+
+![p384](https://github.com/transmute-industries/did-key.js/workflows/p384/badge.svg)
+
+`did:key:zUew...`
+
+```
+npm i @transmute/did-key-secp384p256k1@latest --save
+```
+
 ### Alternatives
 
 - [digitalbazaar/did-method-key-js](https://github.com/digitalbazaar/did-method-key-js)
@@ -103,6 +113,8 @@ Because `did:key` is just a deterministic transformer of public key bytes...
 You really ought to never resolve it over a network.
 
 However, it can be useful for testing purposes.
+
+For example: [https://key.did.ai/did/did:key:z6MkndnfMMECHMNK11dGgkXJ1N1PweGhU5mTVJMcSWR7GXoo](https://key.did.ai/did/did:key:z6MkndnfMMECHMNK11dGgkXJ1N1PweGhU5mTVJMcSWR7GXoo).
 
 In order to avoid costs, recommend a hosting provider that is free / rate limited.
 
