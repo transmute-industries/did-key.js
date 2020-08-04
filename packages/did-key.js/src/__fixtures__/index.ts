@@ -9,3 +9,6 @@ export const secp256k1_did =
 
 export const bls12381_did =
   'did:key:zUC74d2aVbyZkgWtxoW91p6vhDA4ck3EtWgt1wDK86QGDZWBBB24kCVb7kChBfk6W2uFfbjuRQVaH4VBCz8a2xMXSMy4cWnBgqo19ZBCeqdwrk5Wfi41fxjiB73khmxoDUmXrsm';
+
+export const p384_did =
+  'did:key:zUewNx6pAKABMemqTqcEWAEPVxht1ktr9ugLyXkoHiSAzhQBDNRdC2nLauoLKcwstytQCYeCazJ8m4rowp27ivJS4NmofDMAMjLqbqcn1tVKQTAk45d7wzcJZwJaZaAkSu78wFK';

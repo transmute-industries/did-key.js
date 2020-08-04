@@ -10,6 +10,7 @@ import * as ed25519 from "@transmute/did-key-ed25519";
 import * as x25519 from "@transmute/did-key-x25519";
 import * as secp256k1 from "@transmute/did-key-secp256k1";
 import * as bls12381 from "@transmute/did-key-bls12381";
+import * as p384 from "@transmute/did-key-p384";
 import { DIDDocumentPreview, JSONEditor } from "@transmute/material-did-core";
 
 export const Home = (props) => {
@@ -74,6 +75,27 @@ export const Home = (props) => {
     })();
   };
 
+  const generateP384 = async () => {
+    (async () => {
+      const p384Key = await p384.P384KeyPair.generate();
+      const didDocument = p384.driver.keyToDidDoc(p384Key);
+      const privateKeyJwk = p384Key.toJwk(true);
+      delete privateKeyJwk.kid;
+      setState((state) => {
+        return {
+          ...state,
+          keys: {
+            p384Key: {
+              ...didDocument.publicKey[0],
+              privateKeyJwk,
+            },
+          },
+          didDocument,
+        };
+      });
+    })();
+  };
+
   React.useEffect(() => {
     if (state.keys === null) {
       generateEd25519();
@@ -113,6 +135,16 @@ export const Home = (props) => {
             }}
           >
             Bls12381
+          </Button>
+
+          <Button
+            variant={"contained"}
+            style={{ marginRight: "8px" }}
+            onClick={() => {
+              generateP384();
+            }}
+          >
+            P-384
           </Button>
         </Grid>
 
