@@ -2,7 +2,7 @@
   "name": "@transmute/did-key-bls12381",
   "author": "Orie Steele",
   "module": "dist/bls12381.esm.js",
-  "version": "0.2.1-unstable.10",
+  "version": "0.2.1-unstable.11",
   "license": "Apache-2.0",
   "main": "dist/index.js",
   "typings": "dist/index.d.ts",
