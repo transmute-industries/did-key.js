@@ -31,6 +31,8 @@
   },
   "devDependencies": {
     "bitcoin-ts": "1.14.2",
+    "jose": "^1.28.0",
+    "node-webcrypto-ossl": "^2.1.1",
     "tsdx": "^0.13.2",
     "tslib": "^2.0.0",
     "typescript": "^3.9.5"

@@ -102,15 +102,24 @@ export const verifyDetached = async (
 
   const messageHashUInt8Array = digest;
   const signatureUInt8Array = base64url.toBuffer(encodedSignature);
+  let signatureLowerS = secp256k1.signatureNormalize(signatureUInt8Array);
   const verified = secp256k1.ecdsaVerify(
-    signatureUInt8Array,
+    signatureLowerS,
     messageHashUInt8Array,
     publicKeyUInt8Array
   );
+
   if (verified) {
     return true;
   }
-  throw new Error('Cannot verify detached signature.');
+  const erroObject = {
+    signature: signatureUInt8Array.toString('hex'),
+    // message: messageHashUInt8Array.toString('hex'),
+    // publicKey: publicKeyUInt8Array.toString('hex'),
+  };
+  throw new JWSVerificationFailed(
+    'ECDSA Verify Failed: ' + JSON.stringify(erroObject, null, 2)
+  );
 };
 
 /** Produce a normal ES256K JWS */
@@ -160,16 +169,24 @@ export const verify = async (
   const messageHashUInt8Array = digest;
 
   const signatureUInt8Array = base64url.toBuffer(encodedSignature);
+  let signatureLowerS = secp256k1.signatureNormalize(signatureUInt8Array);
 
   const verified = secp256k1.ecdsaVerify(
-    signatureUInt8Array,
+    signatureLowerS,
     messageHashUInt8Array,
     publicKeyUInt8Array
   );
   if (verified) {
     return JSON.parse(base64url.decode(encodedPayload));
   }
-  throw new JWSVerificationFailed('signature verification failed');
+  const erroObject = {
+    signature: signatureUInt8Array.toString('hex'),
+    message: messageHashUInt8Array.toString('hex'),
+    publicKey: publicKeyUInt8Array.toString('hex'),
+  };
+  throw new JWSVerificationFailed(
+    'ECDSA Verify Failed: ' + JSON.stringify(erroObject, null, 2)
+  );
 };
 
 /** decode a JWS (without verifying it) */
