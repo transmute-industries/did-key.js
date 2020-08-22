@@ -17,9 +17,13 @@ Demos:
 
 ![CI](https://github.com/transmute-industries/did-key.js/workflows/CI/badge.svg)
 
+If you want to resolve all did keys, you need to install all of them:
+
 ```
-npm i @transmute/did-key.js@latest --save
+npm i @transmute/did-key.js@latest @transmute/did-key-ed25519@latest @transmute/did-key-x25519@latest @transmute/did-key-bls12381@latest @transmute/did-key-secp256k1@latest @transmute/did-key-p384@latest --save
 ```
+
+Use the imports below if you only want to support 1 did key type.
 
 #### [Ed25519](./packages/ed25519)
 
@@ -68,7 +72,7 @@ npm i @transmute/did-key-secp256k1@latest --save
 `did:key:zUew...`
 
 ```
-npm i @transmute/did-key-secp384p256k1@latest --save
+npm i @transmute/did-key-p384@latest --save
 ```
 
 ### Alternatives
