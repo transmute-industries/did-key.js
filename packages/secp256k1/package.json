@@ -2,7 +2,7 @@
   "name": "@transmute/did-key-secp256k1",
   "author": "Orie Steele",
   "module": "dist/did-key-secp256k1.esm.js",
-  "version": "0.2.1-unstable.12",
+  "version": "0.2.1-unstable.13",
   "publishConfig": {
     "access": "public"
   },
