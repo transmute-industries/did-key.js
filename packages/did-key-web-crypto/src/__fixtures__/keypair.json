@@ -1,0 +1,17 @@
+{
+  "keypair_0": {
+    "publicKeyJwk": {
+      "kty": "EC",
+      "crv": "P-384",
+      "x": "3txH_JVrjWkIbsFjAzl6j76gaiiL3TX2jlb1l2SjIKA9cNNLpmCL7fOxyxiPsHDj",
+      "y": "UmwOGxjMCWXpy_O2CM85MWJlCkQgYOgU_phTdOTv1OVHdEsH-SJeZdMIXWr2yK5m"
+    },
+    "privateKeyJwk": {
+      "kty": "EC",
+      "crv": "P-384",
+      "x": "3txH_JVrjWkIbsFjAzl6j76gaiiL3TX2jlb1l2SjIKA9cNNLpmCL7fOxyxiPsHDj",
+      "y": "UmwOGxjMCWXpy_O2CM85MWJlCkQgYOgU_phTdOTv1OVHdEsH-SJeZdMIXWr2yK5m",
+      "d": "8otX234ubIjpQcOoCQtlwvtTjlhcwi30M9IKMS1B4jHay_iiT5UcwMg5muM4dkYq"
+    }
+  }
+}
