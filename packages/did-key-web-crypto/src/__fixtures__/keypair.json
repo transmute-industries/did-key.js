@@ -13,5 +13,9 @@
       "y": "UmwOGxjMCWXpy_O2CM85MWJlCkQgYOgU_phTdOTv1OVHdEsH-SJeZdMIXWr2yK5m",
       "d": "8otX234ubIjpQcOoCQtlwvtTjlhcwi30M9IKMS1B4jHay_iiT5UcwMg5muM4dkYq"
     }
+  },
+  "keypair_1": {
+    "publicKeyBase58": "2KmeiTk3XrxTHctECm96DFXkSafdZA2VUwYvP54VgFMhZagditV8td7btYW3SfYbnMM5NMa81tJQaJjeyKPyRTjtQyfLk2dtHNo9oHo6xx36g8vxzAGsJ3AfBwU4qFxSn7AD",
+    "privateKeyBase58": "9u2wbT1XhFXFPzpnnhri1rAa8VZ4psf7dxEMqHW4XW9ZRuAdNUqYVSUZLuFJJjhhWy"
   }
 }
