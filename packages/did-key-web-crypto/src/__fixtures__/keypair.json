@@ -1,21 +1,46 @@
 {
   "keypair": [
     {
-      "publicKeyJwk": {
-        "kty": "EC",
-        "crv": "P-384",
-        "x": "3txH_JVrjWkIbsFjAzl6j76gaiiL3TX2jlb1l2SjIKA9cNNLpmCL7fOxyxiPsHDj",
-        "y": "UmwOGxjMCWXpy_O2CM85MWJlCkQgYOgU_phTdOTv1OVHdEsH-SJeZdMIXWr2yK5m"
+      "generate": {
+        "publicKeyJwk": {
+          "kty": "EC",
+          "crv": "P-384",
+          "x": "UFLTDFyrS1jwcN_RJN7KJgZTUz-AlA432tslDAEDFRVESDSn_lhh8ugVkpsIlaDB",
+          "y": "BlFQT86o7k_vIXv69zaFBXYMYs4XjM57uSl_8H5DDPcdmwJu4eK9Ev0AHstntqaB"
+        },
+        "privateKeyJwk": {
+          "kty": "EC",
+          "crv": "P-384",
+          "x": "UFLTDFyrS1jwcN_RJN7KJgZTUz-AlA432tslDAEDFRVESDSn_lhh8ugVkpsIlaDB",
+          "y": "BlFQT86o7k_vIXv69zaFBXYMYs4XjM57uSl_8H5DDPcdmwJu4eK9Ev0AHstntqaB",
+          "d": "r5nq01iwJ79S0Itq0H8-z4M5YH7gOhsC2aewJfHawo-xm97czlNgd5q8-iYbZBz4"
+        }
       },
-      "privateKeyJwk": {
-        "kty": "EC",
-        "crv": "P-384",
-        "x": "3txH_JVrjWkIbsFjAzl6j76gaiiL3TX2jlb1l2SjIKA9cNNLpmCL7fOxyxiPsHDj",
-        "y": "UmwOGxjMCWXpy_O2CM85MWJlCkQgYOgU_phTdOTv1OVHdEsH-SJeZdMIXWr2yK5m",
-        "d": "8otX234ubIjpQcOoCQtlwvtTjlhcwi30M9IKMS1B4jHay_iiT5UcwMg5muM4dkYq"
+      "fromJwk": {
+        "id": "#zACHdAwTxXJgBL893J8PEDZr4Z4o6d7jDYkcsgpnoMzJ55EBMPK4rgkCw6SamdrLoRq3Wq8HHZBpMvEtbP5x6oRgMTf5pDEC3u3oaVuhh9hrATwRKqWtWDirje66YVjRmxPFEw3E",
+        "type": "MulticodecPublicKey2020",
+        "controller": "did:key:zACHdAwTxXJgBL893J8PEDZr4Z4o6d7jDYkcsgpnoMzJ55EBMPK4rgkCw6SamdrLoRq3Wq8HHZBpMvEtbP5x6oRgMTf5pDEC3u3oaVuhh9hrATwRKqWtWDirje66YVjRmxPFEw3E",
+        "privateKeyBase58": "7ScB5XAwhdriNWR6Za6e7rLn3uCo2ewSzv6TxB77tbhmYwaddiRGq472xekH8b7bZ1",
+        "publicKeyBase58": "UfpzSz8Csy6KeycHHLhWEJFBdskdxE5XDfetJcKiP7WB4KSvcLT4V7ThALHo48NuCLLrZdqCJgLPxAwaUyKG7EQ3EUSNCbs25MQrv87EGauguXPM75FbZCVRKHQagZx1KnQ"
       },
-      "publicKeyBase58": "2KmeiTk3XrxTHctECm96DFXkSafdZA2VUwYvP54VgFMhZagditV8td7btYW3SfYbnMM5NMa81tJQaJjeyKPyRTjtQyfLk2dtHNo9oHo6xx36g8vxzAGsJ3AfBwU4qFxSn7AD",
-      "privateKeyBase58": "9u2wbT1XhFXFPzpnnhri1rAa8VZ4psf7dxEMqHW4XW9ZRuAdNUqYVSUZLuFJJjhhWy"
+      "toJwkPair": {
+        "id": "#zACHdAwTxXJgBL893J8PEDZr4Z4o6d7jDYkcsgpnoMzJ55EBMPK4rgkCw6SamdrLoRq3Wq8HHZBpMvEtbP5x6oRgMTf5pDEC3u3oaVuhh9hrATwRKqWtWDirje66YVjRmxPFEw3E",
+        "type": "JsonWebKey2020",
+        "controller": "did:key:zACHdAwTxXJgBL893J8PEDZr4Z4o6d7jDYkcsgpnoMzJ55EBMPK4rgkCw6SamdrLoRq3Wq8HHZBpMvEtbP5x6oRgMTf5pDEC3u3oaVuhh9hrATwRKqWtWDirje66YVjRmxPFEw3E",
+        "publicKeyJwk": {
+          "kty": "EC",
+          "crv": "P-384",
+          "x": "UFLTDFyrS1jwcN_RJN7KJgZTUz-AlA432tslDAEDFRVESDSn_lhh8ugVkpsIlaDB",
+          "y": "BlFQT86o7k_vIXv69zaFBXYMYs4XjM57uSl_8H5DDPcdmwJu4eK9Ev0AHstntqaB"
+        },
+        "privateKeyJwk": {
+          "kty": "EC",
+          "crv": "P-384",
+          "x": "UFLTDFyrS1jwcN_RJN7KJgZTUz-AlA432tslDAEDFRVESDSn_lhh8ugVkpsIlaDB",
+          "y": "BlFQT86o7k_vIXv69zaFBXYMYs4XjM57uSl_8H5DDPcdmwJu4eK9Ev0AHstntqaB",
+          "d": "r5nq01iwJ79S0Itq0H8-z4M5YH7gOhsC2aewJfHawo-xm97czlNgd5q8-iYbZBz4"
+        }
+      }
     }
   ]
 }

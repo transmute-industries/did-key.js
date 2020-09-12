@@ -29,7 +29,7 @@ it('generate & export', async () => {
 it('import', async () => {
   let keyPair = await crypto.subtle.importKey(
     'jwk',
-    fixtures.keypair[0].publicKeyJwk,
+    fixtures.keypair[0].generate.publicKeyJwk,
     {
       name: 'ECDSA',
       namedCurve: 'P-384',
@@ -43,7 +43,7 @@ it('import', async () => {
 it('sign and verify', async () => {
   const privateKey = await crypto.subtle.importKey(
     'jwk',
-    fixtures.keypair[0].privateKeyJwk,
+    fixtures.keypair[0].generate.privateKeyJwk,
     {
       name: 'ECDSA',
       namedCurve: 'P-384',
@@ -53,7 +53,7 @@ it('sign and verify', async () => {
   );
   const publicKey = await crypto.subtle.importKey(
     'jwk',
-    fixtures.keypair[0].publicKeyJwk,
+    fixtures.keypair[0].generate.publicKeyJwk,
     {
       name: 'ECDSA',
       namedCurve: 'P-384',
@@ -87,7 +87,7 @@ it('sign and verify', async () => {
       hash: { name: 'SHA-384' },
     },
     publicKey,
-    Buffer.from(fixtures.signature[0], 'base64'),
+    signature,
     Buffer.from(fixtures.message[0])
   );
   expect(verified).toBe(true);
@@ -97,7 +97,7 @@ it('public from private', async () => {
   // export to jwk
   const privateKey = await crypto.subtle.importKey(
     'jwk',
-    fixtures.keypair[0].privateKeyJwk,
+    fixtures.keypair[0].generate.privateKeyJwk,
     {
       name: 'ECDSA',
       namedCurve: 'P-384',

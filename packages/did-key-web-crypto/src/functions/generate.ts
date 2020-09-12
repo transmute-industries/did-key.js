@@ -8,7 +8,9 @@ export interface GenerateOptions {
   crvOrSize: string;
 }
 
-export const generate = async (options: GenerateOptions) => {
+export const generate = async (
+  options: GenerateOptions = { kty: 'EC', crvOrSize: 'P-384' }
+) => {
   if (options.kty === 'EC' && SUPPORTED_EC.indexOf(options.crvOrSize) !== -1) {
     let kp = await crypto.subtle.generateKey(
       {
