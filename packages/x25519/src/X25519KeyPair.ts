@@ -202,6 +202,35 @@ export class X25519KeyPair {
     return { valid };
   }
 
+  toKeyPair(_private: boolean = false) {
+    let kp: any = {
+      id: this.id,
+      type: this.type,
+      controller: this.controller,
+      publicKeyBase58: this.publicKeyBase58,
+    };
+    if (_private) {
+      kp.privateKeyBase58 = this.privateKeyBase58;
+    }
+    return kp;
+  }
+
+  async toJsonWebKey(_private: boolean = false) {
+    let kp: any = {
+      id: this.id,
+      type: 'JsonWebKey2020',
+      controller: this.controller,
+      publicKeyJwk: await this.toJwk(),
+    };
+    delete kp.publicKeyJwk.kid;
+    if (_private) {
+      kp.privateKeyJwk = await this.toJwk(true);
+      delete kp.privateKeyJwk.kid;
+    }
+
+    return kp;
+  }
+
   async toJwk(_private: boolean = false) {
     if (_private) {
       return keyUtils.privateKeyJwkFromPrivateKeyBase58(
@@ -230,12 +259,5 @@ export class X25519KeyPair {
     );
 
     return scalarMultipleResult;
-    // // hashing may be optional here...
-    // // https://github.com/digitalbazaar/edv-client/issues/64
-    // const key = crypto
-    //   .createHash('sha256')
-    //   .update(scalarMultipleResult)
-    //   .digest();
-    // expect(key.toString('hex')).toEqual(fixtures.sharedKey);
   }
 }
