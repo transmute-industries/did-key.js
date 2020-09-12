@@ -1,8 +1,8 @@
 import { publicKeyToFingerprint } from './publicKeyToFingerprint';
 
-import { keypair_0, fingerprint_0 } from '../__fixtures__';
+import { keypair, fingerprint } from '../__fixtures__';
 
 it('publicKeyToFingerprint', () => {
-  const fingerprint = publicKeyToFingerprint(keypair_0.publicKeyJwk);
-  expect(fingerprint).toBe(fingerprint_0);
+  const _fingerprint = publicKeyToFingerprint(keypair[0].publicKeyJwk);
+  expect(_fingerprint).toBe(fingerprint[0]);
 });
