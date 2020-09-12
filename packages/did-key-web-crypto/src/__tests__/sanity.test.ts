@@ -6,7 +6,7 @@ it('generate & export', async () => {
   let keyPair = await crypto.subtle.generateKey(
     {
       name: 'ECDSA',
-      namedCurve: 'P-384',
+      namedCurve: 'P-256',
     },
     true,
     ['sign', 'verify']
@@ -32,7 +32,7 @@ it('import', async () => {
     fixtures.keypair[0].generate.publicKeyJwk,
     {
       name: 'ECDSA',
-      namedCurve: 'P-384',
+      namedCurve: 'P-256',
     },
     true,
     ['verify']
@@ -46,7 +46,7 @@ it('sign and verify', async () => {
     fixtures.keypair[0].generate.privateKeyJwk,
     {
       name: 'ECDSA',
-      namedCurve: 'P-384',
+      namedCurve: 'P-256',
     },
     true,
     ['sign']
@@ -56,7 +56,7 @@ it('sign and verify', async () => {
     fixtures.keypair[0].generate.publicKeyJwk,
     {
       name: 'ECDSA',
-      namedCurve: 'P-384',
+      namedCurve: 'P-256',
     },
     true,
     ['verify']
@@ -65,7 +65,7 @@ it('sign and verify', async () => {
   const signature = await crypto.subtle.sign(
     {
       name: 'ECDSA',
-      hash: { name: 'SHA-384' },
+      hash: { name: 'SHA-256' },
     },
     privateKey,
     Buffer.from(fixtures.message[0])
@@ -74,7 +74,7 @@ it('sign and verify', async () => {
   let verified = await crypto.subtle.verify(
     {
       name: 'ECDSA',
-      hash: { name: 'SHA-384' },
+      hash: { name: 'SHA-256' },
     },
     publicKey,
     signature,
@@ -84,7 +84,7 @@ it('sign and verify', async () => {
   verified = await crypto.subtle.verify(
     {
       name: 'ECDSA',
-      hash: { name: 'SHA-384' },
+      hash: { name: 'SHA-256' },
     },
     publicKey,
     signature,
@@ -100,7 +100,7 @@ it('public from private', async () => {
     fixtures.keypair[0].generate.privateKeyJwk,
     {
       name: 'ECDSA',
-      namedCurve: 'P-384',
+      namedCurve: 'P-256',
     },
     true,
     ['sign']
@@ -117,7 +117,7 @@ it('public from private', async () => {
     exportedPrivateKey,
     {
       name: 'ECDSA',
-      namedCurve: 'P-384',
+      namedCurve: 'P-256',
     },
     true,
     ['verify']

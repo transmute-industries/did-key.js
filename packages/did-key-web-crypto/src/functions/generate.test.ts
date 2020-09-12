@@ -2,7 +2,8 @@ import { SUPPORTED_EC } from '../constants';
 import { generate } from './generate';
 
 const supported = SUPPORTED_EC.map(crvOrSize => {
-  return { kty: 'EC', crvOrSize };
+  let kty = crvOrSize.indexOf('448') == -1 ? 'EC' : 'OKP';
+  return { kty, crvOrSize };
 });
 
 supported.forEach(supported => {
