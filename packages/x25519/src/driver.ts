@@ -1,6 +1,6 @@
 import { X25519KeyPair } from './X25519KeyPair';
 
-export const keyToDidDoc = (x25519Key: any) => {
+export const keyToDidDoc = (x25519Key: X25519KeyPair) => {
   const did = `did:key:${x25519Key.fingerprint()}`;
   const keyId = `#${x25519Key.fingerprint()}`;
   return {

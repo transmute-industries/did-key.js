@@ -1,5 +1,6 @@
-import * as fixtures from './__fixtures__';
 import * as keyUtils from './keyUtils';
+
+import { keypair } from './__fixtures__/keypair.json';
 
 // https://tools.ietf.org/html/rfc8037#appendix-A.3
 it('getKid', async () => {
@@ -13,57 +14,71 @@ it('getKid', async () => {
 
 it('publicKeyJwkFromPublicKeyBase58', async () => {
   const _jwk = keyUtils.publicKeyJwkFromPublicKeyBase58(
-    fixtures.x25519_base58btc.publicKeyBase58
+    keypair[0].X25519KeyAgreementKey2019.publicKeyBase58
   );
-  expect(_jwk).toEqual(fixtures.x25519_jwk.publicKeyJwk);
+  delete _jwk.kid;
+  expect(_jwk).toEqual(keypair[0].JsonWebKey2020.publicKeyJwk);
 });
 
 it('privateKeyJwkFromPrivateKeyBase58', async () => {
   const _jwk = keyUtils.privateKeyJwkFromPrivateKeyBase58(
-    fixtures.x25519_base58btc.publicKeyBase58,
-    fixtures.x25519_base58btc.privateKeyBase58
+    keypair[0].X25519KeyAgreementKey2019.publicKeyBase58,
+    keypair[0].X25519KeyAgreementKey2019.privateKeyBase58
   );
-  expect(_jwk).toEqual(fixtures.x25519_jwk.privateKeyJwk);
+  delete _jwk.kid;
+  expect(_jwk).toEqual(keypair[0].JsonWebKey2020.privateKeyJwk);
 });
 
 it('privateKeyHexFromPrivateKeyBase58', async () => {
   const _privateKeyHex = keyUtils.privateKeyHexFromPrivateKeyBase58(
-    fixtures.x25519_base58btc.privateKeyBase58
+    keypair[0].X25519KeyAgreementKey2019.privateKeyBase58
   );
-  expect(_privateKeyHex).toEqual(fixtures.x25519_hex.privateKeyHex);
+  expect(_privateKeyHex).toEqual(
+    '0000000000000000000000000000000000000000000000000000000000000000'
+  );
 });
 
 it('publicKeyHexFromPublicKeyBase58', async () => {
   const _privateKeyHex = keyUtils.publicKeyHexFromPublicKeyBase58(
-    fixtures.x25519_base58btc.publicKeyBase58
+    keypair[0].X25519KeyAgreementKey2019.publicKeyBase58
   );
-  expect(_privateKeyHex).toEqual(fixtures.x25519_hex.publicKeyHex);
+  expect(_privateKeyHex).toEqual(
+    '2fe57da347cd62431528daac5fbb290730fff684afc4cfc2ed90995f58cb3b74'
+  );
 });
 
 it('privateKeyBase58FromPrivateKeyJwk', async () => {
   const _privateKeyBase58 = keyUtils.privateKeyBase58FromPrivateKeyJwk(
-    fixtures.x25519_jwk.privateKeyJwk
+    keypair[0].JsonWebKey2020.privateKeyJwk
   );
-  expect(_privateKeyBase58).toEqual(fixtures.x25519_base58btc.privateKeyBase58);
+  expect(_privateKeyBase58).toEqual(
+    keypair[0].X25519KeyAgreementKey2019.privateKeyBase58
+  );
 });
 
 it('publicKeyBase58FromPublicKeyJwk', async () => {
   const _publicKeyBase58 = keyUtils.publicKeyBase58FromPublicKeyJwk(
-    fixtures.x25519_jwk.publicKeyJwk
+    keypair[0].JsonWebKey2020.publicKeyJwk
   );
-  expect(_publicKeyBase58).toEqual(fixtures.x25519_base58btc.publicKeyBase58);
+  expect(_publicKeyBase58).toEqual(
+    keypair[0].X25519KeyAgreementKey2019.publicKeyBase58
+  );
 });
 
 it('privateKeyBase58FromPrivateKeyHex', async () => {
   const _privateKeyBase58 = keyUtils.privateKeyBase58FromPrivateKeyHex(
-    fixtures.x25519_hex.privateKeyHex
+    '0000000000000000000000000000000000000000000000000000000000000000'
   );
-  expect(_privateKeyBase58).toEqual(fixtures.x25519_base58btc.privateKeyBase58);
+  expect(_privateKeyBase58).toEqual(
+    keypair[0].X25519KeyAgreementKey2019.privateKeyBase58
+  );
 });
 
 it('publicKeyBase58FromPublicKeyHex', async () => {
   const _publicKeyBase58 = keyUtils.publicKeyBase58FromPublicKeyHex(
-    fixtures.x25519_hex.publicKeyHex
+    '2fe57da347cd62431528daac5fbb290730fff684afc4cfc2ed90995f58cb3b74'
   );
-  expect(_publicKeyBase58).toEqual(fixtures.x25519_base58btc.publicKeyBase58);
+  expect(_publicKeyBase58).toEqual(
+    keypair[0].X25519KeyAgreementKey2019.publicKeyBase58
+  );
 });
