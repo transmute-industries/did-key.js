@@ -25,3 +25,15 @@ export const multicodecToJwkType: any = {
   // 0x03: { kty: 'OKP', crv: 'Ed448' },
   // 0x04: { kty: 'OKP', crv: 'X448' },
 };
+
+export const crvToJwsAlg: any = {
+  'P-256': 'ES256',
+  'P-384': 'ES384',
+  'P-521': 'ES521',
+};
+
+export const crvToJwsHashAlg: any = {
+  'P-256': 'SHA-256',
+  'P-384': 'SHA-384',
+  'P-521': 'SHA-512',
+};

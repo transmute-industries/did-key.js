@@ -92,35 +92,3 @@ it('sign and verify', async () => {
   );
   expect(verified).toBe(true);
 });
-
-it('public from private', async () => {
-  // export to jwk
-  const privateKey = await crypto.subtle.importKey(
-    'jwk',
-    fixtures.keypair[0].generate.privateKeyJwk,
-    {
-      name: 'ECDSA',
-      namedCurve: 'P-256',
-    },
-    true,
-    ['sign']
-  );
-  const exportedPrivateKey = await crypto.subtle.exportKey('jwk', privateKey);
-  // delete jwk private key props
-  delete exportedPrivateKey.d;
-  delete exportedPrivateKey.key_ops;
-  delete exportedPrivateKey.ext;
-
-  // import key
-  const publicKey = await crypto.subtle.importKey(
-    'jwk',
-    exportedPrivateKey,
-    {
-      name: 'ECDSA',
-      namedCurve: 'P-256',
-    },
-    true,
-    ['verify']
-  );
-  expect(publicKey.type).toBe('public');
-});
