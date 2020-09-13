@@ -1,8 +1,8 @@
 import bs58 from 'bs58';
 import base64url from 'base64url';
-import { Base58KeyPair } from '../types';
+import { LinkedDataKeyPair } from '../types';
 
-export const jwkToBase58 = (jwk: any): Base58KeyPair => {
+export const jwkToBase58 = (jwk: any): LinkedDataKeyPair => {
   let keypair: any = {};
   if (jwk.d) {
     keypair.privateKeyBase58 = bs58.encode(

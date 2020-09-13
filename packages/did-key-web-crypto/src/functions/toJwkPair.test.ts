@@ -3,9 +3,9 @@ import { toJwkPair } from './toJwkPair';
 import { keypair } from '../__fixtures__';
 
 it('can convert public keypair', () => {
-  const withoutPrivate = { ...keypair[0].fromJwk };
+  const withoutPrivate: any = { ...keypair[0].fromJwk };
   delete withoutPrivate.privateKeyBase58;
-  const fixtureWithouPrivate = { ...keypair[0].toJwkPair };
+  const fixtureWithouPrivate: any = { ...keypair[0].toJwkPair };
   delete fixtureWithouPrivate.privateKeyJwk;
   const k0 = toJwkPair(withoutPrivate);
   expect(k0).toEqual(fixtureWithouPrivate);

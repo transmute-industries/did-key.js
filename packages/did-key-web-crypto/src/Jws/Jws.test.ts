@@ -23,7 +23,7 @@ it('can sign and verify', async () => {
 it('can sign and verify detached', async () => {
   const signer = await privateKeyToSigner(keypair[0].generate.privateKeyJwk);
   const verifier = await publicKeyToVerifier(keypair[0].generate.publicKeyJwk);
-  const header = getJwsHeaderFromJwk(keypair[0].generate.publicKeyJwk);
+  const header: any = getJwsHeaderFromJwk(keypair[0].generate.publicKeyJwk);
   delete header.kid;
   const message = Buffer.from('b');
   const jws = await createDetachedJws(signer, message, header);

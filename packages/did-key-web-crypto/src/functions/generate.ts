@@ -1,7 +1,5 @@
 import { SUPPORTED_EC } from '../constants';
-import { Crypto } from 'node-webcrypto-ossl';
-
-const crypto = new Crypto();
+import crypto from '../crypto';
 
 export interface GenerateOptions {
   kty: string;
@@ -9,7 +7,7 @@ export interface GenerateOptions {
 }
 
 export const generate = async (
-  options: GenerateOptions = { kty: 'EC', crvOrSize: 'P-384' }
+  options: GenerateOptions = { kty: 'EC', crvOrSize: 'P-256' }
 ) => {
   if (options.kty === 'EC' && SUPPORTED_EC.indexOf(options.crvOrSize) !== -1) {
     let kp = await crypto.subtle.generateKey(

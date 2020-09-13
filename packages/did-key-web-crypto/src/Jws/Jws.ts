@@ -1,7 +1,4 @@
-import { Crypto } from 'node-webcrypto-ossl';
-
-const crypto = new Crypto();
-
+import crypto from '../crypto';
 import base64url from 'base64url';
 import canonicalize from 'canonicalize';
 
@@ -29,7 +26,7 @@ export const privateKeyToSigner = async (privateKeyJwk: any) => {
         privateKey,
         data
       );
-      return signature;
+      return signature as Buffer;
     },
   };
 };

@@ -1,3 +1,13 @@
-export * from './JsonWebKeyPair';
-export * from './Base58KeyPair';
-export * from './KeyPair';
+import {
+  JsonWebKeyPair,
+  LinkedDataKeyPair,
+  KeyAgreementKeyPairInstance,
+  DeriveSecretOptions,
+} from '@transmute/did-key-cipher';
+
+export {
+  JsonWebKeyPair,
+  LinkedDataKeyPair,
+  KeyAgreementKeyPairInstance,
+  DeriveSecretOptions,
+};

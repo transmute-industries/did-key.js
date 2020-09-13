@@ -1,6 +1,4 @@
-import { Crypto } from 'node-webcrypto-ossl';
-
-const crypto = new Crypto();
+import crypto from '../crypto';
 
 export const deriveSecret = async (
   privateKeyJwk: any,

@@ -1,7 +1,7 @@
-import { KeyPair } from '../types';
+import { LinkedDataKeyPair, JsonWebKeyPair } from '../types';
 import { base58KeyPairToJwk } from './base58KeyPairToJwk';
 import { getJwkTypeFromMultibase } from './getJwkTypeFromMultibase';
-export const toJwkPair = (keypair: KeyPair): object => {
+export const toJwkPair = (keypair: LinkedDataKeyPair): JsonWebKeyPair => {
   const id = keypair.id.substring(keypair.id.indexOf('#') + 1);
   let _keypair: any = {
     id: keypair.id,
