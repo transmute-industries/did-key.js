@@ -6,12 +6,13 @@ import { createKek } from './aeskw';
 import * as base58 from 'base58-universal';
 import { deriveKey } from './ecdhkdf';
 import { TextEncoder } from '../util';
-import { deriveSecret, deriveEphemeralKeyPair } from './x25519-helper';
+import { deriveEphemeralKeyPair } from './x25519-helper';
+import { X25519KeyPair } from '../../X25519KeyPair';
 
 const KEY_TYPE = 'X25519KeyAgreementKey2019';
 
 export const JWE_ALG = 'ECDH-ES+A256KW';
-export { deriveEphemeralKeyPair, deriveSecret };
+export { deriveEphemeralKeyPair };
 
 // Decryption case: get KeyEncryptionKey from a private key agreement key and a
 // peer's public ephemeral DH key encoded as an `epk`
@@ -19,12 +20,7 @@ export async function kekFromEphemeralPeer({ keyAgreementKey, epk }: any) {
   if (!(epk && typeof epk === 'object')) {
     throw new TypeError('"epk" must be an object.');
   }
-  if (epk.kty !== 'OKP') {
-    throw new Error('"epk.kty" must be the string "OKP".');
-  }
-  if (epk.crv !== 'X25519') {
-    throw new Error('"epk.crv" must be the string "X25519".');
-  }
+
   // decode public key material
   const publicKey = base64url.decode(epk.x);
 
@@ -56,19 +52,19 @@ export async function kekFromStaticPeer({
   ephemeralKeyPair,
   staticPublicKey,
 }: any) {
-  const { privateKey } = ephemeralKeyPair;
   // TODO: consider accepting JWK format for `staticPublicKey` not just LD key
   if (staticPublicKey.type !== KEY_TYPE) {
     throw new Error(`"staticPublicKey.type" must be "${KEY_TYPE}".`);
   }
-  const remotePublicKey = base58.decode(staticPublicKey.publicKeyBase58);
 
+  const epkPair = await X25519KeyPair.from(ephemeralKeyPair.keypair);
   const encoder = new TextEncoder();
   // "Party U Info"
-  const producerInfo = ephemeralKeyPair.publicKey;
+  const producerInfo = base58.decode(epkPair.publicKeyBase58);
   // "Party V Info"
   const consumerInfo = encoder.encode(staticPublicKey.id);
-  const secret = await deriveSecret({ privateKey, remotePublicKey });
+
+  const secret = await epkPair.deriveSecret({ publicKey: staticPublicKey });
   const keyData = await deriveKey({ secret, producerInfo, consumerInfo });
   return {
     kek: await createKek({ keyData }),
