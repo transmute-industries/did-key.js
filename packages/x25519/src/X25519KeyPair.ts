@@ -144,7 +144,9 @@ export class X25519KeyPair implements KeyPairInstance {
     // "Party V Info"
     const consumerInfo = encoder.encode(staticPublicKey.id);
 
-    const secret = await epkPair.deriveSecret({ publicKey: staticPublicKey });
+    const secret = await epkPair.deriveSecret({
+      publicKey: staticPublicKey,
+    } as any);
     const keyData = await deriveKey({ secret, producerInfo, consumerInfo });
     return {
       kek: await KeyEncryptionKey.createKek({ keyData }),
@@ -230,13 +232,29 @@ export class X25519KeyPair implements KeyPairInstance {
 
     if (options.publicKeyBase58) {
       this.publicKeyBuffer = Buffer.from(bs58.decode(options.publicKeyBase58));
+    } else if (options.publicKeyJwk) {
+      this.publicKeyBuffer = Buffer.from(
+        bs58.decode(
+          keyUtils.publicKeyBase58FromPublicKeyJwk(options.publicKeyJwk)
+        )
+      );
     } else {
-      this.publicKeyBuffer = Buffer.from(bs58.decode(options.publicKeyBase58));
+      throw new Error(
+        'publicKeyBase58 or publicKeyJwk is required in the options.'
+      );
     }
 
     if (options.privateKeyBase58) {
       this.privateKeyBuffer = Buffer.from(
         bs58.decode(options.privateKeyBase58)
+      );
+    }
+
+    if (options.privateKeyJwk) {
+      this.privateKeyBuffer = Buffer.from(
+        bs58.decode(
+          keyUtils.privateKeyBase58FromPrivateKeyJwk(options.privateKeyJwk)
+        )
       );
     }
 
@@ -323,7 +341,15 @@ export class X25519KeyPair implements KeyPairInstance {
   }
 
   deriveSecret({ publicKey }: any) {
-    const remotePubkeyBytes = bs58.decode(publicKey.publicKeyBase58);
+    let remotePubkeyBytes;
+    if (publicKey.publicKeyBase58) {
+      remotePubkeyBytes = bs58.decode(publicKey.publicKeyBase58);
+    } else if (publicKey.publicKeyJwk) {
+      remotePubkeyBytes = bs58.decode(
+        keyUtils.publicKeyBase58FromPublicKeyJwk(publicKey.publicKeyJwk)
+      );
+    }
+
     const privateKeyBytes = this.privateKeyBuffer as Buffer;
 
     const scalarMultipleResult = x25519.sharedKey(
