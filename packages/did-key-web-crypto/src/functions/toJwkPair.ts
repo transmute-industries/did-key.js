@@ -2,6 +2,7 @@ import { LinkedDataKeyPair, JsonWebKeyPair } from '../types';
 import { base58KeyPairToJwk } from './base58KeyPairToJwk';
 import { getJwkTypeFromMultibase } from './getJwkTypeFromMultibase';
 export const toJwkPair = (keypair: LinkedDataKeyPair): JsonWebKeyPair => {
+  // console.log('toJwkPair', keypair);
   const id = keypair.id.substring(keypair.id.indexOf('#') + 1);
   let _keypair: any = {
     id: keypair.id,

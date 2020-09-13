@@ -24,7 +24,7 @@ it('generate keypair fixture', async () => {
     keypair.map(async kp => {
       const signer = await privateKeyToSigner(kp.generate.privateKeyJwk);
       const verifier = await publicKeyToVerifier(kp.generate.publicKeyJwk);
-      const header = getJwsHeaderFromJwk(kp.generate.publicKeyJwk);
+      const header: any = getJwsHeaderFromJwk(kp.generate.publicKeyJwk);
       const jws = await createJws(signer, 'b', header);
       const verified = await verifyJws(verifier, jws);
       expect(verified).toBe(true);

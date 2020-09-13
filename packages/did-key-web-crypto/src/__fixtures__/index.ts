@@ -1,4 +1,8 @@
 import { keypair } from './keypair.json';
 import { message } from './message.json';
 
-export { keypair, message };
+import did from './did.json';
+
+import { keyResolver } from './keyResolver';
+
+export { keypair, message, did, keyResolver };

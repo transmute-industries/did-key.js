@@ -59,6 +59,7 @@ export class KeyEncryptionKey {
       return this.aeskw.unwrapKey(_wrappedKey);
     } catch (e) {
       // decryption failed
+      console.error(e);
       return null;
     }
   }

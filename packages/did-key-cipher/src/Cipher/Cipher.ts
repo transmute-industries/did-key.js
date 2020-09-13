@@ -210,7 +210,7 @@ export class Cipher {
     // ensure all recipients use the supported key agreement algorithm
 
     const alg = this.KeyPairClass.JWE_ALG;
-    if (!recipients.every((e) => e.header && e.header.alg === alg)) {
+    if (!recipients.every(e => e.header && e.header.alg === alg)) {
       throw new Error(`All recipients must use the algorithm "${alg}".`);
     }
     const { cipher } = this;
@@ -220,15 +220,24 @@ export class Cipher {
 
     // fetch all public DH keys
     const publicKeys = await Promise.all(
-      recipients.map((e) => keyResolver({ id: e.header.kid }))
+      recipients.map(e => keyResolver({ id: e.header.kid }))
     );
 
+    let epkArgs = undefined;
+    if (publicKeys[0].type === 'JsonWebKey2020') {
+      // agility ftw...
+      // TODO: ... tests with different keys...
+      epkArgs = { kty: 'EC', crvOrSize: publicKeys[0].publicKeyJwk.crv };
+    }
+
     // derive ephemeral ECDH key pair to use with all recipients
-    const ephemeralKeyPair = await this.KeyPairClass.generateEphemeralKeyPair();
+    const ephemeralKeyPair = await this.KeyPairClass.generateEphemeralKeyPair(
+      epkArgs
+    );
 
     // derive KEKs for each recipient
     const derivedResults = await Promise.all(
-      publicKeys.map((staticPublicKey) =>
+      publicKeys.map(staticPublicKey =>
         this.KeyPairClass.kekFromStaticPeer({
           ephemeralKeyPair,
           staticPublicKey,

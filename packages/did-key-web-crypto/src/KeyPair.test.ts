@@ -11,6 +11,15 @@ it('from / toJsonWebKey', async () => {
   expect(k0.toJsonWebKey(true)).toEqual(keypair[0].toJwkPair);
 });
 
+it('fromFingerprint', async () => {
+  const k0 = await KeyPair.fromFingerprint({
+    fingerprint: keypair[0].fromJwk.id.split('#').pop(),
+  });
+  const withoutPrivateKey: any = { ...keypair[0].toJwkPair };
+  delete withoutPrivateKey.privateKeyJwk;
+  expect(k0.toJsonWebKey()).toEqual(withoutPrivateKey);
+});
+
 it('sign / verify', async () => {
   const k0 = await KeyPair.from(keypair[0].fromJwk);
   const signer = await k0.signer();

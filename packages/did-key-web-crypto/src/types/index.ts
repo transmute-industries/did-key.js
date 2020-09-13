@@ -1,13 +1,33 @@
 import {
   JsonWebKeyPair,
   LinkedDataKeyPair,
+  getEpkGenerator,
+  deriveKey,
+  KeyEncryptionKey,
+  EpkResult,
+  KeyEncryptionKeyFromEphemeralPublicKeyOptions,
   KeyAgreementKeyPairInstance,
   DeriveSecretOptions,
+  KeyAgreementKeyPairClass,
+  ECDH_ES_A256KW,
+  KeyEncryptionKeyFromStaticPublicKeyOptions,
+  KeyPairJwk,
+  KeyPairBase58,
 } from '@transmute/did-key-cipher';
 
 export {
   JsonWebKeyPair,
   LinkedDataKeyPair,
+  getEpkGenerator,
+  deriveKey,
+  KeyEncryptionKey,
+  EpkResult,
+  KeyEncryptionKeyFromEphemeralPublicKeyOptions,
   KeyAgreementKeyPairInstance,
   DeriveSecretOptions,
+  KeyAgreementKeyPairClass,
+  ECDH_ES_A256KW,
+  KeyEncryptionKeyFromStaticPublicKeyOptions,
+  KeyPairJwk,
+  KeyPairBase58,
 };

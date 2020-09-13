@@ -4,6 +4,7 @@ export const deriveSecret = async (
   privateKeyJwk: any,
   publicKeyJwk: any
 ): Promise<Uint8Array> => {
+  // console.log(privateKeyJwk, publicKeyJwk);
   const privateKey = await crypto.subtle.importKey(
     'jwk',
     privateKeyJwk,

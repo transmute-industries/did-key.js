@@ -85,16 +85,16 @@ export class DecryptTransformer {
 
     const _findRecipient = (recipients: any, key: any) => {
       return recipients.find(
-        (e: any) =>
-          e.header &&
-          e.header.kid === key.id &&
-          !key.algorithm &&
-          e.header.alg === this.KeyPairClass.JWE_ALG
+        (rec: any) =>
+          (rec.header && rec.header.kid === key.id) ||
+          rec.header.kid.split('#').pop() === key.id.split('#').pop()
       );
     };
 
     const recipient = _findRecipient(jwe.recipients, keyAgreementKey);
+
     if (!recipient) {
+      console.log(jwe.recipients, keyAgreementKey);
       throw new Error('No matching recipient found for key agreement key.');
     }
     // get wrapped CEK

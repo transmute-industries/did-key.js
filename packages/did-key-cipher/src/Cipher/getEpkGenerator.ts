@@ -1,19 +1,13 @@
-import crypto from 'crypto';
-import { KeyPairGenerateOptions, KeyPairClass, EpkResult } from '../types';
+import { KeyPairClass, EpkResult } from '../types';
 
-export const getEpkGenerator = (KeyPair: KeyPairClass) => {
-  const generateEphemeralKeyPair = async (
-    opts: KeyPairGenerateOptions = {
-      secureRandom: () => {
-        return crypto.randomBytes(32);
-      },
-    }
-  ): Promise<EpkResult> => {
+export const getEpkGenerator = (KeyPair: KeyPairClass, opts: any) => {
+  const generateEphemeralKeyPair = async (): Promise<EpkResult> => {
     const k0 = await KeyPair.generate(opts);
-    const epk = await k0.toJwk();
+    const keypair = await k0.toJsonWebKey(true);
+
     return {
-      keypair: await k0.toJsonWebKey(true),
-      epk,
+      keypair,
+      epk: keypair.publicKeyJwk,
     };
   };
   return generateEphemeralKeyPair;
