@@ -20,6 +20,7 @@ import {
   KeyAgreementKeyPairClass,
   KeyPair,
   KeyPairBase58,
+  KeyPairJwk,
   KeyPairInstance,
   KeyPairGenerateOptions,
 } from '@transmute/did-key-cipher';
@@ -47,6 +48,14 @@ export class X25519KeyPair implements KeyPairInstance {
 
     if ((keypair as any).publicKeyBase58) {
       pubkeyBytes = bs58.decode((keypair as KeyPairBase58).publicKeyBase58);
+    }
+
+    if ((keypair as any).publicKeyJwk) {
+      pubkeyBytes = bs58.decode(
+        keyUtils.publicKeyBase58FromPublicKeyJwk(
+          (keypair as KeyPairJwk).publicKeyJwk
+        )
+      );
     }
 
     // https://github.com/multiformats/multicodec/blob/master/table.csv#L80
