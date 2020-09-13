@@ -6,29 +6,19 @@ import base64url from 'base64url-universal';
 import * as recAlgorithm from './algorithms/recommended';
 import { TextDecoder, stringToUint8Array } from './util';
 
-// support `C20P` for backwards compatibility
-import * as c20p from './algorithms/c20p';
-
 const CIPHER_ALGORITHMS: any = {
   [recAlgorithm.cipher.JWE_ENC]: recAlgorithm.cipher,
-  // backwards compatibility for decryption only (*not* encryption)
-  [c20p.JWE_ENC]: c20p,
 };
 
-// only supported key algorithm
-const KEY_ALGORITHM = 'ECDH-ES+A256KW';
-
 export class DecryptTransformer {
-  public keyAgreement: any;
   public keyAgreementKey: any;
-  constructor({ keyAgreement, keyAgreementKey }: any = {}) {
-    if (!keyAgreement) {
-      throw new TypeError('"keyAgreement" is a required parameter.');
-    }
+  public KeyPairClass: any;
+
+  constructor({ keyAgreementKey, KeyPairClass }: any = {}) {
     if (!keyAgreementKey) {
       throw new TypeError('"keyAgreementKey" is a required parameter.');
     }
-    this.keyAgreement = keyAgreement;
+    this.KeyPairClass = KeyPairClass;
     this.keyAgreementKey = keyAgreementKey;
   }
 
@@ -92,6 +82,17 @@ export class DecryptTransformer {
 
     // find `keyAgreementKey` matching recipient
     const { keyAgreementKey } = this;
+
+    const _findRecipient = (recipients: any, key: any) => {
+      return recipients.find(
+        (e: any) =>
+          e.header &&
+          e.header.kid === key.id &&
+          !key.algorithm &&
+          e.header.alg === this.KeyPairClass.JWE_ALG
+      );
+    };
+
     const recipient = _findRecipient(jwe.recipients, keyAgreementKey);
     if (!recipient) {
       throw new Error('No matching recipient found for key agreement key.');
@@ -107,8 +108,8 @@ export class DecryptTransformer {
 
     // derive KEK and unwrap CEK
     const { epk } = recipient.header;
-    const { keyAgreement } = this;
-    const { kek } = await keyAgreement.kekFromEphemeralPeer({
+
+    const { kek } = await this.KeyPairClass.kekFromEphemeralPeer({
       keyAgreementKey,
       epk,
     });
@@ -128,14 +129,4 @@ export class DecryptTransformer {
       cek,
     });
   }
-}
-
-function _findRecipient(recipients: any, key: any) {
-  return recipients.find(
-    (e: any) =>
-      e.header &&
-      e.header.kid === key.id &&
-      !key.algorithm &&
-      e.header.alg === KEY_ALGORITHM
-  );
 }

@@ -7,12 +7,12 @@ import { DecryptTransformer } from './DecryptTransformer';
 import { EncryptTransformer } from './EncryptTransformer';
 import * as recAlgorithm from './algorithms/recommended';
 
-const VERSIONS = ['recommended', 'fips'];
+import { X25519KeyPair } from '../X25519KeyPair';
 
 export class Cipher {
   public version: string;
   public cipher: any;
-  public keyAgreement: any;
+
   /**
    * Creates a new Cipher instance that can be used to encrypt or decrypt
    * data. A version must be supplied for encrypting data; the version
@@ -25,17 +25,10 @@ export class Cipher {
    *
    * @returns {Cipher} A Cipher used to encrypt and decrypt data.
    */
-  constructor({ version = 'recommended' }: any = {}) {
-    if (typeof version !== 'string') {
-      throw new TypeError('"version" must be a string.');
-    }
-    if (!VERSIONS.includes(version)) {
-      throw new Error(`Unsupported version "${version}".`);
-    }
-    this.version = version;
+  constructor(public KeyPairClass: any = X25519KeyPair) {
+    this.version = 'recommended';
     // only recommended... agility should be explicit.
     this.cipher = recAlgorithm.cipher;
-    this.keyAgreement = recAlgorithm.keyAgreement;
   }
 
   /**
@@ -217,8 +210,8 @@ export class Cipher {
       throw new TypeError('"recipients" must be a non-empty array.');
     }
     // ensure all recipients use the supported key agreement algorithm
-    const { keyAgreement } = this;
-    const { JWE_ALG: alg } = keyAgreement;
+
+    const alg = this.KeyPairClass.JWE_ALG;
     if (!recipients.every(e => e.header && e.header.alg === alg)) {
       throw new Error(`All recipients must use the algorithm "${alg}".`);
     }
@@ -233,12 +226,15 @@ export class Cipher {
     );
 
     // derive ephemeral ECDH key pair to use with all recipients
-    const ephemeralKeyPair = await keyAgreement.deriveEphemeralKeyPair();
+    const ephemeralKeyPair = await this.KeyPairClass.generateEphemeralKeyPair();
 
     // derive KEKs for each recipient
     const derivedResults = await Promise.all(
       publicKeys.map(staticPublicKey =>
-        keyAgreement.kekFromStaticPeer({ ephemeralKeyPair, staticPublicKey })
+        this.KeyPairClass.kekFromStaticPeer({
+          ephemeralKeyPair,
+          staticPublicKey,
+        })
       )
     );
 
@@ -284,7 +280,7 @@ export class Cipher {
    */
   async createDecryptTransformer({ keyAgreementKey }: any) {
     return new DecryptTransformer({
-      keyAgreement: this.keyAgreement,
+      KeyPairClass: this.KeyPairClass,
       keyAgreementKey,
     });
   }

@@ -1,16 +1,29 @@
 import bs58 from 'bs58';
+import * as base58 from 'base58-universal';
+import { getEpkGenerator } from './getEpkGenerator';
+
 import {
   convertPublicKeyToX25519,
   convertSecretKeyToX25519,
 } from '@stablelib/ed25519';
 import * as x25519 from '@stablelib/x25519';
 import * as keyUtils from './keyUtils';
+
+import base64url from 'base64url-universal';
+
+const KEY_TYPE = 'X25519KeyAgreementKey2019';
+
+import { deriveKey } from './Cipher/algorithms/ecdhkdf';
+import { KeyEncryptionKey } from './Cipher/algorithms/classes/KeyEncryptionKey';
+
 export class X25519KeyPair {
   public id: string;
   public type: string;
   public controller: string;
   public publicKeyBase58: string;
   public privateKeyBase58: string;
+
+  static JWE_ALG = 'ECDH-ES+A256KW';
 
   static fingerprintFromPublicKey({ publicKeyBase58 }: any) {
     // https://github.com/multiformats/multicodec/blob/master/table.csv#L80
@@ -22,6 +35,7 @@ export class X25519KeyPair {
     // prefix with `z` to indicate multi-base base58btc encoding
     return `z${bs58.encode(buffer)}`;
   }
+
   static async generate(options: any = {}) {
     let key;
     if (options.secureRandom) {
@@ -59,6 +73,64 @@ export class X25519KeyPair {
       publicKeyBase58,
       privateKeyBase58,
     });
+  }
+
+  static generateEphemeralKeyPair() {
+    return getEpkGenerator(X25519KeyPair)();
+  }
+
+  static async kekFromEphemeralPeer({ keyAgreementKey, epk }: any) {
+    if (!(epk && typeof epk === 'object')) {
+      throw new TypeError('"epk" must be an object.');
+    }
+
+    // decode public key material
+    const publicKey = base64url.decode(epk.x);
+
+    // convert to LD key for Web KMS
+    const ephemeralPublicKey = {
+      type: KEY_TYPE,
+      publicKeyBase58: base58.encode(publicKey),
+    };
+
+    // safe to use IDs like in rfc7518 or does
+    // https://tools.ietf.org/html/rfc7748#section-7 pose any issues?
+    const encoder = new TextEncoder();
+    // "Party U Info"
+    const producerInfo = publicKey;
+    // "Party V Info"
+    const consumerInfo = encoder.encode(keyAgreementKey.id);
+    const secret = await keyAgreementKey.deriveSecret({
+      publicKey: ephemeralPublicKey,
+    });
+    const keyData = await deriveKey({ secret, producerInfo, consumerInfo });
+    return {
+      kek: await KeyEncryptionKey.createKek({ keyData }),
+    };
+  }
+
+  static async kekFromStaticPeer({ ephemeralKeyPair, staticPublicKey }: any) {
+    // TODO: consider accepting JWK format for `staticPublicKey` not just LD key
+    if (staticPublicKey.type !== KEY_TYPE) {
+      throw new Error(`"staticPublicKey.type" must be "${KEY_TYPE}".`);
+    }
+
+    const epkPair = await X25519KeyPair.from(ephemeralKeyPair.keypair);
+    const encoder = new TextEncoder();
+    // "Party U Info"
+    const producerInfo = base58.decode(epkPair.publicKeyBase58);
+    // "Party V Info"
+    const consumerInfo = encoder.encode(staticPublicKey.id);
+
+    const secret = await epkPair.deriveSecret({ publicKey: staticPublicKey });
+    const keyData = await deriveKey({ secret, producerInfo, consumerInfo });
+    return {
+      kek: await KeyEncryptionKey.createKek({ keyData }),
+      epk: ephemeralKeyPair.epk,
+      apu: base64url.encode(producerInfo),
+      apv: base64url.encode(consumerInfo as any),
+      ephemeralPublicKey: ephemeralKeyPair.publicKey,
+    };
   }
 
   static fromFingerprint({ fingerprint }: any) {
