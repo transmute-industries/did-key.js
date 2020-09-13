@@ -35,5 +35,5 @@ it('can do guide', async () => {
     jwe,
     keyAgreementKey,
   });
-  console.log(decryptedObject);
+  expect(decryptedObject).toEqual(document);
 });

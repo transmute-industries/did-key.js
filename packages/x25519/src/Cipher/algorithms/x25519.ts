@@ -13,7 +13,7 @@ const KEY_TYPE = 'X25519KeyAgreementKey2019';
 export const JWE_ALG = 'ECDH-ES+A256KW';
 export { deriveEphemeralKeyPair, deriveSecret };
 
-// Decryption case: get Kek from a private key agreement key and a
+// Decryption case: get KeyEncryptionKey from a private key agreement key and a
 // peer's public ephemeral DH key encoded as an `epk`
 export async function kekFromEphemeralPeer({ keyAgreementKey, epk }: any) {
   if (!(epk && typeof epk === 'object')) {
@@ -50,7 +50,7 @@ export async function kekFromEphemeralPeer({ keyAgreementKey, epk }: any) {
   };
 }
 
-// Encryption case: get Kek *and* ephemeral DH key from a peer's public
+// Encryption case: get KeyEncryptionKey *and* ephemeral DH key from a peer's public
 // static key
 export async function kekFromStaticPeer({
   ephemeralKeyPair,
