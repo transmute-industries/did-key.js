@@ -1,15 +1,15 @@
 import { default as bs64 } from 'base64url';
 import { AESKW } from '@stablelib/aes-kw';
 
-interface CreateKekOptions {
+export interface CreateKekOptions {
   keyData: Uint8Array;
 }
 
-interface WrapKeyOptions {
+export interface WrapKeyOptions {
   unwrappedKey: Uint8Array;
 }
 
-interface UnwrapKeyOptions {
+export interface UnwrapKeyOptions {
   wrappedKey: string; //base64url
 }
 
