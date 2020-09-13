@@ -1,5 +1,4 @@
 import bs58 from 'bs58';
-import * as base58 from 'base58-universal';
 
 import {
   convertPublicKeyToX25519,
@@ -8,7 +7,7 @@ import {
 import * as x25519 from '@stablelib/x25519';
 import * as keyUtils from './keyUtils';
 
-import base64url from 'base64url-universal';
+import base64url from 'base64url';
 
 const KEY_TYPE = 'X25519KeyAgreementKey2019';
 
@@ -116,21 +115,21 @@ export class X25519KeyPair implements KeyPairInstance {
     }
 
     // decode public key material
-    const publicKey = base64url.decode(epk.x);
+    const publicKey = base64url.toBuffer(epk.x);
 
     // convert to LD key for Web KMS
     const ephemeralPublicKey = {
       type: KEY_TYPE,
-      publicKeyBase58: base58.encode(publicKey),
+      publicKeyBase58: bs58.encode(publicKey),
     };
 
     // safe to use IDs like in rfc7518 or does
     // https://tools.ietf.org/html/rfc7748#section-7 pose any issues?
-    const encoder = new TextEncoder();
+
     // "Party U Info"
     const producerInfo = publicKey;
     // "Party V Info"
-    const consumerInfo = encoder.encode(keyAgreementKey.id);
+    const consumerInfo = Buffer.from(keyAgreementKey.id);
     // converts keys again....
     // base58 encoding should only be used at the network / serialization boundary.
     const secret = await (keyAgreementKey as KeyAgreementKeyPairInstance).deriveSecret(
@@ -154,11 +153,11 @@ export class X25519KeyPair implements KeyPairInstance {
     }
 
     const epkPair = await X25519KeyPair.from(ephemeralKeyPair.keypair);
-    const encoder = new TextEncoder();
+
     // "Party U Info"
     const producerInfo = epkPair.publicKeyBuffer;
     // "Party V Info"
-    const consumerInfo = encoder.encode(staticPublicKey.id);
+    const consumerInfo = Buffer.from(staticPublicKey.id);
 
     const secret = await epkPair.deriveSecret({
       publicKey: staticPublicKey,
