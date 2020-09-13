@@ -7,8 +7,6 @@ import { DecryptTransformer } from './DecryptTransformer';
 import { EncryptTransformer } from './EncryptTransformer';
 import * as recAlgorithm from './algorithms/recommended';
 
-import { X25519KeyPair } from '../X25519KeyPair';
-
 export class Cipher {
   public version: string;
   public cipher: any;
@@ -25,7 +23,7 @@ export class Cipher {
    *
    * @returns {Cipher} A Cipher used to encrypt and decrypt data.
    */
-  constructor(public KeyPairClass: any = X25519KeyPair) {
+  constructor(public KeyPairClass: any) {
     this.version = 'recommended';
     // only recommended... agility should be explicit.
     this.cipher = recAlgorithm.cipher;
@@ -212,7 +210,7 @@ export class Cipher {
     // ensure all recipients use the supported key agreement algorithm
 
     const alg = this.KeyPairClass.JWE_ALG;
-    if (!recipients.every(e => e.header && e.header.alg === alg)) {
+    if (!recipients.every((e) => e.header && e.header.alg === alg)) {
       throw new Error(`All recipients must use the algorithm "${alg}".`);
     }
     const { cipher } = this;
@@ -222,7 +220,7 @@ export class Cipher {
 
     // fetch all public DH keys
     const publicKeys = await Promise.all(
-      recipients.map(e => keyResolver({ id: e.header.kid }))
+      recipients.map((e) => keyResolver({ id: e.header.kid }))
     );
 
     // derive ephemeral ECDH key pair to use with all recipients
@@ -230,7 +228,7 @@ export class Cipher {
 
     // derive KEKs for each recipient
     const derivedResults = await Promise.all(
-      publicKeys.map(staticPublicKey =>
+      publicKeys.map((staticPublicKey) =>
         this.KeyPairClass.kekFromStaticPeer({
           ephemeralKeyPair,
           staticPublicKey,

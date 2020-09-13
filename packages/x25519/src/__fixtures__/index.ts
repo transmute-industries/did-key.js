@@ -1,6 +1,17 @@
 import { didDocument } from './didDoc.json';
 import { keypair } from './keypair.json';
 import { seed } from './seed.json';
-import { jwe } from './jwe.json';
+
 import { keyResolver } from './keyResolver';
-export { seed, keypair, didDocument, jwe, keyResolver };
+
+import minimalCipherFixture from './minimal-cipher-jwe.json';
+import didKeyCipherFixture from './did-key-cipher-jwe.json';
+
+export {
+  seed,
+  keypair,
+  didDocument,
+  minimalCipherFixture,
+  didKeyCipherFixture,
+  keyResolver,
+};

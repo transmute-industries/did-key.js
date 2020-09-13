@@ -1,6 +1,5 @@
 import bs58 from 'bs58';
 import * as base58 from 'base58-universal';
-import { getEpkGenerator } from './getEpkGenerator';
 
 import {
   convertPublicKeyToX25519,
@@ -13,8 +12,11 @@ import base64url from 'base64url-universal';
 
 const KEY_TYPE = 'X25519KeyAgreementKey2019';
 
-import { deriveKey } from './Cipher/algorithms/ecdhkdf';
-import { KeyEncryptionKey } from './Cipher/algorithms/classes/KeyEncryptionKey';
+import {
+  getEpkGenerator,
+  deriveKey,
+  KeyEncryptionKey,
+} from '@transmute/did-key-cipher';
 
 export class X25519KeyPair {
   public id: string;

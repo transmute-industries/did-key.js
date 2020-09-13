@@ -1,11 +1,11 @@
 import { Cipher } from './Cipher';
-import { X25519KeyPair } from '../X25519KeyPair';
+import { X25519KeyPair } from '@transmute/did-key-x25519';
 
 import { keypair } from '../__fixtures__/keypair.json';
 import { keyResolver } from '../__fixtures__/keyResolver';
 
 it('can do guide', async () => {
-  const cipher = new Cipher();
+  const cipher = new Cipher(X25519KeyPair);
   const document = { key1: 'value1', key2: 'value2' };
   expect(cipher.version).toBe('recommended');
   const recipients = [
