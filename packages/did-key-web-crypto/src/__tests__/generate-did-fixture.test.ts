@@ -3,9 +3,9 @@ import path from 'path';
 
 import { keypair, did } from '../__fixtures__';
 
-const WRITE_FIXTURE_TO_DISK = false;
-
 import { driver } from '../index';
+
+const WRITE_FIXTURE_TO_DISK = false;
 
 it('generate did fixture', async () => {
   const fixture: any = {

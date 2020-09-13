@@ -1,5 +1,9 @@
+import * as driver from './driver';
+
 export * from './types';
 export * from './Jwe';
 export * from './Jws';
-export * as driver from './driver'
-export * from './KeyPair'
+
+export * from './KeyPair';
+
+export { driver };

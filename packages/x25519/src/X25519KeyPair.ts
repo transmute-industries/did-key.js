@@ -10,8 +10,6 @@ import * as keyUtils from './keyUtils';
 import base64url from 'base64url';
 import crypto from 'crypto';
 
-const KEY_TYPE = 'X25519KeyAgreementKey2019';
-
 import {
   getEpkGenerator,
   deriveKey,
@@ -31,10 +29,12 @@ import {
   DeriveSecretOptions,
 } from '@transmute/did-key-cipher';
 
+const KEY_TYPE = 'X25519KeyAgreementKey2019';
+
 /* class decorator */
 function staticImplements<T>() {
   return <U extends T>(constructor: U) => {
-    constructor;
+    return constructor;
   };
 }
 
