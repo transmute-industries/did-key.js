@@ -5,14 +5,13 @@ import { Cipher } from '@transmute/did-key-cipher';
 
 import { KeyPair } from '../KeyPair';
 import { keypair } from '../__fixtures__/keypair.json';
-import { keyResolver } from '../__fixtures__/keyResolver';
 
 const cipher = new Cipher(KeyPair);
 const document = { key1: 'value1', key2: 'value2' };
 
 const WRITE_FIXTURE_TO_DISK = false;
 
-it('can generate minimal cipher fixture', async () => {
+it('can generate did key cipher fixture', async () => {
   const fixture: any = {
     jwe: [],
   };
@@ -29,7 +28,9 @@ it('can generate minimal cipher fixture', async () => {
       const jwe = await cipher.encryptObject({
         obj: { ...document },
         recipients,
-        keyResolver,
+        keyResolver: (_uri: string) => {
+          return kp.toJwkPair;
+        },
       });
       expect(jwe.protected).toBeDefined();
 

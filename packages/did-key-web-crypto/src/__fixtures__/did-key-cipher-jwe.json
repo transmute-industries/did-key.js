@@ -1,0 +1,73 @@
+{
+  "jwe": [
+    {
+      "protected": "eyJlbmMiOiJYQzIwUCJ9",
+      "recipients": [
+        {
+          "header": {
+            "kid": "did:key:zXwpCNGaoAK2oF6cU7WBS2GU2uhKUfca2CCB3LonW2hNYvdqzTFcZc8CtF2HbGGPF9zGdcncQsbFZ2yaNzEvHEkRebyj#zXwpCNGaoAK2oF6cU7WBS2GU2uhKUfca2CCB3LonW2hNYvdqzTFcZc8CtF2HbGGPF9zGdcncQsbFZ2yaNzEvHEkRebyj",
+            "alg": "ECDH-ES+A256KW",
+            "epk": {
+              "kty": "EC",
+              "crv": "P-256",
+              "x": "NPRwwAW8R3mcUOuAH6Uyy7dA95QmCKlzOIWVsOcN7Zo",
+              "y": "TRhNHinz6TjAmw0dezGB0dWgtW57HZrIL1sM8jFRcJc"
+            },
+            "apu": "NPRwwAW8R3mcUOuAH6Uyy7dA95QmCKlzOIWVsOcN7ZpNGE0eKfPpOMCbDR17MYHR1aC1bnsdmsgvWwzyMVFwlw",
+            "apv": "I3pYd3BDTkdhb0FLMm9GNmNVN1dCUzJHVTJ1aEtVZmNhMkNDQjNMb25XMmhOWXZkcXpURmNaYzhDdEYySGJHR1BGOXpHZGNuY1FzYkZaMnlhTnpFdkhFa1JlYnlq"
+          },
+          "encrypted_key": "vFWQdjTXwzWRdcU_8cNsxJ4swNp-Gv3k7406m6vqBzyrCGYnIxcSQA"
+        }
+      ],
+      "iv": "_OfSqSz67DdtOsz9VMoeLO9XpY9wKxLg",
+      "ciphertext": "orZ6KXBuKUm0s_FE89ZdjTmDlWzdVzOFmbER1ryVZQ-A",
+      "tag": "LkrRJ8vBs_2gLMl_0RRjog"
+    },
+    {
+      "protected": "eyJlbmMiOiJYQzIwUCJ9",
+      "recipients": [
+        {
+          "header": {
+            "kid": "did:key:zACHdxYeWHD6tA9kkzqiEGZ1F2W8vNqJbmhauGp6CFn1z7tT6NENjBgGF3GgphUiDRUXEwinRWci4cFrZRK5N9g6SuoKxuu7aseAxBfzdoCL9A8M9YHT9eQqc1aDqphUr2EuX4Fi#zACHdxYeWHD6tA9kkzqiEGZ1F2W8vNqJbmhauGp6CFn1z7tT6NENjBgGF3GgphUiDRUXEwinRWci4cFrZRK5N9g6SuoKxuu7aseAxBfzdoCL9A8M9YHT9eQqc1aDqphUr2EuX4Fi",
+            "alg": "ECDH-ES+A256KW",
+            "epk": {
+              "kty": "EC",
+              "crv": "P-384",
+              "x": "vQsISrmEW50wksVuq8uBkCGLFrhVEd4iMf90fevL3-PDK0JTN8k2JdO0IBSd5TMH",
+              "y": "5ZGSK4-bzvoFEAfPllBuANuG5pX9vCMf3mx1GW7lbxQiUs4hOnGbQfgBjREhgTL3"
+            },
+            "apu": "vQsISrmEW50wksVuq8uBkCGLFrhVEd4iMf90fevL3-PDK0JTN8k2JdO0IBSd5TMH5ZGSK4-bzvoFEAfPllBuANuG5pX9vCMf3mx1GW7lbxQiUs4hOnGbQfgBjREhgTL3",
+            "apv": "I3pBQ0hkeFllV0hENnRBOWtrenFpRUdaMUYyVzh2TnFKYm1oYXVHcDZDRm4xejd0VDZORU5qQmdHRjNHZ3BoVWlEUlVYRXdpblJXY2k0Y0ZyWlJLNU45ZzZTdW9LeHV1N2FzZUF4QmZ6ZG9DTDlBOE05WUhUOWVRcWMxYURxcGhVcjJFdVg0Rmk"
+          },
+          "encrypted_key": "3fY_-dhR6wEfo9WG2wQON2q3IgWhORpN5GAWgqLYTGCQxWxrV0WSxA"
+        }
+      ],
+      "iv": "EPKRyQiaLLnjdDWbDg0RtJ2a6YQIf2oy",
+      "ciphertext": "Z040882YB2jHu27VvtR7pSrrTEqX7acxhEhsa6TvU-Q6",
+      "tag": "Kug3JrSR_b6uK0eJq-LjLQ"
+    },
+    {
+      "protected": "eyJlbmMiOiJYQzIwUCJ9",
+      "recipients": [
+        {
+          "header": {
+            "kid": "did:key:zJss7x2Nj7pGhZG2p7XUFZk26SDgQd3kReUsRXg8QjDCUmC9a8dFtRjFQXPbZATaEbNJMBWAkhSc4BSV41RDTxXj9BhV1NFmC6XrgbZXDyGgwp9Y33MtdDFsTbgkRVq1Kkpvt3Y1pRhxeWmQDnMzzKHAHHbjhMPH9Nq7M7QXVVPqeiEWWu7YsRtsB#zJss7x2Nj7pGhZG2p7XUFZk26SDgQd3kReUsRXg8QjDCUmC9a8dFtRjFQXPbZATaEbNJMBWAkhSc4BSV41RDTxXj9BhV1NFmC6XrgbZXDyGgwp9Y33MtdDFsTbgkRVq1Kkpvt3Y1pRhxeWmQDnMzzKHAHHbjhMPH9Nq7M7QXVVPqeiEWWu7YsRtsB",
+            "alg": "ECDH-ES+A256KW",
+            "epk": {
+              "kty": "EC",
+              "crv": "P-521",
+              "x": "ALYPKscA7pGPN88ganEpEUgPXAqdql1X5eAKaF4eRh1meOoMX1hA3BLFQf2U3pz6gQAw9uipFXn1e85LIz9WT3n0",
+              "y": "APhhTtYzZGzgXPqx4LytuPXhgMIUS8jdBUWp4JgGlhHJrUPXxN0_FGbI8lzeRbsLQ8qkOeq8J4FbXALtN_5UPvWG"
+            },
+            "apu": "ALYPKscA7pGPN88ganEpEUgPXAqdql1X5eAKaF4eRh1meOoMX1hA3BLFQf2U3pz6gQAw9uipFXn1e85LIz9WT3n0APhhTtYzZGzgXPqx4LytuPXhgMIUS8jdBUWp4JgGlhHJrUPXxN0_FGbI8lzeRbsLQ8qkOeq8J4FbXALtN_5UPvWG",
+            "apv": "I3pKc3M3eDJOajdwR2haRzJwN1hVRlprMjZTRGdRZDNrUmVVc1JYZzhRakRDVW1DOWE4ZEZ0UmpGUVhQYlpBVGFFYk5KTUJXQWtoU2M0QlNWNDFSRFR4WGo5QmhWMU5GbUM2WHJnYlpYRHlHZ3dwOVkzM010ZERGc1RiZ2tSVnExS2twdnQzWTFwUmh4ZVdtUURuTXp6S0hBSEhiamhNUEg5TnE3TTdRWFZWUHFlaUVXV3U3WXNSdHNC"
+          },
+          "encrypted_key": "mINpH5bgOXrAtyLamWD9VNlC_L68mZ6aLcZlxf9YwH2iHOeV7OGFNw"
+        }
+      ],
+      "iv": "TKfUcHm9UM5EwTZl1kUSJxhBQ2lW88W2",
+      "ciphertext": "KHLg0AVPdBJizZiBvrDa09d-4H_cI3ukriqKJesb9DqL",
+      "tag": "gHTykXDAMEGrotfJYPirPA"
+    }
+  ]
+}

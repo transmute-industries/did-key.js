@@ -8,6 +8,7 @@ import * as x25519 from '@stablelib/x25519';
 import * as keyUtils from './keyUtils';
 
 import base64url from 'base64url';
+import crypto from 'crypto';
 
 const KEY_TYPE = 'X25519KeyAgreementKey2019';
 
@@ -103,7 +104,11 @@ export class X25519KeyPair implements KeyPairInstance {
   }
 
   static async generateEphemeralKeyPair(): Promise<EpkResult> {
-    return getEpkGenerator(X25519KeyPair)();
+    return getEpkGenerator(X25519KeyPair, {
+      secureRandom: () => {
+        return crypto.randomBytes(32);
+      },
+    })();
   }
 
   static async kekFromEphemeralPeer({
@@ -148,8 +153,15 @@ export class X25519KeyPair implements KeyPairInstance {
     staticPublicKey,
   }: KeyEncryptionKeyFromStaticPublicKeyOptions) {
     // TODO: consider accepting JWK format for `staticPublicKey` not just LD key
-    if (staticPublicKey.type !== KEY_TYPE) {
-      throw new Error(`"staticPublicKey.type" must be "${KEY_TYPE}".`);
+    if (
+      !(
+        staticPublicKey.type === 'X25519KeyAgreementKey2019' ||
+        staticPublicKey.type === 'JsonWebKey2020'
+      )
+    ) {
+      throw new Error(
+        `"staticPublicKey.type" must be "X25519KeyAgreementKey2019".`
+      );
     }
 
     const epkPair = await X25519KeyPair.from(ephemeralKeyPair.keypair);

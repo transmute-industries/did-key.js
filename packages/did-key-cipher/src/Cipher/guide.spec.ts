@@ -1,7 +1,6 @@
 import { Cipher } from 'minimal-cipher';
 
 import { keypair } from '../__fixtures__/keypair.json';
-import { keyResolver } from '../__fixtures__/keyResolver';
 
 const cipher = new Cipher();
 const document = { key1: 'value1', key2: 'value2' };
@@ -20,7 +19,9 @@ it('can do simple encryption', async () => {
   const jwe = await cipher.encryptObject({
     obj: { ...document },
     recipients,
-    keyResolver,
+    keyResolver: (_uri: string) => {
+      return keypair[0].X25519KeyAgreementKey2019;
+    },
   });
   expect(jwe.protected).toBeDefined();
 });

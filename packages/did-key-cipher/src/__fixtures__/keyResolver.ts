@@ -2,13 +2,11 @@ import { keypair } from './keypair.json';
 
 export const keyResolver = ({ id }: any) => {
   let _kp: any = undefined;
-  keypair.forEach((kp: any) => {
-    if (id.indexOf(kp.X25519KeyAgreementKey2019.id) !== -1) {
+  keypair.forEach(kp => {
+    if (id.indexOf(kp.JsonWebKey2020.id) !== -1) {
       _kp = {
-        ...kp.X25519KeyAgreementKey2019,
-        id:
-          kp.X25519KeyAgreementKey2019.controller +
-          kp.X25519KeyAgreementKey2019.id,
+        ...kp.JsonWebKey2020,
+        id: kp.JsonWebKey2020.controller + kp.JsonWebKey2020.id,
       };
     }
   });
