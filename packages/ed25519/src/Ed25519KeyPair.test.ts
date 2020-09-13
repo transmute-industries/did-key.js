@@ -139,11 +139,9 @@ describe('Ed25519KeyPair', () => {
       expect(_key1.id).toBe(
         '#z6LScqmY9kirLuY22G6CuqBjuMpoqtgWk7bahWjuxFw5xH6G'
       );
-      expect(_key1.privateKeyBase58).toBeUndefined();
+      expect(_key1.privateKeyBuffer).toBeUndefined();
       _key1 = await key.toX25519KeyPair(true);
-      expect(_key1.privateKeyBase58).toBe(
-        '96do29HaLryHStVdCD7jB5TdbM1iGwPUDJvnPkfcqhMB'
-      );
+      expect(_key1.privateKeyBuffer).toBeDefined();
     });
   });
 });
