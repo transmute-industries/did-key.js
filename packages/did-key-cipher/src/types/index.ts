@@ -6,3 +6,4 @@ export * from './KeyPair';
 export * from './KeyPairClass';
 export * from './KeyPairInstance';
 export * from './KeyAgreementKeyPairClass';
+export * from './KeyPairGenerateOptions';

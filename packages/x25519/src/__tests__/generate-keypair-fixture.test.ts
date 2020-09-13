@@ -15,7 +15,9 @@ it('can generate keypair fixture', async () => {
   await Promise.all(
     seed.map(async (s: string) => {
       let key = await X25519KeyPair.generate({
-        seed: Buffer.from(s, 'hex'),
+        secureRandom: () => {
+          return Buffer.from(s, 'hex');
+        },
       });
       fixture.keypair.push({
         seed: s,

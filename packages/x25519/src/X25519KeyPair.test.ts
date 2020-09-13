@@ -26,7 +26,9 @@ describe('X25519KeyPair', () => {
     });
     it('from chosen seed', async () => {
       let key = await X25519KeyPair.generate({
-        seed: Buffer.from(keypair[0].seed, 'hex'),
+        secureRandom: () => {
+          return Buffer.from(keypair[0].seed, 'hex');
+        },
       });
       expect(key.toKeyPair(true)).toEqual(keypair[0].X25519KeyAgreementKey2019);
     });
@@ -70,7 +72,9 @@ describe('X25519KeyPair', () => {
   describe('fingerprint', () => {
     it('can calculate fingerprint', async () => {
       let key = await X25519KeyPair.generate({
-        seed: Buffer.from(keypair[0].seed, 'hex'),
+        secureRandom: () => {
+          return Buffer.from(keypair[0].seed, 'hex');
+        },
       });
       expect(key.id).toBe('#' + key.fingerprint());
     });
@@ -78,7 +82,9 @@ describe('X25519KeyPair', () => {
   describe('verifyFingerprint', () => {
     it('can verifyFingerprint', async () => {
       let key = await X25519KeyPair.generate({
-        seed: Buffer.from(keypair[0].seed, 'hex'),
+        secureRandom: () => {
+          return Buffer.from(keypair[0].seed, 'hex');
+        },
       });
       expect(key.verifyFingerprint(key.fingerprint())).toEqual({ valid: true });
     });
@@ -87,7 +93,9 @@ describe('X25519KeyPair', () => {
   describe('toJwk', () => {
     it('can convert to Jwk', async () => {
       let key: any = await X25519KeyPair.generate({
-        seed: Buffer.from(keypair[0].seed, 'hex'),
+        secureRandom: () => {
+          return Buffer.from(keypair[0].seed, 'hex');
+        },
       });
       let _jwk = await key.toJwk();
       delete _jwk.kid;
@@ -101,7 +109,9 @@ describe('X25519KeyPair', () => {
   describe('deriveSecret', () => {
     it('can convert to hex', async () => {
       let key = await X25519KeyPair.generate({
-        seed: Buffer.from(keypair[0].seed, 'hex'),
+        secureRandom: () => {
+          return Buffer.from(keypair[0].seed, 'hex');
+        },
       });
       const secret = key.deriveSecret({
         publicKey: keypair[1].X25519KeyAgreementKey2019,

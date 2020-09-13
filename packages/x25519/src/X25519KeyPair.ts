@@ -21,6 +21,7 @@ import {
   KeyPair,
   KeyPairBase58,
   KeyPairInstance,
+  KeyPairGenerateOptions,
 } from '@transmute/did-key-cipher';
 
 /* class decorator */
@@ -58,23 +59,13 @@ export class X25519KeyPair implements KeyPairInstance {
     return `z${bs58.encode(buffer)}`;
   }
 
-  static async generate(options: any = {}) {
+  static async generate(options: KeyPairGenerateOptions) {
     let key;
-    if (options.secureRandom) {
-      key = x25519.generateKeyPair({
-        isAvailable: true,
-        randomBytes: options.secureRandom,
-      });
-    }
 
-    if (options.seed) {
-      key = x25519.generateKeyPair({
-        isAvailable: true,
-        randomBytes: () => {
-          return Buffer.from(options.seed, 'hex');
-        },
-      });
-    }
+    key = x25519.generateKeyPair({
+      isAvailable: true,
+      randomBytes: options.secureRandom,
+    });
 
     if (!key) {
       throw new Error('options.seed or options.secureRandom is required.');
@@ -203,18 +194,6 @@ export class X25519KeyPair implements KeyPairInstance {
   static from(options: any) {
     let privateKeyBase58 = options.privateKeyBase58;
     let publicKeyBase58 = options.publicKeyBase58;
-
-    if (options.privateKeyHex) {
-      privateKeyBase58 = keyUtils.privateKeyBase58FromPrivateKeyHex(
-        options.privateKeyHex
-      );
-    }
-
-    if (options.publicKeyHex) {
-      publicKeyBase58 = keyUtils.publicKeyBase58FromPublicKeyHex(
-        options.publicKeyHex
-      );
-    }
 
     if (options.privateKeyJwk) {
       privateKeyBase58 = keyUtils.privateKeyBase58FromPrivateKeyJwk(
