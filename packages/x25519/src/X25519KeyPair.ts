@@ -157,6 +157,7 @@ export class X25519KeyPair {
   get privateKey() {
     return this.privateKeyBase58;
   }
+
   addEncodedPublicKey(publicKeyNode: any) {
     publicKeyNode.publicKeyBase58 = this.publicKeyBase58;
     return publicKeyNode;
