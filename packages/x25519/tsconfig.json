@@ -12,6 +12,7 @@
     "noUnusedParameters": true,
     "noImplicitReturns": true,
     "resolveJsonModule": true,
+    "experimentalDecorators": true,
     "noFallthroughCasesInSwitch": true,
     "moduleResolution": "node",
     "baseUrl": "./",

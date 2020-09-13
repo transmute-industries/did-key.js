@@ -1,5 +1,5 @@
 import crypto from 'crypto';
-
+import bs58 from 'bs58';
 import { X25519KeyPair } from './X25519KeyPair';
 
 import { keypair } from './__fixtures__/keypair.json';
@@ -10,7 +10,7 @@ describe('X25519KeyPair', () => {
     it('from random seed', async () => {
       let fingerprint = await X25519KeyPair.fingerprintFromPublicKey({
         publicKeyBase58: keypair[0].X25519KeyAgreementKey2019.publicKeyBase58,
-      });
+      } as any);
       expect('#' + fingerprint).toBe(keypair[0].X25519KeyAgreementKey2019.id);
     });
   });
@@ -28,7 +28,7 @@ describe('X25519KeyPair', () => {
       let key = await X25519KeyPair.generate({
         seed: Buffer.from(keypair[0].seed, 'hex'),
       });
-      expect(key).toEqual(keypair[0].X25519KeyAgreementKey2019);
+      expect(key.toKeyPair(true)).toEqual(keypair[0].X25519KeyAgreementKey2019);
     });
   });
   describe('from', () => {
@@ -39,16 +39,14 @@ describe('X25519KeyPair', () => {
     it('from jwk', async () => {
       let key = await X25519KeyPair.from(keypair[0].JsonWebKey2020);
       expect('#' + key.fingerprint()).toBe(keypair[0].JsonWebKey2020.id);
-      expect(key.publicKey).toBe(
-        keypair[0].X25519KeyAgreementKey2019.publicKeyBase58
-      );
+      expect(key.id).toBe(keypair[0].X25519KeyAgreementKey2019.id);
     });
   });
 
   describe('fromEdKeyPair', () => {
     it('from ed25519', async () => {
       let key = await X25519KeyPair.fromEdKeyPair(ed25519);
-      expect(key).toEqual({
+      expect(key.toKeyPair(true)).toEqual({
         type: 'X25519KeyAgreementKey2019',
         id: '#z6LScqmY9kirLuY22G6CuqBjuMpoqtgWk7bahWjuxFw5xH6G',
         controller: 'did:key:z6Mkf5rGMoatrSj1f4CyvuHBeXJELe9RPdzo2PKGNCKVtZxP',
@@ -64,8 +62,8 @@ describe('X25519KeyPair', () => {
         fingerprint: keypair[0].X25519KeyAgreementKey2019.id.split('#').pop(),
       });
       expect(key.id).toBe('#' + key.fingerprint());
-      expect(key.publicKey).toBe(
-        keypair[0].X25519KeyAgreementKey2019.publicKeyBase58
+      expect(key.publicKeyBuffer).toEqual(
+        bs58.decode(keypair[0].X25519KeyAgreementKey2019.publicKeyBase58)
       );
     });
   });

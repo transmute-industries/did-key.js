@@ -16,20 +16,40 @@ import {
   getEpkGenerator,
   deriveKey,
   KeyEncryptionKey,
+  ECDH_ES_A256KW,
+  KeyAgreementKeyPairClass,
+  KeyPair,
+  KeyPairBase58,
+  KeyPairInstance,
 } from '@transmute/did-key-cipher';
 
-export class X25519KeyPair {
+/* class decorator */
+function staticImplements<T>() {
+  return <U extends T>(constructor: U) => {
+    constructor;
+  };
+}
+
+@staticImplements<KeyAgreementKeyPairClass>()
+export class X25519KeyPair implements KeyPairInstance {
   public id: string;
   public type: string;
   public controller: string;
-  public publicKeyBase58: string;
-  public privateKeyBase58: string;
 
-  static JWE_ALG = 'ECDH-ES+A256KW';
+  public publicKeyBuffer: Buffer;
+  public privateKeyBuffer?: Buffer;
 
-  static fingerprintFromPublicKey({ publicKeyBase58 }: any) {
+  public static JWE_ALG: ECDH_ES_A256KW = 'ECDH-ES+A256KW';
+
+  static fingerprintFromPublicKey(keypair: KeyPair) {
+    let pubkeyBytes: any;
+
+    if ((keypair as any).publicKeyBase58) {
+      pubkeyBytes = bs58.decode((keypair as KeyPairBase58).publicKeyBase58);
+    }
+
     // https://github.com/multiformats/multicodec/blob/master/table.csv#L80
-    const pubkeyBytes = bs58.decode(publicKeyBase58);
+
     const buffer = new Uint8Array(2 + pubkeyBytes.length);
     buffer[0] = 0xec;
     buffer[1] = 0x01;
@@ -65,10 +85,10 @@ export class X25519KeyPair {
 
     const did = `did:key:${X25519KeyPair.fingerprintFromPublicKey({
       publicKeyBase58,
-    })}`;
+    } as any)}`;
     const keyId = `#${X25519KeyPair.fingerprintFromPublicKey({
       publicKeyBase58,
-    })}`;
+    } as any)}`;
     return new X25519KeyPair({
       id: keyId,
       controller: did,
@@ -120,7 +140,7 @@ export class X25519KeyPair {
     const epkPair = await X25519KeyPair.from(ephemeralKeyPair.keypair);
     const encoder = new TextEncoder();
     // "Party U Info"
-    const producerInfo = base58.decode(epkPair.publicKeyBase58);
+    const producerInfo = epkPair.publicKeyBuffer;
     // "Party V Info"
     const consumerInfo = encoder.encode(staticPublicKey.id);
 
@@ -143,10 +163,10 @@ export class X25519KeyPair {
       const publicKeyBase58 = bs58.encode(buffer.slice(2));
       const did = `did:key:${X25519KeyPair.fingerprintFromPublicKey({
         publicKeyBase58,
-      })}`;
+      } as any)}`;
       const keyId = `#${X25519KeyPair.fingerprintFromPublicKey({
         publicKeyBase58,
-      })}`;
+      } as any)}`;
       return new X25519KeyPair({
         id: keyId,
         controller: did,
@@ -160,18 +180,20 @@ export class X25519KeyPair {
   static fromEdKeyPair(ed25519KeyPair: any) {
     let publicKeyBase58;
     let privateKeyBase58;
+
     if (ed25519KeyPair.publicKeyBase58) {
       publicKeyBase58 = bs58.encode(
         convertPublicKeyToX25519(bs58.decode(ed25519KeyPair.publicKeyBase58))
       );
     }
+
     if (ed25519KeyPair.privateKeyBase58) {
       privateKeyBase58 = bs58.encode(
         convertSecretKeyToX25519(bs58.decode(ed25519KeyPair.privateKeyBase58))
       );
     }
 
-    return X25519KeyPair.from({
+    return new X25519KeyPair({
       controller: ed25519KeyPair.controller,
       publicKeyBase58,
       privateKeyBase58,
@@ -217,30 +239,30 @@ export class X25519KeyPair {
     this.type = 'X25519KeyAgreementKey2019';
     this.id = options.id;
     this.controller = options.controller;
-    this.publicKeyBase58 = options.publicKeyBase58;
-    this.privateKeyBase58 = options.privateKeyBase58;
+
+    if (options.publicKeyBase58) {
+      this.publicKeyBuffer = Buffer.from(bs58.decode(options.publicKeyBase58));
+    } else {
+      this.publicKeyBuffer = Buffer.from(bs58.decode(options.publicKeyBase58));
+    }
+
+    if (options.privateKeyBase58) {
+      this.privateKeyBuffer = Buffer.from(
+        bs58.decode(options.privateKeyBase58)
+      );
+    }
+
     if (!this.id) {
       this.id = `#${this.fingerprint()}`;
     }
   }
 
-  get publicKey() {
-    return this.publicKeyBase58;
-  }
-
-  get privateKey() {
-    return this.privateKeyBase58;
-  }
-
-  addEncodedPublicKey(publicKeyNode: any) {
-    publicKeyNode.publicKeyBase58 = this.publicKeyBase58;
-    return publicKeyNode;
-  }
-
   fingerprint() {
-    const { publicKeyBase58 } = this;
-    return X25519KeyPair.fingerprintFromPublicKey({ publicKeyBase58 });
+    return X25519KeyPair.fingerprintFromPublicKey({
+      publicKeyBase58: bs58.encode(this.publicKeyBuffer),
+    } as any);
   }
+
   verifyFingerprint(fingerprint: any) {
     // fingerprint should have `z` prefix indicating
     // that it's multi-base encoded
@@ -256,12 +278,7 @@ export class X25519KeyPair {
     } catch (e) {
       return { error: e, valid: false };
     }
-    let publicKeyBuffer;
-    try {
-      publicKeyBuffer = bs58.decode(this.publicKeyBase58);
-    } catch (e) {
-      return { error: e, valid: false };
-    }
+    let publicKeyBuffer = this.publicKeyBuffer;
 
     // validate the first two multicodec bytes 0xec01
     // https://github.com/multiformats/multicodec/blob/master/table.csv#L80
@@ -282,10 +299,10 @@ export class X25519KeyPair {
       id: this.id,
       type: this.type,
       controller: this.controller,
-      publicKeyBase58: this.publicKeyBase58,
+      publicKeyBase58: bs58.encode(this.publicKeyBuffer),
     };
     if (_private) {
-      kp.privateKeyBase58 = this.privateKeyBase58;
+      kp.privateKeyBase58 = bs58.encode(this.privateKeyBuffer);
     }
     return kp;
   }
@@ -307,25 +324,19 @@ export class X25519KeyPair {
   }
 
   async toJwk(_private: boolean = false) {
+    const publicKeyBase58 = bs58.encode(this.publicKeyBuffer);
     if (_private) {
       return keyUtils.privateKeyJwkFromPrivateKeyBase58(
-        this.publicKeyBase58,
-        this.privateKeyBase58
+        publicKeyBase58,
+        bs58.encode(this.privateKeyBuffer)
       );
     }
-    return keyUtils.publicKeyJwkFromPublicKeyBase58(this.publicKeyBase58);
-  }
-
-  async toHex(_private: boolean = false) {
-    if (_private) {
-      return keyUtils.privateKeyHexFromPrivateKeyBase58(this.privateKeyBase58);
-    }
-    return keyUtils.publicKeyHexFromPublicKeyBase58(this.publicKeyBase58);
+    return keyUtils.publicKeyJwkFromPublicKeyBase58(publicKeyBase58);
   }
 
   deriveSecret({ publicKey }: any) {
     const remotePubkeyBytes = bs58.decode(publicKey.publicKeyBase58);
-    const privateKeyBytes = bs58.decode(this.privateKeyBase58);
+    const privateKeyBytes = this.privateKeyBuffer as Buffer;
 
     const scalarMultipleResult = x25519.sharedKey(
       new Uint8Array(privateKeyBytes),

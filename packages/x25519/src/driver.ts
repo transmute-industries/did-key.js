@@ -2,7 +2,7 @@ import { X25519KeyPair } from './X25519KeyPair';
 
 export const keyToDidDoc = (x25519Key: X25519KeyPair) => {
   const did = `did:key:${x25519Key.fingerprint()}`;
-  const keyId = `#${x25519Key.fingerprint()}`;
+
   return {
     '@context': [
       'https://www.w3.org/ns/did/v1',
@@ -11,14 +11,7 @@ export const keyToDidDoc = (x25519Key: X25519KeyPair) => {
       },
     ],
     id: did,
-    keyAgreement: [
-      {
-        id: keyId,
-        type: x25519Key.type,
-        controller: did,
-        publicKeyBase58: x25519Key.publicKeyBase58,
-      },
-    ],
+    keyAgreement: [x25519Key.toKeyPair()],
   };
 };
 
