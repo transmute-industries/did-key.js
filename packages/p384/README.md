@@ -1,7 +1,5 @@
 # @transmute/did-key-p384
 
-![p384](https://github.com/transmute-industries/did-key.js/workflows/p384/badge.svg)
-
 ```
 npm i @transmute/did-key-p384@latest --save
 ```

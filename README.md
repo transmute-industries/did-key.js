@@ -27,8 +27,6 @@ Use the imports below if you only want to support 1 did key type.
 
 #### [Ed25519](./packages/ed25519)
 
-![ed25519](https://github.com/transmute-industries/did-key.js/workflows/ed25519/badge.svg)
-
 `did:key:z6Mk...`
 
 ```
@@ -36,8 +34,6 @@ npm i @transmute/did-key-ed25519@latest --save
 ```
 
 #### [X25519](./packages/x25519)
-
-![x25519](https://github.com/transmute-industries/did-key.js/workflows/x25519/badge.svg)
 
 `did:key:z6LS...`
 
@@ -47,8 +43,6 @@ npm i @transmute/did-key-x25519@latest --save
 
 #### [Bls12381](./packages/bls12381)
 
-![bls12381](https://github.com/transmute-industries/did-key.js/workflows/bls12381/badge.svg)
-
 `did:key:zUC7...`
 
 ```
@@ -57,8 +51,6 @@ npm i @transmute/did-key-bls12381@latest --save
 
 #### [Secp256k1](./packages/secp256k1)
 
-![secp256k1](https://github.com/transmute-industries/did-key.js/workflows/secp256k1/badge.svg)
-
 `did:key:zQ3s...`
 
 ```
@@ -66,8 +58,6 @@ npm i @transmute/did-key-secp256k1@latest --save
 ```
 
 #### [P-384](./packages/p384)
-
-![p384](https://github.com/transmute-industries/did-key.js/workflows/p384/badge.svg)
 
 `did:key:zUew...`
 
