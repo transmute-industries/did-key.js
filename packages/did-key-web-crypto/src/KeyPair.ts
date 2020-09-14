@@ -11,18 +11,10 @@ import { fingerprintToDid } from './functions/fingerprintToDid';
 import { getJwkTypeFromMultibase } from './functions/getJwkTypeFromMultibase';
 
 import {
+  types,
   getEpkGenerator,
   deriveKey,
   KeyEncryptionKey,
-  EpkResult,
-  KeyEncryptionKeyFromEphemeralPublicKeyOptions,
-  KeyAgreementKeyPairInstance,
-  DeriveSecretOptions,
-  KeyAgreementKeyPairClass,
-  ECDH_ES_A256KW,
-  KeyEncryptionKeyFromStaticPublicKeyOptions,
-  KeyPairJwk,
-  KeyPairBase58,
 } from '@transmute/did-key-cipher';
 
 /* class decorator */
@@ -34,9 +26,9 @@ function staticImplements<T>() {
 
 const KEY_TYPE = 'JsonWebKey2020';
 
-@staticImplements<KeyAgreementKeyPairClass>()
-export class KeyPair implements KeyAgreementKeyPairInstance {
-  public static JWE_ALG: ECDH_ES_A256KW = 'ECDH-ES+A256KW';
+@staticImplements<types.KeyAgreementKeyPairClass>()
+export class KeyPair implements types.KeyAgreementKeyPairInstance {
+  public static JWE_ALG: types.ECDH_ES_A256KW = 'ECDH-ES+A256KW';
 
   static generate = async (options?: any) => {
     const { privateKeyJwk } = await generate(options);
@@ -64,19 +56,23 @@ export class KeyPair implements KeyAgreementKeyPairInstance {
     throw new Error('Cannot create key from fingerprint ' + fingerprint);
   };
 
-  static fingerprintFromPublicKey(keypair: KeyPairJwk | KeyPairBase58) {
+  static fingerprintFromPublicKey(
+    keypair: types.KeyPairJwk | types.KeyPairBase58
+  ) {
     let kp = KeyPair.from(keypair);
     return kp.id.substring(1);
   }
 
-  static async generateEphemeralKeyPair(epkArgs: any): Promise<EpkResult> {
+  static async generateEphemeralKeyPair(
+    epkArgs: any
+  ): Promise<types.EpkResult> {
     return getEpkGenerator(KeyPair, epkArgs)();
   }
 
   static async kekFromEphemeralPeer({
     keyAgreementKey,
     epk,
-  }: KeyEncryptionKeyFromEphemeralPublicKeyOptions) {
+  }: types.KeyEncryptionKeyFromEphemeralPublicKeyOptions) {
     if (!(epk && typeof epk === 'object')) {
       throw new TypeError('"epk" must be an object.');
     }
@@ -95,7 +91,7 @@ export class KeyPair implements KeyAgreementKeyPairInstance {
     const consumerInfo = Buffer.from(keyAgreementKey.id);
     // converts keys again....
     // base58 encoding should only be used at the network / serialization boundary.
-    const secret = await (keyAgreementKey as KeyAgreementKeyPairInstance).deriveSecret(
+    const secret = await (keyAgreementKey as types.KeyAgreementKeyPairInstance).deriveSecret(
       {
         publicKey: ephemeralPublicKey.toJsonWebKey(),
       } as any
@@ -109,7 +105,7 @@ export class KeyPair implements KeyAgreementKeyPairInstance {
   static async kekFromStaticPeer({
     ephemeralKeyPair,
     staticPublicKey,
-  }: KeyEncryptionKeyFromStaticPublicKeyOptions) {
+  }: types.KeyEncryptionKeyFromStaticPublicKeyOptions) {
     // TODO: consider accepting JWK format for `staticPublicKey` not just LD key
     if (staticPublicKey.type !== KEY_TYPE) {
       throw new Error(`"staticPublicKey.type" must be "${KEY_TYPE}".`);
@@ -197,7 +193,7 @@ export class KeyPair implements KeyAgreementKeyPairInstance {
     return publicKeyToVerifier(publicKeyJwk);
   }
 
-  deriveSecret(options: DeriveSecretOptions) {
+  deriveSecret(options: types.DeriveSecretOptions) {
     const { privateKeyJwk } = this.toJsonWebKey(true);
     let publicKeyJwk;
 

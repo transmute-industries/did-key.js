@@ -1,9 +1,22 @@
 import * as driver from './driver';
 
-export * from './types';
-export * from './Jwe';
-export * from './Jws';
+import { deriveSecret } from './Jwe';
 
-export * from './KeyPair';
+import {
+  createJws,
+  createDetachedJws,
+  privateKeyToSigner,
+  publicKeyToVerifier,
+} from './Jws';
 
-export { driver };
+import { KeyPair } from './KeyPair';
+
+export {
+  driver,
+  KeyPair,
+  createJws,
+  createDetachedJws,
+  privateKeyToSigner,
+  publicKeyToVerifier,
+  deriveSecret,
+};

@@ -1,8 +1,9 @@
 import bs58 from 'bs58';
 import base64url from 'base64url';
-import { LinkedDataKeyPair } from '../types';
 
-export const jwkToBase58 = (jwk: any): LinkedDataKeyPair => {
+import { types } from '@transmute/did-key-cipher';
+
+export const jwkToBase58 = (jwk: any): types.LinkedDataKeyPair => {
   let keypair: any = {};
   if (jwk.d) {
     keypair.privateKeyBase58 = bs58.encode(

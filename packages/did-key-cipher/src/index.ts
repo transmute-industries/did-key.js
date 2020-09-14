@@ -1,7 +1,7 @@
 import { deriveKey } from './Cipher/algorithms/ecdhkdf';
 import { KeyEncryptionKey } from './Cipher/algorithms/classes/KeyEncryptionKey';
 
-export * from './Cipher';
-export * from './types';
+import { Cipher, getEpkGenerator } from './Cipher';
+import * as types from './types';
 
-export { deriveKey, KeyEncryptionKey };
+export { Cipher, getEpkGenerator, deriveKey, KeyEncryptionKey, types };

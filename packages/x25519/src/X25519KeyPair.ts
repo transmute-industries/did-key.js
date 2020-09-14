@@ -11,22 +11,10 @@ import base64url from 'base64url';
 import crypto from 'crypto';
 
 import {
-  getEpkGenerator,
+  types,
   deriveKey,
+  getEpkGenerator,
   KeyEncryptionKey,
-  ECDH_ES_A256KW,
-  KeyAgreementKeyPairClass,
-  KeyPairBase58,
-  KeyPairJwk,
-  LinkedDataKeyPair,
-  JsonWebKeyPair,
-  KeyPairInstance,
-  KeyPairGenerateOptions,
-  EpkResult,
-  KeyEncryptionKeyFromEphemeralPublicKeyOptions,
-  KeyEncryptionKeyFromStaticPublicKeyOptions,
-  KeyAgreementKeyPairInstance,
-  DeriveSecretOptions,
 } from '@transmute/did-key-cipher';
 
 const KEY_TYPE = 'X25519KeyAgreementKey2019';
@@ -38,8 +26,8 @@ function staticImplements<T>() {
   };
 }
 
-@staticImplements<KeyAgreementKeyPairClass>()
-export class X25519KeyPair implements KeyPairInstance {
+@staticImplements<types.KeyAgreementKeyPairClass>()
+export class X25519KeyPair implements types.KeyPairInstance {
   public id: string;
   public type: string;
   public controller: string;
@@ -47,19 +35,23 @@ export class X25519KeyPair implements KeyPairInstance {
   public publicKeyBuffer: Buffer;
   public privateKeyBuffer?: Buffer;
 
-  public static JWE_ALG: ECDH_ES_A256KW = 'ECDH-ES+A256KW';
+  public static JWE_ALG: types.ECDH_ES_A256KW = 'ECDH-ES+A256KW';
 
-  static fingerprintFromPublicKey(keypair: KeyPairJwk | KeyPairBase58) {
+  static fingerprintFromPublicKey(
+    keypair: types.KeyPairJwk | types.KeyPairBase58
+  ) {
     let pubkeyBytes: any;
 
     if ((keypair as any).publicKeyBase58) {
-      pubkeyBytes = bs58.decode((keypair as KeyPairBase58).publicKeyBase58);
+      pubkeyBytes = bs58.decode(
+        (keypair as types.KeyPairBase58).publicKeyBase58
+      );
     }
 
     if ((keypair as any).publicKeyJwk) {
       pubkeyBytes = bs58.decode(
         keyUtils.publicKeyBase58FromPublicKeyJwk(
-          (keypair as KeyPairJwk).publicKeyJwk
+          (keypair as types.KeyPairJwk).publicKeyJwk
         )
       );
     }
@@ -74,7 +66,7 @@ export class X25519KeyPair implements KeyPairInstance {
     return `z${bs58.encode(buffer)}`;
   }
 
-  static async generate(options: KeyPairGenerateOptions) {
+  static async generate(options: types.KeyPairGenerateOptions) {
     let key;
 
     key = x25519.generateKeyPair({
@@ -100,10 +92,10 @@ export class X25519KeyPair implements KeyPairInstance {
       controller: did,
       publicKeyBase58,
       privateKeyBase58,
-    } as KeyPairBase58);
+    } as types.KeyPairBase58);
   }
 
-  static async generateEphemeralKeyPair(): Promise<EpkResult> {
+  static async generateEphemeralKeyPair(): Promise<types.EpkResult> {
     return getEpkGenerator(X25519KeyPair, {
       secureRandom: () => {
         return crypto.randomBytes(32);
@@ -114,7 +106,7 @@ export class X25519KeyPair implements KeyPairInstance {
   static async kekFromEphemeralPeer({
     keyAgreementKey,
     epk,
-  }: KeyEncryptionKeyFromEphemeralPublicKeyOptions) {
+  }: types.KeyEncryptionKeyFromEphemeralPublicKeyOptions) {
     if (!(epk && typeof epk === 'object')) {
       throw new TypeError('"epk" must be an object.');
     }
@@ -137,7 +129,7 @@ export class X25519KeyPair implements KeyPairInstance {
     const consumerInfo = Buffer.from(keyAgreementKey.id);
     // converts keys again....
     // base58 encoding should only be used at the network / serialization boundary.
-    const secret = await (keyAgreementKey as KeyAgreementKeyPairInstance).deriveSecret(
+    const secret = await (keyAgreementKey as types.KeyAgreementKeyPairInstance).deriveSecret(
       {
         publicKey: ephemeralPublicKey,
       } as any
@@ -151,7 +143,7 @@ export class X25519KeyPair implements KeyPairInstance {
   static async kekFromStaticPeer({
     ephemeralKeyPair,
     staticPublicKey,
-  }: KeyEncryptionKeyFromStaticPublicKeyOptions) {
+  }: types.KeyEncryptionKeyFromStaticPublicKeyOptions) {
     // TODO: consider accepting JWK format for `staticPublicKey` not just LD key
     if (
       !(
@@ -199,13 +191,13 @@ export class X25519KeyPair implements KeyPairInstance {
         id: keyId,
         controller: did,
         publicKeyBase58,
-      } as KeyPairBase58);
+      } as types.KeyPairBase58);
     }
 
     throw new Error(`Unsupported Fingerprint Type: ${fingerprint}`);
   }
 
-  static fromEdKeyPair(ed25519KeyPair: KeyPairBase58) {
+  static fromEdKeyPair(ed25519KeyPair: types.KeyPairBase58) {
     let publicKeyBase58;
     let privateKeyBase58;
 
@@ -225,30 +217,30 @@ export class X25519KeyPair implements KeyPairInstance {
       controller: ed25519KeyPair.controller,
       publicKeyBase58,
       privateKeyBase58,
-    } as KeyPairBase58);
+    } as types.KeyPairBase58);
   }
 
-  static from(options: KeyPairBase58 | KeyPairJwk) {
+  static from(options: types.KeyPairBase58 | types.KeyPairJwk) {
     let privateKeyBase58;
     let publicKeyBase58;
 
-    if ((options as KeyPairBase58).publicKeyBase58) {
-      publicKeyBase58 = (options as KeyPairBase58).publicKeyBase58;
+    if ((options as types.KeyPairBase58).publicKeyBase58) {
+      publicKeyBase58 = (options as types.KeyPairBase58).publicKeyBase58;
     }
 
-    if ((options as KeyPairBase58).privateKeyBase58) {
-      privateKeyBase58 = (options as KeyPairBase58).privateKeyBase58;
+    if ((options as types.KeyPairBase58).privateKeyBase58) {
+      privateKeyBase58 = (options as types.KeyPairBase58).privateKeyBase58;
     }
 
-    if ((options as KeyPairJwk).privateKeyJwk) {
+    if ((options as types.KeyPairJwk).privateKeyJwk) {
       privateKeyBase58 = keyUtils.privateKeyBase58FromPrivateKeyJwk(
-        (options as KeyPairJwk).privateKeyJwk
+        (options as types.KeyPairJwk).privateKeyJwk
       );
     }
 
-    if ((options as KeyPairJwk).publicKeyJwk) {
+    if ((options as types.KeyPairJwk).publicKeyJwk) {
       publicKeyBase58 = keyUtils.publicKeyBase58FromPublicKeyJwk(
-        (options as KeyPairJwk).publicKeyJwk
+        (options as types.KeyPairJwk).publicKeyJwk
       );
     }
 
@@ -259,20 +251,20 @@ export class X25519KeyPair implements KeyPairInstance {
     });
   }
 
-  constructor(options: KeyPairJwk | KeyPairBase58) {
+  constructor(options: types.KeyPairJwk | types.KeyPairBase58) {
     this.type = 'X25519KeyAgreementKey2019';
     this.id = options.id;
     this.controller = options.controller;
 
-    if ((options as KeyPairBase58).publicKeyBase58) {
+    if ((options as types.KeyPairBase58).publicKeyBase58) {
       this.publicKeyBuffer = Buffer.from(
-        bs58.decode((options as KeyPairBase58).publicKeyBase58)
+        bs58.decode((options as types.KeyPairBase58).publicKeyBase58)
       );
-    } else if ((options as JsonWebKeyPair).publicKeyJwk) {
+    } else if ((options as types.JsonWebKeyPair).publicKeyJwk) {
       this.publicKeyBuffer = Buffer.from(
         bs58.decode(
           keyUtils.publicKeyBase58FromPublicKeyJwk(
-            (options as JsonWebKeyPair).publicKeyJwk
+            (options as types.JsonWebKeyPair).publicKeyJwk
           )
         )
       );
@@ -282,17 +274,17 @@ export class X25519KeyPair implements KeyPairInstance {
       );
     }
 
-    if ((options as KeyPairBase58).privateKeyBase58) {
+    if ((options as types.KeyPairBase58).privateKeyBase58) {
       this.privateKeyBuffer = Buffer.from(
-        bs58.decode((options as KeyPairBase58).privateKeyBase58)
+        bs58.decode((options as types.KeyPairBase58).privateKeyBase58)
       );
     }
 
-    if ((options as JsonWebKeyPair).privateKeyJwk) {
+    if ((options as types.JsonWebKeyPair).privateKeyJwk) {
       this.privateKeyBuffer = Buffer.from(
         bs58.decode(
           keyUtils.privateKeyBase58FromPrivateKeyJwk(
-            (options as JsonWebKeyPair).privateKeyJwk
+            (options as types.JsonWebKeyPair).privateKeyJwk
           )
         )
       );
@@ -340,7 +332,7 @@ export class X25519KeyPair implements KeyPairInstance {
     return { valid };
   }
 
-  toKeyPair(_private: boolean = false): LinkedDataKeyPair {
+  toKeyPair(_private: boolean = false): types.LinkedDataKeyPair {
     let kp: any = {
       id: this.id,
       type: this.type,
@@ -353,7 +345,7 @@ export class X25519KeyPair implements KeyPairInstance {
     return kp;
   }
 
-  toJsonWebKey(_private: boolean = false): JsonWebKeyPair {
+  toJsonWebKey(_private: boolean = false): types.JsonWebKeyPair {
     let kp: any = {
       id: this.id,
       type: 'JsonWebKey2020',
@@ -380,19 +372,19 @@ export class X25519KeyPair implements KeyPairInstance {
     return keyUtils.publicKeyJwkFromPublicKeyBase58(publicKeyBase58);
   }
 
-  deriveSecret(options: DeriveSecretOptions) {
+  deriveSecret(options: types.DeriveSecretOptions) {
     let remotePubkeyBytes;
 
     const { publicKey } = options;
 
     if ((publicKey as any).publicKeyBase58) {
       remotePubkeyBytes = bs58.decode(
-        (publicKey as LinkedDataKeyPair).publicKeyBase58
+        (publicKey as types.LinkedDataKeyPair).publicKeyBase58
       );
     } else if ((publicKey as any).publicKeyJwk) {
       remotePubkeyBytes = bs58.decode(
         keyUtils.publicKeyBase58FromPublicKeyJwk(
-          (publicKey as JsonWebKeyPair).publicKeyJwk
+          (publicKey as types.JsonWebKeyPair).publicKeyJwk
         )
       );
     }

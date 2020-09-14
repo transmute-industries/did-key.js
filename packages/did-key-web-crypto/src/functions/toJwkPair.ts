@@ -1,7 +1,9 @@
-import { LinkedDataKeyPair, JsonWebKeyPair } from '../types';
+import { types } from '@transmute/did-key-cipher';
 import { base58KeyPairToJwk } from './base58KeyPairToJwk';
 import { getJwkTypeFromMultibase } from './getJwkTypeFromMultibase';
-export const toJwkPair = (keypair: LinkedDataKeyPair): JsonWebKeyPair => {
+export const toJwkPair = (
+  keypair: types.LinkedDataKeyPair
+): types.JsonWebKeyPair => {
   // console.log('toJwkPair', keypair);
   const id = keypair.id.substring(keypair.id.indexOf('#') + 1);
   let _keypair: any = {

@@ -2,6 +2,7 @@
   "name": "root",
   "private": true,
   "scripts": {
+    "install:ci": "npm install --ignore-scripts && lerna link && lerna bootstrap --since origin/master --include-dependencies",
     "bootstrap": "lerna bootstrap",
     "deploy": "cd ./glitch-hosting; git pull; git add -A; git commit -m 'chore(deploy): :rocket:'; git push origin master; cd .. ; npm run shove",
     "lint": "lerna run lint --stream",
