@@ -1,5 +1,9 @@
 # @transmute/did-key-p384
 
+DEPRECATED.
+
+Please use [@transmute/did-key-web-crypto](../did-key-web-crypto) instead.
+
 ```
 npm i @transmute/did-key-p384@latest --save
 ```
