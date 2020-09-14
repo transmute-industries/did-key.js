@@ -19,7 +19,7 @@
   "scripts": {
     "start": "tsdx watch",
     "build": "tsdx build",
-    "test": "tsdx test ./src ",
+    "test": "tsdx test ",
     "lint": "tsdx lint src --fix",
     "prepare": "tsdx build"
   },
@@ -30,6 +30,7 @@
     "trailingComma": "es5"
   },
   "devDependencies": {
+    "@transmute/did-key-x25519": "^0.2.1-unstable.17",
     "minimal-cipher": "^1.4.0",
     "tsdx": "^0.13.2",
     "tslib": "^2.0.0",

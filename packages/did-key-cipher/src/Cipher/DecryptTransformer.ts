@@ -1,7 +1,7 @@
 /*!
  * Copyright (c) 2019-2020 Digital Bazaar, Inc. All rights reserved.
  */
-import base64url from 'base64url-universal';
+import base64url from 'base64url';
 
 import * as recAlgorithm from './algorithms/recommended';
 import { TextDecoder, stringToUint8Array } from './util';
@@ -64,7 +64,7 @@ export class DecryptTransformer {
       // ASCII(BASE64URL(UTF8(JWE Protected Header)))
       additionalData = stringToUint8Array(jwe.protected);
       header = JSON.parse(
-        new TextDecoder().decode(base64url.decode(jwe.protected))
+        new TextDecoder().decode(base64url.toBuffer(jwe.protected))
       );
     } catch (e) {
       throw new Error('Invalid JWE "protected" header.');
@@ -122,9 +122,9 @@ export class DecryptTransformer {
     // decrypt content
     const { ciphertext, iv, tag } = jwe;
     return cipher.decrypt({
-      ciphertext: base64url.decode(ciphertext),
-      iv: base64url.decode(iv),
-      tag: base64url.decode(tag),
+      ciphertext: base64url.toBuffer(ciphertext),
+      iv: base64url.toBuffer(iv),
+      tag: base64url.toBuffer(tag),
       additionalData,
       cek,
     });

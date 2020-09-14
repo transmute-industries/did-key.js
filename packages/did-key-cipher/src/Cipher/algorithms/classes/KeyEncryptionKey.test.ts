@@ -1,5 +1,5 @@
 import { KeyEncryptionKey } from './KeyEncryptionKey';
-import * as base64url from 'base64url-universal';
+import base64url from 'base64url';
 
 // see also https://github.com/StableLib/stablelib/blob/master/packages/aes-kw/aes-kw.test.ts
 
@@ -15,7 +15,7 @@ it('KeyEncryptionKey.wrapKey', async () => {
   const kekw = await KeyEncryptionKey.createKek({
     keyData: Buffer.from(testVector.KEK, 'hex'),
   });
-  const wrapped = base64url.decode(
+  const wrapped = base64url.toBuffer(
     await kekw.wrapKey({
       unwrappedKey: Buffer.from(testVector.KeyData, 'hex'),
     })
