@@ -2,7 +2,7 @@
   "name": "@transmute/did-key-x25519",
   "author": "Orie Steele",
   "module": "dist/did-key-x25519.esm.js",
-  "version": "0.2.1-unstable.16",
+  "version": "0.2.1-unstable.17",
   "publishConfig": {
     "access": "public"
   },
@@ -43,7 +43,7 @@
   "dependencies": {
     "@stablelib/ed25519": "^1.0.1",
     "@stablelib/x25519": "^1.0.0",
-    "@transmute/did-key-cipher": "^0.2.1-unstable.16",
+    "@transmute/did-key-cipher": "^0.2.1-unstable.17",
     "@trust/keyto": "^1.0.1",
     "base64url": "^3.0.1",
     "bs58": "^4.0.1",
