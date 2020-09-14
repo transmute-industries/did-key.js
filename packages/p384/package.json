@@ -2,7 +2,7 @@
   "name": "@transmute/did-key-p384",
   "author": "Orie Steele",
   "module": "dist/did-key-p384.esm.js",
-  "version": "0.2.1-unstable.14",
+  "version": "0.2.1-unstable.15",
   "publishConfig": {
     "access": "public"
   },
