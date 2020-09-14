@@ -37,11 +37,11 @@ describe('bls12381.sanity', () => {
     const key = await Bls12381G2KeyPair.generate();
     const signer = key.signer();
     const signature = await signer.sign({
-      data: fixtures.message,
+      data: new Uint8Array(Buffer.from(fixtures.message)),
     });
     const verifier = key.verifier();
     const verified = await verifier.verify({
-      data: fixtures.message,
+      data: new Uint8Array(Buffer.from(fixtures.message)),
       signature,
     });
     expect(verified).toBe(true);
