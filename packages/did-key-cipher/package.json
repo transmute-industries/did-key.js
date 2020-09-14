@@ -2,7 +2,7 @@
   "name": "@transmute/did-key-cipher",
   "author": "Orie Steele",
   "module": "dist/did-key-cipher.esm.js",
-  "version": "0.2.1-unstable.15",
+  "version": "0.2.1-unstable.16",
   "publishConfig": {
     "access": "public"
   },
