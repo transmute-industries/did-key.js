@@ -16,7 +16,9 @@ jobs:
           node-version: 12.x
       - name: Install
         run: npm run install:ci
+
       - name: Lint
         run: npm run lint -- --since origin/master
+
       - name: Test
         run: npm run test -- --since origin/master
