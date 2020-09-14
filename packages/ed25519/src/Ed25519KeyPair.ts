@@ -212,9 +212,9 @@ export class Ed25519KeyPair {
       controller: this.controller,
       publicKeyBase58: this.publicKeyBase58,
       privateKeyBase58: this.privateKeyBase58,
-    });
+    } as any);
     if (!_private) {
-      delete x25519.privateKeyBase58;
+      delete x25519.privateKeyBuffer;
     }
     return x25519;
   }

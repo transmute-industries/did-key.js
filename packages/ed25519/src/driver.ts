@@ -27,14 +27,7 @@ export const keyToDidDoc = (ed25519Key: Ed25519KeyPair) => {
     assertionMethod: [keyId],
     capabilityDelegation: [keyId],
     capabilityInvocation: [keyId],
-    keyAgreement: [
-      {
-        id: x25519.id,
-        type: x25519.type,
-        controller: did,
-        publicKeyBase58: x25519.publicKeyBase58,
-      },
-    ],
+    keyAgreement: [x25519.toKeyPair()],
   };
 };
 

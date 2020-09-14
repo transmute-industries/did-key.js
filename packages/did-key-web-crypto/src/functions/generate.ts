@@ -1,0 +1,42 @@
+import { SUPPORTED_EC } from '../constants';
+import crypto from '../crypto';
+
+export interface GenerateOptions {
+  kty: string;
+  crvOrSize: string;
+}
+
+export const generate = async (
+  options: GenerateOptions = { kty: 'EC', crvOrSize: 'P-256' }
+) => {
+  if (options.kty === 'EC' && SUPPORTED_EC.indexOf(options.crvOrSize) !== -1) {
+    let kp = await crypto.subtle.generateKey(
+      {
+        name: 'ECDSA',
+        namedCurve: options.crvOrSize,
+      },
+      true,
+      ['sign', 'verify']
+    );
+    const jwk = await crypto.subtle.exportKey('jwk', kp.privateKey);
+    return {
+      publicKeyJwk: {
+        kty: jwk.kty,
+        crv: jwk.crv,
+        x: jwk.x,
+        y: jwk.y,
+      },
+      privateKeyJwk: {
+        kty: jwk.kty,
+        crv: jwk.crv,
+        x: jwk.x,
+        y: jwk.y,
+        d: jwk.d,
+      },
+    };
+  }
+
+  throw new Error(
+    `Generate does not support ${options.kty} and ${options.crvOrSize}`
+  );
+};

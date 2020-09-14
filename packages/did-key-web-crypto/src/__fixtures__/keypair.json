@@ -1,0 +1,130 @@
+{
+  "keypair": [
+    {
+      "generate": {
+        "publicKeyJwk": {
+          "kty": "EC",
+          "crv": "P-256",
+          "x": "nGIngOzKufAHoWmGDohjFPwnOOupl4nfEXIbuLFvxgM",
+          "y": "2fUTIgIIMwXsmkUXnOGULbgBzPxrsr1KmXeAXqgQawo"
+        },
+        "privateKeyJwk": {
+          "kty": "EC",
+          "crv": "P-256",
+          "x": "nGIngOzKufAHoWmGDohjFPwnOOupl4nfEXIbuLFvxgM",
+          "y": "2fUTIgIIMwXsmkUXnOGULbgBzPxrsr1KmXeAXqgQawo",
+          "d": "KRW5Ms5psy02CLzsxpFWFdOfoa3JqpsrngMSDBcsLlY"
+        }
+      },
+      "fromJwk": {
+        "id": "#zXwpCNGaoAK2oF6cU7WBS2GU2uhKUfca2CCB3LonW2hNYvdqzTFcZc8CtF2HbGGPF9zGdcncQsbFZ2yaNzEvHEkRebyj",
+        "type": "JsonWebKey2020",
+        "controller": "did:key:zXwpCNGaoAK2oF6cU7WBS2GU2uhKUfca2CCB3LonW2hNYvdqzTFcZc8CtF2HbGGPF9zGdcncQsbFZ2yaNzEvHEkRebyj",
+        "privateKeyBase58": "3mNvpXYxPCGyiUHHZV5UTqL6wk7vQesMY6PtcpgEWuY9",
+        "publicKeyBase58": "48LuE4RWbUajMZsoTTBCpfYjPMFdqkopUYytFjQqA9tqFd2FcugPVBz5uZkSK9snUMieXRtwSKg8edRptSDtqjF7"
+      },
+      "toJwkPair": {
+        "id": "#zXwpCNGaoAK2oF6cU7WBS2GU2uhKUfca2CCB3LonW2hNYvdqzTFcZc8CtF2HbGGPF9zGdcncQsbFZ2yaNzEvHEkRebyj",
+        "type": "JsonWebKey2020",
+        "controller": "did:key:zXwpCNGaoAK2oF6cU7WBS2GU2uhKUfca2CCB3LonW2hNYvdqzTFcZc8CtF2HbGGPF9zGdcncQsbFZ2yaNzEvHEkRebyj",
+        "publicKeyJwk": {
+          "kty": "EC",
+          "crv": "P-256",
+          "x": "nGIngOzKufAHoWmGDohjFPwnOOupl4nfEXIbuLFvxgM",
+          "y": "2fUTIgIIMwXsmkUXnOGULbgBzPxrsr1KmXeAXqgQawo"
+        },
+        "privateKeyJwk": {
+          "kty": "EC",
+          "crv": "P-256",
+          "x": "nGIngOzKufAHoWmGDohjFPwnOOupl4nfEXIbuLFvxgM",
+          "y": "2fUTIgIIMwXsmkUXnOGULbgBzPxrsr1KmXeAXqgQawo",
+          "d": "KRW5Ms5psy02CLzsxpFWFdOfoa3JqpsrngMSDBcsLlY"
+        }
+      }
+    },
+    {
+      "generate": {
+        "publicKeyJwk": {
+          "kty": "EC",
+          "crv": "P-384",
+          "x": "1LfSHl53Fi53IfKoa07i8DNY2ZZRORLViUBv7pfS0B4sRF67R2NQ1WV9jnohCUeQ",
+          "y": "RlJwUSfR_C1T8pmC0GXpNcgdiN1vJwVTMfoRJyDzeHyOdUEBdcvcoYP5ZCkpRauR"
+        },
+        "privateKeyJwk": {
+          "kty": "EC",
+          "crv": "P-384",
+          "x": "1LfSHl53Fi53IfKoa07i8DNY2ZZRORLViUBv7pfS0B4sRF67R2NQ1WV9jnohCUeQ",
+          "y": "RlJwUSfR_C1T8pmC0GXpNcgdiN1vJwVTMfoRJyDzeHyOdUEBdcvcoYP5ZCkpRauR",
+          "d": "AfXAirg9tYpM1tFrbVIlv7oRqEug1HYMmne_XQ_pbmM_rWTQqx2RJ0-GQNg2AwRY"
+        }
+      },
+      "fromJwk": {
+        "id": "#zACHdxYeWHD6tA9kkzqiEGZ1F2W8vNqJbmhauGp6CFn1z7tT6NENjBgGF3GgphUiDRUXEwinRWci4cFrZRK5N9g6SuoKxuu7aseAxBfzdoCL9A8M9YHT9eQqc1aDqphUr2EuX4Fi",
+        "type": "JsonWebKey2020",
+        "controller": "did:key:zACHdxYeWHD6tA9kkzqiEGZ1F2W8vNqJbmhauGp6CFn1z7tT6NENjBgGF3GgphUiDRUXEwinRWci4cFrZRK5N9g6SuoKxuu7aseAxBfzdoCL9A8M9YHT9eQqc1aDqphUr2EuX4Fi",
+        "privateKeyBase58": "5ArszZdt5CX4FjS3TTDFgoyrqmjRcn8X9ZM5rw2dE9mHwFxn1uqvT7pDtCehycibh",
+        "publicKeyBase58": "2GH1YCtYuhzi3MgwHLKrghjb1PbL2BB3YoexHCQ3dRmmv3Eko7GWNRwZkDxfD3mrdJvqzX4itzhJMzQ4qqDjMZNeBw9MuBCEPm7hoZcbCxmqWcHwzXmETvgcieFTekRcHSzt"
+      },
+      "toJwkPair": {
+        "id": "#zACHdxYeWHD6tA9kkzqiEGZ1F2W8vNqJbmhauGp6CFn1z7tT6NENjBgGF3GgphUiDRUXEwinRWci4cFrZRK5N9g6SuoKxuu7aseAxBfzdoCL9A8M9YHT9eQqc1aDqphUr2EuX4Fi",
+        "type": "JsonWebKey2020",
+        "controller": "did:key:zACHdxYeWHD6tA9kkzqiEGZ1F2W8vNqJbmhauGp6CFn1z7tT6NENjBgGF3GgphUiDRUXEwinRWci4cFrZRK5N9g6SuoKxuu7aseAxBfzdoCL9A8M9YHT9eQqc1aDqphUr2EuX4Fi",
+        "publicKeyJwk": {
+          "kty": "EC",
+          "crv": "P-384",
+          "x": "1LfSHl53Fi53IfKoa07i8DNY2ZZRORLViUBv7pfS0B4sRF67R2NQ1WV9jnohCUeQ",
+          "y": "RlJwUSfR_C1T8pmC0GXpNcgdiN1vJwVTMfoRJyDzeHyOdUEBdcvcoYP5ZCkpRauR"
+        },
+        "privateKeyJwk": {
+          "kty": "EC",
+          "crv": "P-384",
+          "x": "1LfSHl53Fi53IfKoa07i8DNY2ZZRORLViUBv7pfS0B4sRF67R2NQ1WV9jnohCUeQ",
+          "y": "RlJwUSfR_C1T8pmC0GXpNcgdiN1vJwVTMfoRJyDzeHyOdUEBdcvcoYP5ZCkpRauR",
+          "d": "AfXAirg9tYpM1tFrbVIlv7oRqEug1HYMmne_XQ_pbmM_rWTQqx2RJ0-GQNg2AwRY"
+        }
+      }
+    },
+    {
+      "generate": {
+        "publicKeyJwk": {
+          "kty": "EC",
+          "crv": "P-521",
+          "x": "AKp-hGB31V1pzuS-oNGkty9EmfzLFVOEthn6-7EAt1E2GSWfrfaCDWQOmEO-FvxM03bwD2LfslT3440EB9r0uh3w",
+          "y": "AeED9rFVV-vi2PytcxUPwXRo2rjoWP_6JmxBQ4jHdYF6lw4nfnYhU0nwWiEp6FVGfnBebptWhOUeq-ywdvHJIItK"
+        },
+        "privateKeyJwk": {
+          "kty": "EC",
+          "crv": "P-521",
+          "x": "AKp-hGB31V1pzuS-oNGkty9EmfzLFVOEthn6-7EAt1E2GSWfrfaCDWQOmEO-FvxM03bwD2LfslT3440EB9r0uh3w",
+          "y": "AeED9rFVV-vi2PytcxUPwXRo2rjoWP_6JmxBQ4jHdYF6lw4nfnYhU0nwWiEp6FVGfnBebptWhOUeq-ywdvHJIItK",
+          "d": "AawCqrJJTcdy4tegkQ9rEjLroD4xcWZcXmgRVQfqx2uAOnfiQ1N9KvewFNURCjRpu0cTmK1SvjtxUFhx-qg08WeB"
+        }
+      },
+      "fromJwk": {
+        "id": "#zJss7x2Nj7pGhZG2p7XUFZk26SDgQd3kReUsRXg8QjDCUmC9a8dFtRjFQXPbZATaEbNJMBWAkhSc4BSV41RDTxXj9BhV1NFmC6XrgbZXDyGgwp9Y33MtdDFsTbgkRVq1Kkpvt3Y1pRhxeWmQDnMzzKHAHHbjhMPH9Nq7M7QXVVPqeiEWWu7YsRtsB",
+        "type": "JsonWebKey2020",
+        "controller": "did:key:zJss7x2Nj7pGhZG2p7XUFZk26SDgQd3kReUsRXg8QjDCUmC9a8dFtRjFQXPbZATaEbNJMBWAkhSc4BSV41RDTxXj9BhV1NFmC6XrgbZXDyGgwp9Y33MtdDFsTbgkRVq1Kkpvt3Y1pRhxeWmQDnMzzKHAHHbjhMPH9Nq7M7QXVVPqeiEWWu7YsRtsB",
+        "privateKeyBase58": "emfn6pN7SsawBEHnf4d9J5eMLwqMAihaBZQ6NSToRFqpe8oKA49SVfSaSuBSy9N2HnZnDVGGkS6sPfTuXM7VYsdpC",
+        "publicKeyBase58": "1SsCpYow3mfTu4ceoRJSg8emdAfsA97WDo6gQQgAQTQSqQXT9bMrns23QH1Uu5xs7kbg7wgRqxKD3wyVzJdciPvVK3TRtAtVA3y1Adf5K4xvkVQzBv18UxTE6Gv6mjXKwWeNmFs5zsM4D7pGcEM2eCs36fVJMqVQRzL4QiS2NTKvdzFFqVXo"
+      },
+      "toJwkPair": {
+        "id": "#zJss7x2Nj7pGhZG2p7XUFZk26SDgQd3kReUsRXg8QjDCUmC9a8dFtRjFQXPbZATaEbNJMBWAkhSc4BSV41RDTxXj9BhV1NFmC6XrgbZXDyGgwp9Y33MtdDFsTbgkRVq1Kkpvt3Y1pRhxeWmQDnMzzKHAHHbjhMPH9Nq7M7QXVVPqeiEWWu7YsRtsB",
+        "type": "JsonWebKey2020",
+        "controller": "did:key:zJss7x2Nj7pGhZG2p7XUFZk26SDgQd3kReUsRXg8QjDCUmC9a8dFtRjFQXPbZATaEbNJMBWAkhSc4BSV41RDTxXj9BhV1NFmC6XrgbZXDyGgwp9Y33MtdDFsTbgkRVq1Kkpvt3Y1pRhxeWmQDnMzzKHAHHbjhMPH9Nq7M7QXVVPqeiEWWu7YsRtsB",
+        "publicKeyJwk": {
+          "kty": "EC",
+          "crv": "P-521",
+          "x": "AKp-hGB31V1pzuS-oNGkty9EmfzLFVOEthn6-7EAt1E2GSWfrfaCDWQOmEO-FvxM03bwD2LfslT3440EB9r0uh3w",
+          "y": "AeED9rFVV-vi2PytcxUPwXRo2rjoWP_6JmxBQ4jHdYF6lw4nfnYhU0nwWiEp6FVGfnBebptWhOUeq-ywdvHJIItK"
+        },
+        "privateKeyJwk": {
+          "kty": "EC",
+          "crv": "P-521",
+          "x": "AKp-hGB31V1pzuS-oNGkty9EmfzLFVOEthn6-7EAt1E2GSWfrfaCDWQOmEO-FvxM03bwD2LfslT3440EB9r0uh3w",
+          "y": "AeED9rFVV-vi2PytcxUPwXRo2rjoWP_6JmxBQ4jHdYF6lw4nfnYhU0nwWiEp6FVGfnBebptWhOUeq-ywdvHJIItK",
+          "d": "AawCqrJJTcdy4tegkQ9rEjLroD4xcWZcXmgRVQfqx2uAOnfiQ1N9KvewFNURCjRpu0cTmK1SvjtxUFhx-qg08WeB"
+        }
+      }
+    }
+  ]
+}

@@ -1,0 +1,43 @@
+{
+  "name": "@transmute/did-key-cipher",
+  "author": "Orie Steele",
+  "module": "dist/did-key-cipher.esm.js",
+  "version": "0.2.1-unstable.13",
+  "publishConfig": {
+    "access": "public"
+  },
+  "license": "Apache-2.0",
+  "main": "dist/index.js",
+  "typings": "dist/index.d.ts",
+  "files": [
+    "dist",
+    "src"
+  ],
+  "engines": {
+    "node": ">=10"
+  },
+  "scripts": {
+    "start": "tsdx watch",
+    "build": "tsdx build",
+    "test": "tsdx test ./src ",
+    "lint": "tsdx lint src --fix",
+    "prepare": "tsdx build"
+  },
+  "prettier": {
+    "printWidth": 80,
+    "semi": true,
+    "singleQuote": true,
+    "trailingComma": "es5"
+  },
+  "devDependencies": {
+    "minimal-cipher": "^1.4.0",
+    "tsdx": "^0.13.2",
+    "tslib": "^2.0.0",
+    "typescript": "^3.9.5"
+  },
+  "dependencies": {
+    "@stablelib/aes-kw": "^1.0.0",
+    "@stablelib/xchacha20poly1305": "^1.0.0",
+    "node-webcrypto-ossl": "^2.1.2"
+  }
+}

@@ -1,6 +1,8 @@
 # @transmute/did-key-p384
 
-![p384](https://github.com/transmute-industries/did-key.js/workflows/p384/badge.svg)
+DEPRECATED.
+
+Please use [@transmute/did-key-web-crypto](../did-key-web-crypto) instead.
 
 ```
 npm i @transmute/did-key-p384@latest --save
