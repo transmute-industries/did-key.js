@@ -345,7 +345,7 @@ export class X25519KeyPair implements types.KeyPairInstance {
     return kp;
   }
 
-  toJsonWebKey(_private: boolean = false): types.JsonWebKeyPair {
+  toJsonWebKeyPair(_private: boolean = false): types.JsonWebKeyPair {
     let kp: any = {
       id: this.id,
       type: 'JsonWebKey2020',

@@ -6,5 +6,5 @@ export interface KeyPairInstance extends KeyPairBase {
   publicKeyBuffer: Buffer;
   privateKeyBuffer?: Buffer;
   toKeyPair: (exportPrivateKey?: boolean) => KeyPairBase58;
-  toJsonWebKey: (exportPrivateKey?: boolean) => KeyPairJwk;
+  toJsonWebKeyPair: (exportPrivateKey?: boolean) => KeyPairJwk;
 }

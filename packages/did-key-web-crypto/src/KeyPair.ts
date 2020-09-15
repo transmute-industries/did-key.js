@@ -93,7 +93,7 @@ export class KeyPair implements types.KeyAgreementKeyPairInstance {
     // base58 encoding should only be used at the network / serialization boundary.
     const secret = await (keyAgreementKey as types.KeyAgreementKeyPairInstance).deriveSecret(
       {
-        publicKey: ephemeralPublicKey.toJsonWebKey(),
+        publicKey: ephemeralPublicKey.toJsonWebKeyPair(),
       } as any
     );
     const keyData = await deriveKey({ secret, producerInfo, consumerInfo });
@@ -161,7 +161,7 @@ export class KeyPair implements types.KeyAgreementKeyPairInstance {
   }
 
   fingerprint() {
-    const { id } = this.toJsonWebKey();
+    const { id } = this.toJsonWebKeyPair();
     return id.substring(1);
   }
 
@@ -178,23 +178,23 @@ export class KeyPair implements types.KeyAgreementKeyPairInstance {
     return options;
   }
 
-  toJsonWebKey(exportPrivateKey = false) {
+  toJsonWebKeyPair(exportPrivateKey = false) {
     const options = this.toKeyPair(exportPrivateKey);
     return toJwkPair(options);
   }
 
   async signer() {
-    const { privateKeyJwk } = this.toJsonWebKey(true);
+    const { privateKeyJwk } = this.toJsonWebKeyPair(true);
     return privateKeyToSigner(privateKeyJwk);
   }
 
   async verifier() {
-    const { publicKeyJwk } = this.toJsonWebKey();
+    const { publicKeyJwk } = this.toJsonWebKeyPair();
     return publicKeyToVerifier(publicKeyJwk);
   }
 
   deriveSecret(options: types.DeriveSecretOptions) {
-    const { privateKeyJwk } = this.toJsonWebKey(true);
+    const { privateKeyJwk } = this.toJsonWebKeyPair(true);
     let publicKeyJwk;
 
     if ((options.publicKey as any).publicKeyJwk) {

@@ -77,7 +77,7 @@ export const getKid = (
 };
 
 /** convert compressed hex encoded private key to jwk */
-export const privateKeyJwkFromPrivateKeyHex = async (privateKeyHex: string) => {
+export const privateKeyJwkFromPrivateKeyHex = (privateKeyHex: string) => {
   const jwk = {
     ...keyto.from(privateKeyHex, 'blk').toJwk('private'),
     crv: 'secp256k1',
@@ -90,7 +90,7 @@ export const privateKeyJwkFromPrivateKeyHex = async (privateKeyHex: string) => {
 };
 
 /** convert compressed hex encoded public key to jwk */
-export const publicKeyJwkFromPublicKeyHex = async (publicKeyHex: string) => {
+export const publicKeyJwkFromPublicKeyHex = (publicKeyHex: string) => {
   let key = publicKeyHex;
   if (publicKeyHex.length === compressedHexEncodedPublicKeyLength) {
     const keyBin = secp256k1.publicKeyConvert(

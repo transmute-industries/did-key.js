@@ -266,7 +266,7 @@ export class Secp256k1KeyPair {
     return publicNode;
   }
 
-  async toJwk(_private: boolean = false) {
+  toJwk(_private: boolean = false) {
     if (_private) {
       return keyUtils.privateKeyJwkFromPrivateKeyHex(
         bs58.decode(this.privateKeyBase58).toString('hex')
@@ -302,6 +302,22 @@ export class Secp256k1KeyPair {
     if (exportPrivate) {
       kp.privateKeyBase58 = this.privateKeyBase58;
     }
+    return kp;
+  }
+
+  toJsonWebKeyPair(exportPrivate: boolean = false): any {
+    let kp: any = {
+      id: this.id,
+      type: 'JsonWebKey2020',
+      controller: this.controller,
+      publicKeyJwk: this.toJwk(),
+    };
+    delete kp.publicKeyJwk.kid;
+    if (exportPrivate) {
+      kp.privateKeyJwk = this.toJwk(true);
+      delete kp.privateKeyJwk.kid;
+    }
+
     return kp;
   }
 }
