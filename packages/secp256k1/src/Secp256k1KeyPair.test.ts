@@ -1,4 +1,5 @@
 import crypto from 'crypto';
+
 import { Secp256k1KeyPair } from './Secp256k1KeyPair';
 import * as fixtures from './__fixtures__';
 
