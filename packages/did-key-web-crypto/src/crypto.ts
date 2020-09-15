@@ -10,7 +10,7 @@ function isNodejs() {
 
 let crypto: Crypto;
 
-if (isNodejs()) {
+if (isNodejs() && typeof window === undefined) {
   crypto = new Crypto();
 } else {
   crypto = window.crypto as Crypto;
