@@ -1,17 +1,13 @@
 import React from "react";
 import PropTypes from "prop-types";
-import crypto from "crypto";
 import Grid from "@material-ui/core/Grid";
 import Typography from "@material-ui/core/Typography";
 import Button from "@material-ui/core/Button";
 import Base from "../base/base";
-import * as bs58 from "bs58";
-import * as ed25519 from "@transmute/did-key-ed25519";
-import * as x25519 from "@transmute/did-key-x25519";
-import * as secp256k1 from "@transmute/did-key-secp256k1";
-import * as bls12381 from "@transmute/did-key-bls12381";
-import * as p384 from "@transmute/did-key-p384";
+
 import { DIDDocumentPreview, JSONEditor } from "@transmute/material-did-core";
+
+import * as util from "./util";
 
 export const Home = (props) => {
   const [state, setState] = React.useState({
@@ -21,17 +17,24 @@ export const Home = (props) => {
 
   const generateEd25519 = async () => {
     (async () => {
-      const ed25519Key = await ed25519.Ed25519KeyPair.generate({
-        secureRandom: () => {
-          return crypto.randomBytes(32);
-        },
-      });
-      const x25519Key = await x25519.X25519KeyPair.fromEdKeyPair(ed25519Key);
-      const didDocument = ed25519.driver.keyToDidDoc(ed25519Key);
+      const { keys, didDocument } = await util.generateEd25519();
       setState((state) => {
         return {
           ...state,
-          keys: { ed25519Key, x25519Key },
+          keys,
+          didDocument,
+        };
+      });
+    })();
+  };
+
+  const generateX25519 = async () => {
+    (async () => {
+      const { keys, didDocument } = await util.generateX25519();
+      setState((state) => {
+        return {
+          ...state,
+          keys,
           didDocument,
         };
       });
@@ -40,16 +43,11 @@ export const Home = (props) => {
 
   const generateSecp256k1 = async () => {
     (async () => {
-      const secp256k1Key = await secp256k1.Secp256k1KeyPair.generate({
-        secureRandom: () => {
-          return crypto.randomBytes(32);
-        },
-      });
-      const didDocument = secp256k1.driver.keyToDidDoc(secp256k1Key);
+      const { keys, didDocument } = await util.generateSecp256k1();
       setState((state) => {
         return {
           ...state,
-          keys: { secp256k1Key },
+          keys,
           didDocument,
         };
       });
@@ -58,17 +56,24 @@ export const Home = (props) => {
 
   const generateBls12381 = async () => {
     (async () => {
-      const bls12381G2Key = await bls12381.Bls12381G2KeyPair.generate();
-      const didDocument = bls12381.driver.keyToDidDoc(bls12381G2Key);
+      const { keys, didDocument } = await util.generateBls12381();
       setState((state) => {
         return {
           ...state,
-          keys: {
-            bls12381G2Key: {
-              ...didDocument.publicKey[0],
-              privateKeyBase58: bs58.encode(bls12381G2Key.privateKeyBuffer),
-            },
-          },
+          keys,
+          didDocument,
+        };
+      });
+    })();
+  };
+
+  const generateP256 = async () => {
+    (async () => {
+      const { keys, didDocument } = await util.generateP256();
+      setState((state) => {
+        return {
+          ...state,
+          keys,
           didDocument,
         };
       });
@@ -77,19 +82,24 @@ export const Home = (props) => {
 
   const generateP384 = async () => {
     (async () => {
-      const p384Key = await p384.P384KeyPair.generate();
-      const didDocument = p384.driver.keyToDidDoc(p384Key);
-      const privateKeyJwk = p384Key.toJwk(true);
-      delete privateKeyJwk.kid;
+      const { keys, didDocument } = await util.generateP384();
       setState((state) => {
         return {
           ...state,
-          keys: {
-            p384Key: {
-              ...didDocument.publicKey[0],
-              privateKeyJwk,
-            },
-          },
+          keys,
+          didDocument,
+        };
+      });
+    })();
+  };
+
+  const generateP521 = async () => {
+    (async () => {
+      const { keys, didDocument } = await util.generateP521();
+      setState((state) => {
+        return {
+          ...state,
+          keys,
           didDocument,
         };
       });
@@ -122,6 +132,16 @@ export const Home = (props) => {
             variant={"contained"}
             style={{ marginRight: "8px" }}
             onClick={() => {
+              generateX25519();
+            }}
+          >
+            X25519
+          </Button>
+
+          <Button
+            variant={"contained"}
+            style={{ marginRight: "8px" }}
+            onClick={() => {
               generateSecp256k1();
             }}
           >
@@ -141,10 +161,28 @@ export const Home = (props) => {
             variant={"contained"}
             style={{ marginRight: "8px" }}
             onClick={() => {
+              generateP256();
+            }}
+          >
+            P-256
+          </Button>
+          <Button
+            variant={"contained"}
+            style={{ marginRight: "8px" }}
+            onClick={() => {
               generateP384();
             }}
           >
             P-384
+          </Button>
+          <Button
+            variant={"contained"}
+            style={{ marginRight: "8px" }}
+            onClick={() => {
+              generateP521();
+            }}
+          >
+            P-521
           </Button>
         </Grid>
 

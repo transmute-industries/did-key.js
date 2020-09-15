@@ -4,7 +4,7 @@
 import base64url from 'base64url';
 
 import * as recAlgorithm from './algorithms/recommended';
-import { TextDecoder, stringToUint8Array } from './util';
+import { stringToUint8Array } from './util';
 
 const CIPHER_ALGORITHMS: any = {
   [recAlgorithm.cipher.JWE_ENC]: recAlgorithm.cipher,
@@ -63,9 +63,7 @@ export class DecryptTransformer {
     try {
       // ASCII(BASE64URL(UTF8(JWE Protected Header)))
       additionalData = stringToUint8Array(jwe.protected);
-      header = JSON.parse(
-        new TextDecoder().decode(base64url.toBuffer(jwe.protected))
-      );
+      header = JSON.parse(base64url.toBuffer(jwe.protected).toString());
     } catch (e) {
       throw new Error('Invalid JWE "protected" header.');
     }

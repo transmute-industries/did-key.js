@@ -219,6 +219,20 @@ export class Ed25519KeyPair {
     return x25519;
   }
 
+  toKeyPair(_private: boolean = false) {
+    const kp: any = {
+      id: this.id,
+      type: this.type,
+      controller: this.controller,
+      publicKeyBase58: this.publicKeyBase58,
+    };
+
+    if (!_private) {
+      kp.privateKeyBase58 = this.privateKeyBase58;
+    }
+    return kp;
+  }
+
   signer() {
     if (!this.privateKeyBase58) {
       return {

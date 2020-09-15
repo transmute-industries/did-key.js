@@ -1,7 +1,5 @@
 # @transmute/did-key-resolver
 
-- [Swagger Docs](https://did-key.web.app/api/docs)
-
 ## Getting Started
 
 ```
@@ -51,14 +49,4 @@ Yields
     }
   ]
 }
-```
-
-#### Testing Firebase
-
-```
-npm run serve
-```
-
-```
-curl -s GET http://localhost:5010/did-key/us-central1/main/api/dids/did:key:z6MkspKCfo45Ak8YfodDW14oasR4bXSGAHEjAwJDvNdicvQt | jq
 ```

@@ -291,4 +291,17 @@ export class Secp256k1KeyPair {
       )
     );
   }
+
+  toKeyPair(exportPrivate = false) {
+    const kp: any = {
+      id: this.id,
+      type: this.type,
+      controller: this.controller,
+      publicKeyBase58: this.publicKeyBase58,
+    };
+    if (exportPrivate) {
+      kp.privateKeyBase58 = this.privateKeyBase58;
+    }
+    return kp;
+  }
 }

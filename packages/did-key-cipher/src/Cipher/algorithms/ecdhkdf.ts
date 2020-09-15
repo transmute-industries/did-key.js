@@ -2,13 +2,12 @@
  * Copyright (c) 2019-2020 Digital Bazaar, Inc. All rights reserved.
  */
 import crypto from '../crypto';
-import { TextEncoder } from '../util';
 
 // only supported algorithm
 const KEY_ALGORITHM = 'ECDH-ES+A256KW';
 
 // create static ALGORITHM_ID
-const ALGORITHM_CONTENT = new TextEncoder().encode(KEY_ALGORITHM);
+const ALGORITHM_CONTENT = KEY_ALGORITHM; //new TextEncoder().encode();
 const ALGORITHM_ID = new Uint8Array(4 + ALGORITHM_CONTENT.length);
 // write length of content as 32-bit big endian integer, then write content
 const dv = new DataView(
@@ -17,7 +16,7 @@ const dv = new DataView(
   ALGORITHM_ID.byteLength
 );
 dv.setUint32(0, ALGORITHM_CONTENT.length);
-ALGORITHM_ID.set(ALGORITHM_CONTENT, 4);
+ALGORITHM_ID.set(Buffer.from(ALGORITHM_CONTENT), 4);
 
 // RFC 7518 Section 4.6.2 specifies using SHA-256 for ECDH-ES KDF
 // https://tools.ietf.org/html/rfc7518#section-4.6.2

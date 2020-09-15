@@ -103,19 +103,13 @@ Stable releases are triggered by a dev locally
 
 ### Deployment
 
-```
-npm run deploy
-```
-
 Because `did:key` is just a deterministic transformer of public key bytes...
 
 You really ought to never resolve it over a network.
 
 However, it can be useful for testing purposes.
 
-In order to avoid costs, recommend a hosting provider that is free / rate limited.
-
-glitch.com is one such provider... firebase used to be 😢
+See the [workbench](./packages/workbench) and [resolver](./packages/resolver) modules.
 
 #####
 
