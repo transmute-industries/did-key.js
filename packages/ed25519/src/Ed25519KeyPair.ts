@@ -193,33 +193,33 @@ export class Ed25519KeyPair {
     return { valid };
   }
 
-  async toJwk(_private: boolean = false) {
-    if (_private) {
+  async toJwk(exportPrivateKey: boolean = false) {
+    if (exportPrivateKey) {
       return keyUtils.privateKeyJwkFromPrivateKeyBase58(this.privateKeyBase58);
     }
     return keyUtils.publicKeyJwkFromPublicKeyBase58(this.publicKeyBase58);
   }
 
-  async toHex(_private: boolean = false) {
-    if (_private) {
+  async toHex(exportPrivateKey: boolean = false) {
+    if (exportPrivateKey) {
       return keyUtils.privateKeyHexFromPrivateKeyBase58(this.privateKeyBase58);
     }
     return keyUtils.publicKeyHexFromPublicKeyBase58(this.publicKeyBase58);
   }
 
-  toX25519KeyPair(_private: boolean = false) {
+  toX25519KeyPair(exportPrivateKey: boolean = false) {
     const x25519 = X25519KeyPair.fromEdKeyPair({
       controller: this.controller,
       publicKeyBase58: this.publicKeyBase58,
       privateKeyBase58: this.privateKeyBase58,
     } as any);
-    if (!_private) {
+    if (!exportPrivateKey) {
       delete x25519.privateKeyBuffer;
     }
     return x25519;
   }
 
-  toKeyPair(_private: boolean = false) {
+  toKeyPair(exportPrivateKey: boolean = false) {
     const kp: any = {
       id: this.id,
       type: this.type,
@@ -227,7 +227,7 @@ export class Ed25519KeyPair {
       publicKeyBase58: this.publicKeyBase58,
     };
 
-    if (!_private) {
+    if (exportPrivateKey) {
       kp.privateKeyBase58 = this.privateKeyBase58;
     }
     return kp;
