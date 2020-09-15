@@ -179,7 +179,8 @@ export class Cipher {
       // decryption failed
       return null;
     }
-    return JSON.parse(new TextDecoder().decode(data));
+
+    return JSON.parse(Buffer.from(data).toString());
   }
 
   /**

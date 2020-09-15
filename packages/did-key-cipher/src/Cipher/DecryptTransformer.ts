@@ -63,9 +63,7 @@ export class DecryptTransformer {
     try {
       // ASCII(BASE64URL(UTF8(JWE Protected Header)))
       additionalData = stringToUint8Array(jwe.protected);
-      header = JSON.parse(
-        new TextDecoder().decode(base64url.toBuffer(jwe.protected))
-      );
+      header = JSON.parse(base64url.toBuffer(jwe.protected).toString());
     } catch (e) {
       throw new Error('Invalid JWE "protected" header.');
     }
