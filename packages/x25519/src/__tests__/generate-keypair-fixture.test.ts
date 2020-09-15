@@ -22,7 +22,7 @@ it('can generate keypair fixture', async () => {
       fixture.keypair.push({
         seed: s,
         X25519KeyAgreementKey2019: key.toKeyPair(true),
-        JsonWebKey2020: await key.toJsonWebKey(true),
+        JsonWebKey2020: await key.toJsonWebKeyPair(true),
       });
 
       return true;

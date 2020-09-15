@@ -233,6 +233,24 @@ export class Ed25519KeyPair {
     return kp;
   }
 
+  toJsonWebKeyPair(exportPrivateKey: boolean = false) {
+    const kp: any = {
+      id: this.id,
+      type: 'JsonWebKey2020',
+      controller: this.controller,
+      publicKeyJwk: keyUtils.publicKeyJwkFromPublicKeyBase58(
+        this.publicKeyBase58
+      ),
+    };
+
+    if (exportPrivateKey) {
+      kp.privateKeyJwk = keyUtils.privateKeyJwkFromPrivateKeyBase58(
+        this.privateKeyBase58
+      );
+    }
+    return kp;
+  }
+
   signer() {
     if (!this.privateKeyBase58) {
       return {

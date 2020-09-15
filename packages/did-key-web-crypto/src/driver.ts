@@ -11,7 +11,7 @@ export const keyToDidDoc = (key: KeyPair) => {
       },
     ],
     id: did,
-    publicKey: [key.toJsonWebKey()],
+    publicKey: [key.toJsonWebKeyPair()],
     authentication: [keyId],
     assertionMethod: [keyId],
     capabilityDelegation: [keyId],

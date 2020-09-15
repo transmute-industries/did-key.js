@@ -6,9 +6,9 @@ it('generate', async () => {
   expect(k0.privateKeyBuffer).toBeDefined();
 });
 
-it('from / toJsonWebKey', async () => {
+it('from / toJsonWebKeyPair', async () => {
   const k0 = await KeyPair.from(keypair[0].fromJwk);
-  expect(k0.toJsonWebKey(true)).toEqual(keypair[0].toJwkPair);
+  expect(k0.toJsonWebKeyPair(true)).toEqual(keypair[0].toJwkPair);
 });
 
 it('fromFingerprint', async () => {
@@ -17,7 +17,7 @@ it('fromFingerprint', async () => {
   });
   const withoutPrivateKey: any = { ...keypair[0].toJwkPair };
   delete withoutPrivateKey.privateKeyJwk;
-  expect(k0.toJsonWebKey()).toEqual(withoutPrivateKey);
+  expect(k0.toJsonWebKeyPair()).toEqual(withoutPrivateKey);
 });
 
 it('sign / verify', async () => {

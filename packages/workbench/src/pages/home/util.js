@@ -72,7 +72,7 @@ export const generateP256 = async () => {
     crvOrSize: "P-256",
   });
   const keys = {
-    key: await keypair.toJsonWebKey(true),
+    key: await keypair.toJsonWebKeyPair(true),
   };
   const didDocument = await didKeyWebCrypto.driver.get({
     did: keys.key.controller,
@@ -89,7 +89,7 @@ export const generateP384 = async () => {
     crvOrSize: "P-384",
   });
   const keys = {
-    key: await keypair.toJsonWebKey(true),
+    key: await keypair.toJsonWebKeyPair(true),
   };
   const didDocument = await didKeyWebCrypto.driver.get({
     did: keys.key.controller,
@@ -106,7 +106,7 @@ export const generateP521 = async () => {
     crvOrSize: "P-521",
   });
   const keys = {
-    key: await keypair.toJsonWebKey(true),
+    key: await keypair.toJsonWebKeyPair(true),
   };
   const didDocument = await didKeyWebCrypto.driver.get({
     did: keys.key.controller,
