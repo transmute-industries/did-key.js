@@ -4,7 +4,7 @@
 import base64url from 'base64url';
 
 import * as recAlgorithm from './algorithms/recommended';
-import { TextDecoder, stringToUint8Array } from './util';
+import { stringToUint8Array } from './util';
 
 const CIPHER_ALGORITHMS: any = {
   [recAlgorithm.cipher.JWE_ENC]: recAlgorithm.cipher,

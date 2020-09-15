@@ -2,7 +2,7 @@
  * Copyright (c) 2019-2020 Digital Bazaar, Inc. All rights reserved.
  */
 import base64url from 'base64url';
-import { TextDecoder, TransformStream, stringToUint8Array } from './util';
+import { TransformStream, stringToUint8Array } from './util';
 import { DecryptTransformer } from './DecryptTransformer';
 import { EncryptTransformer } from './EncryptTransformer';
 import * as recAlgorithm from './algorithms/recommended';

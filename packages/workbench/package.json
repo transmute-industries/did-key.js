@@ -14,6 +14,7 @@
     "@transmute/did-key-secp256k1": "^0.2.1-unstable.18",
     "@transmute/did-key-x25519": "^0.2.1-unstable.18",
     "@transmute/did-key.js": "^0.2.1-unstable.18",
+    "@transmute/did-key-web-crypto": "0.2.1-unstable.18",
     "@transmute/material-did-core": "0.0.8",
     "@transmute/universal-wallet": "0.0.6",
     "bitcoin-ts": "1.14.2",
