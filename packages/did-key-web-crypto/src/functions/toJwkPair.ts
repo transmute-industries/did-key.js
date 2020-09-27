@@ -1,4 +1,5 @@
-import { types } from '@transmute/did-key-cipher';
+import { types } from '@transmute/did-key-common';
+
 import { base58KeyPairToJwk } from './base58KeyPairToJwk';
 import { getJwkTypeFromMultibase } from './getJwkTypeFromMultibase';
 export const toJwkPair = (

@@ -10,8 +10,9 @@ import { toJwkPair } from './functions/toJwkPair';
 import { fingerprintToDid } from './functions/fingerprintToDid';
 import { getJwkTypeFromMultibase } from './functions/getJwkTypeFromMultibase';
 
+import { types } from '@transmute/did-key-common';
+
 import {
-  types,
   getEpkGenerator,
   deriveKey,
   KeyEncryptionKey,
