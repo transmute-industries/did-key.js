@@ -1,8 +1,7 @@
-export const keyToDidDoc = (
+export const getVerificationMethod = (
   didKeyPairInstance: any,
   contentType: string = 'application/did+ld+json'
 ) => {
-  const did = `did:key:${didKeyPairInstance.fingerprint()}`;
   let externalKeyRepresentation;
   switch (contentType) {
     case 'application/did+json': {
@@ -20,11 +19,23 @@ export const keyToDidDoc = (
       );
     }
   }
+  return externalKeyRepresentation;
+};
+
+export const keyToDidDoc = async (
+  didKeyPairInstance: any,
+  contentType: string = 'application/did+ld+json'
+) => {
+  const did = `did:key:${didKeyPairInstance.fingerprint()}`;
+  const externalKeyRepresentation = getVerificationMethod(
+    didKeyPairInstance,
+    contentType
+  );
   let verificationRelationships: any = {
     verificationMethod: [externalKeyRepresentation],
   };
 
-  if (didKeyPairInstance.verify) {
+  if (didKeyPairInstance.verifier) {
     verificationRelationships = {
       ...verificationRelationships,
       authentication: [externalKeyRepresentation.id],
@@ -38,6 +49,19 @@ export const keyToDidDoc = (
     verificationRelationships = {
       ...verificationRelationships,
       keyAgreement: [externalKeyRepresentation.id],
+    };
+  }
+
+  if (didKeyPairInstance.type === 'Ed25519VerificationKey2018') {
+    const kek = await didKeyPairInstance.toX25519KeyPair(false);
+    const externalKeyRepresentation2 = getVerificationMethod(kek, contentType);
+    verificationRelationships = {
+      ...verificationRelationships,
+      verificationMethod: [
+        ...verificationRelationships.verificationMethod,
+        externalKeyRepresentation2,
+      ],
+      keyAgreement: [externalKeyRepresentation2.id],
     };
   }
 
@@ -82,7 +106,7 @@ export const getResolve = (DidKeyPairClass: any) => {
       .pop();
     const publicKey = await DidKeyPairClass.fromFingerprint({ fingerprint });
     return {
-      didDocument: keyToDidDoc(publicKey, resolutionMetaData.accept),
+      didDocument: await keyToDidDoc(publicKey, resolutionMetaData.accept),
       didDocumentMetaData: {
         'content-type': resolutionMetaData.accept,
       },

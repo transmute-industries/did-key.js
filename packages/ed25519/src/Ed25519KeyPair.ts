@@ -198,15 +198,18 @@ export class Ed25519KeyPair {
   }
 
   toX25519KeyPair(exportPrivateKey: boolean = false) {
-    const x25519 = X25519KeyPair.fromEdKeyPair({
-      controller: this.controller,
-      publicKeyBase58: bs58.encode(this.publicKeyBuffer),
-      privateKeyBase58: bs58.encode(this.privateKeyBuffer),
-    } as any);
-    if (!exportPrivateKey) {
-      delete x25519.privateKeyBuffer;
+    if (exportPrivateKey) {
+      return X25519KeyPair.fromEdKeyPair({
+        controller: this.controller,
+        publicKeyBase58: bs58.encode(this.publicKeyBuffer),
+        privateKeyBase58: bs58.encode(this.privateKeyBuffer),
+      } as any);
+    } else {
+      return X25519KeyPair.fromEdKeyPair({
+        controller: this.controller,
+        publicKeyBase58: bs58.encode(this.publicKeyBuffer),
+      } as any);
     }
-    return x25519;
   }
 
   toKeyPair(exportPrivateKey: boolean = false) {
