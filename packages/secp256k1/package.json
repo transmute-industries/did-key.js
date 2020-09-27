@@ -34,7 +34,8 @@
     "jose": "^1.28.0",
     "tsdx": "^0.13.2",
     "tslib": "^2.0.0",
-    "typescript": "^3.9.5"
+    "typescript": "^3.9.5",
+    "@transmute/did-key-test-vectors": "^0.2.1-unstable.20"
   },
   "dependencies": {
     "@transmute/did-key-common": "^0.2.1-unstable.20",

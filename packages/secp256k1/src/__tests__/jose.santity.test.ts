@@ -1,9 +1,12 @@
 import { JWS, JWK } from 'jose';
 import * as ES256K from '../ES256K';
 
-import * as fixtures from '../__fixtures__';
+import { didCoreConformance } from '@transmute/did-key-test-vectors';
+const [example] = didCoreConformance.secp256k1.key;
 
 const payload = { hello: 'world' };
+
+const { publicKeyJwk, privateKeyJwk } = example.keypair['application/did+json'];
 
 it('interop', async () => {
   let count = 0;
@@ -11,29 +14,26 @@ it('interop', async () => {
   let errorCount = 0;
 
   while (count < limit) {
-    const theirJws = await JWS.sign(
-      payload,
-      JWK.asKey(fixtures.privateKeyJwk as any)
-    );
+    const theirJws = await JWS.sign(payload, JWK.asKey(privateKeyJwk as any));
     const theirVerification = await JWS.verify(
       theirJws,
-      JWK.asKey(fixtures.publicKeyJwk as any)
+      JWK.asKey(publicKeyJwk as any)
     );
     expect(theirVerification).toEqual(payload);
-    const ourJws = await ES256K.sign(payload, fixtures.privateKeyJwk);
-    const ourVerification = await ES256K.verify(ourJws, fixtures.publicKeyJwk);
+    const ourJws = await ES256K.sign(payload, privateKeyJwk);
+    const ourVerification = await ES256K.verify(ourJws, publicKeyJwk);
     expect(ourVerification).toEqual(payload);
 
     const theirVerificationOfOurs = await JWS.verify(
       ourJws,
-      JWK.asKey(fixtures.publicKeyJwk as any)
+      JWK.asKey(publicKeyJwk as any)
     );
     expect(theirVerificationOfOurs).toEqual(payload);
 
     try {
       const ourVerificationOfTheirs = await ES256K.verify(
         theirJws,
-        fixtures.publicKeyJwk
+        publicKeyJwk
       );
       expect(ourVerificationOfTheirs).toEqual(payload);
     } catch (e) {
