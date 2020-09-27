@@ -141,7 +141,7 @@ export const publicKeyJwkFromPublicKeyPem = (publicKeyPem: string) => {
 };
 
 /** convert jwk to hex encoded private key */
-export const privateKeyHexFromJwk = async (jwk: ISecp256k1PrivateKeyJwk) =>
+export const privateKeyHexFromJwk = (jwk: ISecp256k1PrivateKeyJwk) =>
   keyto
     .from(
       {
@@ -153,7 +153,7 @@ export const privateKeyHexFromJwk = async (jwk: ISecp256k1PrivateKeyJwk) =>
     .toString('blk', 'private');
 
 /** convert jwk to hex encoded public key */
-export const publicKeyHexFromJwk = async (jwk: ISecp256k1PublicKeyJwk) => {
+export const publicKeyHexFromJwk = (jwk: ISecp256k1PublicKeyJwk) => {
   const uncompressedPublicKey = keyto
     .from(
       {
@@ -172,18 +172,14 @@ export const publicKeyHexFromJwk = async (jwk: ISecp256k1PublicKeyJwk) => {
 };
 
 /** convert jwk to binary encoded private key */
-export const privateKeyUInt8ArrayFromJwk = async (
-  jwk: ISecp256k1PrivateKeyJwk
-) => {
-  const privateKeyHex = await privateKeyHexFromJwk(jwk);
+export const privateKeyUInt8ArrayFromJwk = (jwk: ISecp256k1PrivateKeyJwk) => {
+  const privateKeyHex = privateKeyHexFromJwk(jwk);
   return Buffer.from(privateKeyHex, 'hex');
 };
 
 /** convert jwk to binary encoded public key */
-export const publicKeyUInt8ArrayFromJwk = async (
-  jwk: ISecp256k1PublicKeyJwk
-) => {
-  const publicKeyHex = await publicKeyHexFromJwk(jwk);
+export const publicKeyUInt8ArrayFromJwk = (jwk: ISecp256k1PublicKeyJwk) => {
+  const publicKeyHex = publicKeyHexFromJwk(jwk);
   return Buffer.from(publicKeyHex, 'hex');
 };
 
@@ -197,19 +193,19 @@ export const privateKeyBase58FromPrivateKeyHex = (privateKeyHex: string) => {
   return bs58.encode(Buffer.from(privateKeyHex, 'hex'));
 };
 
-export const privateKeyUInt8ArrayFromPrivateKeyBase58 = async (
+export const privateKeyUInt8ArrayFromPrivateKeyBase58 = (
   privateKeyBase58: string
 ) => {
   return bs58.decode(privateKeyBase58);
 };
 
-export const publicKeyUInt8ArrayFromPublicKeyBase58 = async (
+export const publicKeyUInt8ArrayFromPublicKeyBase58 = (
   publicKeyBase58: string
 ) => {
   return bs58.decode(publicKeyBase58);
 };
 
-export const publicKeyHexFromPrivateKeyHex = async (privateKeyHex: string) => {
+export const publicKeyHexFromPrivateKeyHex = (privateKeyHex: string) => {
   const publicKey = secp256k1.publicKeyCreate(
     new Uint8Array(Buffer.from(privateKeyHex, 'hex'))
   );
