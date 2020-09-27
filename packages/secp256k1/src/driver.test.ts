@@ -19,7 +19,7 @@ let representations = [
     contentType: 'application/did+json',
   },
   {
-    keyType: 'X25519KeyAgreementKey2019',
+    keyType: 'EcdsaSecp256k1VerificationKey2019',
     contentType: 'application/did+ld+json',
   },
 ];

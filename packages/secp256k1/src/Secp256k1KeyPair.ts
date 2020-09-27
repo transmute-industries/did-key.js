@@ -25,8 +25,27 @@ export class Secp256k1KeyPair {
   public publicKeyBuffer: Buffer;
   public privateKeyBuffer?: Buffer;
 
-  static fingerprintFromPublicKey({ publicKeyBase58 }: any) {
-    const pubkeyBytes = bs58.decode(publicKeyBase58);
+  static fingerprintFromPublicKey(
+    keypair: common.types.KeyPairJwk | common.types.KeyPairBase58
+  ) {
+    let pubkeyBytes: any;
+
+    if ((keypair as any).publicKeyBase58) {
+      pubkeyBytes = bs58.decode(
+        (keypair as common.types.KeyPairBase58).publicKeyBase58
+      );
+    }
+
+    if ((keypair as any).publicKeyJwk) {
+      pubkeyBytes = new Uint8Array(
+        Buffer.from(
+          keyUtils.publicKeyHexFromJwk(
+            (keypair as common.types.KeyPairJwk).publicKeyJwk
+          )
+        )
+      );
+    }
+
     const buffer = new Uint8Array(2 + pubkeyBytes.length);
     // See https://github.com/multiformats/multicodec/blob/master/table.csv
     // 0xe7 is Secp256k1 public key
@@ -57,10 +76,10 @@ export class Secp256k1KeyPair {
 
     const did = `did:key:${Secp256k1KeyPair.fingerprintFromPublicKey({
       publicKeyBase58,
-    })}`;
+    } as any)}`;
     const keyId = `#${Secp256k1KeyPair.fingerprintFromPublicKey({
       publicKeyBase58,
-    })}`;
+    } as any)}`;
 
     return new Secp256k1KeyPair({
       id: keyId,
@@ -114,10 +133,10 @@ export class Secp256k1KeyPair {
       const publicKeyBase58 = bs58.encode(buffer.slice(2));
       const did = `did:key:${Secp256k1KeyPair.fingerprintFromPublicKey({
         publicKeyBase58,
-      })}`;
+      } as any)}`;
       const keyId = `#${Secp256k1KeyPair.fingerprintFromPublicKey({
         publicKeyBase58,
-      })}`;
+      } as any)}`;
       return new Secp256k1KeyPair({
         id: keyId,
         controller: did,
@@ -214,7 +233,7 @@ export class Secp256k1KeyPair {
   fingerprint() {
     return Secp256k1KeyPair.fingerprintFromPublicKey({
       publicKeyBase58: bs58.encode(this.publicKeyBuffer),
-    });
+    } as any);
   }
 
   verifyFingerprint(fingerprint: string) {
