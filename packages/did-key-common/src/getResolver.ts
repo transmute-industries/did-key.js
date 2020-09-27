@@ -20,6 +20,38 @@ export const keyToDidDoc = (
       );
     }
   }
+  let verificationRelationships: any = {
+    verificationMethod: [externalKeyRepresentation],
+  };
+
+  if (didKeyPairInstance.verify) {
+    verificationRelationships = {
+      ...verificationRelationships,
+      authentication: [externalKeyRepresentation.id],
+      assertionMethod: [externalKeyRepresentation.id],
+      capabilityInvocation: [externalKeyRepresentation.id],
+      capabilityDelegation: [externalKeyRepresentation.id],
+    };
+  }
+
+  if (didKeyPairInstance.deriveSecret) {
+    verificationRelationships = {
+      ...verificationRelationships,
+      keyAgreement: [externalKeyRepresentation.id],
+    };
+  }
+
+  // imagine if people injected ads like this....
+  // verificationRelationships = {
+  //   ...verificationRelationships,
+  //   service: [
+  //     {
+  //       id: '#provider',
+  //       type: 'ServiceProvider',
+  //       serviceEndpoint: 'https://transmute.industries',
+  //     },
+  //   ],
+  // };
 
   const didDocument = {
     '@context': [
@@ -29,7 +61,7 @@ export const keyToDidDoc = (
       },
     ],
     id: did,
-    keyAgreement: [externalKeyRepresentation],
+    ...verificationRelationships,
   };
 
   // Here is were I would delete a property for JSON-only
@@ -44,7 +76,10 @@ export const getResolve = (DidKeyPairClass: any) => {
     didUri: string,
     resolutionMetaData: any = { accept: 'application/did+ld+json' }
   ) => {
-    const fingerprint = didUri.split('#')[0].split('did:key:').pop();
+    const fingerprint = didUri
+      .split('#')[0]
+      .split('did:key:')
+      .pop();
     const publicKey = await DidKeyPairClass.fromFingerprint({ fingerprint });
     return {
       didDocument: keyToDidDoc(publicKey, resolutionMetaData.accept),

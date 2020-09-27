@@ -23,9 +23,5 @@ it('JSON / JSON-LD Interop deriveSecret', async () => {
     publicKey: keyFixture1.keypair['application/did+json'],
   });
 
-  expect(Buffer.from(secret1).toString('hex')).toBe(
-    '2231201529429ce6b1c68a5d42db52f33387a83578871a85e1bcddb40dae1a1a'
-  );
-
   expect(secret1).toEqual(secret2);
 });

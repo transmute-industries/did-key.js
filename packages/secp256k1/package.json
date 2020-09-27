@@ -37,6 +37,7 @@
     "typescript": "^3.9.5"
   },
   "dependencies": {
+    "@transmute/did-key-common": "^0.2.1-unstable.20",
     "@trust/keyto": "^1.0.1",
     "base64url": "^3.0.1",
     "bs58": "^4.0.1",

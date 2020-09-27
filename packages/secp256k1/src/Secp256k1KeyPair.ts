@@ -40,11 +40,7 @@ export class Secp256k1KeyPair {
     if (options.secureRandom) {
       ({ privateKey, publicKey } = _generate(options.secureRandom));
     }
-    if (options.seed) {
-      ({ privateKey, publicKey } = _generate(() => {
-        return new Uint8Array(options.seed);
-      }));
-    }
+
     if (!privateKey) {
       throw new Error('Cannot generate private key.');
     }
@@ -131,28 +127,15 @@ export class Secp256k1KeyPair {
 
   constructor(options: any = {}) {
     this.type = 'EcdsaSecp256k1VerificationKey2019';
-
     this.id = options.id;
     this.controller = options.controller;
     this.privateKeyBase58 = options.privateKeyBase58;
     this.publicKeyBase58 = options.publicKeyBase58;
   }
 
-  get publicKey() {
-    return this.publicKeyBase58;
-  }
-
-  get privateKey() {
-    return this.privateKeyBase58;
-  }
-
   signer() {
     if (!this.privateKeyBase58) {
-      return {
-        async sign() {
-          throw new Error('No private key to sign with.');
-        },
-      };
+      throw new Error('No private key to sign with.');
     }
     let privateKeyBase58 = this.privateKeyBase58;
     return {
@@ -176,11 +159,7 @@ export class Secp256k1KeyPair {
 
   verifier() {
     if (!this.publicKeyBase58) {
-      return {
-        async sign() {
-          throw new Error('No public key to verify with.');
-        },
-      };
+      throw new Error('No public key to verify with.');
     }
     let publicKeyBase58 = this.publicKeyBase58;
     return {
