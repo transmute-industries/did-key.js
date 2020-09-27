@@ -265,7 +265,7 @@ export class X25519KeyPair implements common.types.KeyPairInstance {
       );
     } else {
       throw new Error(
-        'publicKeyBase58 or publicKeyJwk is required in the options.'
+        'X25519KeyPair requires publicKeyBase58 or publicKeyJwk, received none.'
       );
     }
 
