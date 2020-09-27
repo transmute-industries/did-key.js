@@ -1,7 +1,7 @@
 import fs from 'fs';
 import path from 'path';
 import crypto from 'crypto';
-import { X25519KeyPair } from '../X25519KeyPair';
+import { Ed25519KeyPair } from '../Ed25519KeyPair';
 import { resolve } from '../driver';
 
 const WRITE_FIXTURE_TO_DISK = false;
@@ -13,7 +13,7 @@ it('can generate did-core conformance fixture', async () => {
 
   for (let i = 0; i < COUNT; i++) {
     const seed = crypto.randomBytes(32).toString('hex');
-    let key = await X25519KeyPair.generate({
+    let key = await Ed25519KeyPair.generate({
       secureRandom: () => {
         return Buffer.from(seed, 'hex');
       },

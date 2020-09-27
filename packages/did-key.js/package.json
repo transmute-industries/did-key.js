@@ -26,7 +26,6 @@
   "peerDependencies": {
     "@transmute/did-key-bls12381": "^0.2.1-unstable.5",
     "@transmute/did-key-ed25519": "^0.2.1-unstable.5",
-    "@transmute/did-key-p384": "0.0.0",
     "@transmute/did-key-secp256k1": "^0.2.1-unstable.5",
     "@transmute/did-key-x25519": "^0.2.1-unstable.5"
   },
@@ -39,7 +38,6 @@
   "devDependencies": {
     "@transmute/did-key-bls12381": "^0.2.1-unstable.20",
     "@transmute/did-key-ed25519": "^0.2.1-unstable.20",
-    "@transmute/did-key-p384": "^0.2.1-unstable.20",
     "@transmute/did-key-secp256k1": "^0.2.1-unstable.20",
     "@transmute/did-key-x25519": "^0.2.1-unstable.20",
     "tsdx": "^0.13.2",
