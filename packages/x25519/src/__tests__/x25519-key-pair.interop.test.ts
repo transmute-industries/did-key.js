@@ -1,5 +1,5 @@
 // import * as fixtures from '../__fixtures__';
-import { keypair } from '../__fixtures__/keypair.json';
+import { keypair } from '../__fixtures__';
 
 const { X25519KeyPair } = require('x25519-key-pair');
 

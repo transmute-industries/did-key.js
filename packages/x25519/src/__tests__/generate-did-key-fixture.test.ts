@@ -1,7 +1,7 @@
 import fs from 'fs';
 import path from 'path';
 
-import { keypair } from '../__fixtures__/keypair.json';
+import { keypair } from '../__fixtures__';
 import didDocFixture from '../__fixtures__/didDoc.json';
 
 import { X25519KeyPair } from '../X25519KeyPair';
@@ -14,7 +14,7 @@ it('can generate did key fixture', async () => {
     didDocument: {},
   };
   await Promise.all(
-    keypair.map(async kp => {
+    keypair.map(async (kp: any) => {
       const k = X25519KeyPair.from(kp.X25519KeyAgreementKey2019);
       const didDoc = keyToDidDoc(k);
       const resolved = await get({ did: didDoc.id });

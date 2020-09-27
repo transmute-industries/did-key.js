@@ -1,7 +1,7 @@
 import crypto from 'crypto';
 import bs58 from 'bs58';
 import * as x25519 from '@stablelib/x25519';
-import { keypair } from '../__fixtures__/keypair.json';
+import { keypair } from '../__fixtures__';
 
 it('generate', async () => {
   const key = x25519.generateKeyPair();

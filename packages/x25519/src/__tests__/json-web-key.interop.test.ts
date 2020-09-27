@@ -4,8 +4,7 @@ import path from 'path';
 import { Cipher } from '@transmute/did-key-cipher';
 
 import { X25519KeyPair } from '../X25519KeyPair';
-import { keypair } from '../__fixtures__/keypair.json';
-import { keyResolver } from '../__fixtures__/keyResolver';
+import { keypair, keyResolver } from '../__fixtures__';
 
 const cipher = new Cipher(X25519KeyPair);
 const document = { key1: 'value1', key2: 'value2' };
@@ -17,7 +16,7 @@ it('can use json web key with did-key-cipher', async () => {
     jwe: [],
   };
   await Promise.all(
-    keypair.map(async kp => {
+    keypair.map(async (kp: any) => {
       const recipients = [
         {
           header: {

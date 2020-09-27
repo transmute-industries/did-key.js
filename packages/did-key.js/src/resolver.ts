@@ -2,14 +2,12 @@ import { driver as ed25519Driver } from '@transmute/did-key-ed25519';
 import { driver as x25519Driver } from '@transmute/did-key-x25519';
 import { driver as bls12381Driver } from '@transmute/did-key-bls12381';
 import { driver as secp256k1Driver } from '@transmute/did-key-secp256k1';
-import { driver as p384Driver } from '@transmute/did-key-p384';
 
 const prefixToDriverMap: any = {
   z6Mk: ed25519Driver,
   z6LS: x25519Driver,
   zUC7: bls12381Driver,
   zQ3s: secp256k1Driver,
-  zUew: p384Driver,
 };
 
 export const resolver = {

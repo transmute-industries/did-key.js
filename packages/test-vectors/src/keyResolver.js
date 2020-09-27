@@ -1,8 +1,8 @@
-import { keypair } from './keypair.json';
+const keypair = require('./x25519-keypair.json').keypair;
 
-export const keyResolver = ({ id }: any) => {
-  let _kp: any = undefined;
-  keypair.forEach((kp: any) => {
+const keyResolver = ({ id }) => {
+  let _kp = undefined;
+  keypair.forEach((kp) => {
     if (id.indexOf(kp.X25519KeyAgreementKey2019.id) !== -1) {
       _kp = {
         ...kp.X25519KeyAgreementKey2019,
@@ -17,3 +17,5 @@ export const keyResolver = ({ id }: any) => {
   }
   throw new Error(`Key ${id} not found in fixtures`);
 };
+
+module.exports = { keyResolver };

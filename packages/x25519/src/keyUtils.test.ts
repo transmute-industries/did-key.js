@@ -1,6 +1,6 @@
 import * as keyUtils from './keyUtils';
 
-import { keypair } from './__fixtures__/keypair.json';
+import { keypair } from './__fixtures__';
 
 // https://tools.ietf.org/html/rfc8037#appendix-A.3
 it('getKid', async () => {

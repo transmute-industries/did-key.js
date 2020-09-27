@@ -2,7 +2,7 @@ import crypto from 'crypto';
 import bs58 from 'bs58';
 import { X25519KeyPair } from './X25519KeyPair';
 
-import { keypair } from './__fixtures__/keypair.json';
+import { keypair } from './__fixtures__';
 import ed25519 from './__fixtures__/ed25519.json';
 
 describe('fingerprintFromPublicKey', () => {

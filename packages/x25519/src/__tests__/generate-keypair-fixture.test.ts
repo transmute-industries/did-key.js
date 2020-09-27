@@ -4,7 +4,7 @@ import path from 'path';
 import { X25519KeyPair } from '../X25519KeyPair';
 
 import { seed } from '../__fixtures__/seed.json';
-import keypairFixture from '../__fixtures__/keypair.json';
+import { keypair } from '../__fixtures__';
 
 const WRITE_FIXTURE_TO_DISK = false;
 
@@ -31,7 +31,7 @@ it('can generate keypair fixture', async () => {
 
   // uncomment to debug
   // console.log(JSON.stringify(fixture, null, 2));
-  expect(fixture).toEqual(keypairFixture);
+  expect(fixture).toEqual({ keypair });
   if (WRITE_FIXTURE_TO_DISK) {
     fs.writeFileSync(
       path.resolve(__dirname, '../__fixtures__/keypair.json'),

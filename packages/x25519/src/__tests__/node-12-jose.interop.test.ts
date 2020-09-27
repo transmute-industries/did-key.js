@@ -2,7 +2,7 @@ import jose from 'jose';
 import canonicalize from 'canonicalize';
 import { X25519KeyPair } from '../X25519KeyPair';
 
-import { keypair } from '../__fixtures__/keypair.json';
+import { keypair } from '../__fixtures__';
 
 // per the docs:
 // ECDH-ES with X25519 and X448 keys is only supported when
