@@ -16,10 +16,27 @@ export class Ed25519KeyPair {
   public publicKeyBuffer: Buffer;
   public privateKeyBuffer?: Buffer;
 
-  static fingerprintFromPublicKey({ publicKeyBase58 }: any) {
+  static fingerprintFromPublicKey(
+    keypair: common.types.KeyPairJwk | common.types.KeyPairBase58
+  ) {
+    let pubkeyBytes: any;
+
+    if ((keypair as any).publicKeyBase58) {
+      pubkeyBytes = bs58.decode(
+        (keypair as common.types.KeyPairBase58).publicKeyBase58
+      );
+    }
+
+    if ((keypair as any).publicKeyJwk) {
+      pubkeyBytes = bs58.decode(
+        keyUtils.publicKeyBase58FromPublicKeyJwk(
+          (keypair as common.types.KeyPairJwk).publicKeyJwk
+        )
+      );
+    }
     // ed25519 cryptonyms are multicodec encoded values, specifically:
     // (multicodec ed25519-pub 0xed01 + key bytes)
-    const pubkeyBytes = bs58.decode(publicKeyBase58);
+
     const buffer = new Uint8Array(2 + pubkeyBytes.length);
     buffer[0] = 0xed;
     buffer[1] = 0x01;
@@ -43,10 +60,10 @@ export class Ed25519KeyPair {
 
     const did = `did:key:${Ed25519KeyPair.fingerprintFromPublicKey({
       publicKeyBase58,
-    })}`;
+    } as any)}`;
     const keyId = `#${Ed25519KeyPair.fingerprintFromPublicKey({
       publicKeyBase58,
-    })}`;
+    } as any)}`;
     return new Ed25519KeyPair({
       id: keyId,
       controller: did,
@@ -63,10 +80,10 @@ export class Ed25519KeyPair {
       const publicKeyBase58 = bs58.encode(buffer.slice(2));
       const did = `did:key:${Ed25519KeyPair.fingerprintFromPublicKey({
         publicKeyBase58,
-      })}`;
+      } as any)}`;
       const keyId = `#${Ed25519KeyPair.fingerprintFromPublicKey({
         publicKeyBase58,
-      })}`;
+      } as any)}`;
       return new Ed25519KeyPair({
         id: keyId,
         controller: did,
@@ -76,19 +93,29 @@ export class Ed25519KeyPair {
 
     throw new Error(`Unsupported Fingerprint Type: ${fingerprint}`);
   }
-  static from(options: any) {
-    let privateKeyBase58 = options.privateKeyBase58;
-    let publicKeyBase58 = options.publicKeyBase58;
+  // todo: consider moving this type conversion cancer to common.
+  static from(options: common.types.KeyPairBase58 | common.types.KeyPairJwk) {
+    let privateKeyBase58;
+    let publicKeyBase58;
 
-    if (options.privateKeyJwk) {
+    if ((options as common.types.KeyPairBase58).publicKeyBase58) {
+      publicKeyBase58 = (options as common.types.KeyPairBase58).publicKeyBase58;
+    }
+
+    if ((options as common.types.KeyPairBase58).privateKeyBase58) {
+      privateKeyBase58 = (options as common.types.KeyPairBase58)
+        .privateKeyBase58;
+    }
+
+    if ((options as common.types.KeyPairJwk).privateKeyJwk) {
       privateKeyBase58 = keyUtils.privateKeyBase58FromPrivateKeyJwk(
-        options.privateKeyJwk
+        (options as common.types.KeyPairJwk).privateKeyJwk
       );
     }
 
-    if (options.publicKeyJwk) {
+    if ((options as common.types.KeyPairJwk).publicKeyJwk) {
       publicKeyBase58 = keyUtils.publicKeyBase58FromPublicKeyJwk(
-        options.publicKeyJwk
+        (options as common.types.KeyPairJwk).publicKeyJwk
       );
     }
 
@@ -128,7 +155,7 @@ export class Ed25519KeyPair {
   fingerprint() {
     return Ed25519KeyPair.fingerprintFromPublicKey({
       publicKeyBase58: bs58.encode(this.publicKeyBuffer),
-    });
+    } as any);
   }
   verifyFingerprint(fingerprint: any) {
     // fingerprint should have `z` prefix indicating
