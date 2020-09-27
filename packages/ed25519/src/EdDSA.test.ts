@@ -48,8 +48,6 @@ it('detached sign / verify', async () => {
   };
   // account for non ascii characters
   const payload = Buffer.from(new Uint8Array([127, 128]));
-  const expectedSignature =
-    'eyJhbGciOiJFZERTQSIsImI2NCI6ZmFsc2UsImNyaXQiOlsiYjY0Il19..H9cOYIyL7Zh-0a23sNg9RKZ3DEf48DtXWRhzvVF-njEr24ck3bcc5i01hSppG2rENsHsCIOHCJ69snVkR2XXBA';
   const _jws = await EdDSA.signDetached(payload, keypair.privateKeyJwk, header);
   const flat = await jose.JWS.sign.flattened(
     payload,
@@ -57,9 +55,8 @@ it('detached sign / verify', async () => {
     header
   );
   expect(_jws).toBe(`${flat.protected}..${flat.signature}`);
-  expect(_jws).toBe(expectedSignature);
   const _verified = await EdDSA.verifyDetached(
-    expectedSignature,
+    _jws,
     payload,
     keypair.publicKeyJwk
   );
