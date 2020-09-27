@@ -1,1 +1,7 @@
-export { x25519KeyPair, keyResolver } from './src/index.js';
+export {
+  didCoreConformance,
+  getKeyResolver,
+  // remove these items
+  keyResolver,
+  x25519KeyPair,
+} from './src/index.js';
