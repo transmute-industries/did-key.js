@@ -6,6 +6,7 @@ export const staticImplements = <T>() => {
 };
 
 export * from './JWE_ALG';
+export * from './JWS_ALG';
 
 export * from './KeyPairClass';
 export * from './KeyPairInstance';

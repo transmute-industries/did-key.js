@@ -34,5 +34,8 @@
     "tslib": "^2.0.0",
     "typescript": "^3.9.5"
   },
-  "dependencies": {}
+  "dependencies": {
+    "base64url": "^3.0.1",
+    "canonicalize": "^1.0.3"
+  }
 }

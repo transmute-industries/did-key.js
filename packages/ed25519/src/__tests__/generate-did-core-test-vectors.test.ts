@@ -42,7 +42,7 @@ it('can generate did-core conformance fixture', async () => {
     fs.writeFileSync(
       path.resolve(
         __dirname,
-        '../__fixtures__/x25519-did-core-conformance-vectors.json'
+        '../__fixtures__/ed25519-did-core-conformance-vectors.json'
       ),
       JSON.stringify(fixture, null, 2)
     );
