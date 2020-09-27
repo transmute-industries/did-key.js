@@ -1,0 +1,142 @@
+[
+  {
+    "id": "did:key:zXwpDcwhs3ryJCCM3vYz9nJ7jB7Mbp8ioihWmRkNjy1XPjTqMEn5MvjaH3i1qsegxku36mBUc5fQ5NEW5JfHRr6i3TVf#zXwpDcwhs3ryJCCM3vYz9nJ7jB7Mbp8ioihWmRkNjy1XPjTqMEn5MvjaH3i1qsegxku36mBUc5fQ5NEW5JfHRr6i3TVf",
+    "keyType": "JsonWebKey2020",
+    "contentType": "application/did+json",
+    "jwe": {
+      "protected": "eyJlbmMiOiJYQzIwUCJ9",
+      "recipients": [
+        {
+          "header": {
+            "kid": "did:key:zXwpDcwhs3ryJCCM3vYz9nJ7jB7Mbp8ioihWmRkNjy1XPjTqMEn5MvjaH3i1qsegxku36mBUc5fQ5NEW5JfHRr6i3TVf#zXwpDcwhs3ryJCCM3vYz9nJ7jB7Mbp8ioihWmRkNjy1XPjTqMEn5MvjaH3i1qsegxku36mBUc5fQ5NEW5JfHRr6i3TVf",
+            "alg": "ECDH-ES+A256KW",
+            "epk": {
+              "kty": "EC",
+              "crv": "P-256",
+              "x": "bXaczVYNhPt_vIFi7_25fzqzh2tR7IVGu4cxG_41XeE",
+              "y": "qP2Qgut7njUqLu3bsc9rqIqTEKae6rzMaMN1xSIBXiI"
+            },
+            "apu": "bXaczVYNhPt_vIFi7_25fzqzh2tR7IVGu4cxG_41XeGo_ZCC63ueNSou7duxz2uoipMQpp7qvMxow3XFIgFeIg",
+            "apv": "ZGlkOmtleTp6WHdwRGN3aHMzcnlKQ0NNM3ZZejluSjdqQjdNYnA4aW9paFdtUmtOankxWFBqVHFNRW41TXZqYUgzaTFxc2VneGt1MzZtQlVjNWZRNU5FVzVKZkhScjZpM1RWZiN6WHdwRGN3aHMzcnlKQ0NNM3ZZejluSjdqQjdNYnA4aW9paFdtUmtOankxWFBqVHFNRW41TXZqYUgzaTFxc2VneGt1MzZtQlVjNWZRNU5FVzVKZkhScjZpM1RWZg"
+          },
+          "encrypted_key": "ucfq1mqZAKlku04be9EuxbUNzaylb3NFA_SPn_Db6RY3iLhzsm5Jqg"
+        }
+      ],
+      "iv": "AIkJNRFlU5K2wLZy0kDMbqMQVF6JMvc5",
+      "ciphertext": "04-4vp0jQ-3wZQ3LhSH_jGrQ9RBtIzw_Ub5rem_0FIzS",
+      "tag": "CTGSi2TvW519Sv6pb8MJpg"
+    }
+  },
+  {
+    "id": "did:key:zXwp9vdvZ5vVNBvpxihTHsBZE8WsZEGzdrhxzsVQ7AGtUGcoYpfvcqEUQhbjwaPFfSjdMxX18JVT6NPjoytTL9jxJGJo#zXwp9vdvZ5vVNBvpxihTHsBZE8WsZEGzdrhxzsVQ7AGtUGcoYpfvcqEUQhbjwaPFfSjdMxX18JVT6NPjoytTL9jxJGJo",
+    "keyType": "JsonWebKey2020",
+    "contentType": "application/did+json",
+    "jwe": {
+      "protected": "eyJlbmMiOiJYQzIwUCJ9",
+      "recipients": [
+        {
+          "header": {
+            "kid": "did:key:zXwp9vdvZ5vVNBvpxihTHsBZE8WsZEGzdrhxzsVQ7AGtUGcoYpfvcqEUQhbjwaPFfSjdMxX18JVT6NPjoytTL9jxJGJo#zXwp9vdvZ5vVNBvpxihTHsBZE8WsZEGzdrhxzsVQ7AGtUGcoYpfvcqEUQhbjwaPFfSjdMxX18JVT6NPjoytTL9jxJGJo",
+            "alg": "ECDH-ES+A256KW",
+            "epk": {
+              "kty": "EC",
+              "crv": "P-256",
+              "x": "so93mA3SFw-d-sNdBnQQghjszrvY__ES70EmpUKABw4",
+              "y": "7IR692pJew3c9PZCrCaqiAMAtO1sQGMDEeeW2nZHBGo"
+            },
+            "apu": "so93mA3SFw-d-sNdBnQQghjszrvY__ES70EmpUKABw7shHr3akl7Ddz09kKsJqqIAwC07WxAYwMR55badkcEag",
+            "apv": "ZGlkOmtleTp6WHdwOXZkdlo1dlZOQnZweGloVEhzQlpFOFdzWkVHemRyaHh6c1ZRN0FHdFVHY29ZcGZ2Y3FFVVFoYmp3YVBGZlNqZE14WDE4SlZUNk5Qam95dFRMOWp4SkdKbyN6WHdwOXZkdlo1dlZOQnZweGloVEhzQlpFOFdzWkVHemRyaHh6c1ZRN0FHdFVHY29ZcGZ2Y3FFVVFoYmp3YVBGZlNqZE14WDE4SlZUNk5Qam95dFRMOWp4SkdKbw"
+          },
+          "encrypted_key": "X1Z1XIEIJapvkdsJonT3NwZsdE_ncinAiS_94mkJr9AWSTm37vqVNQ"
+        }
+      ],
+      "iv": "2_e_6gpNx28sIiMcdOE-jNuwDQqUgqGT",
+      "ciphertext": "c4PbVRnknpxQ62QR6XYltHWwFB4MkaPhu4iDHKgo4Rbg",
+      "tag": "ug3zQROEs0MQvWjeYm22og"
+    }
+  },
+  {
+    "id": "did:key:zXwpDN6eqtj57DfnuvbNqhERAjaPp5TXbGSxiFDeeowQjbUNHkzWQbpR9uW72rTkTeGf8Q4bu8sPKkooCWQEjn9eNHFa#zXwpDN6eqtj57DfnuvbNqhERAjaPp5TXbGSxiFDeeowQjbUNHkzWQbpR9uW72rTkTeGf8Q4bu8sPKkooCWQEjn9eNHFa",
+    "keyType": "JsonWebKey2020",
+    "contentType": "application/did+json",
+    "jwe": {
+      "protected": "eyJlbmMiOiJYQzIwUCJ9",
+      "recipients": [
+        {
+          "header": {
+            "kid": "did:key:zXwpDN6eqtj57DfnuvbNqhERAjaPp5TXbGSxiFDeeowQjbUNHkzWQbpR9uW72rTkTeGf8Q4bu8sPKkooCWQEjn9eNHFa#zXwpDN6eqtj57DfnuvbNqhERAjaPp5TXbGSxiFDeeowQjbUNHkzWQbpR9uW72rTkTeGf8Q4bu8sPKkooCWQEjn9eNHFa",
+            "alg": "ECDH-ES+A256KW",
+            "epk": {
+              "kty": "EC",
+              "crv": "P-256",
+              "x": "JZVjN0eiAs1l7PgjVXUl06itcYu74rq9K4iRvlua_0w",
+              "y": "-b-m1BB_bFnaQshVqFcEBqLdui1QeWVVEZvpjy_JAIg"
+            },
+            "apu": "JZVjN0eiAs1l7PgjVXUl06itcYu74rq9K4iRvlua_0z5v6bUEH9sWdpCyFWoVwQGot26LVB5ZVURm-mPL8kAiA",
+            "apv": "ZGlkOmtleTp6WHdwRE42ZXF0ajU3RGZudXZiTnFoRVJBamFQcDVUWGJHU3hpRkRlZW93UWpiVU5Ia3pXUWJwUjl1VzcyclRrVGVHZjhRNGJ1OHNQS2tvb0NXUUVqbjllTkhGYSN6WHdwRE42ZXF0ajU3RGZudXZiTnFoRVJBamFQcDVUWGJHU3hpRkRlZW93UWpiVU5Ia3pXUWJwUjl1VzcyclRrVGVHZjhRNGJ1OHNQS2tvb0NXUUVqbjllTkhGYQ"
+          },
+          "encrypted_key": "ddCxB8jEEHwakzT5AJ5_-IMbYUDDjiYEjCRpFFgJ4kMaoviru0U-4A"
+        }
+      ],
+      "iv": "QUnBGEZqmiLJggJIJX01vsz2xK7SYFaD",
+      "ciphertext": "UyYdsL3HJiqu8dpfNDS5T0rRNmIcm2UvzZC0jTiyhDCx",
+      "tag": "-RVP_XkVzic9awqTfG2opQ"
+    }
+  },
+  {
+    "id": "did:key:zXwpEHqfc5gnkCBdCnBqYaaoCaeLRSEPjLg2CAJB6H1ST7XC96h8C3N1MBEAefmPaSGv8aFnLDAgPzKhPQZX7vVVJsyd#zXwpEHqfc5gnkCBdCnBqYaaoCaeLRSEPjLg2CAJB6H1ST7XC96h8C3N1MBEAefmPaSGv8aFnLDAgPzKhPQZX7vVVJsyd",
+    "keyType": "JsonWebKey2020",
+    "contentType": "application/did+json",
+    "jwe": {
+      "protected": "eyJlbmMiOiJYQzIwUCJ9",
+      "recipients": [
+        {
+          "header": {
+            "kid": "did:key:zXwpEHqfc5gnkCBdCnBqYaaoCaeLRSEPjLg2CAJB6H1ST7XC96h8C3N1MBEAefmPaSGv8aFnLDAgPzKhPQZX7vVVJsyd#zXwpEHqfc5gnkCBdCnBqYaaoCaeLRSEPjLg2CAJB6H1ST7XC96h8C3N1MBEAefmPaSGv8aFnLDAgPzKhPQZX7vVVJsyd",
+            "alg": "ECDH-ES+A256KW",
+            "epk": {
+              "kty": "EC",
+              "crv": "P-256",
+              "x": "4u52HUCqqY7uOdwOC_oBkj9VJYFkPh2VKuCQ__zuuJ4",
+              "y": "ZIdXbPu3BOUNzkI7jZUCwMLeDPkWfLwmBVAjbsQF8ow"
+            },
+            "apu": "4u52HUCqqY7uOdwOC_oBkj9VJYFkPh2VKuCQ__zuuJ5kh1ds-7cE5Q3OQjuNlQLAwt4M-RZ8vCYFUCNuxAXyjA",
+            "apv": "ZGlkOmtleTp6WHdwRUhxZmM1Z25rQ0JkQ25CcVlhYW9DYWVMUlNFUGpMZzJDQUpCNkgxU1Q3WEM5Nmg4QzNOMU1CRUFlZm1QYVNHdjhhRm5MREFnUHpLaFBRWlg3dlZWSnN5ZCN6WHdwRUhxZmM1Z25rQ0JkQ25CcVlhYW9DYWVMUlNFUGpMZzJDQUpCNkgxU1Q3WEM5Nmg4QzNOMU1CRUFlZm1QYVNHdjhhRm5MREFnUHpLaFBRWlg3dlZWSnN5ZA"
+          },
+          "encrypted_key": "Gu22ddEyMc7gBhY2x2w10xOg3SPtEk24CE8pCwwlJu700_3P5UzmLQ"
+        }
+      ],
+      "iv": "KnSLvblSbNA3bKzvckC62ODSbxrenQhA",
+      "ciphertext": "TKy75Q9JXERqRIy3TLj9JFjZLNtGBZpPzq4q6XF3oFZh",
+      "tag": "q4WppSJuqEKtHP9AldButA"
+    }
+  },
+  {
+    "id": "did:key:zXwpEGHwiz74j7ke75GjHvC6fmPvmLi3tChGkk9AQsm1w8BGG8WbjRsHZAZgf75rYWgrtQ89yn3ydR2QnYAYrRU7sUvN#zXwpEGHwiz74j7ke75GjHvC6fmPvmLi3tChGkk9AQsm1w8BGG8WbjRsHZAZgf75rYWgrtQ89yn3ydR2QnYAYrRU7sUvN",
+    "keyType": "JsonWebKey2020",
+    "contentType": "application/did+json",
+    "jwe": {
+      "protected": "eyJlbmMiOiJYQzIwUCJ9",
+      "recipients": [
+        {
+          "header": {
+            "kid": "did:key:zXwpEGHwiz74j7ke75GjHvC6fmPvmLi3tChGkk9AQsm1w8BGG8WbjRsHZAZgf75rYWgrtQ89yn3ydR2QnYAYrRU7sUvN#zXwpEGHwiz74j7ke75GjHvC6fmPvmLi3tChGkk9AQsm1w8BGG8WbjRsHZAZgf75rYWgrtQ89yn3ydR2QnYAYrRU7sUvN",
+            "alg": "ECDH-ES+A256KW",
+            "epk": {
+              "kty": "EC",
+              "crv": "P-256",
+              "x": "SU0CuGdTG_ZUc-PA-qdQWvayJrorxLK4xJhcIlCY08s",
+              "y": "CQY3L18qslwZ17wfkO5gMz41pxTqbzM07nbF1aiWCUI"
+            },
+            "apu": "SU0CuGdTG_ZUc-PA-qdQWvayJrorxLK4xJhcIlCY08sJBjcvXyqyXBnXvB-Q7mAzPjWnFOpvMzTudsXVqJYJQg",
+            "apv": "ZGlkOmtleTp6WHdwRUdId2l6NzRqN2tlNzVHakh2QzZmbVB2bUxpM3RDaEdrazlBUXNtMXc4QkdHOFdialJzSFpBWmdmNzVyWVdncnRRODl5bjN5ZFIyUW5ZQVlyUlU3c1V2TiN6WHdwRUdId2l6NzRqN2tlNzVHakh2QzZmbVB2bUxpM3RDaEdrazlBUXNtMXc4QkdHOFdialJzSFpBWmdmNzVyWVdncnRRODl5bjN5ZFIyUW5ZQVlyUlU3c1V2Tg"
+          },
+          "encrypted_key": "BHBJ3-hjRyeSrY-9VqTixi3Ib1-9gW6O7BBIAwaSLKgAXwyFCSDcsw"
+        }
+      ],
+      "iv": "OBJ9E802ilzD_seCDFMIOntNtYhAAOEi",
+      "ciphertext": "jvxUeuL1BufTRZgeLCyfxxT7BUBWGSYhLrdHBxhEvkcf",
+      "tag": "Pcxnc2zMx5sFtgpfwVj6xw"
+    }
+  }
+]

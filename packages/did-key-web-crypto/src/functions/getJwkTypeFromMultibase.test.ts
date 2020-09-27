@@ -1,13 +1,13 @@
 import { getJwkTypeFromMultibase } from './getJwkTypeFromMultibase';
 
-import { keypair } from '../__fixtures__';
+import { didCoreConformance } from '@transmute/did-key-test-vectors';
+const [example] = didCoreConformance['p-256'].key;
+const { id, publicKeyJwk } = example.keypair['application/did+json'];
 
 it('getJwkTypeFromMultibase', () => {
-  const data = getJwkTypeFromMultibase(
-    keypair[0].fromJwk.id.substring(keypair[0].fromJwk.id.indexOf('#') + 1)
-  );
+  const data = getJwkTypeFromMultibase(id.substring(id.indexOf('#') + 1));
   expect(data).toEqual({
-    kty: keypair[0].toJwkPair.publicKeyJwk.kty,
-    crv: keypair[0].toJwkPair.publicKeyJwk.crv,
+    kty: publicKeyJwk.kty,
+    crv: publicKeyJwk.crv,
   });
 });

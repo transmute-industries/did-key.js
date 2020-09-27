@@ -1,17 +1,42 @@
 import { toJwkPair } from './toJwkPair';
 
-import { keypair } from '../__fixtures__';
+import { didCoreConformance } from '@transmute/did-key-test-vectors';
+const [example] = didCoreConformance['p-256'].key;
 
 it('can convert public keypair', () => {
-  const withoutPrivate: any = { ...keypair[0].fromJwk };
-  delete withoutPrivate.privateKeyBase58;
-  const fixtureWithouPrivate: any = { ...keypair[0].toJwkPair };
-  delete fixtureWithouPrivate.privateKeyJwk;
-  const k0 = toJwkPair(withoutPrivate);
-  expect(k0).toEqual(fixtureWithouPrivate);
+  const { id, controller, publicKeyBase58 } = example.keypair[
+    'application/did+ld+json'
+  ];
+  const { publicKeyJwk, type } = example.keypair['application/did+json'];
+  const k0 = toJwkPair({ id, type, controller, publicKeyBase58 });
+
+  expect(k0).toEqual({
+    id,
+    type,
+    controller,
+    publicKeyJwk,
+  });
 });
 
 it('can convert private keypair', () => {
-  const k0 = toJwkPair(keypair[0].fromJwk);
-  expect(k0).toEqual(keypair[0].toJwkPair);
+  const { id, controller, publicKeyBase58, privateKeyBase58 } = example.keypair[
+    'application/did+ld+json'
+  ];
+  const { publicKeyJwk, privateKeyJwk, type } = example.keypair[
+    'application/did+json'
+  ];
+  const k0 = toJwkPair({
+    id,
+    type,
+    controller,
+    publicKeyBase58,
+    privateKeyBase58,
+  });
+  expect(k0).toEqual({
+    id,
+    type,
+    controller,
+    publicKeyJwk,
+    privateKeyJwk,
+  });
 });
