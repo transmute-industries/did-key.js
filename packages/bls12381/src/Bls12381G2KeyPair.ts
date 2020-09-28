@@ -36,6 +36,34 @@ export class Bls12381G2KeyPair {
     return new Bls12381G2KeyPair(options);
   }
 
+  static async from(options: any) {
+    let keypair;
+    if (options.publicKeyJwk) {
+      keypair = await mattr.Bls12381G2KeyPair.fromJwk(options);
+    }
+    if (options.privateKeyJwk) {
+      keypair = await mattr.Bls12381G2KeyPair.fromJwk(options);
+    }
+
+    if (options.publicKeyBase58) {
+      keypair = await mattr.Bls12381G2KeyPair.from(options);
+    }
+    if (options.privateKeyBase58) {
+      keypair = await mattr.Bls12381G2KeyPair.from(options);
+    }
+
+    let _options: any = {
+      publicKeyBase58: bs58.encode((keypair as any).publicKeyBuffer),
+    };
+    if ((keypair as any).privateKeyBuffer) {
+      _options.privateKeyBase58 = bs58.encode(
+        (keypair as any).privateKeyBuffer
+      );
+    }
+
+    return new Bls12381G2KeyPair(_options);
+  }
+
   constructor(options: any) {
     this.id = options.id;
     this.type = options.type || 'Bls12381G2Key2020';
@@ -43,7 +71,6 @@ export class Bls12381G2KeyPair {
     if (options.publicKeyBase58) {
       this.publicKeyBuffer = bs58.decode(options.publicKeyBase58);
     } else if (options.publicKeyJwk) {
-      console.log(options.publicKeyJwk);
       this.publicKeyBuffer = Buffer.from('a');
     } else {
       throw new Error(
