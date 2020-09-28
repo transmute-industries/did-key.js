@@ -2,7 +2,7 @@
   "name": "@transmute/did-key-bls12381",
   "author": "Orie Steele",
   "module": "dist/bls12381.esm.js",
-  "version": "0.2.1-unstable.20",
+  "version": "0.2.1-unstable.21",
   "license": "Apache-2.0",
   "main": "dist/index.js",
   "typings": "dist/index.d.ts",
@@ -30,15 +30,15 @@
     "trailingComma": "es5"
   },
   "devDependencies": {
+    "@transmute/did-key-test-vectors": "^0.2.1-unstable.21",
     "tsdx": "^0.13.2",
     "tslib": "^2.0.0",
-    "typescript": "^3.9.5",
-    "@transmute/did-key-test-vectors": "^0.2.1-unstable.20"
+    "typescript": "^3.9.5"
   },
   "dependencies": {
-    "@transmute/did-key-common": "^0.2.1-unstable.20",
     "@mattrglobal/bbs-signatures": "^0.3.0",
     "@mattrglobal/bls12381-key-pair": "v0.4.1-unstable.aeea218",
+    "@transmute/did-key-common": "^0.2.1-unstable.21",
     "bs58": "^4.0.1"
   }
 }
