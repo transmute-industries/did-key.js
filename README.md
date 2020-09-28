@@ -10,8 +10,7 @@
 
 Demos:
 
-- Web App: [https://key.did.ai](https://key.did.ai).
-- Web API: [`did:key:z6MkndnfMMECHMNK11dGgkXJ1N1PweGhU5mTVJMcSWR7GXoo`](https://key.did.ai/did/did:key:z6MkndnfMMECHMNK11dGgkXJ1N1PweGhU5mTVJMcSWR7GXoo).
+- Web App: [https://did.key.transmute.industries](https://did.key.transmute.industries).
 
 #### [did-key.js](./packages/did-key.js)
 
