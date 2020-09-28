@@ -1,25 +1,34 @@
-import { Ed25519KeyPair } from './Ed25519KeyPair';
-import { seed, didDocument } from './__fixtures__';
+import { didCoreConformance } from '@transmute/did-key-test-vectors';
 
-import { keyToDidDoc, get } from './driver';
+import { get, resolve } from './driver';
 
-describe('driver', () => {
-  describe('keyToDidDoc', () => {
-    it('convert a secp256k1 key to a did document', async () => {
-      let key: any = await Ed25519KeyPair.generate({
-        seed: Buffer.from(seed, 'hex'),
-      });
-      const _didDocument = keyToDidDoc(key);
-      expect(_didDocument).toEqual(didDocument);
-    });
+const [example] = didCoreConformance.ed25519.key;
+
+it('get interface defaults to application/did+ld+json', async () => {
+  let _didDocument: any = await get({
+    did: example.resolution['application/did+ld+json'].didDocument.id,
   });
+  expect(_didDocument).toEqual(
+    example.resolution['application/did+ld+json'].didDocument
+  );
+});
 
-  describe('get', () => {
-    it('resolve a key from id', async () => {
-      let _didDocument: any = await get({
-        did: didDocument.id,
-      });
-      expect(_didDocument).toEqual(didDocument);
+let representations = [
+  {
+    keyType: 'JsonWebKey2020',
+    contentType: 'application/did+json',
+  },
+  {
+    keyType: 'X25519KeyAgreementKey2019',
+    contentType: 'application/did+ld+json',
+  },
+];
+representations.forEach(rep => {
+  let { id } = example.resolution[rep.contentType].didDocument;
+  it(`resolve supports ${rep.contentType}`, async () => {
+    let resolutionResponse: any = await resolve(id, {
+      accept: rep.contentType,
     });
+    expect(resolutionResponse).toEqual(example.resolution[rep.contentType]);
   });
 });

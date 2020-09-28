@@ -1,13 +1,34 @@
-import { didDocument } from './__fixtures__/didDoc.json';
-import { get } from './driver';
+import { didCoreConformance } from '@transmute/did-key-test-vectors';
 
-it('resolve a did', async () => {
+import { get, resolve } from './driver';
+
+const [example] = didCoreConformance.x25519.key;
+
+it('get interface defaults to application/did+ld+json', async () => {
   let _didDocument: any = await get({
-    did:
-      didDocument['did:key:z6LSeu9HkTHSfLLeUs2nnzUSNedgDUevfNQgQjQC23ZCit6F']
-        .id,
+    did: example.resolution['application/did+ld+json'].didDocument.id,
   });
   expect(_didDocument).toEqual(
-    didDocument['did:key:z6LSeu9HkTHSfLLeUs2nnzUSNedgDUevfNQgQjQC23ZCit6F']
+    example.resolution['application/did+ld+json'].didDocument
   );
+});
+
+let representations = [
+  {
+    keyType: 'JsonWebKey2020',
+    contentType: 'application/did+json',
+  },
+  {
+    keyType: 'X25519KeyAgreementKey2019',
+    contentType: 'application/did+ld+json',
+  },
+];
+representations.forEach(rep => {
+  let { id } = example.resolution[rep.contentType].didDocument;
+  it(`resolve supports ${rep.contentType}`, async () => {
+    let resolutionResponse: any = await resolve(id, {
+      accept: rep.contentType,
+    });
+    expect(resolutionResponse).toEqual(example.resolution[rep.contentType]);
+  });
 });

@@ -1,7 +1,11 @@
 import { Crypto } from 'node-webcrypto-ossl';
-import * as fixtures from '../__fixtures__';
-const crypto = new Crypto();
 
+import { didCoreConformance } from '@transmute/did-key-test-vectors';
+const [example] = didCoreConformance['p-256'].key;
+const { publicKeyJwk, privateKeyJwk } = example.keypair['application/did+json'];
+
+const crypto = new Crypto();
+const message = 'hello world';
 it('generate & export', async () => {
   let keyPair = await crypto.subtle.generateKey(
     {
@@ -29,7 +33,7 @@ it('generate & export', async () => {
 it('import', async () => {
   let keyPair = await crypto.subtle.importKey(
     'jwk',
-    fixtures.keypair[0].generate.publicKeyJwk,
+    publicKeyJwk,
     {
       name: 'ECDSA',
       namedCurve: 'P-256',
@@ -43,7 +47,7 @@ it('import', async () => {
 it('sign and verify', async () => {
   const privateKey = await crypto.subtle.importKey(
     'jwk',
-    fixtures.keypair[0].generate.privateKeyJwk,
+    privateKeyJwk,
     {
       name: 'ECDSA',
       namedCurve: 'P-256',
@@ -53,7 +57,7 @@ it('sign and verify', async () => {
   );
   const publicKey = await crypto.subtle.importKey(
     'jwk',
-    fixtures.keypair[0].generate.publicKeyJwk,
+    publicKeyJwk,
     {
       name: 'ECDSA',
       namedCurve: 'P-256',
@@ -68,7 +72,7 @@ it('sign and verify', async () => {
       hash: { name: 'SHA-256' },
     },
     privateKey,
-    Buffer.from(fixtures.message[0])
+    Buffer.from(message)
   );
 
   let verified = await crypto.subtle.verify(
@@ -78,7 +82,7 @@ it('sign and verify', async () => {
     },
     publicKey,
     signature,
-    Buffer.from(fixtures.message[0])
+    Buffer.from(message)
   );
   expect(verified).toBe(true);
   verified = await crypto.subtle.verify(
@@ -88,7 +92,7 @@ it('sign and verify', async () => {
     },
     publicKey,
     signature,
-    Buffer.from(fixtures.message[0])
+    Buffer.from(message)
   );
   expect(verified).toBe(true);
 });

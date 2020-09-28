@@ -1,33 +1,39 @@
 import fs from 'fs';
 import path from 'path';
-// import crypto from 'crypto';
-import * as bls12381 from '../index';
 
+import { Bls12381G2KeyPair } from '../Bls12381G2KeyPair';
+import { resolve } from '../driver';
 const count = 5;
 const WRITE_FIXTURE_TO_DISK = false;
 
-it('generate random fixtures', async () => {
-  let fixture: any = {};
+let fixtures: any = [];
+it('generate did-core fixtures', async () => {
   for (let i = 0; i < count; i++) {
-    const key = await bls12381.Bls12381G2KeyPair.generate();
-
-    const didDocument = await bls12381.driver.keyToDidDoc(key);
-    fixture = {
-      ...fixture,
-      [didDocument.id]: {
-        verificationKeyPair: bls12381.Bls12381G2KeyPair.toKeyPair(key),
-        didDocument,
+    const key = await Bls12381G2KeyPair.generate();
+    fixtures.push({
+      seed: i,
+      keypair: {
+        'application/did+json': await key.toJsonWebKeyPair(true),
+        'application/did+ld+json': key.toKeyPair(true),
       },
-    };
+      resolution: {
+        'application/did+json': await resolve(key.controller, {
+          accept: 'application/did+json',
+        }),
+        'application/did+ld+json': await resolve(key.controller, {
+          accept: 'application/did+ld+json',
+        }),
+      },
+    });
   }
 
   //   uncomment to debug
-  //   console.log(JSON.stringify(fixture, null, 2));
+  // console.log(JSON.stringify(fixtures, null, 2));
 
   if (WRITE_FIXTURE_TO_DISK) {
     fs.writeFileSync(
-      path.resolve(__dirname, '../__fixtures__/did.json'),
-      JSON.stringify(fixture, null, 2)
+      path.resolve(__dirname, '../__fixtures__/bls12381_g2.json'),
+      JSON.stringify(fixtures, null, 2)
     );
   }
 });

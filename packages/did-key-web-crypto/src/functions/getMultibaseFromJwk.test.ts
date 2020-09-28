@@ -1,8 +1,10 @@
 import { getMultibaseFromJwk } from './getMultibaseFromJwk';
 
-import { keypair } from '../__fixtures__';
+import { didCoreConformance } from '@transmute/did-key-test-vectors';
+const [example] = didCoreConformance['p-256'].key;
+const { publicKeyJwk, id } = example.keypair['application/did+json'];
 
 it('getMultibaseFromJwk', () => {
-  const _fingerprint = getMultibaseFromJwk(keypair[0].generate.publicKeyJwk);
-  expect(`#${_fingerprint}`).toBe(keypair[0].fromJwk.id);
+  const _fingerprint = getMultibaseFromJwk(publicKeyJwk);
+  expect(`#${_fingerprint}`).toBe(id);
 });

@@ -10,13 +10,14 @@
     "@material-ui/lab": "^4.0.0-alpha.38",
     "@transmute/did-key-bls12381": "^0.2.1-unstable.20",
     "@transmute/did-key-ed25519": "^0.2.1-unstable.20",
-    "@transmute/did-key-p384": "^0.2.1-unstable.20",
     "@transmute/did-key-secp256k1": "^0.2.1-unstable.20",
     "@transmute/did-key-web-crypto": "^0.2.1-unstable.20",
     "@transmute/did-key-x25519": "^0.2.1-unstable.20",
     "@transmute/did-key.js": "^0.2.1-unstable.20",
+    "@transmute/ed25519-signature-2018": "^0.1.1-unstable.6",
     "@transmute/material-did-core": "0.0.8",
     "@transmute/universal-wallet": "0.0.6",
+    "@transmute/vc.js": "^0.1.1-unstable.6",
     "bitcoin-ts": "1.14.2",
     "brace": "^0.11.1",
     "clsx": "^1.0.4",
@@ -24,8 +25,10 @@
     "env-cmd": "^10.0.1",
     "flat": "^5.0.0",
     "history": "^4.10.1",
+    "i": "^0.3.6",
     "material-table": "^1.57.2",
     "moment": "^2.25.3",
+    "nom": "0.0.3",
     "pako": "^1.0.11",
     "prop-types": "^15.7.2",
     "qrcode.react": "^1.0.0",
@@ -51,9 +54,8 @@
   "scripts": {
     "start": "env-cmd -f ./.env.local react-scripts start",
     "eject": "react-scripts eject",
-    "lint:fix": "eslint src --fix",
     "build": "NODE_OPTIONS=--max_old_space_size=8192 react-scripts build",
-    "deploy": "gh-pages -d build"
+    "deploy": "cp ./build/index.html ./build/404.html; gh-pages -d build"
   },
   "browserslist": {
     "production": [

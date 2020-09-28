@@ -1,20 +1,21 @@
 import jose from 'jose';
+import { didCoreConformance } from '@transmute/did-key-test-vectors';
 import canonicalize from 'canonicalize';
 import { X25519KeyPair } from '../X25519KeyPair';
 
-import { keypair } from '../__fixtures__/keypair.json';
+const [keyFixture0] = didCoreConformance.x25519.key;
 
 // per the docs:
 // ECDH-ES with X25519 and X448 keys is only supported when
 // Node.js ^12.17.0 || >=13.9.0 runtime is detected
 it('node jose interop', async () => {
   const jwk1 = jose.JWK.asKey({
-    ...keypair[0].JsonWebKey2020.privateKeyJwk,
+    ...keyFixture0.keypair['application/did+json'].privateKeyJwk,
   } as any);
   const jwk2 = jose.JWK.asKey({
-    ...(await X25519KeyPair.from(keypair[1].X25519KeyAgreementKey2019).toJwk(
-      true
-    )),
+    ...(await X25519KeyPair.from(
+      keyFixture0.keypair['application/did+ld+json']
+    ).toJwk(true)),
   } as any);
   const payload = Buffer.from(canonicalize({ hello: 'world' }));
   const encrypt = new jose.JWE.Encrypt(payload);

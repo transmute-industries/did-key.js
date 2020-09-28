@@ -1,10 +1,10 @@
 import { fingerprintToDid } from './fingerprintToDid';
 
-import { keypair } from '../__fixtures__';
+import { didCoreConformance } from '@transmute/did-key-test-vectors';
+const [example] = didCoreConformance['p-256'].key;
+const { controller, id } = example.keypair['application/did+json'];
 
 it('fingerprintToDid', () => {
-  const did = fingerprintToDid(
-    keypair[0].fromJwk.id.substring(keypair[0].fromJwk.id.indexOf('#') + 1)
-  );
-  expect(did).toEqual(keypair[0].fromJwk.controller);
+  const did = fingerprintToDid(id.substring(id.indexOf('#') + 1));
+  expect(did).toEqual(controller);
 });

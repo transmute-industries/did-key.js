@@ -5,114 +5,205 @@ import * as secp256k1 from "@transmute/did-key-secp256k1";
 import * as bls12381 from "@transmute/did-key-bls12381";
 import * as didKeyWebCrypto from "@transmute/did-key-web-crypto";
 
-export const generateX25519 = async () => {
-  const x25519KeyPair = await x25519.X25519KeyPair.generate({
-    secureRandom: () => {
-      return crypto.randomBytes(32);
-    },
-  });
-  const didDocument = x25519.driver.keyToDidDoc(x25519KeyPair);
+export const generateEd25519 = async (keys, contentType) => {
+  let _keys = keys;
+  let ed25519Key;
+  let x25519Key;
+  if (keys !== null) {
+    ed25519Key = await ed25519.Ed25519KeyPair.from(_keys.ed25519);
+    x25519Key = await x25519.X25519KeyPair.from(_keys.x25519);
+  } else {
+    ed25519Key = await ed25519.Ed25519KeyPair.generate({
+      secureRandom: () => {
+        return crypto.randomBytes(32);
+      },
+    });
+    x25519Key = await x25519.X25519KeyPair.fromEdKeyPair(
+      await ed25519Key.toKeyPair(true)
+    );
+  }
+  _keys = {
+    ed25519:
+      contentType === "application/did+ld+json"
+        ? await ed25519Key.toKeyPair(true)
+        : await ed25519Key.toJsonWebKeyPair(true),
+    x25519:
+      contentType === "application/did+ld+json"
+        ? await x25519Key.toKeyPair(true)
+        : await x25519Key.toJsonWebKeyPair(true),
+  };
+  const { didDocument } = await ed25519.driver.resolve(
+    _keys.ed25519.controller,
+    {
+      accept: contentType,
+    }
+  );
   return {
-    keys: {
-      key: x25519KeyPair.toKeyPair(true),
-    },
+    keys: _keys,
     didDocument,
   };
 };
 
-export const generateEd25519 = async () => {
-  const ed25519Key = await ed25519.Ed25519KeyPair.generate({
-    secureRandom: () => {
-      return crypto.randomBytes(32);
-    },
+export const generateX25519 = async (keys, contentType) => {
+  let _keys = keys;
+  let keyPair;
+  if (_keys !== null) {
+    keyPair = await x25519.X25519KeyPair.from(keys.key);
+  } else {
+    keyPair = await x25519.X25519KeyPair.generate({
+      secureRandom: () => {
+        return crypto.randomBytes(32);
+      },
+    });
+  }
+  _keys = {
+    key:
+      contentType === "application/did+ld+json"
+        ? await keyPair.toKeyPair(true)
+        : await keyPair.toJsonWebKeyPair(true),
+  };
+  const { didDocument } = await x25519.driver.resolve(_keys.key.controller, {
+    accept: contentType,
   });
-  const didDocument = ed25519.driver.keyToDidDoc(ed25519Key);
   return {
-    keys: {
-      ed25519: await ed25519Key.toKeyPair(true),
-      x25519: (await x25519.X25519KeyPair.fromEdKeyPair(ed25519Key)).toKeyPair(
-        true
-      ),
-    },
+    keys: _keys,
     didDocument,
   };
 };
 
-export const generateSecp256k1 = async () => {
-  const secp256k1Key = await secp256k1.Secp256k1KeyPair.generate({
-    secureRandom: () => {
-      return crypto.randomBytes(32);
-    },
-  });
-  const didDocument = secp256k1.driver.keyToDidDoc(secp256k1Key);
-  const keys = {
-    key: secp256k1Key.toKeyPair(true),
+export const generateSecp256k1 = async (keys, contentType) => {
+  let _keys = keys;
+  let keyPair;
+  if (_keys !== null) {
+    keyPair = await secp256k1.Secp256k1KeyPair.from(keys.key);
+  } else {
+    keyPair = await secp256k1.Secp256k1KeyPair.generate({
+      secureRandom: () => {
+        return crypto.randomBytes(32);
+      },
+    });
+  }
+  _keys = {
+    key:
+      contentType === "application/did+ld+json"
+        ? await keyPair.toKeyPair(true)
+        : await keyPair.toJsonWebKeyPair(true),
   };
+  const { didDocument } = await secp256k1.driver.resolve(_keys.key.controller, {
+    accept: contentType,
+  });
   return {
-    keys,
+    keys: _keys,
     didDocument,
   };
 };
 
-export const generateBls12381 = async () => {
-  const bls12381G2Key = await bls12381.Bls12381G2KeyPair.generate();
-  const didDocument = bls12381.driver.keyToDidDoc(bls12381G2Key);
-  const keys = {
-    key: await bls12381.Bls12381G2KeyPair.toKeyPair(bls12381G2Key),
+export const generateBls12381 = async (keys, contentType) => {
+  let _keys = keys;
+  let keyPair;
+  if (_keys !== null) {
+    keyPair = await bls12381.Bls12381G2KeyPair.from(keys.key);
+  } else {
+    keyPair = await bls12381.Bls12381G2KeyPair.generate();
+  }
+  _keys = {
+    key:
+      contentType === "application/did+ld+json"
+        ? await keyPair.toKeyPair(true)
+        : await keyPair.toJsonWebKeyPair(true),
   };
+  const { didDocument } = await bls12381.driver.resolve(_keys.key.controller, {
+    accept: contentType,
+  });
   return {
-    keys,
+    keys: _keys,
     didDocument,
   };
 };
 
-export const generateP256 = async () => {
-  const keypair = await didKeyWebCrypto.KeyPair.generate({
-    kty: "EC",
-    crvOrSize: "P-256",
-  });
-  const keys = {
-    key: await keypair.toJsonWebKeyPair(true),
+export const generateP256 = async (keys, contentType) => {
+  let _keys = keys;
+  let keyPair;
+  if (_keys !== null) {
+    keyPair = await didKeyWebCrypto.KeyPair.from(keys.key);
+  } else {
+    keyPair = await didKeyWebCrypto.KeyPair.generate({
+      kty: "EC",
+      crvOrSize: "P-256",
+    });
+  }
+  _keys = {
+    key:
+      contentType === "application/did+ld+json"
+        ? await keyPair.toKeyPair(true)
+        : await keyPair.toJsonWebKeyPair(true),
   };
-  const didDocument = await didKeyWebCrypto.driver.get({
-    did: keys.key.controller,
-  });
+  const { didDocument } = await didKeyWebCrypto.driver.resolve(
+    _keys.key.controller,
+    {
+      accept: contentType,
+    }
+  );
   return {
-    keys,
+    keys: _keys,
     didDocument,
   };
 };
 
-export const generateP384 = async () => {
-  const keypair = await didKeyWebCrypto.KeyPair.generate({
-    kty: "EC",
-    crvOrSize: "P-384",
-  });
-  const keys = {
-    key: await keypair.toJsonWebKeyPair(true),
+export const generateP384 = async (keys, contentType) => {
+  let _keys = keys;
+  let keyPair;
+  if (_keys !== null) {
+    keyPair = await didKeyWebCrypto.KeyPair.from(keys.key);
+  } else {
+    keyPair = await didKeyWebCrypto.KeyPair.generate({
+      kty: "EC",
+      crvOrSize: "P-384",
+    });
+  }
+  _keys = {
+    key:
+      contentType === "application/did+ld+json"
+        ? await keyPair.toKeyPair(true)
+        : await keyPair.toJsonWebKeyPair(true),
   };
-  const didDocument = await didKeyWebCrypto.driver.get({
-    did: keys.key.controller,
-  });
+  const { didDocument } = await didKeyWebCrypto.driver.resolve(
+    _keys.key.controller,
+    {
+      accept: contentType,
+    }
+  );
   return {
-    keys,
+    keys: _keys,
     didDocument,
   };
 };
 
-export const generateP521 = async () => {
-  const keypair = await didKeyWebCrypto.KeyPair.generate({
-    kty: "EC",
-    crvOrSize: "P-521",
-  });
-  const keys = {
-    key: await keypair.toJsonWebKeyPair(true),
+export const generateP521 = async (keys, contentType) => {
+  let _keys = keys;
+  let keyPair;
+  if (_keys !== null) {
+    keyPair = await didKeyWebCrypto.KeyPair.from(keys.key);
+  } else {
+    keyPair = await didKeyWebCrypto.KeyPair.generate({
+      kty: "EC",
+      crvOrSize: "P-521",
+    });
+  }
+  _keys = {
+    key:
+      contentType === "application/did+ld+json"
+        ? await keyPair.toKeyPair(true)
+        : await keyPair.toJsonWebKeyPair(true),
   };
-  const didDocument = await didKeyWebCrypto.driver.get({
-    did: keys.key.controller,
-  });
+  const { didDocument } = await didKeyWebCrypto.driver.resolve(
+    _keys.key.controller,
+    {
+      accept: contentType,
+    }
+  );
   return {
-    keys,
+    keys: _keys,
     didDocument,
   };
 };

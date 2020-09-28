@@ -8,11 +8,8 @@ import { Provider } from "react-redux";
 import { PersistGate } from "redux-persist/lib/integration/react";
 
 import * as serviceWorker from "./serviceWorker";
-
 import createStore from "./store/create";
-
 import { routes } from "./pages";
-
 import { NotFound } from "./pages/errors/404";
 
 const { store, persistor, history } = createStore();

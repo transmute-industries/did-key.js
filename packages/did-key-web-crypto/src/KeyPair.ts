@@ -10,8 +10,9 @@ import { toJwkPair } from './functions/toJwkPair';
 import { fingerprintToDid } from './functions/fingerprintToDid';
 import { getJwkTypeFromMultibase } from './functions/getJwkTypeFromMultibase';
 
+import { types } from '@transmute/did-key-common';
+
 import {
-  types,
   getEpkGenerator,
   deriveKey,
   KeyEncryptionKey,
@@ -106,7 +107,6 @@ export class KeyPair implements types.KeyAgreementKeyPairInstance {
     ephemeralKeyPair,
     staticPublicKey,
   }: types.KeyEncryptionKeyFromStaticPublicKeyOptions) {
-    // TODO: consider accepting JWK format for `staticPublicKey` not just LD key
     if (staticPublicKey.type !== KEY_TYPE) {
       throw new Error(`"staticPublicKey.type" must be "${KEY_TYPE}".`);
     }
@@ -146,7 +146,7 @@ export class KeyPair implements types.KeyAgreementKeyPairInstance {
     } else if (options.publicKeyJwk) {
       const args = fromJwk(options.publicKeyJwk);
       this.publicKeyBuffer = bs58.decode(args.publicKeyBase58);
-      this.id = args.id;
+      this.id = options.id || args.id;
       this.controller = args.controller;
     } else {
       throw new Error('publicKeyJwk or publicKeyBase58 is required.');
@@ -168,7 +168,7 @@ export class KeyPair implements types.KeyAgreementKeyPairInstance {
   toKeyPair(exportPrivateKey = false) {
     let options: any = {
       id: this.id,
-      type: this.type,
+      type: 'UnsupportedVerificationMethod2020',
       controller: this.controller,
       publicKeyBase58: bs58.encode(this.publicKeyBuffer),
     };

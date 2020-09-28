@@ -1,4 +1,5 @@
-import { types } from '@transmute/did-key-cipher';
+import { types } from '@transmute/did-key-common';
+
 import { jwkToBase58 } from './jwkToBase58';
 import { getMultibaseFromJwk } from './getMultibaseFromJwk';
 import { fingerprintToDid } from './fingerprintToDid';

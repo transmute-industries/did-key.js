@@ -30,13 +30,13 @@
     "trailingComma": "es5"
   },
   "devDependencies": {
-    "@transmute/did-key-x25519": "^0.2.1-unstable.20",
     "minimal-cipher": "^1.4.0",
     "tsdx": "^0.13.2",
     "tslib": "^2.0.0",
     "typescript": "^3.9.5"
   },
   "dependencies": {
+    "@transmute/did-key-common": "^0.2.1-unstable.20",
     "@stablelib/aes-kw": "^1.0.0",
     "@stablelib/xchacha20poly1305": "^1.0.0",
     "node-webcrypto-ossl": "^2.1.2",

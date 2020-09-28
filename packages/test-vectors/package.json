@@ -1,0 +1,22 @@
+{
+  "name": "@transmute/did-key-test-vectors",
+  "publishConfig": {
+    "access": "public"
+  },
+  "contributors": [
+    "Orie Steele (https://github.com/OR13)"
+  ],
+  "version": "0.2.1-unstable.20",
+  "license": "Apache-2.0",
+  "main": "src/index.js",
+  "types": "typings.d.ts",
+  "engines": {
+    "node": ">=10"
+  },
+  "prettier": {
+    "printWidth": 80,
+    "semi": true,
+    "singleQuote": true,
+    "trailingComma": "es5"
+  }
+}

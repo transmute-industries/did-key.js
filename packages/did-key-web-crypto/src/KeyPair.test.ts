@@ -1,5 +1,8 @@
 import { KeyPair } from './KeyPair';
-import { keypair } from './__fixtures__';
+
+import { didCoreConformance } from '@transmute/did-key-test-vectors';
+const [example] = didCoreConformance['p-256'].key;
+
 it('generate', async () => {
   const k0 = await KeyPair.generate();
   expect(k0.publicKeyBuffer).toBeDefined();
@@ -7,21 +10,23 @@ it('generate', async () => {
 });
 
 it('from / toJsonWebKeyPair', async () => {
-  const k0 = await KeyPair.from(keypair[0].fromJwk);
-  expect(k0.toJsonWebKeyPair(true)).toEqual(keypair[0].toJwkPair);
+  const k0 = await KeyPair.from(example.keypair['application/did+json']);
+  expect(k0.toJsonWebKeyPair(true)).toEqual(
+    example.keypair['application/did+json']
+  );
 });
 
 it('fromFingerprint', async () => {
   const k0 = await KeyPair.fromFingerprint({
-    fingerprint: keypair[0].fromJwk.id.split('#').pop(),
+    fingerprint: example.keypair['application/did+json'].id.split('#').pop(),
   });
-  const withoutPrivateKey: any = { ...keypair[0].toJwkPair };
+  const withoutPrivateKey: any = { ...example.keypair['application/did+json'] };
   delete withoutPrivateKey.privateKeyJwk;
   expect(k0.toJsonWebKeyPair()).toEqual(withoutPrivateKey);
 });
 
 it('sign / verify', async () => {
-  const k0 = await KeyPair.from(keypair[0].fromJwk);
+  const k0 = await KeyPair.from(example.keypair['application/did+json']);
   const signer = await k0.signer();
   const verifier = await k0.verifier();
   const message = Buffer.from('hello');
@@ -31,18 +36,12 @@ it('sign / verify', async () => {
 });
 
 it('deriveSecret', async () => {
-  const k0 = await KeyPair.from(keypair[0].fromJwk);
+  const k0 = await KeyPair.from(example.keypair['application/did+ld+json']);
   const secret1 = await k0.deriveSecret({
-    publicKey: keypair[0].toJwkPair,
+    publicKey: example.keypair['application/did+json'],
   });
-  expect(Buffer.from(secret1).toString('hex')).toBe(
-    'd9c7be54ed517b6e8f75c7e7656d12902de066a5e09e1dcbddce682b81b3deb8'
-  );
-
   const secret2 = await k0.deriveSecret({
-    publicKey: keypair[0].fromJwk,
+    publicKey: example.keypair['application/did+ld+json'],
   });
-  expect(Buffer.from(secret2).toString('hex')).toBe(
-    'd9c7be54ed517b6e8f75c7e7656d12902de066a5e09e1dcbddce682b81b3deb8'
-  );
+  expect(secret2).toEqual(secret1);
 });

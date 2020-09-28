@@ -13,17 +13,16 @@ import { QR } from "@bloomprotocol/qr-react";
 
 import ReactToPdf from "react-to-pdf";
 
-import { Ed25519KeyPair, driver } from "@transmute/did-key-ed25519";
+import { Ed25519KeyPair } from "@transmute/did-key-ed25519";
 import { JSONEditor } from "@transmute/material-did-core";
 
 import BasePage from "../base/base";
 
 import { ScanQRCodeDialog } from "../../components/ScanQRCodeDialog";
 import documentLoader from "../../networking/documentLoader";
+import * as vcjs from "@transmute/vc.js";
+import { Ed25519Signature2018 } from "@transmute/ed25519-signature-2018";
 const crypto = require("crypto");
-const vcjs = require("vc-js");
-const jsigs = require("jsonld-signatures");
-const { Ed25519Signature2018 } = jsigs.suites;
 
 const defaultVc = {
   "@context": [
@@ -276,11 +275,11 @@ export const OfflinePDF = () => {
           <ScanQRCodeDialog
             open={isScanQrCodeDialogOpen}
             onSubmit={async (data) => {
-              const terrible = JSON.parse(data);
-              if (terrible.proof) {
+              const parsedQRCode = JSON.parse(data);
+              if (parsedQRCode.proof) {
                 const suite = new Ed25519Signature2018({});
-                const result = await vcjs.verify({
-                  credential: terrible,
+                const result = await vcjs.ld.verify({
+                  credential: parsedQRCode,
                   documentLoader: documentLoader,
                   suite,
                 });
@@ -292,16 +291,10 @@ export const OfflinePDF = () => {
                 });
               } else {
                 const edKey = await Ed25519KeyPair.from({
-                  ...terrible,
+                  ...parsedQRCode,
                 });
-                const doc = driver.keyToDidDoc(edKey);
-                const key1 = {
-                  id: doc.publicKey[0].id,
-                  type: edKey.type,
-                  controller: doc.id,
-                  privateKeyBase58: edKey.privateKeyBase58,
-                  publicKeyBase58: edKey.publicKeyBase58,
-                };
+
+                const key1 = edKey.toKeyPair(true);
                 setState({
                   ...state,
                   key: key1,
@@ -386,13 +379,13 @@ export const OfflinePDF = () => {
                   let suite = new Ed25519Signature2018({
                     key,
                   });
-                  const signed = await vcjs.issue({
+                  const signed = await vcjs.ld.issue({
                     credential: {
                       ...vc,
                       issuer: key.controller,
                     },
                     suite,
-                    // documentLoader
+                    documentLoader,
                   });
                   setState({
                     ...state,

@@ -32,11 +32,13 @@
   "devDependencies": {
     "tsdx": "^0.13.2",
     "tslib": "^2.0.0",
-    "typescript": "^3.9.5"
+    "typescript": "^3.9.5",
+    "@transmute/did-key-test-vectors": "^0.2.1-unstable.20"
   },
   "dependencies": {
+    "@transmute/did-key-common": "^0.2.1-unstable.20",
     "@mattrglobal/bbs-signatures": "^0.3.0",
-    "@mattrglobal/bls12381-key-pair": "^0.3.1-unstable.046a371",
+    "@mattrglobal/bls12381-key-pair": "v0.4.1-unstable.aeea218",
     "bs58": "^4.0.1"
   }
 }

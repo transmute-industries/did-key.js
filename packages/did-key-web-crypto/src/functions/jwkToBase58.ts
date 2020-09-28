@@ -1,7 +1,7 @@
 import bs58 from 'bs58';
 import base64url from 'base64url';
 
-import { types } from '@transmute/did-key-cipher';
+import { types } from '@transmute/did-key-common';
 
 export const jwkToBase58 = (jwk: any): types.LinkedDataKeyPair => {
   let keypair: any = {};

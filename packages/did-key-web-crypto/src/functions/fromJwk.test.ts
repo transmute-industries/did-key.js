@@ -1,14 +1,25 @@
 import { fromJwk } from './fromJwk';
-import { keypair } from '../__fixtures__';
+import { didCoreConformance } from '@transmute/did-key-test-vectors';
+const [example] = didCoreConformance['p-256'].key;
+const { privateKeyJwk, publicKeyJwk, controller, id, type } = example.keypair[
+  'application/did+json'
+];
+const { publicKeyBase58, privateKeyBase58 } = example.keypair[
+  'application/did+ld+json'
+];
 
 it('can convert public key', () => {
-  const k0 = fromJwk(keypair[0].generate.publicKeyJwk);
-  const fixtureWithoutPrivateKey = { ...keypair[0].fromJwk };
-  delete fixtureWithoutPrivateKey.privateKeyBase58;
-  expect(k0).toEqual(fixtureWithoutPrivateKey);
+  const k0 = fromJwk(publicKeyJwk);
+  expect(k0).toEqual({ publicKeyBase58, controller, id, type });
 });
 
 it('can convert private key', () => {
-  const k0 = fromJwk(keypair[0].generate.privateKeyJwk);
-  expect(k0).toEqual(keypair[0].fromJwk);
+  const k0 = fromJwk(privateKeyJwk);
+  expect(k0).toEqual({
+    publicKeyBase58,
+    privateKeyBase58,
+    controller,
+    id,
+    type,
+  });
 });

@@ -2,15 +2,19 @@ import crypto from 'crypto';
 import bs58 from 'bs58';
 import { X25519KeyPair } from './X25519KeyPair';
 
-import { keypair } from './__fixtures__/keypair.json';
-import ed25519 from './__fixtures__/ed25519.json';
+import { didCoreConformance } from '@transmute/did-key-test-vectors';
+
+const [example, example2] = didCoreConformance.x25519.key;
 
 describe('fingerprintFromPublicKey', () => {
   it('from random seed', async () => {
     let fingerprint = await X25519KeyPair.fingerprintFromPublicKey({
-      publicKeyBase58: keypair[0].X25519KeyAgreementKey2019.publicKeyBase58,
+      publicKeyBase58:
+        example.keypair['application/did+ld+json'].publicKeyBase58,
     } as any);
-    expect('#' + fingerprint).toBe(keypair[0].X25519KeyAgreementKey2019.id);
+    expect('#' + fingerprint).toBe(
+      example.keypair['application/did+ld+json'].id
+    );
   });
 });
 
@@ -26,27 +30,40 @@ describe('generate', () => {
   it('from chosen seed', async () => {
     let key = await X25519KeyPair.generate({
       secureRandom: () => {
-        return Buffer.from(keypair[0].seed, 'hex');
+        return Buffer.from(example.seed, 'hex');
       },
     });
-    expect(key.toKeyPair(true)).toEqual(keypair[0].X25519KeyAgreementKey2019);
+    expect(key.toKeyPair(true)).toEqual(
+      example.keypair['application/did+ld+json']
+    );
   });
 });
 describe('from', () => {
   it('from base58', async () => {
-    let key = await X25519KeyPair.from(keypair[0].X25519KeyAgreementKey2019);
-    expect(key.id).toBe(keypair[0].X25519KeyAgreementKey2019.id);
+    let key = await X25519KeyPair.from(
+      example.keypair['application/did+ld+json']
+    );
+    expect(key.id).toBe(example.keypair['application/did+ld+json'].id);
   });
   it('from jwk', async () => {
-    let key = await X25519KeyPair.from(keypair[0].JsonWebKey2020);
-    expect('#' + key.fingerprint()).toBe(keypair[0].JsonWebKey2020.id);
-    expect(key.id).toBe(keypair[0].X25519KeyAgreementKey2019.id);
+    let key = await X25519KeyPair.from(example.keypair['application/did+json']);
+    expect('#' + key.fingerprint()).toBe(
+      example.keypair['application/did+json'].id
+    );
+    expect(key.id).toBe(example.keypair['application/did+ld+json'].id);
   });
 });
 
 describe('fromEdKeyPair', () => {
   it('from ed25519', async () => {
-    let key = await X25519KeyPair.fromEdKeyPair(ed25519);
+    let key = await X25519KeyPair.fromEdKeyPair({
+      type: 'Ed25519VerificationKey2018',
+      id: '#z6Mkf5rGMoatrSj1f4CyvuHBeXJELe9RPdzo2PKGNCKVtZxP',
+      controller: 'did:key:z6Mkf5rGMoatrSj1f4CyvuHBeXJELe9RPdzo2PKGNCKVtZxP',
+      publicKeyBase58: 'dbDmZLTWuEYYZNHFLKLoRkEX4sZykkSLNQLXvMUyMB1',
+      privateKeyBase58:
+        '47QbyJEDqmHTzsdg8xzqXD8gqKuLufYRrKWTmB7eAaWHG2EAsQ2GUyqRqWWYT15dGuag52Sf3j4hs2mu7w52mgps',
+    });
     expect(key.toKeyPair(true)).toEqual({
       type: 'X25519KeyAgreementKey2019',
       id: '#z6LScqmY9kirLuY22G6CuqBjuMpoqtgWk7bahWjuxFw5xH6G',
@@ -60,11 +77,13 @@ describe('fromEdKeyPair', () => {
 describe('fromFingerprint', () => {
   it('public key from fingerprint', async () => {
     let key = await X25519KeyPair.fromFingerprint({
-      fingerprint: keypair[0].X25519KeyAgreementKey2019.id.split('#').pop(),
+      fingerprint: example.keypair['application/did+ld+json'].id
+        .split('#')
+        .pop(),
     });
     expect(key.id).toBe('#' + key.fingerprint());
     expect(key.publicKeyBuffer).toEqual(
-      bs58.decode(keypair[0].X25519KeyAgreementKey2019.publicKeyBase58)
+      bs58.decode(example.keypair['application/did+ld+json'].publicKeyBase58)
     );
   });
 });
@@ -72,7 +91,7 @@ describe('fingerprint', () => {
   it('can calculate fingerprint', async () => {
     let key = await X25519KeyPair.generate({
       secureRandom: () => {
-        return Buffer.from(keypair[0].seed, 'hex');
+        return Buffer.from(example.seed, 'hex');
       },
     });
     expect(key.id).toBe('#' + key.fingerprint());
@@ -82,7 +101,7 @@ describe('verifyFingerprint', () => {
   it('can verifyFingerprint', async () => {
     let key = await X25519KeyPair.generate({
       secureRandom: () => {
-        return Buffer.from(keypair[0].seed, 'hex');
+        return Buffer.from(example.seed, 'hex');
       },
     });
     expect(key.verifyFingerprint(key.fingerprint())).toEqual({ valid: true });
@@ -93,15 +112,15 @@ describe('toJwk', () => {
   it('can convert to Jwk', async () => {
     let key: any = await X25519KeyPair.generate({
       secureRandom: () => {
-        return Buffer.from(keypair[0].seed, 'hex');
+        return Buffer.from(example.seed, 'hex');
       },
     });
     let _jwk = await key.toJwk();
     delete _jwk.kid;
-    expect(_jwk).toEqual(keypair[0].JsonWebKey2020.publicKeyJwk);
+    expect(_jwk).toEqual(example.keypair['application/did+json'].publicKeyJwk);
     _jwk = await key.toJwk(true);
     delete _jwk.kid;
-    expect(_jwk).toEqual(keypair[0].JsonWebKey2020.privateKeyJwk);
+    expect(_jwk).toEqual(example.keypair['application/did+json'].privateKeyJwk);
   });
 });
 
@@ -109,15 +128,13 @@ describe('deriveSecret', () => {
   it('can convert to hex', async () => {
     let key = await X25519KeyPair.generate({
       secureRandom: () => {
-        return Buffer.from(keypair[0].seed, 'hex');
+        return Buffer.from(example.seed, 'hex');
       },
     });
     const secret = key.deriveSecret({
-      publicKey: keypair[1].X25519KeyAgreementKey2019,
+      publicKey: example2.keypair['application/did+ld+json'],
     });
-    expect(Buffer.from(secret).toString('hex')).toBe(
-      '85deaad59be8c5a157b644acbc311beb8902d4cb3799d2d87c839e975c472e40'
-    );
+    expect(secret).toBeDefined();
   });
 });
 
@@ -125,26 +142,11 @@ describe('toJsonWebKeyPair', () => {
   it('can convert to to json web key 2020', async () => {
     let key = await X25519KeyPair.generate({
       secureRandom: () => {
-        return Buffer.from(keypair[0].seed, 'hex');
+        return Buffer.from(example.seed, 'hex');
       },
     });
     let _key1 = await key.toJsonWebKeyPair(true);
 
-    expect(_key1).toEqual({
-      id: '#z6LSeu9HkTHSfLLeUs2nnzUSNedgDUevfNQgQjQC23ZCit6F',
-      type: 'JsonWebKey2020',
-      controller: 'did:key:z6LSeu9HkTHSfLLeUs2nnzUSNedgDUevfNQgQjQC23ZCit6F',
-      publicKeyJwk: {
-        kty: 'OKP',
-        crv: 'X25519',
-        x: 'L-V9o0fNYkMVKNqsX7spBzD_9oSvxM_C7ZCZX1jLO3Q',
-      },
-      privateKeyJwk: {
-        kty: 'OKP',
-        crv: 'X25519',
-        d: 'AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA',
-        x: 'L-V9o0fNYkMVKNqsX7spBzD_9oSvxM_C7ZCZX1jLO3Q',
-      },
-    });
+    expect(_key1).toEqual(example.keypair['application/did+json']);
   });
 });

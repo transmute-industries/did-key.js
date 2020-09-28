@@ -4,6 +4,8 @@ import * as keyUtils from './keyUtils';
 import bs58 from 'bs58';
 import secp256k1 from 'secp256k1';
 
+import * as common from '@transmute/did-key-common';
+
 const _generate = (secureRandom: any) => {
   let privateKey;
   do {
@@ -14,16 +16,36 @@ const _generate = (secureRandom: any) => {
   return { publicKey, privateKey };
 };
 
+@common.types.staticImplements<common.types.KeyPairClass>()
 export class Secp256k1KeyPair {
   public id: string;
   public type: string;
   public controller: string;
 
-  public publicKeyBase58: string;
-  public privateKeyBase58: string;
+  public publicKeyBuffer: Buffer;
+  public privateKeyBuffer?: Buffer;
 
-  static fingerprintFromPublicKey({ publicKeyBase58 }: any) {
-    const pubkeyBytes = bs58.decode(publicKeyBase58);
+  static fingerprintFromPublicKey(
+    keypair: common.types.KeyPairJwk | common.types.KeyPairBase58
+  ) {
+    let pubkeyBytes: any;
+
+    if ((keypair as any).publicKeyBase58) {
+      pubkeyBytes = bs58.decode(
+        (keypair as common.types.KeyPairBase58).publicKeyBase58
+      );
+    }
+
+    if ((keypair as any).publicKeyJwk) {
+      pubkeyBytes = new Uint8Array(
+        Buffer.from(
+          keyUtils.publicKeyHexFromJwk(
+            (keypair as common.types.KeyPairJwk).publicKeyJwk
+          )
+        )
+      );
+    }
+
     const buffer = new Uint8Array(2 + pubkeyBytes.length);
     // See https://github.com/multiformats/multicodec/blob/master/table.csv
     // 0xe7 is Secp256k1 public key
@@ -40,11 +62,7 @@ export class Secp256k1KeyPair {
     if (options.secureRandom) {
       ({ privateKey, publicKey } = _generate(options.secureRandom));
     }
-    if (options.seed) {
-      ({ privateKey, publicKey } = _generate(() => {
-        return new Uint8Array(options.seed);
-      }));
-    }
+
     if (!privateKey) {
       throw new Error('Cannot generate private key.');
     }
@@ -58,10 +76,10 @@ export class Secp256k1KeyPair {
 
     const did = `did:key:${Secp256k1KeyPair.fingerprintFromPublicKey({
       publicKeyBase58,
-    })}`;
+    } as any)}`;
     const keyId = `#${Secp256k1KeyPair.fingerprintFromPublicKey({
       publicKeyBase58,
-    })}`;
+    } as any)}`;
 
     return new Secp256k1KeyPair({
       id: keyId,
@@ -115,10 +133,10 @@ export class Secp256k1KeyPair {
       const publicKeyBase58 = bs58.encode(buffer.slice(2));
       const did = `did:key:${Secp256k1KeyPair.fingerprintFromPublicKey({
         publicKeyBase58,
-      })}`;
+      } as any)}`;
       const keyId = `#${Secp256k1KeyPair.fingerprintFromPublicKey({
         publicKeyBase58,
-      })}`;
+      } as any)}`;
       return new Secp256k1KeyPair({
         id: keyId,
         controller: did,
@@ -131,42 +149,57 @@ export class Secp256k1KeyPair {
 
   constructor(options: any = {}) {
     this.type = 'EcdsaSecp256k1VerificationKey2019';
-
     this.id = options.id;
     this.controller = options.controller;
-    this.privateKeyBase58 = options.privateKeyBase58;
-    this.publicKeyBase58 = options.publicKeyBase58;
+
+    if (options.publicKeyBase58) {
+      this.publicKeyBuffer = bs58.decode(options.publicKeyBase58);
+    } else if (options.publicKeyJwk) {
+      this.publicKeyBuffer = Buffer.from(
+        keyUtils.publicKeyHexFromJwk(options.publicKeyJwk),
+        'hex'
+      );
+    } else {
+      throw new Error(
+        'Secp256k1KeyPair requires publicKeyBase58 or publicKeyJwk, recieved neither.'
+      );
+    }
+
+    if (options.privateKeyBase58) {
+      this.privateKeyBuffer = bs58.decode(options.privateKeyBase58);
+    }
+
+    if (options.privateKeyJwk) {
+      this.privateKeyBuffer = Buffer.from(
+        keyUtils.privateKeyHexFromJwk(options.privateKeyJwk),
+        'hex'
+      );
+    }
+
+    if (this.controller && !this.id) {
+      this.id = `${this.controller}#${this.fingerprint()}`;
+    }
   }
 
-  get publicKey() {
-    return this.publicKeyBase58;
-  }
-
-  get privateKey() {
-    return this.privateKeyBase58;
+  publicNode() {
+    return this.toKeyPair(false);
   }
 
   signer() {
-    if (!this.privateKeyBase58) {
-      return {
-        async sign() {
-          throw new Error('No private key to sign with.');
-        },
-      };
+    if (!this.privateKeyBuffer) {
+      throw new Error('No private key to sign with.');
     }
-    let privateKeyBase58 = this.privateKeyBase58;
+    let { privateKeyBuffer } = this;
     return {
       async sign({ data }: any) {
         const messageHashUInt8Array = crypto
           .createHash('sha256')
           .update(data)
           .digest();
-        const privateKeyUInt8Array = await keyUtils.privateKeyUInt8ArrayFromPrivateKeyBase58(
-          privateKeyBase58
-        );
+
         const sigObj: any = secp256k1.ecdsaSign(
           messageHashUInt8Array,
-          privateKeyUInt8Array
+          new Uint8Array(privateKeyBuffer)
         );
 
         return sigObj.signature;
@@ -175,14 +208,10 @@ export class Secp256k1KeyPair {
   }
 
   verifier() {
-    if (!this.publicKeyBase58) {
-      return {
-        async sign() {
-          throw new Error('No public key to verify with.');
-        },
-      };
+    if (!this.publicKeyBuffer) {
+      throw new Error('No public key to verify with.');
     }
-    let publicKeyBase58 = this.publicKeyBase58;
+    let { publicKeyBuffer } = this;
     return {
       async verify({ data, signature }: any) {
         const messageHashUInt8Array = crypto
@@ -190,16 +219,12 @@ export class Secp256k1KeyPair {
           .update(data)
           .digest();
 
-        const publicKeyUInt8Array = await keyUtils.publicKeyUInt8ArrayFromPublicKeyBase58(
-          publicKeyBase58
-        );
-
         let verified = false;
         try {
           verified = secp256k1.ecdsaVerify(
             signature,
             messageHashUInt8Array,
-            publicKeyUInt8Array
+            new Uint8Array(publicKeyBuffer)
           );
         } catch (e) {
           console.error('An error occurred when verifying signature: ', e);
@@ -209,14 +234,10 @@ export class Secp256k1KeyPair {
     };
   }
 
-  addEncodedPublicKey(publicKeyNode: any) {
-    publicKeyNode.publicKeyBase58 = this.publicKeyBase58;
-    return publicKeyNode;
-  }
-
   fingerprint() {
-    const { publicKeyBase58 } = this;
-    return Secp256k1KeyPair.fingerprintFromPublicKey({ publicKeyBase58 });
+    return Secp256k1KeyPair.fingerprintFromPublicKey({
+      publicKeyBase58: bs58.encode(this.publicKeyBuffer),
+    } as any);
   }
 
   verifyFingerprint(fingerprint: string) {
@@ -234,12 +255,7 @@ export class Secp256k1KeyPair {
     } catch (e) {
       return { error: e, valid: false };
     }
-    let publicKeyBuffer;
-    try {
-      publicKeyBuffer = bs58.decode(this.publicKeyBase58);
-    } catch (e) {
-      return { error: e, valid: false };
-    }
+    let { publicKeyBuffer } = this;
 
     // validate the first two multicodec bytes 0xe701
     const valid =
@@ -254,40 +270,34 @@ export class Secp256k1KeyPair {
     return { valid };
   }
 
-  publicNode({ controller = this.controller } = {}) {
-    const publicNode: any = {
-      id: this.id,
-      type: this.type,
-    };
-    if (controller) {
-      publicNode.controller = controller;
-    }
-    this.addEncodedPublicKey(publicNode); // Subclass-specific
-    return publicNode;
-  }
-
   toJwk(_private: boolean = false) {
     if (_private) {
+      if (!this.privateKeyBuffer) {
+        throw new Error('No private key to export');
+      }
       return keyUtils.privateKeyJwkFromPrivateKeyHex(
-        bs58.decode(this.privateKeyBase58).toString('hex')
+        this.privateKeyBuffer.toString('hex')
       );
     }
     return keyUtils.publicKeyJwkFromPublicKeyHex(
-      bs58.decode(this.publicKeyBase58).toString('hex')
+      this.publicKeyBuffer.toString('hex')
     );
   }
 
   async toHex(_private: boolean = false) {
     if (_private) {
+      if (!this.privateKeyBuffer) {
+        throw new Error('No private key to export');
+      }
       return keyUtils.privateKeyHexFromJwk(
         await keyUtils.privateKeyJwkFromPrivateKeyHex(
-          bs58.decode(this.privateKeyBase58).toString('hex')
+          this.privateKeyBuffer.toString('hex')
         )
       );
     }
     return keyUtils.publicKeyHexFromJwk(
       await keyUtils.publicKeyJwkFromPublicKeyHex(
-        bs58.decode(this.publicKeyBase58).toString('hex')
+        this.publicKeyBuffer.toString('hex')
       )
     );
   }
@@ -297,10 +307,10 @@ export class Secp256k1KeyPair {
       id: this.id,
       type: this.type,
       controller: this.controller,
-      publicKeyBase58: this.publicKeyBase58,
+      publicKeyBase58: bs58.encode(this.publicKeyBuffer),
     };
     if (exportPrivate) {
-      kp.privateKeyBase58 = this.privateKeyBase58;
+      kp.privateKeyBase58 = bs58.encode(this.privateKeyBuffer);
     }
     return kp;
   }

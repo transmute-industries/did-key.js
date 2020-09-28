@@ -1,7 +1,10 @@
 import { JWS, JWK } from 'jose';
 import * as ES256K from '../ES256K';
 
-import * as fixtures from '../__fixtures__';
+import { didCoreConformance } from '@transmute/did-key-test-vectors';
+const [example] = didCoreConformance.secp256k1.key;
+
+const { publicKeyJwk, privateKeyJwk } = example.keypair['application/did+json'];
 
 const payload = Buffer.from('hello');
 const header = {
@@ -18,32 +21,28 @@ it('interop', async () => {
   while (count < limit) {
     const theirJws = await JWS.sign(
       payload,
-      JWK.asKey(fixtures.privateKeyJwk as any),
+      JWK.asKey(privateKeyJwk as any),
       header
     );
 
     const theirVerification = await JWS.verify(
       theirJws,
-      JWK.asKey(fixtures.publicKeyJwk as any),
+      JWK.asKey(publicKeyJwk as any),
       { crit: ['b64'] }
     );
     expect(theirVerification).toEqual(payload.toString());
-    const ourJws = await ES256K.signDetached(
-      payload,
-      fixtures.privateKeyJwk,
-      header
-    );
+    const ourJws = await ES256K.signDetached(payload, privateKeyJwk, header);
     const ourVerification = await ES256K.verifyDetached(
       ourJws,
       payload,
-      fixtures.publicKeyJwk
+      publicKeyJwk
     );
     expect(ourVerification).toEqual(true);
     let parts = ourJws.split('..');
     const ourJwsForThem = parts[0] + '.' + payload.toString() + '.' + parts[1];
     const theirVerificationOfOurs = await JWS.verify(
       ourJwsForThem,
-      JWK.asKey(fixtures.publicKeyJwk as any),
+      JWK.asKey(publicKeyJwk as any),
       { crit: ['b64'] }
     );
     expect(theirVerificationOfOurs).toEqual(payload.toString());
@@ -54,7 +53,7 @@ it('interop', async () => {
       const ourVerificationOfTheirs = await ES256K.verifyDetached(
         theirJwsForUs,
         payload,
-        fixtures.publicKeyJwk
+        publicKeyJwk
       );
       expect(ourVerificationOfTheirs).toEqual(true);
     } catch (e) {

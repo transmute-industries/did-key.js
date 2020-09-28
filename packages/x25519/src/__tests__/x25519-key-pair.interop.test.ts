@@ -1,14 +1,27 @@
-// import * as fixtures from '../__fixtures__';
-import { keypair } from '../__fixtures__/keypair.json';
+import { didCoreConformance } from '@transmute/did-key-test-vectors';
 
-const { X25519KeyPair } = require('x25519-key-pair');
+import { X25519KeyPair } from '../X25519KeyPair';
 
-it('x25519-key-pair deriveSecret', async () => {
-  const key = await X25519KeyPair.from(keypair[0].X25519KeyAgreementKey2019);
-  const secret = key.deriveSecret({
-    publicKey: keypair[1].X25519KeyAgreementKey2019,
-  });
-  expect(Buffer.from(secret).toString('hex')).toBe(
-    '85deaad59be8c5a157b644acbc311beb8902d4cb3799d2d87c839e975c472e40'
+const db = require('x25519-key-pair');
+
+it('JSON / JSON-LD Interop deriveSecret', async () => {
+  const [keyFixture0, keyFixture1] = didCoreConformance.x25519.key;
+
+  const key1 = await db.X25519KeyPair.from(
+    keyFixture0.keypair['application/did+ld+json']
   );
+
+  const secret1 = key1.deriveSecret({
+    publicKey: keyFixture1.keypair['application/did+ld+json'],
+  });
+
+  const key2 = await X25519KeyPair.from(
+    keyFixture0.keypair['application/did+json']
+  );
+
+  const secret2 = key2.deriveSecret({
+    publicKey: keyFixture1.keypair['application/did+json'],
+  });
+
+  expect(secret1).toEqual(secret2);
 });

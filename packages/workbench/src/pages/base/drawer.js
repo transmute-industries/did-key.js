@@ -28,7 +28,9 @@ export default function DrawerContent() {
         <ListItemText primary={"Home"} />
       </ListItem>
 
-      <ListItem
+      {/* Need to update vc.js to support better key structure.*/}
+
+      {/* <ListItem
         button
         onClick={() => {
           history.push("/workbench");
@@ -62,7 +64,7 @@ export default function DrawerContent() {
           <YouTubeIcon />
         </ListItemIcon>
         <ListItemText primary={"Videos"} />
-      </ListItem>
+      </ListItem> */}
 
       <ListItem
         button
@@ -74,18 +76,6 @@ export default function DrawerContent() {
           <GavelIcon />
         </ListItemIcon>
         <ListItemText primary={"Spec"} />
-      </ListItem>
-
-      <ListItem
-        button
-        onClick={() => {
-          window.open("https://did-key.web.app/api/docs");
-        }}
-      >
-        <ListItemIcon>
-          <HttpIcon />
-        </ListItemIcon>
-        <ListItemText primary={"API"} />
       </ListItem>
 
       <ListItem
