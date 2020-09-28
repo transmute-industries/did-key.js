@@ -71,13 +71,13 @@ export default function CustomizedMenus() {
       >
         <StyledMenuItem
           onClick={() => {
-            history.push("/workbench");
+            history.push("/");
           }}
         >
           <ListItemIcon>
             <HomeIcon fontSize="small" />
           </ListItemIcon>
-          <ListItemText primary="Workbench" />
+          <ListItemText primary="Home" />
         </StyledMenuItem>
       </StyledMenu>
     </div>
