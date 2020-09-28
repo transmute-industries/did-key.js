@@ -181,6 +181,10 @@ export class Secp256k1KeyPair {
     }
   }
 
+  publicNode() {
+    return this.toKeyPair(false);
+  }
+
   signer() {
     if (!this.privateKeyBuffer) {
       throw new Error('No private key to sign with.');
