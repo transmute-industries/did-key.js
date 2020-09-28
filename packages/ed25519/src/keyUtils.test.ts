@@ -1,62 +1,81 @@
 import * as keyUtils from './keyUtils';
-import * as fixtures from './__fixtures__';
+import { didCoreConformance } from '@transmute/did-key-test-vectors';
+import bs58 from 'bs58';
+
+const [example] = didCoreConformance.ed25519.key;
 
 it('publicKeyBase58FromPublicKeyHex', async () => {
   expect(
-    keyUtils.publicKeyBase58FromPublicKeyHex(fixtures.ed25519_hex.publicKeyHex)
-  ).toBe(fixtures.ed25519_base58btc.publicKeyBase58);
+    keyUtils.publicKeyBase58FromPublicKeyHex(
+      bs58
+        .decode(example.keypair['application/did+ld+json'].publicKeyBase58)
+        .toString('hex')
+    )
+  ).toBe(example.keypair['application/did+ld+json'].publicKeyBase58);
 });
 
 it('privateKeyBase58FromPrivateKeyHex', async () => {
   expect(
     keyUtils.privateKeyBase58FromPrivateKeyHex(
-      fixtures.ed25519_hex.privateKeyHex
+      bs58
+        .decode(example.keypair['application/did+ld+json'].privateKeyBase58)
+        .toString('hex')
     )
-  ).toBe(fixtures.ed25519_base58btc.privateKeyBase58);
+  ).toBe(example.keypair['application/did+ld+json'].privateKeyBase58);
 });
 
 it('publicKeyJwkFromPublicKeyBase58', async () => {
-  expect(
-    keyUtils.publicKeyJwkFromPublicKeyBase58(
-      fixtures.ed25519_base58btc.publicKeyBase58
-    )
-  ).toEqual(fixtures.ed25519_jwk.publicKeyJwk);
+  const jwk = keyUtils.publicKeyJwkFromPublicKeyBase58(
+    example.keypair['application/did+ld+json'].publicKeyBase58
+  );
+  delete jwk.kid;
+  expect(jwk).toEqual(example.keypair['application/did+json'].publicKeyJwk);
 });
 
 it('privateKeyJwkFromPrivateKeyBase58', async () => {
-  expect(
-    keyUtils.privateKeyJwkFromPrivateKeyBase58(
-      fixtures.ed25519_base58btc.privateKeyBase58
-    )
-  ).toEqual(fixtures.ed25519_jwk.privateKeyJwk);
+  const jwk = keyUtils.privateKeyJwkFromPrivateKeyBase58(
+    example.keypair['application/did+ld+json'].privateKeyBase58
+  );
+  delete jwk.kid;
+  expect(jwk).toEqual(example.keypair['application/did+json'].privateKeyJwk);
 });
 
 it('publicKeyBase58FromPublicKeyJwk', async () => {
   expect(
-    keyUtils.publicKeyBase58FromPublicKeyJwk(fixtures.ed25519_jwk.publicKeyJwk)
-  ).toEqual(fixtures.ed25519_base58btc.publicKeyBase58);
+    keyUtils.publicKeyBase58FromPublicKeyJwk(
+      example.keypair['application/did+json'].publicKeyJwk
+    )
+  ).toEqual(example.keypair['application/did+ld+json'].publicKeyBase58);
 });
 
 it('privateKeyBase58FromPrivateKeyJwk', async () => {
   expect(
     keyUtils.privateKeyBase58FromPrivateKeyJwk(
-      fixtures.ed25519_jwk.privateKeyJwk
+      example.keypair['application/did+json'].privateKeyJwk
     )
-  ).toEqual(fixtures.ed25519_base58btc.privateKeyBase58);
+  ).toEqual(example.keypair['application/did+ld+json'].privateKeyBase58);
 });
 
 it('publicKeyHexFromPublicKeyBase58', async () => {
   expect(
     keyUtils.publicKeyHexFromPublicKeyBase58(
-      fixtures.ed25519_base58btc.publicKeyBase58
+      example.keypair['application/did+ld+json'].publicKeyBase58
     )
-  ).toEqual(fixtures.ed25519_hex.publicKeyHex);
+  ).toEqual(
+    bs58
+      .decode(example.keypair['application/did+ld+json'].publicKeyBase58)
+      .toString('hex')
+  );
 });
 
 it('privateKeyHexFromPrivateKeyBase58', async () => {
   expect(
     keyUtils.privateKeyHexFromPrivateKeyBase58(
-      fixtures.ed25519_base58btc.privateKeyBase58
+      example.keypair['application/did+ld+json'].privateKeyBase58
     )
-  ).toEqual(fixtures.ed25519_hex.privateKeyHex);
+  ).toEqual(
+    bs58
+      .decode(example.keypair['application/did+ld+json'].privateKeyBase58)
+      .toString('hex')
+  );
 });
