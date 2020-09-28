@@ -152,6 +152,10 @@ export class Ed25519KeyPair {
     }
   }
 
+  publicNode() {
+    return this.toKeyPair(false);
+  }
+
   fingerprint() {
     return Ed25519KeyPair.fingerprintFromPublicKey({
       publicKeyBase58: bs58.encode(this.publicKeyBuffer),
