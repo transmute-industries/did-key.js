@@ -23,14 +23,14 @@ supported.forEach(({ kty, crvOrSize }) => {
       fixture.push({
         seed,
         keypair: {
-          ['application/did+json']: await key.toJsonWebKeyPair(true),
-          ['application/did+ld+json']: key.toKeyPair(true),
+          'application/did+json': await key.toJsonWebKeyPair(true),
+          'application/did+ld+json': key.toKeyPair(true),
         },
         resolution: {
-          ['application/did+json']: await resolve(key.controller, {
+          'application/did+json': await resolve(key.controller, {
             accept: 'application/did+json',
           }),
-          ['application/did+ld+json']: await resolve(key.controller, {
+          'application/did+ld+json': await resolve(key.controller, {
             accept: 'application/did+ld+json',
           }),
         },

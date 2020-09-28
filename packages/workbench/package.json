@@ -50,7 +50,6 @@
   "scripts": {
     "start": "env-cmd -f ./.env.local react-scripts start",
     "eject": "react-scripts eject",
-    "lint:fix": "eslint src --fix",
     "build": "NODE_OPTIONS=--max_old_space_size=8192 react-scripts build",
     "deploy": "gh-pages -d build"
   },

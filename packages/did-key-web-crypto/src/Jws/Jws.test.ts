@@ -8,11 +8,11 @@ import {
 } from './Jws';
 
 import { didCoreConformance } from '@transmute/did-key-test-vectors';
+
+import { getJwsHeaderFromJwk } from '../functions/getJwsHeaderFromJwk';
 const [example] = didCoreConformance['p-256'].key;
 
 const { publicKeyJwk, privateKeyJwk } = example.keypair['application/did+json'];
-
-import { getJwsHeaderFromJwk } from '../functions/getJwsHeaderFromJwk';
 
 it('can sign and verify', async () => {
   const signer = await privateKeyToSigner(privateKeyJwk);
