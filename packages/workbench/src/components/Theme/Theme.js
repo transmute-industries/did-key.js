@@ -1,12 +1,12 @@
-import React, { Component } from 'react';
-import PropTypes from 'prop-types';
+import React, { Component } from "react";
+import PropTypes from "prop-types";
 
-import { MuiThemeProvider, createMuiTheme } from '@material-ui/core/styles';
+import { MuiThemeProvider, createMuiTheme } from "@material-ui/core/styles";
 
-import { darken, lighten } from '@material-ui/core/styles/colorManipulator';
+import { darken, lighten } from "@material-ui/core/styles/colorManipulator";
 
-const primaryColor = '#594aa8';
-const secondaryColor = '#fcb373';
+const primaryColor = "#594aa8";
+const secondaryColor = "#fcb373";
 
 const font1 = '"Rajdhani"';
 const font2 = '"Roboto Condensed"';
@@ -20,9 +20,9 @@ class Theme extends Component {
   render() {
     const { children } = this.props;
     const theme = createMuiTheme({
-      splashImage: '',
+      splashImage: "",
       palette: {
-        type: 'light',
+        type: "light",
         primary: {
           light: lighten(primaryColor, 0.07),
           main: primaryColor,
@@ -37,7 +37,7 @@ class Theme extends Component {
       typography: {
         useNextVariants: true,
         fontSize: 16,
-        fontFamily: [font1, font2, font3].join(','),
+        fontFamily: [font1, font2, font3].join(","),
         h1: {
           fontFamily: font1,
           fontWeight: fontWeightMedium,
@@ -52,20 +52,20 @@ class Theme extends Component {
         },
         h4: {
           fontFamily: font2,
-          textTransform: 'uppercase',
-          letterSpacing: '0.1em',
+          textTransform: "uppercase",
+          letterSpacing: "0.1em",
           fontWeight: fontWeightRegular,
         },
         h5: {
           fontFamily: font2,
-          textTransform: 'uppercase',
-          letterSpacing: '0.1em',
+          textTransform: "uppercase",
+          letterSpacing: "0.1em",
           fontWeight: fontWeightRegular,
         },
         h6: {
           fontFamily: font2,
-          textTransform: 'uppercase',
-          letterSpacing: '0.05em',
+          textTransform: "uppercase",
+          letterSpacing: "0.05em",
           fontWeight: fontWeightRegular,
         },
         subtitle1: {
@@ -94,8 +94,8 @@ class Theme extends Component {
         },
         overline: {
           fontFamily: font2,
-          letterSpacing: '0.15em',
-          textTransform: 'uppercase',
+          letterSpacing: "0.15em",
+          textTransform: "uppercase",
           fontWeight: fontWeightLight,
         },
       },
@@ -121,7 +121,7 @@ class Theme extends Component {
         MuiButton: {
           // Name of the rule
           contained: {
-            boxShadow: 'none',
+            boxShadow: "none",
           },
         },
       },
