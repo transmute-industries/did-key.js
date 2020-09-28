@@ -75,7 +75,7 @@ const Panel = ({ keys, didDocument, onToggleRepresentation, onGenerate }) => {
           <Box>
             <Button
               variant={"contained"}
-              color={"primary"}
+              color={"secondary"}
               onClick={() => {
                 onGenerate();
               }}
