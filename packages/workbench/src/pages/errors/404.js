@@ -1,11 +1,11 @@
-import React, { Component } from 'react';
-import Button from '@material-ui/core/Button';
-import Typography from '@material-ui/core/Typography';
-import Theme from '../../components/Theme/Theme';
+import React, { Component } from "react";
+import Button from "@material-ui/core/Button";
+import Typography from "@material-ui/core/Typography";
+import Theme from "../../components/Theme/Theme";
 
-import { ParticlesContainer } from '../../components/ParticlesContainer';
+import { ParticlesContainer } from "../../components/ParticlesContainer";
 
-import './404.css';
+import "./404.css";
 
 export class NotFound extends Component {
   render() {
@@ -13,7 +13,7 @@ export class NotFound extends Component {
       <Theme>
         <div className="notFound">
           <ParticlesContainer>
-            <div className="copy" style={{ padding: '32px' }}>
+            <div className="copy" style={{ padding: "32px" }}>
               <Typography variant="h1">404</Typography>
               <Typography>
                 {window.location.pathname} page not found.
@@ -21,9 +21,9 @@ export class NotFound extends Component {
               <br />
               <Button
                 variant="contained"
-                color={'secondary'}
+                color={"secondary"}
                 onClick={() => {
-                  window.location.href = '/workbench';
+                  window.location.href = "/";
                 }}
               >
                 Go Home
