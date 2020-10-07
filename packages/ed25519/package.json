@@ -23,9 +23,6 @@
     "lint": "tsdx lint src --fix",
     "prepare": "tsdx build"
   },
-  "peerDependencies": {
-    "@transmute/did-key-x25519": "0.1.0"
-  },
   "prettier": {
     "printWidth": 80,
     "semi": true,
