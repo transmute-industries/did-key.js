@@ -23,7 +23,7 @@ let representations = [
     contentType: 'application/did+ld+json',
   },
 ];
-representations.forEach(rep => {
+representations.forEach((rep) => {
   let { id } = example.resolution[rep.contentType].didDocument;
   it(`resolve supports ${rep.contentType}`, async () => {
     let resolutionResponse: any = await resolve(id, {

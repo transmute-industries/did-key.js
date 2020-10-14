@@ -28,7 +28,7 @@ let representations = [
 
 const keyFixtures = didCoreConformance.x25519.key;
 
-representations.forEach(rep => {
+representations.forEach((rep) => {
   describe(`Encryption Support for ${rep.contentType} / ${rep.keyType}`, () => {
     it(`can resolve keys`, async () => {
       for (let i = 0; i < keyFixtures.length; i++) {

@@ -14,7 +14,7 @@ import { KeyPair } from '../KeyPair';
 const WRITE_FIXTURE_TO_DISK = false;
 let fixtures: any = [];
 
-const supported = SUPPORTED_EC.map(crvOrSize => {
+const supported = SUPPORTED_EC.map((crvOrSize) => {
   let kty = crvOrSize.indexOf('448') === -1 ? 'EC' : 'OKP';
   return { kty, crvOrSize };
 });
