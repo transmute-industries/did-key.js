@@ -2,7 +2,7 @@
   "name": "@transmute/did-key-web-crypto",
   "author": "Orie Steele",
   "module": "dist/did-key-web-crypto.esm.js",
-  "version": "0.2.1-unstable.22",
+  "version": "0.2.1-unstable.23",
   "publishConfig": {
     "access": "public"
   },
@@ -24,15 +24,15 @@
     "prepare": "tsdx build"
   },
   "devDependencies": {
-    "@transmute/did-key-test-vectors": "^0.2.1-unstable.22",
+    "@transmute/did-key-test-vectors": "^0.2.1-unstable.23",
     "jose": "^1.27.1",
     "tsdx": "^0.13.2",
     "tslib": "^2.0.0",
     "typescript": "^3.9.5"
   },
   "dependencies": {
-    "@transmute/did-key-cipher": "^0.2.1-unstable.22",
-    "@transmute/did-key-common": "^0.2.1-unstable.22",
+    "@transmute/did-key-cipher": "^0.2.1-unstable.23",
+    "@transmute/did-key-common": "^0.2.1-unstable.23",
     "base64url": "^3.0.1",
     "bs58": "^4.0.1",
     "canonicalize": "^1.0.1",
