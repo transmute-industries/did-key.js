@@ -12,11 +12,5 @@
   "types": "typings.d.ts",
   "engines": {
     "node": ">=10"
-  },
-  "prettier": {
-    "printWidth": 80,
-    "semi": true,
-    "singleQuote": true,
-    "trailingComma": "es5"
   }
 }

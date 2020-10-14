@@ -1,7 +1,7 @@
 import { didCoreConformance } from '@transmute/did-key-test-vectors';
 import { resolver } from './resolver';
 
-Object.keys(didCoreConformance).map(k => {
+Object.keys(didCoreConformance).map((k) => {
   const keyTypeFixture = didCoreConformance[k].key;
   describe(k, () => {
     keyTypeFixture.forEach((keyFixture: any) => {

@@ -23,12 +23,6 @@
     "lint": "tsdx lint src --fix",
     "prepare": "tsdx build"
   },
-  "prettier": {
-    "printWidth": 80,
-    "semi": true,
-    "singleQuote": true,
-    "trailingComma": "es5"
-  },
   "devDependencies": {
     "@stablelib/aes-kw": "^1.0.0",
     "@stablelib/chacha20poly1305": "^1.0.0",
