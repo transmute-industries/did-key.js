@@ -14,7 +14,7 @@ import {
 import credential from './credential.json'
 import {documentLoader} from './documentLoader'
 import { Typography } from "@material-ui/core";
-
+import * as webrtc from './webrtc';
 const dbPromise = openDB('keyval-store', 1, {
   upgrade(db) {
     db.createObjectStore('keyval');
@@ -126,6 +126,7 @@ export const Unextractable = () => {
           return res;
         },
       });
+      await webrtc.test();
       setState({
         keypair: keyJson,
         verified: verification.verified,
