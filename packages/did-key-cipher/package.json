@@ -30,10 +30,10 @@
     "typescript": "^3.9.5"
   },
   "dependencies": {
+    "@peculiar/webcrypto": "^1.1.3",
     "@stablelib/aes-kw": "^1.0.0",
     "@stablelib/xchacha20poly1305": "^1.0.0",
     "@transmute/did-key-common": "^0.2.1-unstable.23",
-    "node-webcrypto-ossl": "^2.1.2",
     "web-streams-polyfill": "^3.0.0"
   }
 }
