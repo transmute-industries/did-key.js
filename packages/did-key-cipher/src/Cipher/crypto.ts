@@ -1,4 +1,4 @@
-import {Crypto } from '@peculiar/webcrypto'
+import { Crypto } from '@peculiar/webcrypto';
 
 function isNodejs() {
   return (
