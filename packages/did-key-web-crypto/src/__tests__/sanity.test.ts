@@ -1,4 +1,4 @@
-import { Crypto } from 'node-webcrypto-ossl';
+import { Crypto } from '@peculiar/webcrypto';
 
 import { didCoreConformance } from '@transmute/did-key-test-vectors';
 const [example] = didCoreConformance['p-256'].key;
