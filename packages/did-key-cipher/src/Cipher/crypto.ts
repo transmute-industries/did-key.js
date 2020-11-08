@@ -1,4 +1,4 @@
-import { Crypto } from 'node-webcrypto-ossl';
+import { Crypto } from '@peculiar/webcrypto';
 
 function isNodejs() {
   return (
@@ -13,7 +13,7 @@ let crypto: Crypto;
 if (isNodejs()) {
   crypto = new Crypto();
 } else {
-  crypto = window.crypto as Crypto;
+  crypto = window.crypto;
 }
 
 export default crypto;

@@ -1,4 +1,4 @@
-import { Crypto } from 'node-webcrypto-ossl';
+import { Crypto } from '@peculiar/webcrypto';
 
 function isNodejs() {
   return (

@@ -1,0 +1,42 @@
+{
+  "name": "create-react-app-sanity",
+  "version": "0.1.0",
+  "private": true,
+  "dependencies": {
+    "@testing-library/jest-dom": "^5.11.5",
+    "@testing-library/react": "^11.1.1",
+    "@testing-library/user-event": "^12.2.0",
+    "@transmute/did-key-ed25519": "^0.2.1-unstable.23",
+    "@transmute/did-key-x25519": "^0.2.1-unstable.23",
+    "@transmute/ed25519-signature-2018": "^0.1.1-unstable.11",
+    "@transmute/jsonld-document-loader": "^0.2.0",
+    "@transmute/vc.js": "^0.1.1-unstable.11",
+    "react": "^17.0.1",
+    "react-dom": "^17.0.1",
+    "react-scripts": "4.0.0",
+    "web-vitals": "^0.2.4"
+  },
+  "scripts": {
+    "start": "react-scripts start",
+    "build": "react-scripts build",
+    "eject": "react-scripts eject"
+  },
+  "eslintConfig": {
+    "extends": [
+      "react-app",
+      "react-app/jest"
+    ]
+  },
+  "browserslist": {
+    "production": [
+      ">0.2%",
+      "not dead",
+      "not op_mini all"
+    ],
+    "development": [
+      "last 1 chrome version",
+      "last 1 firefox version",
+      "last 1 safari version"
+    ]
+  }
+}
