@@ -1,0 +1,1183 @@
+/*
+object-assign
+(c) Sindre Sorhus
+@license MIT
+*/
+
+/*!
+  Copyright (c) 2017 Jed Watson.
+  Licensed under the MIT License (MIT), see
+  http://jedwatson.github.io/classnames
+*/
+
+/*!
+ * 
+ *             jsPDF AutoTable plugin v3.5.9
+ *             
+ *             Copyright (c) 2020 Simon Bengtsson, https://github.com/simonbengtsson/jsPDF-AutoTable
+ *             Licensed under the MIT License.
+ *             http://opensource.org/licenses/mit-license
+ *         
+ */
+
+/*!
+ * Copyright (c) 2010-2018 Digital Bazaar, Inc. All rights reserved.
+ */
+
+/*!
+ * Copyright (c) 2017-2018 Digital Bazaar, Inc. All rights reserved.
+ */
+
+/*!
+ * Copyright (c) 2018 Digital Bazaar, Inc. All rights reserved.
+ */
+
+/*!
+ * Copyright (c) 2018-2019 Digital Bazaar, Inc. All rights reserved.
+ */
+
+/*!
+ * Copyright (c) 2018-2020 Digital Bazaar, Inc. All rights reserved.
+ */
+
+/*!
+ * Copyright (c) 2019-2020 Digital Bazaar, Inc. All rights reserved.
+ */
+
+/*!
+ * Copyright (c) 2020 Digital Bazaar, Inc. All rights reserved.
+ */
+
+/*!
+ * Determine if an object is a Buffer
+ *
+ * @author   Feross Aboukhadijeh <https://feross.org>
+ * @license  MIT
+ */
+
+/*!
+ * The buffer module from node.js, for the browser.
+ *
+ * @author   Feross Aboukhadijeh <feross@feross.org> <http://feross.org>
+ * @license  MIT
+ */
+
+/*!
+ * The buffer module from node.js, for the browser.
+ *
+ * @author   Feross Aboukhadijeh <http://feross.org>
+ * @license  MIT
+ */
+
+/*!
+ * aead.js - aead for bcrypto
+ * Copyright (c) 2016-2019, Christopher Jeffrey (MIT License).
+ * https://github.com/bcoin-org/bcrypto
+ *
+ * Resources:
+ *   https://tools.ietf.org/html/rfc7539#section-2.8
+ *   https://github.com/openssh/openssh-portable
+ */
+
+/*!
+ * assert.js - assert for bcrypto
+ * Copyright (c) 2020, Christopher Jeffrey (MIT License).
+ * https://github.com/bcoin-org/bcrypto
+ */
+
+/*!
+ * bn.js - big numbers for bcrypto
+ * Copyright (c) 2017-2019, Christopher Jeffrey (MIT License).
+ * https://github.com/bcoin-org/bcrypto
+ */
+
+/*!
+ * bn.js - big numbers for bcrypto
+ * Copyright (c) 2018-2019, Christopher Jeffrey (MIT License).
+ * https://github.com/bcoin-org/bcrypto
+ *
+ * Parts of this software are based on indutny/bn.js:
+ *   Copyright (c) 2015, Fedor Indutny (MIT License).
+ *   https://github.com/indutny/bn.js
+ *
+ * Parts of this software are based on golang/go:
+ *   Copyright (c) 2009, The Go Authors. All rights reserved.
+ *   https://github.com/golang/go
+ *
+ * Parts of this software are based on openssl/openssl:
+ *   Copyright (c) 1998-2018, The OpenSSL Project (Apache License v2.0).
+ *   Copyright (c) 1995-1998, Eric A. Young, Tim J. Hudson. All rights reserved.
+ *   https://github.com/openssl/openssl
+ *
+ * Parts of this software are based on libgmp:
+ *   Copyright (c) 1991-1997, 1999-2014, Free Software Foundation, Inc.
+ *   https://gmplib.org/
+ *
+ * Parts of this software are based on v8/v8:
+ *   Copyright (c) 2017, The V8 Project Authors (BSD-Style License).
+ *   https://github.com/v8/v8
+ *
+ * Resources:
+ *   https://github.com/indutny/bn.js/blob/master/lib/bn.js
+ *   https://github.com/indutny/miller-rabin/blob/master/lib/mr.js
+ *   https://github.com/golang/go/blob/master/src/math/big/int.go
+ *   https://github.com/golang/go/blob/master/src/math/big/nat.go
+ *   https://github.com/golang/go/blob/master/src/math/big/prime.go
+ *   https://github.com/openssl/openssl/tree/master/crypto/bn
+ *   https://github.com/openssl/openssl/blob/master/crypto/bn/bn_kron.c
+ *   https://github.com/gnutls/nettle/blob/master/mini-gmp.c
+ *   https://github.com/v8/v8/blob/master/src/objects/bigint.cc
+ */
+
+/*!
+ * chacha20.js - chacha20 for bcrypto
+ * Copyright (c) 2016-2019, Christopher Jeffrey (MIT License).
+ * https://github.com/bcoin-org/bcrypto
+ *
+ * Resources
+ *   https://en.wikipedia.org/wiki/Chacha20
+ *   https://tools.ietf.org/html/rfc7539#section-2
+ *   https://cr.yp.to/chacha.html
+ */
+
+/*!
+ * custom.js - custom inspect symbol for bcrypto
+ * Copyright (c) 2018-2019, Christopher Jeffrey (MIT License).
+ * https://github.com/bcoin-org/bcrypto
+ */
+
+/*!
+ * ecdh.js - ECDH for bcrypto
+ * Copyright (c) 2018-2019, Christopher Jeffrey (MIT License).
+ * https://github.com/bcoin-org/bcrypto
+ *
+ * Resources:
+ *   https://cr.yp.to/ecdh.html
+ *   https://cr.yp.to/ecdh/curve25519-20060209.pdf
+ *   https://tools.ietf.org/html/rfc7748
+ */
+
+/*!
+ * elliptic.js - elliptic curves for bcrypto
+ * Copyright (c) 2018-2019, Christopher Jeffrey (MIT License).
+ * https://github.com/bcoin-org/bcrypto
+ *
+ * Parts of this software are based on indutny/elliptic:
+ *   Copyright (c) 2014, Fedor Indutny (MIT License).
+ *   https://github.com/indutny/elliptic
+ *
+ * Formulas from DJB and Tanja Lange [EFD].
+ *
+ * References:
+ *
+ *   [GECC] Guide to Elliptic Curve Cryptography
+ *     D. Hankerson, A. Menezes, and S. Vanstone
+ *     https://tinyurl.com/guide-to-ecc
+ *
+ *   [GLV] Faster Point Multiplication on Elliptic Curves
+ *     R. Gallant, R. Lambert, and S. Vanstone
+ *     https://link.springer.com/content/pdf/10.1007/3-540-44647-8_11.pdf
+ *
+ *   [MONT1] Montgomery curves and the Montgomery ladder
+ *     Daniel J. Bernstein, Tanja Lange
+ *     https://eprint.iacr.org/2017/293.pdf
+ *
+ *   [COZ] Scalar Multiplication on Elliptic Curves from Co-Z Arithmetic
+ *     R. Goundar, M. Joye, A. Miyaji, M. Rivain, A. Venelli
+ *     https://www.matthieurivain.com/files/jcen11b.pdf
+ *
+ *   [SQUARED] Elligator Squared
+ *     Mehdi Tibouchi
+ *     https://eprint.iacr.org/2014/043.pdf
+ *
+ *   [SEC1] SEC 1 - Standards for Efficient Cryptography Group
+ *     Certicom Research
+ *     https://www.secg.org/sec1-v2.pdf
+ *
+ *   [SEC2] SEC 2: Recommended Elliptic Curve Domain Parameters
+ *     Certicom Research
+ *     https://www.secg.org/sec2-v2.pdf
+ *
+ *   [SIDE1] Elliptic Curves and Side-Channel Attacks
+ *     Marc Joye
+ *     https://pdfs.semanticscholar.org/8d69/9645033e25d74fcfd4cbf07a770d2e943e14.pdf
+ *
+ *   [BLIND] Side-Channel Analysis on Blinding Regular Scalar Multiplications
+ *     B. Feix, M. Roussellet, A. Venelli
+ *     https://eprint.iacr.org/2014/191.pdf
+ *
+ *   [ALT] Alternative Elliptic Curve Representations
+ *     R. Struik
+ *     https://tools.ietf.org/id/draft-ietf-lwig-curve-representations-02.html
+ *
+ *   [ARITH1] Arithmetic of Elliptic Curves
+ *     Christophe Doche, Tanja Lange
+ *     Handbook of Elliptic and Hyperelliptic Curve Cryptography
+ *     Page 267, Section 13 (978-1-58488-518-4)
+ *     https://hyperelliptic.org/HEHCC/index.html
+ *
+ *   [ARITH2] The Arithmetic of Elliptic Curves, 2nd Edition
+ *     Joseph H. Silverman
+ *     http://www.pdmi.ras.ru/~lowdimma/BSD/Silverman-Arithmetic_of_EC.pdf
+ *
+ *   [EFD] Explicit-Formulas Database
+ *     Daniel J. Bernstein, Tanja Lange
+ *     https://hyperelliptic.org/EFD/index.html
+ *
+ *   [SAFE] SafeCurves: choosing safe curves for elliptic-curve cryptography
+ *     Daniel J. Bernstein
+ *     https://safecurves.cr.yp.to/
+ *
+ *   [4GLV] Refinement of the Four-Dimensional GLV Method on Elliptic Curves
+ *     Hairong Yi, Yuqing Zhu, and Dongdai Lin
+ *     http://www.site.uottawa.ca/~cadams/papers/prepro/paper_19_slides.pdf
+ *
+ *   [ICART] How to Hash into Elliptic Curves
+ *     Thomas Icart
+ *     https://eprint.iacr.org/2009/226.pdf
+ *
+ *   [SSWU1] Efficient Indifferentiable Hashing into Ordinary Elliptic Curves
+ *     E. Brier, J. Coron, T. Icart, D. Madore, H. Randriam, M. Tibouchi
+ *     https://eprint.iacr.org/2009/340.pdf
+ *
+ *   [SSWU2] Rational points on certain hyperelliptic curves over finite fields
+ *     Maciej Ulas
+ *     https://arxiv.org/abs/0706.1448
+ *
+ *   [H2EC] Hashing to Elliptic Curves
+ *     A. Faz-Hernandez, S. Scott, N. Sullivan, R. S. Wahby, C. A. Wood
+ *     https://git.io/JeWz6
+ *     https://github.com/cfrg/draft-irtf-cfrg-hash-to-curve
+ *
+ *   [SVDW1] Construction of Rational Points on Elliptic Curves
+ *     A. Shallue, C. E. van de Woestijne
+ *     https://works.bepress.com/andrew_shallue/1/download/
+ *
+ *   [SVDW2] Indifferentiable Hashing to Barreto-Naehrig Curves
+ *     Pierre-Alain Fouque, Mehdi Tibouchi
+ *     https://www.di.ens.fr/~fouque/pub/latincrypt12.pdf
+ *
+ *   [SVDW3] Covert ECDH over secp256k1
+ *     Pieter Wuille
+ *     https://gist.github.com/sipa/29118d3fcfac69f9930d57433316c039
+ *
+ *   [MONT2] Montgomery Curve (wikipedia)
+ *     https://en.wikipedia.org/wiki/Montgomery_curve
+ *
+ *   [SIDE2] Weierstrass Elliptic Curves and Side-Channel Attacks
+ *     Eric Brier, Marc Joye
+ *     http://citeseerx.ist.psu.edu/viewdoc/download?doi=10.1.1.2.273&rep=rep1&type=pdf
+ *
+ *   [SIDE3] Unified Point Addition Formulae and Side-Channel Attacks
+ *     Douglas Stebila, Nicolas Theriault
+ *     https://eprint.iacr.org/2005/419.pdf
+ *
+ *   [MONT3] Montgomery Curves and their arithmetic
+ *     C. Costello, B. Smith
+ *     https://eprint.iacr.org/2017/212.pdf
+ *
+ *   [ELL2] Elliptic-curve points indistinguishable from uniform random strings
+ *     D. Bernstein, M. Hamburg, A. Krasnova, T. Lange
+ *     https://elligator.cr.yp.to/elligator-20130828.pdf
+ *
+ *   [RFC7748] Elliptic Curves for Security
+ *     A. Langley, M. Hamburg, S. Turner
+ *     https://tools.ietf.org/html/rfc7748
+ *
+ *   [TWISTED] Twisted Edwards Curves
+ *     D. Bernstein, P. Birkner, M. Joye, T. Lange, C. Peters
+ *     https://eprint.iacr.org/2008/013.pdf
+ *
+ *   [ELL1] Injective Encodings to Elliptic Curves
+ *     P. Fouque, A. Joux, M. Tibouchi
+ *     https://eprint.iacr.org/2013/373.pdf
+ *
+ *   [ISOGENY] Twisting Edwards curves with isogenies
+ *     Mike Hamburg
+ *     https://www.shiftleft.org/papers/isogeny/isogeny.pdf
+ *
+ *   [RFC8032] Edwards-Curve Digital Signature Algorithm (EdDSA)
+ *     S. Josefsson, SJD AB, I. Liusvaara
+ *     https://tools.ietf.org/html/rfc8032
+ *
+ *   [TIMING] Remote Timing Attacks are Still Practical
+ *     B. Brumley, N. Tuveri
+ *     https://eprint.iacr.org/2011/232.pdf
+ *
+ *   [SCHNORR] Schnorr Signatures for secp256k1
+ *     Pieter Wuille
+ *     https://github.com/sipa/bips/blob/d194620/bip-schnorr.mediawiki
+ *
+ *   [BIP340] Schnorr Signatures for secp256k1
+ *     Pieter Wuille, Jonas Nick, Tim Ruffing
+ *     https://github.com/bitcoin/bips/blob/master/bip-0340.mediawiki
+ *
+ *   [JCEN12] Efficient Software Implementation of Public-Key Cryptography
+ *            on Sensor Networks Using the MSP430X Microcontroller
+ *     C. P. L. Gouvea, L. B. Oliveira, J. Lopez
+ *     http://conradoplg.cryptoland.net/files/2010/12/jcen12.pdf
+ *
+ *   [FIPS186] Federal Information Processing Standards Publication
+ *     National Institute of Standards and Technology
+ *     https://tinyurl.com/fips-186-3
+ *
+ *   [RFC5639] Elliptic Curve Cryptography (ECC) Brainpool
+ *             Standard Curves and Curve Generation
+ *     M. Lochter, BSI, J. Merkle
+ *     https://tools.ietf.org/html/rfc5639
+ *
+ *   [TWISTEQ] Twisted Edwards & Short Weierstrass Equivalence
+ *     Christopher Jeffrey
+ *     https://gist.github.com/chjj/16ba7fa08d64e8dda269a9fe5b2a8bbc
+ *
+ *   [ECPM] Elliptic Curve Point Multiplication (wikipedia)
+ *     https://en.wikipedia.org/wiki/Elliptic_curve_point_multiplication
+ */
+
+/*!
+ * hkdf.js - hkdf for bcrypto
+ * Copyright (c) 2014-2019, Christopher Jeffrey (MIT License).
+ * https://github.com/bcoin-org/bcrypto
+ *
+ * Resources:
+ *   https://en.wikipedia.org/wiki/HKDF
+ *   https://tools.ietf.org/html/rfc5869
+ */
+
+/*!
+ * hkdf.js - hkdf for bcrypto
+ * Copyright (c) 2017-2019, Christopher Jeffrey (MIT License).
+ * https://github.com/bcoin-org/bcrypto
+ */
+
+/*!
+ * hmac.js - hmac for bcrypto
+ * Copyright (c) 2016-2019, Christopher Jeffrey (MIT License).
+ * https://github.com/bcoin-org/bcrypto
+ *
+ * Parts of this software are based on indutny/hash.js:
+ *   Copyright (c) 2014, Fedor Indutny (MIT License).
+ *   https://github.com/indutny/hash.js
+ *
+ * Resources:
+ *   https://en.wikipedia.org/wiki/HMAC
+ *   https://tools.ietf.org/html/rfc2104
+ *   https://github.com/indutny/hash.js/blob/master/lib/hash/hmac.js
+ */
+
+/*!
+ * is-plain-object <https://github.com/jonschlinkert/is-plain-object>
+ *
+ * Copyright (c) 2014-2017, Jon Schlinkert.
+ * Released under the MIT License.
+ */
+
+/*!
+ * isobject <https://github.com/jonschlinkert/isobject>
+ *
+ * Copyright (c) 2014-2017, Jon Schlinkert.
+ * Released under the MIT License.
+ */
+
+/*!
+ * poly1305.js - poly1305 for bcrypto
+ * Copyright (c) 2016-2019, Christopher Jeffrey (MIT License).
+ * https://github.com/bcoin-org/bcrypto
+ *
+ * Parts of this software are based on floodyberry/poly1305-donna:
+ *   Placed into the public domain by Andrew Moon.
+ *   https://github.com/floodyberry/poly1305-donna
+ *
+ * Resources:
+ *   https://en.wikipedia.org/wiki/Poly1305
+ *   https://cr.yp.to/mac.html
+ *   https://tools.ietf.org/html/rfc7539#section-2.5
+ *   https://github.com/floodyberry/poly1305-donna/blob/master/poly1305-donna-16.h
+ */
+
+/*!
+ * random.js - random for bcrypto
+ * Copyright (c) 2017-2019, Christopher Jeffrey (MIT License).
+ * https://github.com/bcoin-org/bcrypto
+ */
+
+/*!
+ * random.js - random number generator for bcrypto
+ * Copyright (c) 2014-2019, Christopher Jeffrey (MIT License).
+ * https://github.com/bcoin-org/bcrypto
+ *
+ * Resources:
+ *   https://wiki.openssl.org/index.php/Random_Numbers
+ *   https://csrc.nist.gov/projects/random-bit-generation/
+ *   http://www.pcg-random.org/posts/bounded-rands.html
+ *   https://developer.mozilla.org/en-US/docs/Web/API/Crypto/getRandomValues
+ */
+
+/*!
+ * sha256.js - SHA256 implementation for bcrypto
+ * Copyright (c) 2016-2019, Christopher Jeffrey (MIT License).
+ * https://github.com/bcoin-org/bcrypto
+ *
+ * Parts of this software are based on indutny/hash.js:
+ *   Copyright (c) 2014, Fedor Indutny (MIT License).
+ *   https://github.com/indutny/hash.js
+ *
+ * Resources:
+ *   https://en.wikipedia.org/wiki/SHA-2
+ *   https://tools.ietf.org/html/rfc4634
+ *   https://github.com/indutny/hash.js/blob/master/lib/hash/sha/256.js
+ */
+
+/*!
+ * shallow-clone <https://github.com/jonschlinkert/shallow-clone>
+ *
+ * Copyright (c) 2015-present, Jon Schlinkert.
+ * Released under the MIT License.
+ */
+
+/*!
+ * util.js - encoding utils for javascript
+ * Copyright (c) 2018-2019, Christopher Jeffrey (MIT License).
+ * https://github.com/bcoin-org/bcrypto
+ */
+
+/*!
+ * x25519.js - x25519 for bcrypto
+ * Copyright (c) 2018-2019, Christopher Jeffrey (MIT License).
+ * https://github.com/bcoin-org/bcrypto
+ *
+ * Resources:
+ *   https://en.wikipedia.org/wiki/Curve25519
+ *   https://cr.yp.to/ecdh/curve25519-20060209.pdf
+ *   https://tools.ietf.org/html/rfc7748#section-5
+ */
+
+/*! *****************************************************************************
+Copyright (c) Microsoft Corporation.
+
+Permission to use, copy, modify, and/or distribute this software for any
+purpose with or without fee is hereby granted.
+
+THE SOFTWARE IS PROVIDED "AS IS" AND THE AUTHOR DISCLAIMS ALL WARRANTIES WITH
+REGARD TO THIS SOFTWARE INCLUDING ALL IMPLIED WARRANTIES OF MERCHANTABILITY
+AND FITNESS. IN NO EVENT SHALL THE AUTHOR BE LIABLE FOR ANY SPECIAL, DIRECT,
+INDIRECT, OR CONSEQUENTIAL DAMAGES OR ANY DAMAGES WHATSOEVER RESULTING FROM
+LOSS OF USE, DATA OR PROFITS, WHETHER IN AN ACTION OF CONTRACT, NEGLIGENCE OR
+OTHER TORTIOUS ACTION, ARISING OUT OF OR IN CONNECTION WITH THE USE OR
+PERFORMANCE OF THIS SOFTWARE.
+***************************************************************************** */
+
+/*! https://mths.be/punycode v1.4.1 by @mathias */
+
+/*! https://mths.be/utf8js v2.1.2 by @mathias */
+
+/*! queue-microtask. MIT License. Feross Aboukhadijeh <https://feross.org/opensource> */
+
+/*! safe-buffer. MIT License. Feross Aboukhadijeh <https://feross.org/opensource> */
+
+/*!s
+ * Copyright (c) 2017-2018 Digital Bazaar, Inc. All rights reserved.
+ */
+
+/**
+     * @license
+      Copyright (c) 2008, Adobe Systems Incorporated
+      All rights reserved.
+  
+      Redistribution and use in source and binary forms, with or without 
+      modification, are permitted provided that the following conditions are
+      met:
+  
+      * Redistributions of source code must retain the above copyright notice, 
+        this list of conditions and the following disclaimer.
+      
+      * Redistributions in binary form must reproduce the above copyright
+        notice, this list of conditions and the following disclaimer in the 
+        documentation and/or other materials provided with the distribution.
+      
+      * Neither the name of Adobe Systems Incorporated nor the names of its 
+        contributors may be used to endorse or promote products derived from 
+        this software without specific prior written permission.
+  
+      THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS
+      IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO,
+      THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR
+      PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT OWNER OR 
+      CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL,
+      EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED TO,
+      PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR
+      PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF
+      LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING
+      NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS
+      SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+    */
+
+/**
+     * @license
+     *
+     * Copyright (c) 2014 James Robb, https://github.com/jamesbrobb
+     *
+     * Permission is hereby granted, free of charge, to any person obtaining
+     * a copy of this software and associated documentation files (the
+     * "Software"), to deal in the Software without restriction, including
+     * without limitation the rights to use, copy, modify, merge, publish,
+     * distribute, sublicense, and/or sell copies of the Software, and to
+     * permit persons to whom the Software is furnished to do so, subject to
+     * the following conditions:
+     *
+     * The above copyright notice and this permission notice shall be
+     * included in all copies or substantial portions of the Software.
+     *
+     * THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND,
+     * EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF
+     * MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND
+     * NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE
+     * LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION
+     * OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION
+     * WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
+     * ====================================================================
+     */
+
+/**
+     * @license
+     *
+     * Licensed under the MIT License.
+     * http://opensource.org/licenses/mit-license
+     */
+
+/**
+     * @license
+     * (c) Dean McNamee <dean@gmail.com>, 2013.
+     *
+     * https://github.com/deanm/omggif
+     *
+     * Permission is hereby granted, free of charge, to any person obtaining a copy
+     * of this software and associated documentation files (the "Software"), to
+     * deal in the Software without restriction, including without limitation the
+     * rights to use, copy, modify, merge, publish, distribute, sublicense, and/or
+     * sell copies of the Software, and to permit persons to whom the Software is
+     * furnished to do so, subject to the following conditions:
+     *
+     * The above copyright notice and this permission notice shall be included in
+     * all copies or substantial portions of the Software.
+     *
+     * THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+     * IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+     * FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+     * AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+     * LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING
+     * FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS
+     * IN THE SOFTWARE.
+     *
+     * omggif is a JavaScript implementation of a GIF 89a encoder and decoder,
+     * including animation and compression.  It does not rely on any specific
+     * underlying system, so should run in the browser, Node, or Plask.
+     */
+
+/**
+     * @license
+     * ====================================================================
+     * Copyright (c) 2013 Eduardo Menezes de Morais, eduardo.morais@usp.br
+     *
+     * Permission is hereby granted, free of charge, to any person obtaining
+     * a copy of this software and associated documentation files (the
+     * "Software"), to deal in the Software without restriction, including
+     * without limitation the rights to use, copy, modify, merge, publish,
+     * distribute, sublicense, and/or sell copies of the Software, and to
+     * permit persons to whom the Software is furnished to do so, subject to
+     * the following conditions:
+     *
+     * The above copyright notice and this permission notice shall be
+     * included in all copies or substantial portions of the Software.
+     *
+     * THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND,
+     * EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF
+     * MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND
+     * NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE
+     * LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION
+     * OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION
+     * WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
+     * ====================================================================
+     */
+
+/**
+     * @license
+     * ====================================================================
+     * Copyright (c) 2013 Youssef Beddad, youssef.beddad@gmail.com
+     *
+     * Permission is hereby granted, free of charge, to any person obtaining
+     * a copy of this software and associated documentation files (the
+     * "Software"), to deal in the Software without restriction, including
+     * without limitation the rights to use, copy, modify, merge, publish,
+     * distribute, sublicense, and/or sell copies of the Software, and to
+     * permit persons to whom the Software is furnished to do so, subject to
+     * the following conditions:
+     *
+     * The above copyright notice and this permission notice shall be
+     * included in all copies or substantial portions of the Software.
+     *
+     * THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND,
+     * EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF
+     * MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND
+     * NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE
+     * LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION
+     * OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION
+     * WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
+     * ====================================================================
+     */
+
+/**
+     * @license
+     * ====================================================================
+     * Copyright (c) 2013 Youssef Beddad, youssef.beddad@gmail.com
+     *               2013 Eduardo Menezes de Morais, eduardo.morais@usp.br
+     *               2013 Lee Driscoll, https://github.com/lsdriscoll
+     *               2014 Juan Pablo Gaviria, https://github.com/juanpgaviria
+     *               2014 James Hall, james@parall.ax
+     *               2014 Diego Casorran, https://github.com/diegocr
+     *
+     * Permission is hereby granted, free of charge, to any person obtaining
+     * a copy of this software and associated documentation files (the
+     * "Software"), to deal in the Software without restriction, including
+     * without limitation the rights to use, copy, modify, merge, publish,
+     * distribute, sublicense, and/or sell copies of the Software, and to
+     * permit persons to whom the Software is furnished to do so, subject to
+     * the following conditions:
+     *
+     * The above copyright notice and this permission notice shall be
+     * included in all copies or substantial portions of the Software.
+     *
+     * THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND,
+     * EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF
+     * MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND
+     * NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE
+     * LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION
+     * OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION
+     * WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
+     * ====================================================================
+     */
+
+/**
+     * @license
+     * Copyright (c) 2012 chick307 <chick307@gmail.com>
+     *
+     * Licensed under the MIT License.
+     * http://opensource.org/licenses/mit-license
+     */
+
+/**
+     * @license
+     * Copyright (c) 2014 Steven Spungin (TwelveTone LLC)  steven@twelvetone.tv
+     *
+     * Licensed under the MIT License.
+     * http://opensource.org/licenses/mit-license
+     */
+
+/**
+     * @license
+     * Copyright (c) 2017 Aras Abbasi
+     *
+     * Licensed under the MIT License.
+     * http://opensource.org/licenses/mit-license
+     */
+
+/**
+     * @license
+     * Copyright (c) 2018 Aras Abbasi
+     *
+     * Licensed under the MIT License.
+     * http://opensource.org/licenses/mit-license
+     */
+
+/**
+     * @license
+     * Copyright (c) 2018 Erik Koopmans
+     * Released under the MIT License.
+     *
+     * Licensed under the MIT License.
+     * http://opensource.org/licenses/mit-license
+     */
+
+/**
+     * @license
+     * Copyright (c) 2019 Aras Abbasi
+     *
+     * Licensed under the MIT License.
+     * http://opensource.org/licenses/mit-license
+     */
+
+/**
+     * @license
+     * Extracted from pdf.js
+     * https://github.com/andreasgal/pdf.js
+     *
+     * Copyright (c) 2011 Mozilla Foundation
+     *
+     * Contributors: Andreas Gal <gal@mozilla.com>
+     *               Chris G Jones <cjones@mozilla.com>
+     *               Shaon Barman <shaon.barman@gmail.com>
+     *               Vivien Nicolas <21@vingtetun.org>
+     *               Justin D'Arcangelo <justindarc@gmail.com>
+     *               Yury Delendik
+     *
+     * Permission is hereby granted, free of charge, to any person obtaining a
+     * copy of this software and associated documentation files (the "Software"),
+     * to deal in the Software without restriction, including without limitation
+     * the rights to use, copy, modify, merge, publish, distribute, sublicense,
+     * and/or sell copies of the Software, and to permit persons to whom the
+     * Software is furnished to do so, subject to the following conditions:
+     *
+     * The above copyright notice and this permission notice shall be included in
+     * all copies or substantial portions of the Software.
+     *
+     * THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+     * IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+     * FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL
+     * THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+     * LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING
+     * FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER
+     * DEALINGS IN THE SOFTWARE.
+     */
+
+/**
+     * @license
+     * FileSaver.js
+     * A saveAs() FileSaver implementation.
+     *
+     * By Eli Grey, http://eligrey.com
+     *
+     * License : https://github.com/eligrey/FileSaver.js/blob/master/LICENSE.md (MIT)
+     * source  : http://purl.eligrey.com/github/FileSaver.js
+     */
+
+/**
+     * @license
+     * Licensed under the MIT License.
+     * http://opensource.org/licenses/mit-license
+     */
+
+/**
+     * @license
+     * Unicode Bidi Engine based on the work of Alex Shensis (@asthensis)
+     * MIT License
+     */
+
+/**
+     * @license
+     * jsPDF fileloading PlugIn
+     * Copyright (c) 2018 Aras Abbasi (aras.abbasi@gmail.com)
+     *
+     * Licensed under the MIT License.
+     * http://opensource.org/licenses/mit-license
+     */
+
+/**
+     * @license
+     * jsPDF filters PlugIn
+     * Copyright (c) 2014 Aras Abbasi
+     *
+     * Licensed under the MIT License.
+     * http://opensource.org/licenses/mit-license
+     */
+
+/**
+     * @license
+     * jsPDF viewerPreferences Plugin
+     * @author Aras Abbasi (github.com/arasabbasi)
+     * Licensed under the MIT License.
+     * http://opensource.org/licenses/mit-license
+     */
+
+/**
+     * @license
+     * jsPDF virtual FileSystem functionality
+     *
+     * Licensed under the MIT License.
+     * http://opensource.org/licenses/mit-license
+     */
+
+/**
+     * @license
+     Copyright (c) 2013 Gildas Lormeau. All rights reserved.
+  
+     Redistribution and use in source and binary forms, with or without
+     modification, are permitted provided that the following conditions are met:
+  
+     1. Redistributions of source code must retain the above copyright notice,
+     this list of conditions and the following disclaimer.
+  
+     2. Redistributions in binary form must reproduce the above copyright 
+     notice, this list of conditions and the following disclaimer in 
+     the documentation and/or other materials provided with the distribution.
+  
+     3. The names of the authors may not be used to endorse or promote products
+     derived from this software without specific prior written permission.
+  
+     THIS SOFTWARE IS PROVIDED ``AS IS'' AND ANY EXPRESSED OR IMPLIED WARRANTIES,
+     INCLUDING, BUT NOT LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND
+     FITNESS FOR A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL JCRAFT,
+     INC. OR ANY CONTRIBUTORS TO THIS SOFTWARE BE LIABLE FOR ANY DIRECT, INDIRECT,
+     INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT
+     LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA,
+     OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF
+     LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING
+     NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE,
+     EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+     */
+
+/**
+     * A class to parse color values
+     * @author Stoyan Stefanov <sstoo@gmail.com>
+     * {@link   http://www.phpied.com/rgb-color-parser-in-javascript/}
+     * @license Use it if you like it
+     */
+
+/**
+ * @file Web Cryptography API shim
+ * @author Artem S Vybornov <vybornov@gmail.com>
+ * @license MIT
+ */
+
+/**
+ * @license
+ * Lodash <https://lodash.com/>
+ * Copyright OpenJS Foundation and other contributors <https://openjsf.org/>
+ * Released under MIT license <https://lodash.com/license>
+ * Based on Underscore.js 1.8.3 <http://underscorejs.org/LICENSE>
+ * Copyright Jeremy Ashkenas, DocumentCloud and Investigative Reporters & Editors
+ */
+
+/**
+ * A JavaScript implementation of Verifiable Credentials.
+ *
+ * @author Dave Longley
+ * @author David I. Lehn
+ *
+ * @license BSD 3-Clause License
+ * Copyright (c) 2017-2020 Digital Bazaar, Inc.
+ * All rights reserved.
+ *
+ * Redistribution and use in source and binary forms, with or without
+ * modification, are permitted provided that the following conditions are met:
+ *
+ * Redistributions of source code must retain the above copyright notice,
+ * this list of conditions and the following disclaimer.
+ *
+ * Redistributions in binary form must reproduce the above copyright
+ * notice, this list of conditions and the following disclaimer in the
+ * documentation and/or other materials provided with the distribution.
+ *
+ * Neither the name of the Digital Bazaar, Inc. nor the names of its
+ * contributors may be used to endorse or promote products derived from
+ * this software without specific prior written permission.
+ *
+ * THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS
+ * IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED
+ * TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A
+ * PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT
+ * HOLDER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL,
+ * SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED
+ * TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR
+ * PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF
+ * LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING
+ * NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS
+ * SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+ */
+
+/**
+ * A better abstraction over CSS.
+ *
+ * @copyright Oleg Isonen (Slobodskoi) / Isonen 2014-present
+ * @website https://github.com/cssinjs/jss
+ * @license MIT
+ */
+
+/**
+ * Removes the @preserve keywords as the last step of the compaction
+ * algorithm when it is running on framed output.
+ *
+ * @param ctx the active context used to compact the input.
+ * @param input the framed, compacted output.
+ * @param options the compaction options used.
+ *
+ * @return the resulting output.
+ */
+
+/**
+ * Removes the @preserve keywords from expanded result of framing.
+ *
+ * @param input the framed, framed output.
+ * @param options the framing options used.
+ *
+ * @return the resulting output.
+ */
+
+/** ====================================================================
+     * @license
+     * jsPDF XMP metadata plugin
+     * Copyright (c) 2016 Jussi Utunen, u-jussi@suomi24.fi
+     *
+     * Permission is hereby granted, free of charge, to any person obtaining
+     * a copy of this software and associated documentation files (the
+     * "Software"), to deal in the Software without restriction, including
+     * without limitation the rights to use, copy, modify, merge, publish,
+     * distribute, sublicense, and/or sell copies of the Software, and to
+     * permit persons to whom the Software is furnished to do so, subject to
+     * the following conditions:
+     *
+     * The above copyright notice and this permission notice shall be
+     * included in all copies or substantial portions of the Software.
+     *
+     * THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND,
+     * EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF
+     * MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND
+     * NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE
+     * LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION
+     * OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION
+     * WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
+     * ====================================================================
+     */
+
+/** @license
+           * Copyright (c) 2017 Dominik Homberger
+      
+        Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the "Software"), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:
+      
+        The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
+      
+        THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
+      
+        https://webpjs.appspot.com
+        WebPRiffParser dominikhlbg@gmail.com
+        */
+
+/** @license
+     * Copyright (c) 2012 Willow Systems Corporation, willow-systems.com
+     *
+     * Permission is hereby granted, free of charge, to any person obtaining
+     * a copy of this software and associated documentation files (the
+     * "Software"), to deal in the Software without restriction, including
+     * without limitation the rights to use, copy, modify, merge, publish,
+     * distribute, sublicense, and/or sell copies of the Software, and to
+     * permit persons to whom the Software is furnished to do so, subject to
+     * the following conditions:
+     *
+     * The above copyright notice and this permission notice shall be
+     * included in all copies or substantial portions of the Software.
+     *
+     * THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND,
+     * EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF
+     * MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND
+     * NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE
+     * LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION
+     * OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION
+     * WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
+     * ====================================================================
+     */
+
+/** @license
+     * MIT license.
+     * Copyright (c) 2012 Willow Systems Corporation, willow-systems.com
+     *               2014 Diego Casorran, https://github.com/diegocr
+     *
+     * Permission is hereby granted, free of charge, to any person obtaining
+     * a copy of this software and associated documentation files (the
+     * "Software"), to deal in the Software without restriction, including
+     * without limitation the rights to use, copy, modify, merge, publish,
+     * distribute, sublicense, and/or sell copies of the Software, and to
+     * permit persons to whom the Software is furnished to do so, subject to
+     * the following conditions:
+     *
+     * The above copyright notice and this permission notice shall be
+     * included in all copies or substantial portions of the Software.
+     *
+     * THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND,
+     * EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF
+     * MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND
+     * NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE
+     * LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION
+     * OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION
+     * WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
+     * ====================================================================
+     */
+
+/** @license
+     * jsPDF Autoprint Plugin
+     *
+     * Licensed under the MIT License.
+     * http://opensource.org/licenses/mit-license
+     */
+
+/** @license
+     * jsPDF addImage plugin
+     * Copyright (c) 2012 Jason Siefken, https://github.com/siefkenj/
+     *               2013 Chris Dowling, https://github.com/gingerchris
+     *               2013 Trinh Ho, https://github.com/ineedfat
+     *               2013 Edwin Alejandro Perez, https://github.com/eaparango
+     *               2013 Norah Smith, https://github.com/burnburnrocket
+     *               2014 Diego Casorran, https://github.com/diegocr
+     *               2014 James Robb, https://github.com/jamesbrobb
+     *
+     * Permission is hereby granted, free of charge, to any person obtaining
+     * a copy of this software and associated documentation files (the
+     * "Software"), to deal in the Software without restriction, including
+     * without limitation the rights to use, copy, modify, merge, publish,
+     * distribute, sublicense, and/or sell copies of the Software, and to
+     * permit persons to whom the Software is furnished to do so, subject to
+     * the following conditions:
+     *
+     * The above copyright notice and this permission notice shall be
+     * included in all copies or substantial portions of the Software.
+     *
+     * THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND,
+     * EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF
+     * MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND
+     * NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE
+     * LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION
+     * OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION
+     * WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
+     */
+
+/** @license
+     jsPDF standard_fonts_metrics plugin
+     * Copyright (c) 2012 Willow Systems Corporation, willow-systems.com
+     * MIT license.
+     * Permission is hereby granted, free of charge, to any person obtaining
+     * a copy of this software and associated documentation files (the
+     * "Software"), to deal in the Software without restriction, including
+     * without limitation the rights to use, copy, modify, merge, publish,
+     * distribute, sublicense, and/or sell copies of the Software, and to
+     * permit persons to whom the Software is furnished to do so, subject to
+     * the following conditions:
+     * 
+     * The above copyright notice and this permission notice shall be
+     * included in all copies or substantial portions of the Software.
+     * 
+     * THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND,
+     * EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF
+     * MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND
+     * NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE
+     * LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION
+     * OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION
+     * WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
+     * ====================================================================
+     */
+
+/** @license
+ *
+ * jsPDF - PDF Document creation from JavaScript
+ * Version 2.0.0 Built on 2020-08-11T07:57:54.900Z
+ *                      CommitID 00000000
+ *
+ * Copyright (c) 2010-2020 James Hall <james@parall.ax>, https://github.com/MrRio/jsPDF
+ *               2015-2020 yWorks GmbH, http://www.yworks.com
+ *               2015-2020 Lukas Holländer <lukas.hollaender@yworks.com>, https://github.com/HackbrettXXX
+ *               2016-2018 Aras Abbasi <aras.abbasi@gmail.com>
+ *               2010 Aaron Spike, https://github.com/acspike
+ *               2012 Willow Systems Corporation, willow-systems.com
+ *               2012 Pablo Hess, https://github.com/pablohess
+ *               2012 Florian Jenett, https://github.com/fjenett
+ *               2013 Warren Weckesser, https://github.com/warrenweckesser
+ *               2013 Youssef Beddad, https://github.com/lifof
+ *               2013 Lee Driscoll, https://github.com/lsdriscoll
+ *               2013 Stefan Slonevskiy, https://github.com/stefslon
+ *               2013 Jeremy Morel, https://github.com/jmorel
+ *               2013 Christoph Hartmann, https://github.com/chris-rock
+ *               2014 Juan Pablo Gaviria, https://github.com/juanpgaviria
+ *               2014 James Makes, https://github.com/dollaruw
+ *               2014 Diego Casorran, https://github.com/diegocr
+ *               2014 Steven Spungin, https://github.com/Flamenco
+ *               2014 Kenneth Glassey, https://github.com/Gavvers
+ *
+ * Permission is hereby granted, free of charge, to any person obtaining
+ * a copy of this software and associated documentation files (the
+ * "Software"), to deal in the Software without restriction, including
+ * without limitation the rights to use, copy, modify, merge, publish,
+ * distribute, sublicense, and/or sell copies of the Software, and to
+ * permit persons to whom the Software is furnished to do so, subject to
+ * the following conditions:
+ *
+ * The above copyright notice and this permission notice shall be
+ * included in all copies or substantial portions of the Software.
+ *
+ * THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND,
+ * EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF
+ * MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND
+ * NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE
+ * LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION
+ * OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION
+ * WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
+ *
+ * Contributor(s):
+ *    siefkenj, ahwolf, rickygu, Midnith, saintclair, eaparango,
+ *    kim3er, mfo, alnorth, Flamenco
+ */
+
+/** @license React v0.19.1
+ * scheduler.production.min.js
+ *
+ * Copyright (c) Facebook, Inc. and its affiliates.
+ *
+ * This source code is licensed under the MIT license found in the
+ * LICENSE file in the root directory of this source tree.
+ */
+
+/** @license React v16.13.1
+ * react-dom.production.min.js
+ *
+ * Copyright (c) Facebook, Inc. and its affiliates.
+ *
+ * This source code is licensed under the MIT license found in the
+ * LICENSE file in the root directory of this source tree.
+ */
+
+/** @license React v16.13.1
+ * react-is.production.min.js
+ *
+ * Copyright (c) Facebook, Inc. and its affiliates.
+ *
+ * This source code is licensed under the MIT license found in the
+ * LICENSE file in the root directory of this source tree.
+ */
+
+/** @license React v16.13.1
+ * react.production.min.js
+ *
+ * Copyright (c) Facebook, Inc. and its affiliates.
+ *
+ * This source code is licensed under the MIT license found in the
+ * LICENSE file in the root directory of this source tree.
+ */
+
+/**!
+ * @fileOverview Kickass library to create and place poppers near their reference elements.
+ * @version 1.16.1-lts
+ * @license
+ * Copyright (c) 2016 Federico Zivolo and contributors
+ *
+ * Permission is hereby granted, free of charge, to any person obtaining a copy
+ * of this software and associated documentation files (the "Software"), to deal
+ * in the Software without restriction, including without limitation the rights
+ * to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+ * copies of the Software, and to permit persons to whom the Software is
+ * furnished to do so, subject to the following conditions:
+ *
+ * The above copyright notice and this permission notice shall be included in all
+ * copies or substantial portions of the Software.
+ *
+ * THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+ * IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+ * FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+ * AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+ * LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+ * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+ * SOFTWARE.
+ */
+
+// disallow aliasing @context and @preserve
+
+// remove @preserve
+
+// remove @preserve from results
+
+//! moment.js
