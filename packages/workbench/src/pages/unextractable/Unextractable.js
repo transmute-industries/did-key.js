@@ -11,10 +11,14 @@ import {
   JsonWebKey,
   JsonWebSignature,
 } from "@transmute/json-web-signature-2020";
+import Room from 'ipfs-pubsub-room'
+
+
 import credential from './credential.json'
 import {documentLoader} from './documentLoader'
 import { Typography } from "@material-ui/core";
-import * as webrtc from './webrtc';
+import {getLibp2p} from './libp2p';
+
 const dbPromise = openDB('keyval-store', 1, {
   upgrade(db) {
     db.createObjectStore('keyval');
@@ -39,8 +43,17 @@ const idbKeyval = {
   },
 };
 
+let peerCredentials = {};
+window.peerCredentials = peerCredentials;
+
 export const Unextractable = () => {
-  const [state, setState] = React.useState({})
+
+  const [yourNode, setYourNode] = React.useState({
+  })
+
+  const [observedCredentials, setObservedCredentials] = React.useState({
+  })
+
   React.useEffect(()=>{
     (async ()=>{
       let usableKey  = await idbKeyval.get('myKey')
@@ -70,14 +83,7 @@ export const Unextractable = () => {
       keypair.signer = ()=> {
         return {
           sign: async ({data}) => {
-            const signature = await crypto.subtle.sign(
-              {
-                name: 'ECDSA',
-                hash: { name: 'SHA-256' },
-              },
-              usableKey.privateKey,
-              data
-            );
+           
             return createDetachedJws({
               sign: async (data) => {
                 const signature = await crypto.subtle.sign(
@@ -95,7 +101,15 @@ export const Unextractable = () => {
         }
       };
 
-      const suite = new JsonWebSignature({
+      if (window.location.hash === ''){
+        window.location = '#' + keypair.controller;
+      }
+
+      const {libp2p} = await getLibp2p();
+
+      const peerId = libp2p.peerId.toB58String();
+
+       const suite = new JsonWebSignature({
         key: keypair,
         date: credential.issuanceDate,
       });
@@ -107,6 +121,10 @@ export const Unextractable = () => {
             ...credential.issuer,
             id: keypair.controller,
           },
+          credentialSubject: {
+            ...credential.credentialSubject,
+            id: peerId
+          }
         },
         suite,
         documentLoader: async (uri) => {
@@ -116,31 +134,68 @@ export const Unextractable = () => {
           return res;
         },
       });
-      const verification = await vcjs.ld.verifyCredential({
-        credential: { ...verifiableCredential },
-        suite: new JsonWebSignature(),
-        documentLoader: async (uri) => {
-          const res = await documentLoader(uri);
-          // uncomment to debug
-          // console.log(res);
-          return res;
-        },
-      });
-      await webrtc.test();
-      setState({
-        keypair: keyJson,
-        verified: verification.verified,
-        verifiableCredential,
+
+      setYourNode(verifiableCredential)
+     
+
+      const room = new Room(libp2p, 'https://did.key.transmute.industries')
+
+      room.on('peer joined', (peer) => {
+        console.log('Peer joined the room', peer)
+        room.broadcast(Buffer.from(JSON.stringify({type: 'peerIdAssertion', verifiableCredential})))
+        
       })
+      
+      room.on('peer left', (peer) => {
+        console.log('Peer left...', peer)
+      })
+      
+      // now started to listen to room
+      room.on('subscribed', () => {
+        console.log('Now connected!')
+      })
+
+      room.on('message', async (message) => {
+        const messageJson = JSON.parse(Buffer.from(message.data).toString());
+        if (messageJson.type === 'peerIdAssertion'){
+          const result = await vcjs.ld.verifyCredential({
+            credential: { ...messageJson.verifiableCredential },
+            suite: new JsonWebSignature(),
+            documentLoader: async (uri) => {
+              const res = await documentLoader(uri);
+              // uncomment to debug
+              // console.log(res);
+              return res;
+            },
+          });
+     
+          if (result.verified){
+            console.log(`\n\nVerified Peer ${JSON.stringify(messageJson.verifiableCredential, null, 2)}`);
+            setObservedCredentials( (observedCredentials) => {
+              return {...observedCredentials,
+                [messageJson.verifiableCredential.credentialSubject.id]: messageJson.verifiableCredential}
+            })
+          } else {
+            console.error(result)
+          }
+        }
+      })     
     })()
   }, [])
   return (
     <Base>
     <Typography>
-      A verifiable credential issued from an unextractable 
-      (software isolated) private key, represented using did:key.
+      WebRTC Demo of Verifiable Credentials and Unextractable Web Crypto DID Key.
     </Typography>
-      <pre>{JSON.stringify(state, null, 2 )}</pre>
+
+    <Typography variant={'h6'}>
+      Your Are:
+    </Typography>
+      <pre>{JSON.stringify(yourNode, null, 2 )}</pre>
+    <Typography variant={'h6'}>
+      Your Peers:
+    </Typography>
+    <pre>{JSON.stringify(observedCredentials, null, 2 )}</pre>
     </Base>
   );
 };
