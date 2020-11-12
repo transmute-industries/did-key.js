@@ -140,10 +140,12 @@ export const Unextractable = () => {
 
       const room = new Room(libp2p, 'https://did.key.transmute.industries')
 
+      setInterval(()=>{
+        room.broadcast(Buffer.from(JSON.stringify({type: 'peerIdAssertion', verifiableCredential})))
+      }, 10 * 1000)
+
       room.on('peer joined', (peer) => {
         console.log('Peer joined the room', peer)
-        room.broadcast(Buffer.from(JSON.stringify({type: 'peerIdAssertion', verifiableCredential})))
-        
       })
       
       room.on('peer left', (peer) => {
