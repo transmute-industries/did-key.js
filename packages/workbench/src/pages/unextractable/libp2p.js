@@ -10,11 +10,8 @@ export const getLibp2p = async ()=>{
 
     const libp2p = await Libp2p.create({
         addresses: {
-          // Add the signaling server address, along with our PeerId to our multiaddrs list
-          // libp2p will automatically attempt to dial to the signaling server so that it can
-          // receive inbound connections from other peers
           listen: [
-            '/dns4/wrtc-star1.par.dwebops.pub/tcp/443/wss/p2p-webrtc-star',
+            // '/dns4/wrtc-star1.par.dwebops.pub/tcp/443/wss/p2p-webrtc-star',
             '/dns4/wrtc-star2.sjc.dwebops.pub/tcp/443/wss/p2p-webrtc-star'
           ]
         },
@@ -27,9 +24,7 @@ export const getLibp2p = async ()=>{
         },
         config: {
           peerDiscovery: {
-            // The `tag` property will be searched when creating the instance of your Peer Discovery service.
-            // The associated object, will be passed to the service when it is instantiated.
-            [Bootstrap.tag]: {
+           [Bootstrap.tag]: {
               enabled: true,
               list: [
                 '/dnsaddr/bootstrap.libp2p.io/p2p/QmNnooDu7bfjPFoTZYxMNLWUQJyrVwtbZg5gBMjTezGAJN',
