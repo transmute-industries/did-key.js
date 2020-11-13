@@ -11,6 +11,7 @@ let fixtures: any = [];
 it('generate did-core fixtures', async () => {
   for (let i = 0; i < count; i++) {
     const keypairs = await Bls12381KeyPairs.generate();
+    // console.log(keypairs)
     fixtures.push({
       seed: i,
       g1: {

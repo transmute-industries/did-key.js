@@ -9,7 +9,7 @@ const prefixToDriverMap: any = {
   z6LS: x25519Driver,
   zUC7: bls12381Driver, //g2
   z3tE: bls12381Driver, //g1
-  z7nC: bls12381Driver, //g1andg2
+  z5Tc: bls12381Driver, //g1andg2
   zQ3s: secp256k1Driver,
   zXwp: didWebDriver,
   zACH: didWebDriver,

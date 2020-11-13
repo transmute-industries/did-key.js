@@ -55,9 +55,8 @@ export const fingerprintToJsonWebKeyPair = (fingerprint: string) => {
   ) {
     let g1 = toJsonWebKeyPair({
       type: 'Bls12381G1Key2020',
-      publicKeyBase58: bs58.encode(buffer.slice(2), 50),
+      publicKeyBase58: bs58.encode(buffer.slice(2, 50)),
     });
-
     let g2 = toJsonWebKeyPair({
       type: 'Bls12381G2Key2020',
       publicKeyBase58: bs58.encode(buffer.slice(50)),
