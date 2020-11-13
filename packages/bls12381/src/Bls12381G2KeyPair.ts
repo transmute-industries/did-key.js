@@ -1,11 +1,10 @@
-
-import bs58 from 'bs58'
-import base64url from 'base64url'
-import * as mattr from '@mattrglobal/bls12381-key-pair'
-import {generateKeyPairs} from './functions/generateKeyPairs';
-import {toJsonWebKeyPair} from './functions/toJsonWebKeyPair';
-import {publicKeyJwkToDidKey} from './functions/publicKeyJwkToDidKey';
-import {fingerprintToJsonWebKeyPair} from './functions/fingerprintToJsonWebKeyPair'
+import bs58 from 'bs58';
+import base64url from 'base64url';
+import * as mattr from '@mattrglobal/bls12381-key-pair';
+import { generateKeyPairs } from './functions/generateKeyPairs';
+import { toJsonWebKeyPair } from './functions/toJsonWebKeyPair';
+import { publicKeyJwkToDidKey } from './functions/publicKeyJwkToDidKey';
+import { fingerprintToJsonWebKeyPair } from './functions/fingerprintToJsonWebKeyPair';
 
 export class Bls12381G2KeyPair {
   public id: string;
@@ -16,54 +15,53 @@ export class Bls12381G2KeyPair {
 
   static async generate() {
     const { bls12381G2KeyPair } = await generateKeyPairs();
-    const {publicKeyJwk} = toJsonWebKeyPair(bls12381G2KeyPair)
-    bls12381G2KeyPair.controller = publicKeyJwkToDidKey(publicKeyJwk)
-    bls12381G2KeyPair.id = '#' + bls12381G2KeyPair.controller.split('did:key:').pop();
+    const { publicKeyJwk } = toJsonWebKeyPair(bls12381G2KeyPair);
+    bls12381G2KeyPair.controller = publicKeyJwkToDidKey(publicKeyJwk);
+    bls12381G2KeyPair.id =
+      '#' + bls12381G2KeyPair.controller.split('did:key:').pop();
     return new Bls12381G2KeyPair({
       id: bls12381G2KeyPair.id,
       controller: bls12381G2KeyPair.controller,
       publicKeyBuffer: bs58.decode(bls12381G2KeyPair.publicKeyBase58),
-      privateKeyBuffer: bs58.decode(bls12381G2KeyPair.privateKeyBase58)
-    })
+      privateKeyBuffer: bs58.decode(bls12381G2KeyPair.privateKeyBase58),
+    });
   }
 
   static async fromFingerprint({ fingerprint }: any) {
-    const {bls12381G2KeyPair} = fingerprintToJsonWebKeyPair(fingerprint)
+    const { bls12381G2KeyPair } = fingerprintToJsonWebKeyPair(fingerprint);
     return new Bls12381G2KeyPair({
       id: bls12381G2KeyPair.id,
       controller: bls12381G2KeyPair.controller,
-      publicKeyBuffer: base64url.toBuffer(bls12381G2KeyPair.publicKeyJwk.x)
+      publicKeyBuffer: base64url.toBuffer(bls12381G2KeyPair.publicKeyJwk.x),
     });
   }
 
   static async from(options: any) {
-
-    if (options.type === 'JsonWebKey2020'){
+    if (options.type === 'JsonWebKey2020') {
       let opts: any = {
         id: options.id,
         controller: options.controller,
-        publicKeyBuffer: base64url.toBuffer(options.publicKeyJwk.x)
-      }
-      if (options.privateKeyJwk){
-        opts.privateKeyBuffer = base64url.toBuffer(options.privateKeyJwk.d)
+        publicKeyBuffer: base64url.toBuffer(options.publicKeyJwk.x),
+      };
+      if (options.privateKeyJwk) {
+        opts.privateKeyBuffer = base64url.toBuffer(options.privateKeyJwk.d);
       }
       return new Bls12381G2KeyPair(opts);
     }
 
-    if (options.type === 'Bls12381G2Key2020'){
+    if (options.type === 'Bls12381G2Key2020') {
       let opts: any = {
         id: options.id,
         controller: options.controller,
-        publicKeyBuffer: bs58.decode(options.publicKeyBase58)
-      }
-      if (options.privateKeyBase58){
-        opts.privateKeyBuffer = bs58.decode(options.privateKeyBase58)
+        publicKeyBuffer: bs58.decode(options.publicKeyBase58),
+      };
+      if (options.privateKeyBase58) {
+        opts.privateKeyBuffer = bs58.decode(options.privateKeyBase58);
       }
       return new Bls12381G2KeyPair(opts);
     }
 
-    throw new Error('unsuported key type')
-    
+    throw new Error('unsuported key type');
   }
 
   constructor(options: any) {
@@ -72,21 +70,25 @@ export class Bls12381G2KeyPair {
     this.publicKeyBuffer = options.publicKeyBuffer;
     this.privateKeyBuffer = options.privateKeyBuffer;
 
-    if (!this.controller){
+    if (!this.controller) {
       const { publicKeyJwk } = this.toJsonWebKeyPair(false);
       this.controller = publicKeyJwkToDidKey(publicKeyJwk);
-      
     }
-    if (!this.id){
+    if (!this.id) {
       const { publicKeyJwk } = this.toJsonWebKeyPair(false);
-      this.id = '#' + publicKeyJwkToDidKey(publicKeyJwk).split('did:key:').pop();
+      this.id =
+        '#' +
+        publicKeyJwkToDidKey(publicKeyJwk)
+          .split('did:key:')
+          .pop();
     }
-    
   }
 
-  fingerprint(){
+  fingerprint() {
     const { publicKeyJwk } = this.toJsonWebKeyPair(false);
-    return publicKeyJwkToDidKey(publicKeyJwk).split('did:key:').pop()
+    return publicKeyJwkToDidKey(publicKeyJwk)
+      .split('did:key:')
+      .pop();
   }
 
   toKeyPair(exportPrivateKey: boolean = false) {
@@ -104,21 +106,21 @@ export class Bls12381G2KeyPair {
   }
 
   toJsonWebKeyPair(exportPrivateKey = false) {
-    return toJsonWebKeyPair(this.toKeyPair(exportPrivateKey))
+    return toJsonWebKeyPair(this.toKeyPair(exportPrivateKey));
   }
 
   verifier() {
     const key = new mattr.Bls12381G2KeyPair({
       publicKeyBase58: bs58.encode(this.publicKeyBuffer),
     });
-   return key.verifier()
+    return key.verifier();
   }
 
   signer() {
     const key = new mattr.Bls12381G2KeyPair({
       publicKeyBase58: bs58.encode(this.publicKeyBuffer),
-      privateKeyBase58: bs58.encode(this.privateKeyBuffer)
+      privateKeyBase58: bs58.encode(this.privateKeyBuffer),
     });
-   return key.signer()
+    return key.signer();
   }
 }

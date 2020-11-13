@@ -37,4 +37,3 @@ it('generate did-core fixtures', async () => {
     );
   }
 });
-

@@ -1,1 +1,1 @@
-export * from './BlsCurveName'
+export * from './BlsCurveName';
