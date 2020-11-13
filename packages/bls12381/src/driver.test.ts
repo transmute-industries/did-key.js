@@ -1,6 +1,8 @@
 import { didCoreConformance } from '@transmute/did-key-test-vectors';
 
-import { get, resolve } from './driver';
+import { get, 
+  resolve 
+} from './driver';
 
 const [example] = didCoreConformance.bls12381_g2.key;
 
