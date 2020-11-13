@@ -45,7 +45,7 @@ export class Bls12381KeyPairs {
   }
 
   static async fromFingerprint({ fingerprint }: any) {
-    if (fingerprint.indexOf('z5T') === 0) {
+    if (fingerprint.indexOf('z7nC') === 0) {
       const {
         bls12381G1KeyPair,
         bls12381G2KeyPair,

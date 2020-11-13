@@ -9,7 +9,7 @@ const prefixToDriverMap: any = {
   z6LS: x25519Driver,
   zUC7: bls12381Driver, //g2
   z3tE: bls12381Driver, //g1
-  z5Tc: bls12381Driver, //g1andg2
+  z7nC: bls12381Driver, //g1andg2
   zQ3s: secp256k1Driver,
   zXwp: didWebDriver,
   zACH: didWebDriver,
@@ -33,6 +33,7 @@ export const resolver = {
       );
       return result;
     } catch (e) {
+      console.error(e);
       throw new Error('Unknown DID Key type: ' + encodedType);
     }
   },
