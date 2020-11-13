@@ -2,7 +2,7 @@
   "name": "@transmute/did-key-cipher",
   "author": "Orie Steele",
   "module": "dist/did-key-cipher.esm.js",
-  "version": "0.2.1-unstable.25",
+  "version": "0.2.1-unstable.26",
   "publishConfig": {
     "access": "public"
   },
@@ -33,7 +33,7 @@
     "@peculiar/webcrypto": "^1.1.3",
     "@stablelib/aes-kw": "^1.0.0",
     "@stablelib/xchacha20poly1305": "^1.0.0",
-    "@transmute/did-key-common": "^0.2.1-unstable.25",
+    "@transmute/did-key-common": "^0.2.1-unstable.26",
     "web-streams-polyfill": "^3.0.0"
   }
 }

@@ -14,11 +14,11 @@
     "node": "8"
   },
   "dependencies": {
-    "@transmute/did-key-bls12381": "^0.2.1-unstable.25",
-    "@transmute/did-key-ed25519": "^0.2.1-unstable.25",
-    "@transmute/did-key-secp256k1": "^0.2.1-unstable.25",
-    "@transmute/did-key-x25519": "^0.2.1-unstable.25",
-    "@transmute/did-key.js": "^0.2.1-unstable.25",
+    "@transmute/did-key-bls12381": "^0.2.1-unstable.26",
+    "@transmute/did-key-ed25519": "^0.2.1-unstable.26",
+    "@transmute/did-key-secp256k1": "^0.2.1-unstable.26",
+    "@transmute/did-key-x25519": "^0.2.1-unstable.26",
+    "@transmute/did-key.js": "^0.2.1-unstable.26",
     "did-method-key": "^0.6.1",
     "dotenv": "^8.2.0",
     "fastify": "^3.0.0",
@@ -31,5 +31,5 @@
     "firebase-functions-test": "^0.1.6",
     "firebase-tools": "^7.6.2"
   },
-  "version": "0.2.1-unstable.25"
+  "version": "0.2.1-unstable.26"
 }
