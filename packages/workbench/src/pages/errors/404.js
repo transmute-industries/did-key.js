@@ -16,7 +16,7 @@ export class NotFound extends Component {
             <div className="copy" style={{ padding: "32px" }}>
               <Typography variant="h1">404</Typography>
               <Typography>
-                {window.location.pathname} page not found.
+                page not found.
               </Typography>
               <br />
               <Button

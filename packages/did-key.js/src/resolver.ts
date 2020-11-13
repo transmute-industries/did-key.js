@@ -7,7 +7,9 @@ import { driver as didWebDriver } from '@transmute/did-key-web-crypto';
 const prefixToDriverMap: any = {
   z6Mk: ed25519Driver,
   z6LS: x25519Driver,
-  zUC7: bls12381Driver,
+  zUC7: bls12381Driver, //g2
+  z3tE: bls12381Driver, //g1
+  z5Tc: bls12381Driver, //g1andg2
   zQ3s: secp256k1Driver,
   zXwp: didWebDriver,
   zACH: didWebDriver,

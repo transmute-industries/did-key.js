@@ -102,17 +102,26 @@ export const generateBls12381 = async (keys, contentType) => {
   let _keys = keys;
   let keyPair;
   if (_keys !== null) {
-    keyPair = await bls12381.Bls12381G2KeyPair.from(keys.key);
+    keyPair = new bls12381.Bls12381KeyPairs({
+      id: keys.g1.controller.split('did:key:').pop(),
+      controller: keys.g1.controller,
+      g1KeyPair: await bls12381.Bls12381G1KeyPair.from(keys.g1),
+      g2KeyPair: await bls12381.Bls12381G2KeyPair.from(keys.g2)
+    });
   } else {
-    keyPair = await bls12381.Bls12381G2KeyPair.generate();
+    keyPair = await bls12381.Bls12381KeyPairs.generate();
   }
   _keys = {
-    key:
+    g1:
       contentType === "application/did+ld+json"
-        ? await keyPair.toKeyPair(true)
-        : await keyPair.toJsonWebKeyPair(true),
+        ? await keyPair.g1KeyPair.toKeyPair(true)
+        : await keyPair.g1KeyPair.toJsonWebKeyPair(true),
+    g2:
+      contentType === "application/did+ld+json"
+        ? await keyPair.g2KeyPair.toKeyPair(true)
+        : await keyPair.g2KeyPair.toJsonWebKeyPair(true),
   };
-  const { didDocument } = await bls12381.driver.resolve(_keys.key.controller, {
+  const { didDocument } = await bls12381.driver.resolve(_keys.g1.controller, {
     accept: contentType,
   });
   return {
