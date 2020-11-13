@@ -32,5 +32,3 @@ representations.forEach((rep) => {
     expect(resolutionResponse).toEqual(example.resolution[rep.contentType]);
   });
 });
-
-

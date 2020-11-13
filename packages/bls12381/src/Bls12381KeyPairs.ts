@@ -7,13 +7,11 @@ import { fingerprintToJsonWebKeyPair } from './functions/fingerprintToJsonWebKey
 import { Bls12381G1KeyPair } from './Bls12381G1KeyPair';
 import { Bls12381G2KeyPair } from './Bls12381G2KeyPair';
 
-
 import {
   MULTIBASE_ENCODED_BASE58_IDENTIFIER,
   BLS12381G1ANDG2_MULTICODEC_IDENTIFIER,
   VARIABLE_INTEGER_TRAILING_BYTE,
 } from './constants';
-
 
 export class Bls12381KeyPairs {
   public id: string;
@@ -75,11 +73,11 @@ export class Bls12381KeyPairs {
     this.controller = options.controller;
     this.g1KeyPair = options.g1KeyPair;
     this.g2KeyPair = options.g2KeyPair;
-    if (!this.id){
+    if (!this.id) {
       this.id = '#' + this.fingerprint();
     }
 
-    if (!this.controller){
+    if (!this.controller) {
       this.controller = 'did:key:' + this.fingerprint();
     }
 
