@@ -3,6 +3,7 @@ import path from 'path';
 
 import { Bls12381G2KeyPair } from '../Bls12381G2KeyPair';
 import { resolve } from '../driver';
+
 const count = 5;
 const WRITE_FIXTURE_TO_DISK = false;
 
@@ -26,7 +27,6 @@ it('generate did-core fixtures', async () => {
       },
     });
   }
-
   //   uncomment to debug
   // console.log(JSON.stringify(fixtures, null, 2));
 

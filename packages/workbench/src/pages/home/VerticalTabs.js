@@ -134,7 +134,7 @@ export default function VerticalTabs() {
     },
     {
       index: 3,
-      name: "bls12381 g2",
+      name: "bls12381",
       refresh: generateBls12381,
     },
     {
