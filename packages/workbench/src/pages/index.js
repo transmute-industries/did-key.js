@@ -7,8 +7,9 @@ import { Unextractable } from './unextractable'
 
 export const routes = [
   { path: "/", exact: true, component: Home },
-  { path: "/:did", exact: true, component: Resolver },
   { path: "/unextractable", exact: true, component: Unextractable },
+  { path: "/:did", exact: true, component: Resolver },
+  
 
   // { path: "/workbench", exact: true, component: Workbench },
   // { path: "/offline", exact: true, component: PdfDemo },
