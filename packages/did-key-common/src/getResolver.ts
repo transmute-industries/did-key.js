@@ -4,16 +4,15 @@ export const getVerificationMethod = (
   instance: any,
   contentType: string = 'application/did+ld+json'
 ) => {
-
   switch (contentType) {
     case 'application/did+json': {
-      return  instance.toJsonWebKeyPair();
+      return instance.toJsonWebKeyPair();
     }
     case 'application/did+cbor': {
-     return  instance.toJsonWebKeyPair();
+      return instance.toJsonWebKeyPair();
     }
     case 'application/did+ld+json': {
-     return instance.toKeyPair();
+      return instance.toKeyPair();
     }
   }
   throw new Error(
@@ -21,14 +20,18 @@ export const getVerificationMethod = (
   );
 };
 
-const supportedContentTypes = ['application/did+json', 'application/did+ld+json', 'application/did+cbor'];
+const supportedContentTypes = [
+  'application/did+json',
+  'application/did+ld+json',
+  'application/did+cbor',
+];
 
 export const keyToDidDoc = async (
   didKeyPairInstance: any,
-  contentType: string = 'application/did+ld+json' 
+  contentType: string = 'application/did+ld+json'
 ) => {
-  if (supportedContentTypes.indexOf(contentType) === -1){
-    throw new Error('Unsupported DID Document representation. ' + contentType)
+  if (supportedContentTypes.indexOf(contentType) === -1) {
+    throw new Error('Unsupported DID Document representation. ' + contentType);
   }
   const did = `did:key:${didKeyPairInstance.fingerprint()}`;
   const externalKeyRepresentation = getVerificationMethod(
@@ -94,7 +97,7 @@ export const getResolve = (DidKeyPairClass: any) => {
       .split('did:key:')
       .pop();
     const publicKey = await DidKeyPairClass.fromFingerprint({ fingerprint });
-    const didDocument = await keyToDidDoc(publicKey, resolutionMetaData.accept)
+    const didDocument = await keyToDidDoc(publicKey, resolutionMetaData.accept);
 
     const didResolutionResponse = {
       didDocument,
@@ -102,8 +105,8 @@ export const getResolve = (DidKeyPairClass: any) => {
         'content-type': resolutionMetaData.accept,
       },
       didResolutionMetaData: {},
-    }
-    if (resolutionMetaData.accept === 'application/did+cbor'){
+    };
+    if (resolutionMetaData.accept === 'application/did+cbor') {
       return cbor.encode(didResolutionResponse);
     }
     return didResolutionResponse;

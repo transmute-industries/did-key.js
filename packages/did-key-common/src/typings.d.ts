@@ -1,2 +1,2 @@
 declare module 'canonicalize';
-declare module 'cbor'
+declare module 'cbor';

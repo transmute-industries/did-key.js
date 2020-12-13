@@ -4,23 +4,22 @@ export const getVerificationMethod = (
   instance: any,
   contentType: string = 'application/did+ld+json'
 ) => {
-
   switch (contentType) {
     case 'application/did+json': {
-      return  instance.toJsonWebKeyPair();
+      return instance.toJsonWebKeyPair();
     }
     case 'application/did+cbor': {
-     return  instance.toJsonWebKeyPair();
+      return instance.toJsonWebKeyPair();
     }
     case 'application/did+ld+json': {
-     return instance.toKeyPair();
+      return instance.toKeyPair();
     }
   }
   throw new Error(
-    'This implementation of did:key for bls12381 does not support: ' + contentType
+    'This implementation of did:key for bls12381 does not support: ' +
+      contentType
   );
 };
-
 
 export const keyToDidDoc = async (
   didKeyPairInstance: any,

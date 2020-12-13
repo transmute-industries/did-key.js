@@ -30,8 +30,8 @@ representations.forEach((rep) => {
     let resolutionResponse: any = await resolve(id, {
       accept: rep.contentType,
     });
-    if (rep.contentType === 'application/did+cbor'){
-      expect(Buffer.isBuffer(resolutionResponse)).toBe(true)
+    if (rep.contentType === 'application/did+cbor') {
+      expect(Buffer.isBuffer(resolutionResponse)).toBe(true);
     } else {
       expect(resolutionResponse).toEqual(example.resolution[rep.contentType]);
     }

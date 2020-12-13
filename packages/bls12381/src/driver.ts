@@ -13,20 +13,19 @@ export const getResolve = () => {
       .split('did:key:')
       .pop();
     const publicKey = await Bls12381KeyPairs.fromFingerprint({ fingerprint });
-    const didResolutionResponse =  {
+    const didResolutionResponse = {
       didDocument: await keyToDidDoc(publicKey, resolutionMetaData.accept),
       didDocumentMetaData: {
         'content-type': resolutionMetaData.accept,
       },
       didResolutionMetaData: {},
     };
-    if (resolutionMetaData.accept === 'application/did+cbor'){
+    if (resolutionMetaData.accept === 'application/did+cbor') {
       return cbor.encode(didResolutionResponse);
     }
     return didResolutionResponse;
   };
 
-  
   return resolve;
 };
 
