@@ -1,31 +1,35 @@
+const cbor = require('borc');
+
 export const getVerificationMethod = (
-  didKeyPairInstance: any,
+  instance: any,
   contentType: string = 'application/did+ld+json'
 ) => {
-  let externalKeyRepresentation;
+
   switch (contentType) {
     case 'application/did+json': {
-      externalKeyRepresentation = didKeyPairInstance.toJsonWebKeyPair();
-      break;
+      return  instance.toJsonWebKeyPair();
     }
-    case '*/*':
+    case 'application/did+cbor': {
+     return  instance.toJsonWebKeyPair();
+    }
     case 'application/did+ld+json': {
-      externalKeyRepresentation = didKeyPairInstance.toKeyPair();
-      break;
-    }
-    default: {
-      throw new Error(
-        'This implementation of did:key does not support: ' + contentType
-      );
+     return instance.toKeyPair();
     }
   }
-  return externalKeyRepresentation;
+  throw new Error(
+    'This implementation of did:key does not support: ' + contentType
+  );
 };
+
+const supportedContentTypes = ['application/did+json', 'application/did+ld+json', 'application/did+cbor'];
 
 export const keyToDidDoc = async (
   didKeyPairInstance: any,
-  contentType: string = 'application/did+ld+json'
+  contentType: string = 'application/did+ld+json' 
 ) => {
+  if (supportedContentTypes.indexOf(contentType) === -1){
+    throw new Error('Unsupported DID Document representation. ' + contentType)
+  }
   const did = `did:key:${didKeyPairInstance.fingerprint()}`;
   const externalKeyRepresentation = getVerificationMethod(
     didKeyPairInstance,
@@ -64,19 +68,6 @@ export const keyToDidDoc = async (
       keyAgreement: [externalKeyRepresentation2.id],
     };
   }
-
-  // imagine if people injected ads like this....
-  // verificationRelationships = {
-  //   ...verificationRelationships,
-  //   service: [
-  //     {
-  //       id: '#provider',
-  //       type: 'ServiceProvider',
-  //       serviceEndpoint: 'https://transmute.industries',
-  //     },
-  //   ],
-  // };
-
   const didDocument = {
     '@context': [
       'https://www.w3.org/ns/did/v1',
@@ -88,8 +79,6 @@ export const keyToDidDoc = async (
     ...verificationRelationships,
   };
 
-  // Here is were I would delete a property for JSON-only
-  // If I wanted to conform to the DID Core JSON Production Rules.
   return didDocument;
 };
 
@@ -105,13 +94,19 @@ export const getResolve = (DidKeyPairClass: any) => {
       .split('did:key:')
       .pop();
     const publicKey = await DidKeyPairClass.fromFingerprint({ fingerprint });
-    return {
-      didDocument: await keyToDidDoc(publicKey, resolutionMetaData.accept),
+    const didDocument = await keyToDidDoc(publicKey, resolutionMetaData.accept)
+
+    const didResolutionResponse = {
+      didDocument,
       didDocumentMetaData: {
         'content-type': resolutionMetaData.accept,
       },
       didResolutionMetaData: {},
-    };
+    }
+    if (resolutionMetaData.accept === 'application/did+cbor'){
+      return cbor.encode(didResolutionResponse);
+    }
+    return didResolutionResponse;
   };
   return resolve;
 };

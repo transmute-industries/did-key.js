@@ -1,27 +1,26 @@
 import { Bls12381KeyPairs } from '../Bls12381KeyPairs';
+
 export const getVerificationMethod = (
-  didKeyPairInstance: any,
+  instance: any,
   contentType: string = 'application/did+ld+json'
 ) => {
-  let externalKeyRepresentation;
+
   switch (contentType) {
     case 'application/did+json': {
-      externalKeyRepresentation = didKeyPairInstance.toJsonWebKeyPair();
-      break;
+      return  instance.toJsonWebKeyPair();
     }
-    case '*/*':
+    case 'application/did+cbor': {
+     return  instance.toJsonWebKeyPair();
+    }
     case 'application/did+ld+json': {
-      externalKeyRepresentation = didKeyPairInstance.toKeyPair();
-      break;
-    }
-    default: {
-      throw new Error(
-        'This implementation of did:key does not support: ' + contentType
-      );
+     return instance.toKeyPair();
     }
   }
-  return externalKeyRepresentation;
+  throw new Error(
+    'This implementation of did:key for bls12381 does not support: ' + contentType
+  );
 };
+
 
 export const keyToDidDoc = async (
   didKeyPairInstance: any,

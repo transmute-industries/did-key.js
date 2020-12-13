@@ -30,6 +30,8 @@
   },
   "dependencies": {
     "base64url": "^3.0.1",
-    "canonicalize": "^1.0.3"
+    "borc": "^2.1.2",
+    "canonicalize": "^1.0.3",
+    "cbor": "^5.1.0"
   }
 }

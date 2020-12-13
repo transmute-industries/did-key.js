@@ -4,26 +4,34 @@ import PropTypes from "prop-types";
 import Base from "../base/base";
 import Grid from "@material-ui/core/Grid";
 import {resolver} from "@transmute/did-key.js"
-import { DIDDocumentPreview } from "@transmute/material-did-core";
+
 import ContentTypeToggle from '../home/ContentTypeToggle'
 
+import 'brace';
+import 'brace/mode/json';
+import 'brace/theme/github';
+
+
+const AceEditor = require('react-ace').default;
+
+
 export const Resolver = (props) => {
-  const [didDoc, setDidDoc] = React.useState({})
+  const [didResolutionResponse, setDidResolutionResponse] = React.useState(null)
   React.useEffect(()=>{
     (async ()=>{
  
-      const { didDocument } = await resolver.resolve(props.match.params.did, {
+      const didResolutionResponse = await resolver.resolve(props.match.params.did, {
         accept: 'application/did+json',
       });
-      setDidDoc(didDocument);
+      setDidResolutionResponse(didResolutionResponse);
     })();
   }, [])
 
   const onToggleRepresentation = async (representation)=>{
-    const { didDocument } = await resolver.resolve(props.match.params.did, {
+    const didResolutionResponse = await resolver.resolve(props.match.params.did, {
       accept: `application/${representation}`,
     });
-    setDidDoc(didDocument);
+    setDidResolutionResponse(didResolutionResponse);
   }
 
 
@@ -38,7 +46,18 @@ export const Resolver = (props) => {
       />
       </Grid>
       <Grid item xs={12}>
-      {didDoc.id ? <DIDDocumentPreview didDocument={didDoc} /> : <div>No did document.</div>}
+      {didResolutionResponse ? 
+       <AceEditor
+       mode={'json'}
+       theme="github"
+       style={{ width: '100%' }}
+       readOnly={true}
+       wrapEnabled={true}
+       name="Keys"
+       value={JSON.stringify(didResolutionResponse, null, 2)}
+       editorProps={{ $blockScrolling: true }}
+     /> : <div>No did document.</div>}
+
       </Grid>
     </Grid>
     </Base>
