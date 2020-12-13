@@ -2,7 +2,7 @@
   "name": "@transmute/did-key-ed25519",
   "author": "Orie Steele",
   "module": "dist/did-key-ed25519.esm.js",
-  "version": "0.2.1-unstable.28",
+  "version": "0.2.1-unstable.29",
   "publishConfig": {
     "access": "public"
   },
@@ -24,7 +24,7 @@
     "prepare": "tsdx build"
   },
   "devDependencies": {
-    "@transmute/did-key-test-vectors": "^0.2.1-unstable.28",
+    "@transmute/did-key-test-vectors": "^0.2.1-unstable.29",
     "jose": "^1.27.1",
     "tsdx": "^0.13.2",
     "tslib": "^2.0.0",
@@ -32,8 +32,8 @@
   },
   "dependencies": {
     "@stablelib/ed25519": "^1.0.1",
-    "@transmute/did-key-common": "^0.2.1-unstable.28",
-    "@transmute/did-key-x25519": "^0.2.1-unstable.28",
+    "@transmute/did-key-common": "^0.2.1-unstable.29",
+    "@transmute/did-key-x25519": "^0.2.1-unstable.29",
     "@trust/keyto": "^1.0.1",
     "base64url": "^3.0.1",
     "bs58": "^4.0.1",

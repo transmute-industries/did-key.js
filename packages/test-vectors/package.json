@@ -6,7 +6,7 @@
   "contributors": [
     "Orie Steele (https://github.com/OR13)"
   ],
-  "version": "0.2.1-unstable.28",
+  "version": "0.2.1-unstable.29",
   "license": "Apache-2.0",
   "main": "src/index.js",
   "types": "typings.d.ts",
