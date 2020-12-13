@@ -1,4 +1,5 @@
 import crypto from "crypto";
+
 import * as ed25519 from "@transmute/did-key-ed25519";
 import * as x25519 from "@transmute/did-key-x25519";
 import * as secp256k1 from "@transmute/did-key-secp256k1";
@@ -32,15 +33,16 @@ export const generateEd25519 = async (keys, contentType) => {
         ? await x25519Key.toKeyPair(true)
         : await x25519Key.toJsonWebKeyPair(true),
   };
-  const { didDocument } = await ed25519.driver.resolve(
+  const resolutionResponse = await ed25519.driver.resolve(
     _keys.ed25519.controller,
     {
       accept: contentType,
     }
   );
+
   return {
     keys: _keys,
-    didDocument,
+    resolutionResponse,
   };
 };
 
@@ -62,12 +64,12 @@ export const generateX25519 = async (keys, contentType) => {
         ? await keyPair.toKeyPair(true)
         : await keyPair.toJsonWebKeyPair(true),
   };
-  const { didDocument } = await x25519.driver.resolve(_keys.key.controller, {
+  const resolutionResponse = await x25519.driver.resolve(_keys.key.controller, {
     accept: contentType,
   });
   return {
     keys: _keys,
-    didDocument,
+    resolutionResponse,
   };
 };
 
@@ -89,12 +91,12 @@ export const generateSecp256k1 = async (keys, contentType) => {
         ? await keyPair.toKeyPair(true)
         : await keyPair.toJsonWebKeyPair(true),
   };
-  const { didDocument } = await secp256k1.driver.resolve(_keys.key.controller, {
+  const resolutionResponse= await secp256k1.driver.resolve(_keys.key.controller, {
     accept: contentType,
   });
   return {
     keys: _keys,
-    didDocument,
+    resolutionResponse,
   };
 };
 
@@ -102,6 +104,7 @@ export const generateBls12381 = async (keys, contentType) => {
   let _keys = keys;
   let keyPair;
   if (_keys !== null) {
+    console.log(keys)
     keyPair = new bls12381.Bls12381KeyPairs({
       id: keys.g1.controller.split('did:key:').pop(),
       controller: keys.g1.controller,
@@ -121,12 +124,12 @@ export const generateBls12381 = async (keys, contentType) => {
         ? await keyPair.g2KeyPair.toKeyPair(true)
         : await keyPair.g2KeyPair.toJsonWebKeyPair(true),
   };
-  const { didDocument } = await bls12381.driver.resolve(_keys.g1.controller, {
+  const resolutionResponse = await bls12381.driver.resolve(_keys.g1.controller, {
     accept: contentType,
   });
   return {
     keys: _keys,
-    didDocument,
+    resolutionResponse,
   };
 };
 
@@ -147,7 +150,7 @@ export const generateP256 = async (keys, contentType) => {
         ? await keyPair.toKeyPair(true)
         : await keyPair.toJsonWebKeyPair(true),
   };
-  const { didDocument } = await didKeyWebCrypto.driver.resolve(
+  const resolutionResponse = await didKeyWebCrypto.driver.resolve(
     _keys.key.controller,
     {
       accept: contentType,
@@ -155,7 +158,7 @@ export const generateP256 = async (keys, contentType) => {
   );
   return {
     keys: _keys,
-    didDocument,
+    resolutionResponse,
   };
 };
 
@@ -176,7 +179,7 @@ export const generateP384 = async (keys, contentType) => {
         ? await keyPair.toKeyPair(true)
         : await keyPair.toJsonWebKeyPair(true),
   };
-  const { didDocument } = await didKeyWebCrypto.driver.resolve(
+  const resolutionResponse = await didKeyWebCrypto.driver.resolve(
     _keys.key.controller,
     {
       accept: contentType,
@@ -184,7 +187,7 @@ export const generateP384 = async (keys, contentType) => {
   );
   return {
     keys: _keys,
-    didDocument,
+    resolutionResponse,
   };
 };
 
@@ -205,7 +208,7 @@ export const generateP521 = async (keys, contentType) => {
         ? await keyPair.toKeyPair(true)
         : await keyPair.toJsonWebKeyPair(true),
   };
-  const { didDocument } = await didKeyWebCrypto.driver.resolve(
+  const resolutionResponse = await didKeyWebCrypto.driver.resolve(
     _keys.key.controller,
     {
       accept: contentType,
@@ -213,6 +216,6 @@ export const generateP521 = async (keys, contentType) => {
   );
   return {
     keys: _keys,
-    didDocument,
+    resolutionResponse,
   };
 };
