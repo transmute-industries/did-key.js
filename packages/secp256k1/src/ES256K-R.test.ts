@@ -5,9 +5,9 @@ import {
   publicKeyJwkFromPublicKeyHex,
 } from './keyUtils';
 import { didCoreConformance } from '@transmute/did-key-test-vectors';
-const [example] = didCoreConformance.secp256k1.key;
 
 import { sign, verify, signDetached, recoverPublicKey } from './ES256K-R';
+const [example] = didCoreConformance.secp256k1.key;
 
 it('ecrecover', () => {
   const message = 'hello world';
