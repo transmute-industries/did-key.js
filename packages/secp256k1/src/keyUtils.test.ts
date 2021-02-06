@@ -63,7 +63,6 @@ describe('publicKeyHexFromJwk', () => {
   });
 });
 
-
 describe('publicKeyJwkFromPublicKeyBase58', () => {
   it('should convert a publicKeyBase58 to a publicKeyJwk', async () => {
     const _publicKeyJwk = await keyUtils.publicKeyJwkFromPublicKeyBase58(
@@ -76,7 +75,6 @@ describe('publicKeyJwkFromPublicKeyBase58', () => {
   });
 });
 
-
 describe('privateKeyJwkFromPrivateKeyBase58', () => {
   it('should convert a privateKeyBase58 to a privateKeyJwk', async () => {
     const _privateKeyJwk = await keyUtils.privateKeyJwkFromPrivateKeyBase58(
@@ -88,4 +86,3 @@ describe('privateKeyJwkFromPrivateKeyBase58', () => {
     );
   });
 });
-

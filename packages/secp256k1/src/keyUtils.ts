@@ -212,13 +212,14 @@ export const publicKeyHexFromPrivateKeyHex = (privateKeyHex: string) => {
   return Buffer.from(publicKey).toString('hex');
 };
 
+export const publicKeyJwkFromPublicKeyBase58 = (publicKeybase58: string) => {
+  return publicKeyJwkFromPublicKeyHex(
+    bs58.decode(publicKeybase58).toString('hex')
+  );
+};
 
-export const publicKeyJwkFromPublicKeyBase58 = (publicKeybase58: string)=>{
-  return publicKeyJwkFromPublicKeyHex(bs58.decode(publicKeybase58).toString('hex'));
-}
-
-export const privateKeyJwkFromPrivateKeyBase58 = (privateKeyBase58: string)=>{
-  return privateKeyJwkFromPrivateKeyHex(bs58.decode(privateKeyBase58).toString('hex'));
-}
-
-
+export const privateKeyJwkFromPrivateKeyBase58 = (privateKeyBase58: string) => {
+  return privateKeyJwkFromPrivateKeyHex(
+    bs58.decode(privateKeyBase58).toString('hex')
+  );
+};
