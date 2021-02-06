@@ -30,6 +30,7 @@
     },
     "resolution": {
       "application/did+json": {
+        "@context": "https://w3id.org/did-resolution/v1",
         "didDocument": {
           "@context": [
             "https://www.w3.org/ns/did/v1",
@@ -70,6 +71,7 @@
         "didResolutionMetadata": {}
       },
       "application/did+ld+json": {
+        "@context": "https://w3id.org/did-resolution/v1",
         "didDocument": {
           "@context": [
             "https://www.w3.org/ns/did/v1",
@@ -137,6 +139,7 @@
     },
     "resolution": {
       "application/did+json": {
+        "@context": "https://w3id.org/did-resolution/v1",
         "didDocument": {
           "@context": [
             "https://www.w3.org/ns/did/v1",
@@ -177,6 +180,7 @@
         "didResolutionMetadata": {}
       },
       "application/did+ld+json": {
+        "@context": "https://w3id.org/did-resolution/v1",
         "didDocument": {
           "@context": [
             "https://www.w3.org/ns/did/v1",
@@ -244,6 +248,7 @@
     },
     "resolution": {
       "application/did+json": {
+        "@context": "https://w3id.org/did-resolution/v1",
         "didDocument": {
           "@context": [
             "https://www.w3.org/ns/did/v1",
@@ -284,6 +289,7 @@
         "didResolutionMetadata": {}
       },
       "application/did+ld+json": {
+        "@context": "https://w3id.org/did-resolution/v1",
         "didDocument": {
           "@context": [
             "https://www.w3.org/ns/did/v1",
@@ -351,6 +357,7 @@
     },
     "resolution": {
       "application/did+json": {
+        "@context": "https://w3id.org/did-resolution/v1",
         "didDocument": {
           "@context": [
             "https://www.w3.org/ns/did/v1",
@@ -391,6 +398,7 @@
         "didResolutionMetadata": {}
       },
       "application/did+ld+json": {
+        "@context": "https://w3id.org/did-resolution/v1",
         "didDocument": {
           "@context": [
             "https://www.w3.org/ns/did/v1",
@@ -458,6 +466,7 @@
     },
     "resolution": {
       "application/did+json": {
+        "@context": "https://w3id.org/did-resolution/v1",
         "didDocument": {
           "@context": [
             "https://www.w3.org/ns/did/v1",
@@ -498,6 +507,7 @@
         "didResolutionMetadata": {}
       },
       "application/did+ld+json": {
+        "@context": "https://w3id.org/did-resolution/v1",
         "didDocument": {
           "@context": [
             "https://www.w3.org/ns/did/v1",
