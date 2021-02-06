@@ -100,7 +100,7 @@ export const getResolve = (DidKeyPairClass: any) => {
     const didDocument = await keyToDidDoc(publicKey, resolutionMetaData.accept);
 
     const didResolutionResponse = {
-      '@context':"https://w3id.org/did-resolution/v1",
+      '@context': 'https://w3id.org/did-resolution/v1',
       didDocument,
       didDocumentMetadata: {
         'content-type': resolutionMetaData.accept,

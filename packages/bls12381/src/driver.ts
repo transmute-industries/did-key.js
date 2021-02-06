@@ -14,7 +14,7 @@ export const getResolve = () => {
       .pop();
     const publicKey = await Bls12381KeyPairs.fromFingerprint({ fingerprint });
     const didResolutionResponse = {
-      "@context": "https://w3id.org/did-resolution/v1",
+      '@context': 'https://w3id.org/did-resolution/v1',
       didDocument: await keyToDidDoc(publicKey, resolutionMetaData.accept),
       didDocumentMetadata: {
         'content-type': resolutionMetaData.accept,
