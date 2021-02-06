@@ -72,10 +72,10 @@
           ],
           "keyAgreement": ["#z6LSrdqo4M24WRDJj1h2hXxgtDTyzjjKCiyapYVgrhwZAySn"]
         },
-        "didDocumentMetaData": {
+        "didDocumentMetadata": {
           "content-type": "application/did+json"
         },
-        "didResolutionMetaData": {}
+        "didResolutionMetadata": {}
       },
       "application/did+ld+json": {
         "didDocument": {
@@ -114,10 +114,10 @@
           ],
           "keyAgreement": ["#z6LSrdqo4M24WRDJj1h2hXxgtDTyzjjKCiyapYVgrhwZAySn"]
         },
-        "didDocumentMetaData": {
+        "didDocumentMetadata": {
           "content-type": "application/did+ld+json"
         },
-        "didResolutionMetaData": {}
+        "didResolutionMetadata": {}
       }
     }
   },
@@ -194,10 +194,10 @@
           ],
           "keyAgreement": ["#z6LSrLJwjRNYrbH7nZwPHvyoBFtW6aCDb5GUb3tuFcoDcECX"]
         },
-        "didDocumentMetaData": {
+        "didDocumentMetadata": {
           "content-type": "application/did+json"
         },
-        "didResolutionMetaData": {}
+        "didResolutionMetadata": {}
       },
       "application/did+ld+json": {
         "didDocument": {
@@ -236,10 +236,10 @@
           ],
           "keyAgreement": ["#z6LSrLJwjRNYrbH7nZwPHvyoBFtW6aCDb5GUb3tuFcoDcECX"]
         },
-        "didDocumentMetaData": {
+        "didDocumentMetadata": {
           "content-type": "application/did+ld+json"
         },
-        "didResolutionMetaData": {}
+        "didResolutionMetadata": {}
       }
     }
   },
@@ -316,10 +316,10 @@
           ],
           "keyAgreement": ["#z6LSsRXQyb6tKNfQxq64YHqmvxQKPjSGQgfexpFQTVUKnGc4"]
         },
-        "didDocumentMetaData": {
+        "didDocumentMetadata": {
           "content-type": "application/did+json"
         },
-        "didResolutionMetaData": {}
+        "didResolutionMetadata": {}
       },
       "application/did+ld+json": {
         "didDocument": {
@@ -358,10 +358,10 @@
           ],
           "keyAgreement": ["#z6LSsRXQyb6tKNfQxq64YHqmvxQKPjSGQgfexpFQTVUKnGc4"]
         },
-        "didDocumentMetaData": {
+        "didDocumentMetadata": {
           "content-type": "application/did+ld+json"
         },
-        "didResolutionMetaData": {}
+        "didResolutionMetadata": {}
       }
     }
   },
@@ -438,10 +438,10 @@
           ],
           "keyAgreement": ["#z6LSq1XSHm1v9Riq1UvLjhGcfg1iw6puXXKobMUFHq4VEHZT"]
         },
-        "didDocumentMetaData": {
+        "didDocumentMetadata": {
           "content-type": "application/did+json"
         },
-        "didResolutionMetaData": {}
+        "didResolutionMetadata": {}
       },
       "application/did+ld+json": {
         "didDocument": {
@@ -480,10 +480,10 @@
           ],
           "keyAgreement": ["#z6LSq1XSHm1v9Riq1UvLjhGcfg1iw6puXXKobMUFHq4VEHZT"]
         },
-        "didDocumentMetaData": {
+        "didDocumentMetadata": {
           "content-type": "application/did+ld+json"
         },
-        "didResolutionMetaData": {}
+        "didResolutionMetadata": {}
       }
     }
   },
@@ -560,10 +560,10 @@
           ],
           "keyAgreement": ["#z6LSmMQnCdECJz9kvHtQWhJzEZPP6i4Y3sWruvSK61enpj7g"]
         },
-        "didDocumentMetaData": {
+        "didDocumentMetadata": {
           "content-type": "application/did+json"
         },
-        "didResolutionMetaData": {}
+        "didResolutionMetadata": {}
       },
       "application/did+ld+json": {
         "didDocument": {
@@ -602,10 +602,10 @@
           ],
           "keyAgreement": ["#z6LSmMQnCdECJz9kvHtQWhJzEZPP6i4Y3sWruvSK61enpj7g"]
         },
-        "didDocumentMetaData": {
+        "didDocumentMetadata": {
           "content-type": "application/did+ld+json"
         },
-        "didResolutionMetaData": {}
+        "didResolutionMetadata": {}
       }
     }
   }

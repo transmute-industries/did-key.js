@@ -15,10 +15,10 @@ export const getResolve = () => {
     const publicKey = await Bls12381KeyPairs.fromFingerprint({ fingerprint });
     const didResolutionResponse = {
       didDocument: await keyToDidDoc(publicKey, resolutionMetaData.accept),
-      didDocumentMetaData: {
+      didDocumentMetadata: {
         'content-type': resolutionMetaData.accept,
       },
-      didResolutionMetaData: {},
+      didResolutionMetadata: {},
     };
     if (resolutionMetaData.accept === 'application/did+cbor') {
       return cbor.encode(didResolutionResponse);
