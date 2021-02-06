@@ -1,3 +1,7 @@
+# did:key
+
+![CI](https://github.com/transmute-industries/did-key.js/workflows/CI/badge.svg) ![CD](https://github.com/transmute-industries/did-key.js/workflows/CD/badge.svg)
+
 <p align="center">
   <img src="./transmute-banner.png"/>
 </p>
@@ -14,7 +18,6 @@ Demos:
 
 #### [did-key.js](./packages/did-key.js)
 
-![CI](https://github.com/transmute-industries/did-key.js/workflows/CI/badge.svg)
 
 If you want to resolve all did keys, you need to install all of them:
 

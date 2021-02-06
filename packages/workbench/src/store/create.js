@@ -1,26 +1,25 @@
-import { createStore, combineReducers, applyMiddleware, compose } from "redux";
-import { persistStore, persistReducer } from "redux-persist";
-import { routerMiddleware } from "connected-react-router";
-import storage from "redux-persist/lib/storage";
-import { composeWithDevTools } from "redux-devtools-extension";
-import thunk from "redux-thunk";
-import withReduxEnhancer from "addon-redux/enhancer";
+import { createStore, combineReducers, applyMiddleware, compose } from 'redux';
+import { persistStore, persistReducer } from 'redux-persist';
+import { routerMiddleware } from 'connected-react-router';
+import storage from 'redux-persist/lib/storage';
+import { composeWithDevTools } from 'redux-devtools-extension';
+import thunk from 'redux-thunk';
+import withReduxEnhancer from 'addon-redux/enhancer';
 
-import rootReducer from ".";
-import history from "./history";
+import rootReducer from '.';
+import history from './history';
 
 export default (appReducers = {}) => {
   // Persistance configuration
   const persistConfig = {
-    key: "root",
-    whitelist: ["wallet"],
+    key: 'root',
     storage,
   };
 
   const middlewares = [thunk, routerMiddleware(history)];
 
   // TODO: refactor for production
-  if (process.env.NODE_ENV !== "production") {
+  if (process.env.NODE_ENV !== 'production') {
     // const reduxListener = createStorybookListener();
     // middlewares.push(reduxListener);
   }

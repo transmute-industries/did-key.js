@@ -1,10 +1,7 @@
-import { connectRouter } from "connected-react-router";
+import { connectRouter } from 'connected-react-router';
 
-import history from "./history";
-
-import wallet from "./universal-wallet";
+import history from './history';
 
 export default {
   router: connectRouter(history),
-  wallet: wallet.reducer,
 };
