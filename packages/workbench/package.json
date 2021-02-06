@@ -1,6 +1,6 @@
 {
   "name": "@transmute/did-key-workbench",
-  "version": "0.2.1-unstable.31",
+  "version": "0.2.1-unstable.32",
   "private": true,
   "homepage": "https://did.key.transmute.industries",
   "dependencies": {
