@@ -175,9 +175,9 @@ export const publicKeyHexFromJwk = (jwk: ISecp256k1PublicKeyJwk) => {
 export const privateKeyUInt8ArrayFromJwk = (jwk: ISecp256k1PrivateKeyJwk) => {
   const privateKeyHex = privateKeyHexFromJwk(jwk);
   let asBuffer = Buffer.from(privateKeyHex, 'hex');
-  let padding = 32 - asBuffer.length
-  while(padding > 0){
-    asBuffer = Buffer.concat([Buffer.from('00', 'hex'), asBuffer]); 
+  let padding = 32 - asBuffer.length;
+  while (padding > 0) {
+    asBuffer = Buffer.concat([Buffer.from('00', 'hex'), asBuffer]);
     padding--;
   }
   return asBuffer;
@@ -187,9 +187,9 @@ export const privateKeyUInt8ArrayFromJwk = (jwk: ISecp256k1PrivateKeyJwk) => {
 export const publicKeyUInt8ArrayFromJwk = (jwk: ISecp256k1PublicKeyJwk) => {
   const publicKeyHex = publicKeyHexFromJwk(jwk);
   let asBuffer = Buffer.from(publicKeyHex, 'hex');
-  let padding = 32 - asBuffer.length
-  while(padding > 0){
-    asBuffer = Buffer.concat([Buffer.from('00', 'hex'), asBuffer]); 
+  let padding = 32 - asBuffer.length;
+  while (padding > 0) {
+    asBuffer = Buffer.concat([Buffer.from('00', 'hex'), asBuffer]);
     padding--;
   }
   return asBuffer;
