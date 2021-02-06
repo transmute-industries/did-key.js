@@ -117,7 +117,7 @@ export const sign = async (
   payload: any,
   privateKeyJwk: ISecp256k1PrivateKeyJwk,
   header: IJWSHeader = { alg: 'ES256K' }
-):  Promise<string> => {
+): Promise<string> => {
   const privateKeyUInt8Array = await privateKeyUInt8ArrayFromJwk(privateKeyJwk);
 
   const encodedHeader = base64url.encode(JSON.stringify(header));
@@ -168,8 +168,6 @@ export const verify = async (
   );
 
   return verified;
- 
-  
 };
 
 /** decode a JWS (without verifying it) */

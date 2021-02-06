@@ -37,7 +37,6 @@ it('interop', async () => {
       );
       expect(ourVerificationOfTheirs).toEqual(true);
     } catch (e) {
-
       errorCount++;
     }
     count++;
