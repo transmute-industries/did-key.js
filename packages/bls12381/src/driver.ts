@@ -14,11 +14,12 @@ export const getResolve = () => {
       .pop();
     const publicKey = await Bls12381KeyPairs.fromFingerprint({ fingerprint });
     const didResolutionResponse = {
+      '@context': 'https://w3id.org/did-resolution/v1',
       didDocument: await keyToDidDoc(publicKey, resolutionMetaData.accept),
-      didDocumentMetaData: {
+      didDocumentMetadata: {
         'content-type': resolutionMetaData.accept,
       },
-      didResolutionMetaData: {},
+      didResolutionMetadata: {},
     };
     if (resolutionMetaData.accept === 'application/did+cbor') {
       return cbor.encode(didResolutionResponse);

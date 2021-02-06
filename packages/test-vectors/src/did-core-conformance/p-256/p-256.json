@@ -30,6 +30,7 @@
     },
     "resolution": {
       "application/did+json": {
+        "@context": "https://w3id.org/did-resolution/v1",
         "didDocument": {
           "@context": [
             "https://www.w3.org/ns/did/v1",
@@ -67,12 +68,13 @@
             "#zXwpDcwhs3ryJCCM3vYz9nJ7jB7Mbp8ioihWmRkNjy1XPjTqMEn5MvjaH3i1qsegxku36mBUc5fQ5NEW5JfHRr6i3TVf"
           ]
         },
-        "didDocumentMetaData": {
+        "didDocumentMetadata": {
           "content-type": "application/did+json"
         },
-        "didResolutionMetaData": {}
+        "didResolutionMetadata": {}
       },
       "application/did+ld+json": {
+        "@context": "https://w3id.org/did-resolution/v1",
         "didDocument": {
           "@context": [
             "https://www.w3.org/ns/did/v1",
@@ -105,10 +107,10 @@
             "#zXwpDcwhs3ryJCCM3vYz9nJ7jB7Mbp8ioihWmRkNjy1XPjTqMEn5MvjaH3i1qsegxku36mBUc5fQ5NEW5JfHRr6i3TVf"
           ]
         },
-        "didDocumentMetaData": {
+        "didDocumentMetadata": {
           "content-type": "application/did+ld+json"
         },
-        "didResolutionMetaData": {}
+        "didResolutionMetadata": {}
       }
     }
   },
@@ -143,6 +145,7 @@
     },
     "resolution": {
       "application/did+json": {
+        "@context": "https://w3id.org/did-resolution/v1",
         "didDocument": {
           "@context": [
             "https://www.w3.org/ns/did/v1",
@@ -180,12 +183,13 @@
             "#zXwp9vdvZ5vVNBvpxihTHsBZE8WsZEGzdrhxzsVQ7AGtUGcoYpfvcqEUQhbjwaPFfSjdMxX18JVT6NPjoytTL9jxJGJo"
           ]
         },
-        "didDocumentMetaData": {
+        "didDocumentMetadata": {
           "content-type": "application/did+json"
         },
-        "didResolutionMetaData": {}
+        "didResolutionMetadata": {}
       },
       "application/did+ld+json": {
+        "@context": "https://w3id.org/did-resolution/v1",
         "didDocument": {
           "@context": [
             "https://www.w3.org/ns/did/v1",
@@ -218,10 +222,10 @@
             "#zXwp9vdvZ5vVNBvpxihTHsBZE8WsZEGzdrhxzsVQ7AGtUGcoYpfvcqEUQhbjwaPFfSjdMxX18JVT6NPjoytTL9jxJGJo"
           ]
         },
-        "didDocumentMetaData": {
+        "didDocumentMetadata": {
           "content-type": "application/did+ld+json"
         },
-        "didResolutionMetaData": {}
+        "didResolutionMetadata": {}
       }
     }
   },
@@ -256,6 +260,7 @@
     },
     "resolution": {
       "application/did+json": {
+        "@context": "https://w3id.org/did-resolution/v1",
         "didDocument": {
           "@context": [
             "https://www.w3.org/ns/did/v1",
@@ -293,12 +298,13 @@
             "#zXwpDN6eqtj57DfnuvbNqhERAjaPp5TXbGSxiFDeeowQjbUNHkzWQbpR9uW72rTkTeGf8Q4bu8sPKkooCWQEjn9eNHFa"
           ]
         },
-        "didDocumentMetaData": {
+        "didDocumentMetadata": {
           "content-type": "application/did+json"
         },
-        "didResolutionMetaData": {}
+        "didResolutionMetadata": {}
       },
       "application/did+ld+json": {
+        "@context": "https://w3id.org/did-resolution/v1",
         "didDocument": {
           "@context": [
             "https://www.w3.org/ns/did/v1",
@@ -331,10 +337,10 @@
             "#zXwpDN6eqtj57DfnuvbNqhERAjaPp5TXbGSxiFDeeowQjbUNHkzWQbpR9uW72rTkTeGf8Q4bu8sPKkooCWQEjn9eNHFa"
           ]
         },
-        "didDocumentMetaData": {
+        "didDocumentMetadata": {
           "content-type": "application/did+ld+json"
         },
-        "didResolutionMetaData": {}
+        "didResolutionMetadata": {}
       }
     }
   },
@@ -369,6 +375,7 @@
     },
     "resolution": {
       "application/did+json": {
+        "@context": "https://w3id.org/did-resolution/v1",
         "didDocument": {
           "@context": [
             "https://www.w3.org/ns/did/v1",
@@ -406,12 +413,13 @@
             "#zXwpEHqfc5gnkCBdCnBqYaaoCaeLRSEPjLg2CAJB6H1ST7XC96h8C3N1MBEAefmPaSGv8aFnLDAgPzKhPQZX7vVVJsyd"
           ]
         },
-        "didDocumentMetaData": {
+        "didDocumentMetadata": {
           "content-type": "application/did+json"
         },
-        "didResolutionMetaData": {}
+        "didResolutionMetadata": {}
       },
       "application/did+ld+json": {
+        "@context": "https://w3id.org/did-resolution/v1",
         "didDocument": {
           "@context": [
             "https://www.w3.org/ns/did/v1",
@@ -444,10 +452,10 @@
             "#zXwpEHqfc5gnkCBdCnBqYaaoCaeLRSEPjLg2CAJB6H1ST7XC96h8C3N1MBEAefmPaSGv8aFnLDAgPzKhPQZX7vVVJsyd"
           ]
         },
-        "didDocumentMetaData": {
+        "didDocumentMetadata": {
           "content-type": "application/did+ld+json"
         },
-        "didResolutionMetaData": {}
+        "didResolutionMetadata": {}
       }
     }
   },
@@ -482,6 +490,7 @@
     },
     "resolution": {
       "application/did+json": {
+        "@context": "https://w3id.org/did-resolution/v1",
         "didDocument": {
           "@context": [
             "https://www.w3.org/ns/did/v1",
@@ -519,12 +528,13 @@
             "#zXwpEGHwiz74j7ke75GjHvC6fmPvmLi3tChGkk9AQsm1w8BGG8WbjRsHZAZgf75rYWgrtQ89yn3ydR2QnYAYrRU7sUvN"
           ]
         },
-        "didDocumentMetaData": {
+        "didDocumentMetadata": {
           "content-type": "application/did+json"
         },
-        "didResolutionMetaData": {}
+        "didResolutionMetadata": {}
       },
       "application/did+ld+json": {
+        "@context": "https://w3id.org/did-resolution/v1",
         "didDocument": {
           "@context": [
             "https://www.w3.org/ns/did/v1",
@@ -557,10 +567,10 @@
             "#zXwpEGHwiz74j7ke75GjHvC6fmPvmLi3tChGkk9AQsm1w8BGG8WbjRsHZAZgf75rYWgrtQ89yn3ydR2QnYAYrRU7sUvN"
           ]
         },
-        "didDocumentMetaData": {
+        "didDocumentMetadata": {
           "content-type": "application/did+ld+json"
         },
-        "didResolutionMetaData": {}
+        "didResolutionMetadata": {}
       }
     }
   }

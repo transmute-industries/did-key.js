@@ -28,6 +28,7 @@
     },
     "resolution": {
       "application/did+json": {
+        "@context": "https://w3id.org/did-resolution/v1",
         "didDocument": {
           "@context": [
             "https://www.w3.org/ns/did/v1",
@@ -61,12 +62,13 @@
             "#zUC71nmwvy83x1UzNKbZbS7N9QZx8rqpQx3Ee3jGfKiEkZngTKzsRoqobX6wZdZF5F93pSGYYco3gpK9tc53ruWUo2tkBB9bxPCFBUjq2th8FbtT4xih6y6Q1K9EL4Th86NiCGT"
           ]
         },
-        "didDocumentMetaData": {
+        "didDocumentMetadata": {
           "content-type": "application/did+json"
         },
-        "didResolutionMetaData": {}
+        "didResolutionMetadata": {}
       },
       "application/did+ld+json": {
+        "@context": "https://w3id.org/did-resolution/v1",
         "didDocument": {
           "@context": [
             "https://www.w3.org/ns/did/v1",
@@ -96,10 +98,10 @@
             "#zUC71nmwvy83x1UzNKbZbS7N9QZx8rqpQx3Ee3jGfKiEkZngTKzsRoqobX6wZdZF5F93pSGYYco3gpK9tc53ruWUo2tkBB9bxPCFBUjq2th8FbtT4xih6y6Q1K9EL4Th86NiCGT"
           ]
         },
-        "didDocumentMetaData": {
+        "didDocumentMetadata": {
           "content-type": "application/did+ld+json"
         },
-        "didResolutionMetaData": {}
+        "didResolutionMetadata": {}
       }
     }
   },
@@ -132,6 +134,7 @@
     },
     "resolution": {
       "application/did+json": {
+        "@context": "https://w3id.org/did-resolution/v1",
         "didDocument": {
           "@context": [
             "https://www.w3.org/ns/did/v1",
@@ -165,12 +168,13 @@
             "#zUC722CrUBXdCFcAPFzLaHuVMbvmxK1F3S2YFyowvhDR6DWG5W6GqWPnFKGYsEtqmCWBjDXLNRzMmyoNyKSexR1TwgusVQZYUgpj5GJ36n7N6eFE3yZ1vw4N9qVpfVuCMhgnZuw"
           ]
         },
-        "didDocumentMetaData": {
+        "didDocumentMetadata": {
           "content-type": "application/did+json"
         },
-        "didResolutionMetaData": {}
+        "didResolutionMetadata": {}
       },
       "application/did+ld+json": {
+        "@context": "https://w3id.org/did-resolution/v1",
         "didDocument": {
           "@context": [
             "https://www.w3.org/ns/did/v1",
@@ -200,10 +204,10 @@
             "#zUC722CrUBXdCFcAPFzLaHuVMbvmxK1F3S2YFyowvhDR6DWG5W6GqWPnFKGYsEtqmCWBjDXLNRzMmyoNyKSexR1TwgusVQZYUgpj5GJ36n7N6eFE3yZ1vw4N9qVpfVuCMhgnZuw"
           ]
         },
-        "didDocumentMetaData": {
+        "didDocumentMetadata": {
           "content-type": "application/did+ld+json"
         },
-        "didResolutionMetaData": {}
+        "didResolutionMetadata": {}
       }
     }
   },
@@ -236,6 +240,7 @@
     },
     "resolution": {
       "application/did+json": {
+        "@context": "https://w3id.org/did-resolution/v1",
         "didDocument": {
           "@context": [
             "https://www.w3.org/ns/did/v1",
@@ -269,12 +274,13 @@
             "#zUC7JjecfJwuz1qhVaCjJ31cSqd6XiCabPzJjWYkiimMFQhZXzs532afJLcNSFFdnC8pzvUqvev2ycJWrfiwrjmL9wJ7gqvATD2SQHYJfxchNwopyfrTZ9ajbJH9uJUtfpbC6v6"
           ]
         },
-        "didDocumentMetaData": {
+        "didDocumentMetadata": {
           "content-type": "application/did+json"
         },
-        "didResolutionMetaData": {}
+        "didResolutionMetadata": {}
       },
       "application/did+ld+json": {
+        "@context": "https://w3id.org/did-resolution/v1",
         "didDocument": {
           "@context": [
             "https://www.w3.org/ns/did/v1",
@@ -304,10 +310,10 @@
             "#zUC7JjecfJwuz1qhVaCjJ31cSqd6XiCabPzJjWYkiimMFQhZXzs532afJLcNSFFdnC8pzvUqvev2ycJWrfiwrjmL9wJ7gqvATD2SQHYJfxchNwopyfrTZ9ajbJH9uJUtfpbC6v6"
           ]
         },
-        "didDocumentMetaData": {
+        "didDocumentMetadata": {
           "content-type": "application/did+ld+json"
         },
-        "didResolutionMetaData": {}
+        "didResolutionMetadata": {}
       }
     }
   },
@@ -340,6 +346,7 @@
     },
     "resolution": {
       "application/did+json": {
+        "@context": "https://w3id.org/did-resolution/v1",
         "didDocument": {
           "@context": [
             "https://www.w3.org/ns/did/v1",
@@ -373,12 +380,13 @@
             "#zUC7EsznLYQxnoarragXVjJ3dxKfMa9daAXaYKqKhuZkGgbkbw8nahVRn7cQoZT3jFe2xQj4TBmVwTVFo5nifWF6pvhYDbmmu14N5e1ha5qYXK4aemc1hTuYZ9YbWtiUFA7NFt7"
           ]
         },
-        "didDocumentMetaData": {
+        "didDocumentMetadata": {
           "content-type": "application/did+json"
         },
-        "didResolutionMetaData": {}
+        "didResolutionMetadata": {}
       },
       "application/did+ld+json": {
+        "@context": "https://w3id.org/did-resolution/v1",
         "didDocument": {
           "@context": [
             "https://www.w3.org/ns/did/v1",
@@ -408,10 +416,10 @@
             "#zUC7EsznLYQxnoarragXVjJ3dxKfMa9daAXaYKqKhuZkGgbkbw8nahVRn7cQoZT3jFe2xQj4TBmVwTVFo5nifWF6pvhYDbmmu14N5e1ha5qYXK4aemc1hTuYZ9YbWtiUFA7NFt7"
           ]
         },
-        "didDocumentMetaData": {
+        "didDocumentMetadata": {
           "content-type": "application/did+ld+json"
         },
-        "didResolutionMetaData": {}
+        "didResolutionMetadata": {}
       }
     }
   },
@@ -444,6 +452,7 @@
     },
     "resolution": {
       "application/did+json": {
+        "@context": "https://w3id.org/did-resolution/v1",
         "didDocument": {
           "@context": [
             "https://www.w3.org/ns/did/v1",
@@ -477,12 +486,13 @@
             "#zUC7DaU8gXXGi6ZjNf4TmoZYzMDQ4FBoCtB39Aiu52pr74ora6dGXBztDobw1aMahvEKTPZvgnQBqHv6MEAX3BRxdxcmaQm6raYXeS3em21NGFMmmL1uhb8bT7AvRMYeSdmT7Kh"
           ]
         },
-        "didDocumentMetaData": {
+        "didDocumentMetadata": {
           "content-type": "application/did+json"
         },
-        "didResolutionMetaData": {}
+        "didResolutionMetadata": {}
       },
       "application/did+ld+json": {
+        "@context": "https://w3id.org/did-resolution/v1",
         "didDocument": {
           "@context": [
             "https://www.w3.org/ns/did/v1",
@@ -512,10 +522,10 @@
             "#zUC7DaU8gXXGi6ZjNf4TmoZYzMDQ4FBoCtB39Aiu52pr74ora6dGXBztDobw1aMahvEKTPZvgnQBqHv6MEAX3BRxdxcmaQm6raYXeS3em21NGFMmmL1uhb8bT7AvRMYeSdmT7Kh"
           ]
         },
-        "didDocumentMetaData": {
+        "didDocumentMetadata": {
           "content-type": "application/did+ld+json"
         },
-        "didResolutionMetaData": {}
+        "didResolutionMetadata": {}
       }
     }
   }
