@@ -22,7 +22,7 @@ it('interop', async () => {
     expect(theirVerification).toEqual(payload);
     const ourJws = await ES256K.sign(payload, privateKeyJwk);
     const ourVerification = await ES256K.verify(ourJws, publicKeyJwk);
-    expect(ourVerification).toEqual(payload);
+    expect(ourVerification).toEqual(true);
 
     const theirVerificationOfOurs = await JWS.verify(
       ourJws,
@@ -35,8 +35,9 @@ it('interop', async () => {
         theirJws,
         publicKeyJwk
       );
-      expect(ourVerificationOfTheirs).toEqual(payload);
+      expect(ourVerificationOfTheirs).toEqual(true);
     } catch (e) {
+
       errorCount++;
     }
     count++;

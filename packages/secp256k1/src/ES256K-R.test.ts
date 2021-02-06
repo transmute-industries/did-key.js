@@ -34,7 +34,7 @@ it('sign / verify', async () => {
   );
   const jws = await sign(message, privateKeyJwk);
   const verified = await verify(jws, publicKeyJwk);
-  expect(verified).toEqual(message);
+  expect(verified).toEqual(true);
 });
 
 it('signDetached / recoverPublicKey', async () => {

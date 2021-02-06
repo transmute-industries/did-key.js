@@ -39,7 +39,7 @@ export const signDetached = async (
     b64: false,
     crit: ['b64'],
   }
-) => {
+): Promise<string> => {
   const privateKeyUInt8Array = await privateKeyUInt8ArrayFromJwk(privateKeyJwk);
 
   const encodedHeader = base64url.encode(JSON.stringify(header));
@@ -72,7 +72,7 @@ export const verifyDetached = async (
   jws: string,
   payload: Buffer,
   publicKeyJwk: ISecp256k1PublicKeyJwk
-) => {
+): Promise<boolean> => {
   if (jws.indexOf('..') === -1) {
     throw new JWSVerificationFailed('not a valid rfc7797 jws.');
   }
@@ -109,17 +109,7 @@ export const verifyDetached = async (
     publicKeyUInt8Array
   );
 
-  if (verified) {
-    return true;
-  }
-  const erroObject = {
-    signature: signatureUInt8Array.toString('hex'),
-    // message: messageHashUInt8Array.toString('hex'),
-    // publicKey: publicKeyUInt8Array.toString('hex'),
-  };
-  throw new JWSVerificationFailed(
-    'ECDSA Verify Failed: ' + JSON.stringify(erroObject, null, 2)
-  );
+  return verified;
 };
 
 /** Produce a normal ES256K JWS */
@@ -127,7 +117,7 @@ export const sign = async (
   payload: any,
   privateKeyJwk: ISecp256k1PrivateKeyJwk,
   header: IJWSHeader = { alg: 'ES256K' }
-) => {
+):  Promise<string> => {
   const privateKeyUInt8Array = await privateKeyUInt8ArrayFromJwk(privateKeyJwk);
 
   const encodedHeader = base64url.encode(JSON.stringify(header));
@@ -155,7 +145,7 @@ export const sign = async (
 export const verify = async (
   jws: string,
   publicKeyJwk: ISecp256k1PublicKeyJwk
-) => {
+): Promise<boolean> => {
   const publicKeyUInt8Array = await publicKeyUInt8ArrayFromJwk(publicKeyJwk);
   const [encodedHeader, encodedPayload, encodedSignature] = jws.split('.');
   const toBeSigned = `${encodedHeader}.${encodedPayload}`;
@@ -176,21 +166,14 @@ export const verify = async (
     messageHashUInt8Array,
     publicKeyUInt8Array
   );
-  if (verified) {
-    return JSON.parse(base64url.decode(encodedPayload));
-  }
-  const erroObject = {
-    signature: signatureUInt8Array.toString('hex'),
-    message: messageHashUInt8Array.toString('hex'),
-    publicKey: publicKeyUInt8Array.toString('hex'),
-  };
-  throw new JWSVerificationFailed(
-    'ECDSA Verify Failed: ' + JSON.stringify(erroObject, null, 2)
-  );
+
+  return verified;
+ 
+  
 };
 
 /** decode a JWS (without verifying it) */
-export const decode = (jws: string, options = { complete: false }) => {
+export const decode = (jws: string, options = { complete: false }): any => {
   const [encodedHeader, encodedPayload, encodedSignature] = jws.split('.');
 
   if (options.complete) {
