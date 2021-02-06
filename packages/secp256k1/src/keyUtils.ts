@@ -174,7 +174,13 @@ export const publicKeyHexFromJwk = (jwk: ISecp256k1PublicKeyJwk) => {
 /** convert jwk to binary encoded private key */
 export const privateKeyUInt8ArrayFromJwk = (jwk: ISecp256k1PrivateKeyJwk) => {
   const privateKeyHex = privateKeyHexFromJwk(jwk);
-  return Buffer.from(privateKeyHex, 'hex');
+  let asBuffer = Buffer.from(privateKeyHex, 'hex');
+  let padding = 32 - asBuffer.length
+  while(padding){
+    asBuffer = Buffer.concat([Buffer.from('00', 'hex'), asBuffer]); 
+    padding--;
+  }
+  return asBuffer;
 };
 
 /** convert jwk to binary encoded public key */
