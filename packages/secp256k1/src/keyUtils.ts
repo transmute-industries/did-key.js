@@ -174,13 +174,25 @@ export const publicKeyHexFromJwk = (jwk: ISecp256k1PublicKeyJwk) => {
 /** convert jwk to binary encoded private key */
 export const privateKeyUInt8ArrayFromJwk = (jwk: ISecp256k1PrivateKeyJwk) => {
   const privateKeyHex = privateKeyHexFromJwk(jwk);
-  return Buffer.from(privateKeyHex, 'hex');
+  let asBuffer = Buffer.from(privateKeyHex, 'hex');
+  let padding = 32 - asBuffer.length;
+  while (padding > 0) {
+    asBuffer = Buffer.concat([Buffer.from('00', 'hex'), asBuffer]);
+    padding--;
+  }
+  return asBuffer;
 };
 
 /** convert jwk to binary encoded public key */
 export const publicKeyUInt8ArrayFromJwk = (jwk: ISecp256k1PublicKeyJwk) => {
   const publicKeyHex = publicKeyHexFromJwk(jwk);
-  return Buffer.from(publicKeyHex, 'hex');
+  let asBuffer = Buffer.from(publicKeyHex, 'hex');
+  let padding = 32 - asBuffer.length;
+  while (padding > 0) {
+    asBuffer = Buffer.concat([Buffer.from('00', 'hex'), asBuffer]);
+    padding--;
+  }
+  return asBuffer;
 };
 
 /** convert publicKeyHex to base58 */
@@ -210,4 +222,16 @@ export const publicKeyHexFromPrivateKeyHex = (privateKeyHex: string) => {
     new Uint8Array(Buffer.from(privateKeyHex, 'hex'))
   );
   return Buffer.from(publicKey).toString('hex');
+};
+
+export const publicKeyJwkFromPublicKeyBase58 = (publicKeybase58: string) => {
+  return publicKeyJwkFromPublicKeyHex(
+    bs58.decode(publicKeybase58).toString('hex')
+  );
+};
+
+export const privateKeyJwkFromPrivateKeyBase58 = (privateKeyBase58: string) => {
+  return privateKeyJwkFromPrivateKeyHex(
+    bs58.decode(privateKeyBase58).toString('hex')
+  );
 };

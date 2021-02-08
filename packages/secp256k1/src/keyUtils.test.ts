@@ -62,3 +62,27 @@ describe('publicKeyHexFromJwk', () => {
     );
   });
 });
+
+describe('publicKeyJwkFromPublicKeyBase58', () => {
+  it('should convert a publicKeyBase58 to a publicKeyJwk', async () => {
+    const _publicKeyJwk = await keyUtils.publicKeyJwkFromPublicKeyBase58(
+      example.keypair['application/did+ld+json'].publicKeyBase58
+    );
+    delete _publicKeyJwk.kid;
+    expect(_publicKeyJwk).toEqual(
+      example.keypair['application/did+json'].publicKeyJwk
+    );
+  });
+});
+
+describe('privateKeyJwkFromPrivateKeyBase58', () => {
+  it('should convert a privateKeyBase58 to a privateKeyJwk', async () => {
+    const _privateKeyJwk = await keyUtils.privateKeyJwkFromPrivateKeyBase58(
+      example.keypair['application/did+ld+json'].privateKeyBase58
+    );
+    delete _privateKeyJwk.kid;
+    expect(_privateKeyJwk).toEqual(
+      example.keypair['application/did+json'].privateKeyJwk
+    );
+  });
+});

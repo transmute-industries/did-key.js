@@ -10,7 +10,7 @@ export const sign = async (
   payload: any,
   privateKeyJwk: any,
   header: any = { alg: 'ES256K-R' }
-) => {
+): Promise<string> => {
   const privateKeyUInt8Array = await privateKeyUInt8ArrayFromJwk(privateKeyJwk);
 
   const encodedHeader = base64url.encode(JSON.stringify(header));
@@ -34,7 +34,10 @@ export const sign = async (
   return `${encodedHeader}.${encodedPayload}.${encodedSignature}`;
 };
 
-export const verify = async (jws: string, publicKeyJwk: any) => {
+export const verify = async (
+  jws: string,
+  publicKeyJwk: any
+): Promise<boolean> => {
   const publicKeyUInt8Array = await publicKeyUInt8ArrayFromJwk(publicKeyJwk);
   const [encodedHeader, encodedPayload, encodedSignature] = jws.split('.');
 
@@ -58,17 +61,8 @@ export const verify = async (jws: string, publicKeyJwk: any) => {
     messageHashUInt8Array,
     publicKeyUInt8Array
   );
-  if (verified) {
-    return JSON.parse(base64url.decode(encodedPayload));
-  }
-  const erroObject = {
-    signature: signatureUInt8Array.toString('hex'),
-    message: messageHashUInt8Array.toString('hex'),
-    publicKey: publicKeyUInt8Array.toString('hex'),
-  };
-  throw new Error(
-    'ECDSA Verify Failed: ' + JSON.stringify(erroObject, null, 2)
-  );
+
+  return verified;
 };
 
 export const signDetached = async (
@@ -79,7 +73,7 @@ export const signDetached = async (
     b64: false,
     crit: ['b64'],
   }
-) => {
+): Promise<string> => {
   const privateKeyUInt8Array = await privateKeyUInt8ArrayFromJwk(privateKeyJwk);
   const encodedHeader = base64url.encode(JSON.stringify(header));
   const toBeSignedBuffer = Buffer.concat([

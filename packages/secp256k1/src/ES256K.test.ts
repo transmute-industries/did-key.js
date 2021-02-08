@@ -42,7 +42,7 @@ it('compact sign / verify ', async () => {
     jose.JWK.asKey(keypair.publicKeyJwk as any)
   );
   expect(_verified2).toEqual(example.payload);
-  expect(_verified).toEqual(example.payload);
+  expect(_verified).toEqual(true);
 });
 
 it('detached sign / verify', async () => {
