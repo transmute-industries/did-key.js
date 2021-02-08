@@ -3,6 +3,14 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## 0.2.1-unstable.34 (2021-02-08)
+
+**Note:** Version bump only for package @transmute/did-key-x25519
+
+
+
+
+
 ## 0.2.1-unstable.33 (2021-02-06)
 
 **Note:** Version bump only for package @transmute/did-key-x25519
