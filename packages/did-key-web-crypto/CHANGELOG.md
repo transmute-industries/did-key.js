@@ -3,6 +3,14 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## 0.2.1-unstable.35 (2021-02-11)
+
+**Note:** Version bump only for package @transmute/did-key-web-crypto
+
+
+
+
+
 ## 0.2.1-unstable.34 (2021-02-08)
 
 **Note:** Version bump only for package @transmute/did-key-web-crypto
