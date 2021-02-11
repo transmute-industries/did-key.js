@@ -38,5 +38,11 @@
     "bs58": "^4.0.1",
     "canonicalize": "^1.0.1",
     "secp256k1": "^4.0.1"
+  },
+  "homepage": "https://github.com/transmute-industries/did-key.js/tree/master/packages/secp256k1",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/transmute-industries/did-key.js.git",
+    "directory": "packages/secp256k1"
   }
 }
