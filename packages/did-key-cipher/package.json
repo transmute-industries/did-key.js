@@ -35,5 +35,11 @@
     "@stablelib/xchacha20poly1305": "^1.0.0",
     "@transmute/did-key-common": "^0.2.1-unstable.34",
     "web-streams-polyfill": "^3.0.0"
+  },
+  "homepage": "https://github.com/transmute-industries/did-key.js/tree/master/packages/did-key-cipher",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/transmute-industries/did-key.js.git",
+    "directory": "packages/did-key-cipher"
   }
 }

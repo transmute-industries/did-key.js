@@ -44,5 +44,11 @@
     "base64url": "^3.0.1",
     "bs58": "^4.0.1",
     "canonicalize": "^1.0.1"
+  },
+  "homepage": "https://github.com/transmute-industries/did-key.js/tree/master/packages/x25519",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/transmute-industries/did-key.js.git",
+    "directory": "packages/x25519"
   }
 }
