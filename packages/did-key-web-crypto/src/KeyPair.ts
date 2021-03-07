@@ -75,4 +75,8 @@ export class KeyPair extends WebKeyPair {
     }
     return options;
   }
+
+  async deriveSecret(remote: JsonWebKey2020) {
+    return super.deriveBits(remote);
+  }
 }
