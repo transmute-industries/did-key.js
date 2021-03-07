@@ -19,8 +19,8 @@
   "scripts": {
     "start": "tsdx watch",
     "node15:build": "tsdx build",
-    "test": "tsdx test",
-    "lint": "tsdx lint src --fix",
+    "node15:test": "tsdx test",
+    "node15:lint": "tsdx lint src --fix",
     "node15:prepare": "tsdx build"
   },
   "devDependencies": {
