@@ -3,6 +3,12 @@
   "author": "Orie Steele",
   "module": "dist/did-key-web-crypto.esm.js",
   "version": "0.2.1-unstable.35",
+  "homepage": "https://github.com/transmute-industries/did-key.js/tree/master/packages/did-key-web-crypto",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/transmute-industries/did-key.js.git",
+    "directory": "packages/did-key-web-crypto"
+  },
   "publishConfig": {
     "access": "public"
   },
@@ -18,30 +24,38 @@
   },
   "scripts": {
     "start": "tsdx watch",
-    "build": "tsdx build",
-    "test": "tsdx test ",
-    "lint": "tsdx lint src --fix",
-    "prepare": "tsdx build"
+    "node15:build": "tsdx build",
+    "node15:test": "TS_JEST_DISABLE_VER_CHECKER=true tsdx test --passWithNoTests",
+    "node15:lint": "tsdx lint src --fix",
+    "node15:prepare": "tsdx build",
+    "size": "size-limit",
+    "analyze": "size-limit --why"
   },
+  "prettier": {
+    "printWidth": 80,
+    "semi": true,
+    "singleQuote": true,
+    "trailingComma": "es5"
+  },
+  "size-limit": [
+    {
+      "path": "dist/did-key-web-crypto.cjs.production.min.js",
+      "limit": "10 KB"
+    },
+    {
+      "path": "dist/did-key-web-crypto.esm.js",
+      "limit": "10 KB"
+    }
+  ],
   "devDependencies": {
-    "@transmute/did-key-test-vectors": "^0.2.1-unstable.35",
-    "jose": "^1.27.1",
-    "tsdx": "^0.13.2",
-    "tslib": "^2.0.0",
-    "typescript": "^3.9.5"
+    "@size-limit/preset-small-lib": "^4.10.0",
+    "size-limit": "^4.10.0",
+    "ts-jest": "^26.5.3",
+    "tsdx": "^0.14.1",
+    "tslib": "^2.1.0",
+    "typescript": "^4.2.3"
   },
   "dependencies": {
-    "@peculiar/webcrypto": "^1.1.3",
-    "@transmute/did-key-cipher": "^0.2.1-unstable.35",
-    "@transmute/did-key-common": "^0.2.1-unstable.35",
-    "base64url": "^3.0.1",
-    "bs58": "^4.0.1",
-    "canonicalize": "^1.0.1"
-  },
-  "homepage": "https://github.com/transmute-industries/did-key.js/tree/master/packages/did-key-web-crypto",
-  "repository": {
-    "type": "git",
-    "url": "https://github.com/transmute-industries/did-key.js.git",
-    "directory": "packages/did-key-web-crypto"
+    "@transmute/web-crypto-key-pair": "^0.0.4-unstable.13"
   }
 }

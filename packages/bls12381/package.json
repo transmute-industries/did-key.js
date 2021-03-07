@@ -2,6 +2,12 @@
   "name": "@transmute/did-key-bls12381",
   "author": "Orie Steele",
   "module": "dist/bls12381.esm.js",
+  "homepage": "https://github.com/transmute-industries/did-key.js/tree/master/packages/bls12381",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/transmute-industries/did-key.js.git",
+    "directory": "packages/bls12381"
+  },
   "version": "0.2.1-unstable.35",
   "license": "Apache-2.0",
   "main": "dist/index.js",
@@ -30,17 +36,9 @@
     "typescript": "^3.9.5"
   },
   "dependencies": {
-    "@mattrglobal/bbs-signatures": "^0.4.0",
-    "@mattrglobal/bls12381-key-pair": "^0.4.1-unstable.256739c",
-    "@transmute/did-key-common": "^0.2.1-unstable.35",
+    "@mattrglobal/bbs-signatures": "0.4.0",
+    "@mattrglobal/bls12381-key-pair": "^0.5.1-unstable.e779976",
     "base64url": "^3.0.1",
-    "borc": "^2.1.2",
     "bs58": "^4.0.1"
-  },
-  "homepage": "https://github.com/transmute-industries/did-key.js/tree/master/packages/bls12381",
-  "repository": {
-    "type": "git",
-    "url": "https://github.com/transmute-industries/did-key.js.git",
-    "directory": "packages/bls12381"
   }
 }

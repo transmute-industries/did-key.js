@@ -1,35 +1,28 @@
-import { didCoreConformance } from '@transmute/did-key-test-vectors';
+import { driver } from './index';
 
-import { get, resolve } from './driver';
+it('can resolve P-256 as did+json', async () => {
+  const did =
+    'did:key:zrurwcJZss4ruepVNu1H3xmSirvNbzgBk9qrCktB6kaewXnJAhYWwtP3bxACqBpzjZdN7TyHNzzGGSSH5qvZsSDir9z';
 
-// todo: unit test the others...
-const [example] = didCoreConformance['p-256'].key;
-
-it('get interface defaults to application/did+ld+json', async () => {
-  let _didDocument: any = await get({
-    did: example.resolution['application/did+ld+json'].didDocument.id,
-  });
-  expect(_didDocument).toEqual(
-    example.resolution['application/did+ld+json'].didDocument
-  );
+  const res = await driver.resolve(did, { accept: 'application/did+json' });
+  expect(res.didDocument.id).toBe(did);
+  expect(res.didDocumentMetadata['content-type']).toBe('application/did+json');
 });
 
-let representations = [
-  {
-    keyType: 'JsonWebKey2020',
-    contentType: 'application/did+json',
-  },
-  {
-    keyType: 'X25519KeyAgreementKey2019',
-    contentType: 'application/did+ld+json',
-  },
-];
-representations.forEach((rep) => {
-  let { id } = example.resolution[rep.contentType].didDocument;
-  it(`resolve supports ${rep.contentType}`, async () => {
-    let resolutionResponse: any = await resolve(id, {
-      accept: rep.contentType,
-    });
-    expect(resolutionResponse).toEqual(example.resolution[rep.contentType]);
-  });
+it('can resolve P-384 as did+json', async () => {
+  const did =
+    'did:key:zFwepbBSaPFjt5T1zWptHaXugLNxHYABfJrDoAZRYxKjNkpdfrniF3pvYQAXwxVB7afhmsgzYtSCzTVZQ3F5SPHzP5PuHgtBGNYucZTSrnA7yTTDr7WGQZaTTkJWfiH47jW5ahU';
+
+  const res = await driver.resolve(did, { accept: 'application/did+json' });
+  expect(res.didDocument.id).toBe(did);
+  expect(res.didDocumentMetadata['content-type']).toBe('application/did+json');
+});
+
+it('can resolve P-521 as did+json', async () => {
+  const did =
+    'did:key:zWGhj2NTyCiehTPioanYSuSrfB7RJKwZj6bBUDNojfGEA21nr5NcBsHme7hcVSbptpWKarJpTcw814J3X8gVU9gZmeKM27JpGA5wNMzt8JZwjDyf8EzCJg5ve5GR2Xfm7d9Djp73V7s35KPeKe7VHMzmL8aPw4XBniNej5sXapPFoBs5R8m195HK';
+
+  const res = await driver.resolve(did, { accept: 'application/did+json' });
+  expect(res.didDocument.id).toBe(did);
+  expect(res.didDocumentMetadata['content-type']).toBe('application/did+json');
 });
