@@ -24,10 +24,10 @@
   },
   "scripts": {
     "start": "tsdx watch",
-    "build": "tsdx build",
-    "test": "TS_JEST_DISABLE_VER_CHECKER=true tsdx test --passWithNoTests",
-    "lint": "tsdx lint src --fix",
-    "prepare": "tsdx build",
+    "node15:build": "tsdx build",
+    "node15:test": "TS_JEST_DISABLE_VER_CHECKER=true tsdx test --passWithNoTests",
+    "node15:lint": "tsdx lint src --fix",
+    "node15:prepare": "tsdx build",
     "size": "size-limit",
     "analyze": "size-limit --why"
   },
