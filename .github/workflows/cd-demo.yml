@@ -1,0 +1,22 @@
+name: CD
+
+on:
+  push:
+    branches:
+      - master
+
+jobs:
+  deploy-workbench:
+    if: "! contains(github.event.head_commit.message, '[skip ci]')"
+    name: Publish unstable release
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+
+      - name: Use Node 15
+        uses: actions/setup-node@v1
+        with:
+          node-version: 15.x
+
+      - name: Install
+        run: npm install

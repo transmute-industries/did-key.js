@@ -1,8 +1,18 @@
-import { getGet } from '@transmute/did-key-common';
-
 import { Bls12381KeyPairs } from './Bls12381KeyPairs';
 import { keyToDidDoc } from './functions/keyToDidDoc';
-const cbor = require('borc');
+
+export const getGet = (resolve: any) => {
+  const get = async ({ did, url }: any = {}) => {
+    did = did || url;
+    if (!did) {
+      throw new TypeError('"did" must be a string.');
+    }
+    const result = await resolve(did);
+    return result.didDocument;
+  };
+  return get;
+};
+
 export const getResolve = () => {
   const resolve = async (
     didUri: string,
@@ -21,9 +31,6 @@ export const getResolve = () => {
       },
       didResolutionMetadata: {},
     };
-    if (resolutionMetaData.accept === 'application/did+cbor') {
-      return cbor.encode(didResolutionResponse);
-    }
     return didResolutionResponse;
   };
 

@@ -9,7 +9,7 @@ import {
   JsonWebKey2020,
 } from '@transmute/web-crypto-key-pair/dist/types';
 
-import { multicodecToJwk } from './identifiers';
+import { multicodecToJwk, didToJwk, wishForMultibase } from './identifiers';
 
 export class KeyPair extends WebKeyPair {
   static async fingerprintFromPublicKey(publicKey: JsonWebKey2020) {
@@ -22,6 +22,18 @@ export class KeyPair extends WebKeyPair {
   }
 
   static from = async (keypair: JsonWebKey2020) => {
+    if ((keypair as any).publicKeyBase58) {
+      keypair.publicKeyJwk = didToJwk((keypair as any).controller);
+      delete (keypair as any).publicKeyBase58;
+    }
+
+    if ((keypair as any).privateKeyBase58) {
+      keypair.privateKeyJwk = wishForMultibase(
+        keypair.controller,
+        (keypair as any).privateKeyBase58
+      );
+      delete (keypair as any).privateKeyBase58;
+    }
     const kp = await WebKeyPair.from(keypair);
     return new KeyPair(kp);
   };
@@ -57,9 +69,9 @@ export class KeyPair extends WebKeyPair {
   async toKeyPair(exportPrivateKey = false) {
     const publicKeyJwk: any = await key.getJwkFromCryptoKey(this.publicKey);
     let options: any = {
-      id: this.id,
+      id: `#${await this.fingerprint()}`,
       type: 'JsonWebKey2020',
-      controller: this.controller,
+      controller: `did:key:${await this.fingerprint()}`,
       publicKeyBase58: encoding.base58.encode(
         Buffer.concat([
           Buffer.from(publicKeyJwk.x, 'base64'),

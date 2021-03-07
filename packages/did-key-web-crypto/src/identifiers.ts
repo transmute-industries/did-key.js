@@ -6,6 +6,44 @@ const uvarintToJwkOpts: any = {
   '8224': { kty: 'EC', crv: 'P-521' },
 };
 
+export const bufferToJwkPub = (buf: Buffer) => {
+  return {
+    x: web.encoding.base64url.encode(buf.slice(0, buf.length / 2)),
+    y: web.encoding.base64url.encode(buf.slice(buf.length / 2)),
+  };
+};
+
+export const bufferToJwkPriv = (buf: Buffer) => {
+  return {
+    d: web.encoding.base64url.encode(buf),
+  };
+};
+
+export const base58ToJwkPriv = (data: string) => {
+  return bufferToJwkPriv(web.encoding.base58.decode(data));
+};
+
+export const wishForMultibase = (
+  controller: string,
+  privateKeyBase58: string
+) => {
+  const jwk = didToJwk(controller);
+  return {
+    ...jwk,
+    ...base58ToJwkPriv(privateKeyBase58),
+  };
+};
+
+export const getUvarintFromMulticodec = (multicodec: string) => {
+  const decoded = web.encoding.base58.decode(multicodec);
+  const uvarint = decoded.slice(0, 2).toString('hex');
+  return uvarint;
+};
+
+export const getJwkOptsUvarint = (uvarint: string) => {
+  return uvarintToJwkOpts[uvarint];
+};
+
 export const multicodecToJwk = (data: string) => {
   const encoding = data[0];
   if (encoding !== 'z') {
@@ -17,9 +55,8 @@ export const multicodecToJwk = (data: string) => {
   const pub = decoded.slice(2);
 
   return {
-    ...uvarintToJwkOpts[uvarint],
-    x: web.encoding.base64url.encode(pub.slice(0, pub.length / 2)),
-    y: web.encoding.base64url.encode(pub.slice(pub.length / 2)),
+    ...getJwkOptsUvarint(uvarint),
+    ...bufferToJwkPub(pub),
   };
 };
 

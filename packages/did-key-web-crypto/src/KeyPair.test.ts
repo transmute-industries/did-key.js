@@ -29,6 +29,38 @@ it('from', async () => {
   expect(kp.privateKey.algorithm.namedCurve).toBe('P-384');
 });
 
+it('from base58', async () => {
+  const start: any = {
+    id: 'did:example:123#key',
+    type: 'JsonWebKey2020',
+    controller: 'did:example:123',
+    publicKeyJwk: {
+      kty: 'EC',
+      crv: 'P-384',
+      x: 'dMtj6RjwQK4G5HP3iwOD94RwbzPhS4wTZHO1luk_0Wz89chqV6uJyb51KaZzK0tk',
+      y: 'viPKF7Zbc4FxKegoupyVRcBr8TZHFxUrKQq4huOAyMuhTYJbFpAwMhIrWppql02E',
+    },
+    privateKeyJwk: {
+      kty: 'EC',
+      crv: 'P-384',
+      x: 'dMtj6RjwQK4G5HP3iwOD94RwbzPhS4wTZHO1luk_0Wz89chqV6uJyb51KaZzK0tk',
+      y: 'viPKF7Zbc4FxKegoupyVRcBr8TZHFxUrKQq4huOAyMuhTYJbFpAwMhIrWppql02E',
+      d: 'Wq5_KgqjvYh_EGvBDYtSs_0ufJJP0y0tkAXl6GqxHMkY0QP8vmD76mniXD-BWhd_',
+    },
+  };
+  const kp = await KeyPair.from(start);
+  const ldkp = await kp.toKeyPair(true);
+  const kpfromld = await KeyPair.from(ldkp);
+  const kp2fromld = await kpfromld.toJsonWebKeyPair(true);
+  expect(kp2fromld).toEqual({
+    ...start,
+    controller:
+      'did:key:zFwfU3dCN5eiJncUqQ42wt7MjWWdBsoctDosQM9cwBqb1bYuTzFsnQPwYGHuyNDx7BJUpzvsZAVFH2M1tdN7UMiFsYsq88BdiYxsAV2RiUinBGoyAcNwDFZyeAkfdrmyrqDPUwD',
+    id:
+      '#zFwfU3dCN5eiJncUqQ42wt7MjWWdBsoctDosQM9cwBqb1bYuTzFsnQPwYGHuyNDx7BJUpzvsZAVFH2M1tdN7UMiFsYsq88BdiYxsAV2RiUinBGoyAcNwDFZyeAkfdrmyrqDPUwD',
+  });
+});
+
 it('fingerprint', async () => {
   const kp: any = await KeyPair.from({
     id: 'did:example:123#key',
