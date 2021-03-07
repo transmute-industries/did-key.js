@@ -6,7 +6,7 @@ const uvarintToJwkOpts: any = {
   '8224': { kty: 'EC', crv: 'P-521' },
 };
 
-const multicodecToJwk = (data: string) => {
+export const multicodecToJwk = (data: string) => {
   const encoding = data[0];
   if (encoding !== 'z') {
     throw new Error('only base58 encode (z) is supported');
