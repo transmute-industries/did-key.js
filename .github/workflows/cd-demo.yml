@@ -1,10 +1,9 @@
-name: CD
+name: Pages
 
-on: [push]
-# on:
-#   push:
-#     branches:
-#       - master
+on:
+  push:
+    branches:
+      - master
 
 jobs:
   deploy-workbench:
@@ -24,3 +23,9 @@ jobs:
 
       - name: Build
         run: npm run build:demo
+
+      - name: Deploy workbench
+        uses: peaceiris/actions-gh-pages@v3
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: ./packages/workbench/build
