@@ -43,8 +43,7 @@
   "scripts": {
     "start": "env-cmd -f ./.env.local react-scripts start",
     "eject": "react-scripts eject",
-    "build": "NODE_OPTIONS=--max_old_space_size=8192 react-scripts build",
-    "deploy": "cp ./build/index.html ./build/404.html; gh-pages -d build"
+    "node15:build": "NODE_OPTIONS=--max_old_space_size=8192 react-scripts build"
   },
   "browserslist": {
     "production": [

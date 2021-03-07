@@ -1,9 +1,10 @@
 name: CD
 
-on:
-  push:
-    branches:
-      - master
+on: [push]
+# on:
+#   push:
+#     branches:
+#       - master
 
 jobs:
   deploy-workbench:
@@ -20,3 +21,6 @@ jobs:
 
       - name: Install
         run: npm install
+
+      - name: Build
+        run: npm run build:demo
