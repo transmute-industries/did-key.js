@@ -18,10 +18,10 @@
   },
   "scripts": {
     "start": "tsdx watch",
-    "build": "tsdx build",
+    "node15:build": "tsdx build",
     "test": "tsdx test",
     "lint": "tsdx lint src --fix",
-    "prepare": "tsdx build"
+    "node15:prepare": "tsdx build"
   },
   "devDependencies": {
     "@transmute/did-key-test-vectors": "^0.2.1-unstable.35",

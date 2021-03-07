@@ -16,8 +16,9 @@ Demos:
 
 - Web App: [https://did.key.transmute.industries](https://did.key.transmute.industries).
 
-#### [did-key.js](./packages/did-key.js)
+NIST Curves are only supported in node 15.
 
+#### [did-key.js](./packages/did-key.js)
 
 If you want to resolve all did keys, you need to install all of them:
 

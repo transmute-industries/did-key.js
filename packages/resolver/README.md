@@ -1,5 +1,7 @@
 # @transmute/did-key-resolver
 
+DEPRECATED: DID Key should never be resolved over a network.
+
 ## Getting Started
 
 ```
