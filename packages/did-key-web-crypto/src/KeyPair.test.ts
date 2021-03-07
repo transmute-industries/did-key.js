@@ -114,3 +114,30 @@ it('fromFingerprint', async () => {
     },
   });
 });
+
+// base58 not really supported for nist curves...
+// will support multibase when private keys are defined for it.
+it('toKeyPair', async () => {
+  const kp: any = await KeyPair.from({
+    id: 'did:example:123#key',
+    type: 'JsonWebKey2020',
+    controller: 'did:example:123',
+    publicKeyJwk: {
+      kty: 'EC',
+      crv: 'P-384',
+      x: 'CA-iNoHDg1lL8pvX3d1uvExzVfCz7Rn6tW781Ub8K5MrDf2IMPyL0RTDiaLHC1JT',
+      y: 'Kpnrn8DkXUD3ge4mFxi-DKr0DYO2KuJdwNBrhzLRtfMa3WFMZBiPKUPfJj8dYNl_',
+    },
+    privateKeyJwk: {
+      kty: 'EC',
+      crv: 'P-384',
+      x: 'CA-iNoHDg1lL8pvX3d1uvExzVfCz7Rn6tW781Ub8K5MrDf2IMPyL0RTDiaLHC1JT',
+      y: 'Kpnrn8DkXUD3ge4mFxi-DKr0DYO2KuJdwNBrhzLRtfMa3WFMZBiPKUPfJj8dYNl_',
+      d: 'Xe1HHeh-UsrJPRNLR_Y06VTrWpZYBXi7a7kiRqCgwnAOlJZPwE-xzL3DIIVMavAL',
+    },
+  });
+  const kp2 = await kp.toKeyPair(true);
+  expect(kp2.privateKeyBase58).toBe(
+    '4SqZmqamZpPRgoLcMBx5RK32XZC6BH874emLVnpzocrtJ52q4NcNkJdfkTtxkrcysp'
+  );
+});
