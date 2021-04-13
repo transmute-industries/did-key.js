@@ -62,6 +62,7 @@ export const keyToDidDoc = async (
   const didDocument = {
     '@context': [
       'https://www.w3.org/ns/did/v1',
+      'https://ns.did.ai/transmute/v1',
       {
         '@base': did,
       },

@@ -19,6 +19,7 @@ const didDocument = await resolver.resolve(
 // {
 //   '@context': [
 //     'https://www.w3.org/ns/did/v1',
+//     'https://ns.did.ai/transmute/v1',
 //     {
 //       '@base': 'did:key:z6Mkf5rGMoatrSj1f4CyvuHBeXJELe9RPdzo2PKGNCKVtZxP',
 //     },
