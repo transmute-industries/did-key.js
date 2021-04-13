@@ -32,6 +32,7 @@
         "didDocument": {
           "@context": [
             "https://www.w3.org/ns/did/v1",
+            "https://ns.did.ai/transmute/v1",
             {
               "@base": "did:key:z3tEFALUKUzzCAvytMHX8X4SnsNsq6T5tC5Zb18oQEt1FqNcJXqJ3AA9umgzA9yoqPBeWA"
             }
@@ -72,6 +73,7 @@
         "didDocument": {
           "@context": [
             "https://www.w3.org/ns/did/v1",
+            "https://ns.did.ai/transmute/v1",
             {
               "@base": "did:key:z3tEFALUKUzzCAvytMHX8X4SnsNsq6T5tC5Zb18oQEt1FqNcJXqJ3AA9umgzA9yoqPBeWA"
             }
@@ -138,6 +140,7 @@
         "didDocument": {
           "@context": [
             "https://www.w3.org/ns/did/v1",
+            "https://ns.did.ai/transmute/v1",
             {
               "@base": "did:key:z3tEGFHLYgZwFVkjnHS5tcMCSScngpt8Pucp6kGCPRjcn6261ZqNPbC6S3PaRzqZpfFEex"
             }
@@ -178,6 +181,7 @@
         "didDocument": {
           "@context": [
             "https://www.w3.org/ns/did/v1",
+            "https://ns.did.ai/transmute/v1",
             {
               "@base": "did:key:z3tEGFHLYgZwFVkjnHS5tcMCSScngpt8Pucp6kGCPRjcn6261ZqNPbC6S3PaRzqZpfFEex"
             }
@@ -244,6 +248,7 @@
         "didDocument": {
           "@context": [
             "https://www.w3.org/ns/did/v1",
+            "https://ns.did.ai/transmute/v1",
             {
               "@base": "did:key:z3tEFCgQVrQapiSa7DohE9xQsgXKJmXkkBHmn4Co6fVaDMfN7VjVW4RgBMv6YESPBiBLeC"
             }
@@ -284,6 +289,7 @@
         "didDocument": {
           "@context": [
             "https://www.w3.org/ns/did/v1",
+            "https://ns.did.ai/transmute/v1",
             {
               "@base": "did:key:z3tEFCgQVrQapiSa7DohE9xQsgXKJmXkkBHmn4Co6fVaDMfN7VjVW4RgBMv6YESPBiBLeC"
             }
@@ -350,6 +356,7 @@
         "didDocument": {
           "@context": [
             "https://www.w3.org/ns/did/v1",
+            "https://ns.did.ai/transmute/v1",
             {
               "@base": "did:key:z3tEGaNQGFnFpA4iGzizw2dr1wkgZoPyyv74fkPRghEjPDz5vs314EsZkJrfp1j6z93v5b"
             }
@@ -390,6 +397,7 @@
         "didDocument": {
           "@context": [
             "https://www.w3.org/ns/did/v1",
+            "https://ns.did.ai/transmute/v1",
             {
               "@base": "did:key:z3tEGaNQGFnFpA4iGzizw2dr1wkgZoPyyv74fkPRghEjPDz5vs314EsZkJrfp1j6z93v5b"
             }
@@ -456,6 +464,7 @@
         "didDocument": {
           "@context": [
             "https://www.w3.org/ns/did/v1",
+            "https://ns.did.ai/transmute/v1",
             {
               "@base": "did:key:z3tEFDU8pgGrzxQ58W4Je64UTPcMkEVdNpcgcEYLKWHuCap7CUQ5z32fj79tBHMmFmKe17"
             }
@@ -496,6 +505,7 @@
         "didDocument": {
           "@context": [
             "https://www.w3.org/ns/did/v1",
+            "https://ns.did.ai/transmute/v1",
             {
               "@base": "did:key:z3tEFDU8pgGrzxQ58W4Je64UTPcMkEVdNpcgcEYLKWHuCap7CUQ5z32fj79tBHMmFmKe17"
             }

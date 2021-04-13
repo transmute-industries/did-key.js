@@ -57,6 +57,7 @@
         "didDocument": {
           "@context": [
             "https://www.w3.org/ns/did/v1",
+            "https://ns.did.ai/transmute/v1",
             {
               "@base": "did:key:z5TcESXuYUE9aZWYwSdrUEGK1HNQFHyTt4aVpaCTVZcDXQmUheFwfNZmRksaAbBneNm5KyE52SdJeRCN1g6PJmF31GsHWwFiqUDujvasK3wTiDr3vvkYwEJHt7H5RGEKYEp1ErtQtcEBgsgY2DA9JZkHj1J9HZ8MRDTguAhoFtR4aTBQhgnkP4SwVbxDYMEZoF2TMYn3s"
             }
@@ -111,6 +112,7 @@
         "didDocument": {
           "@context": [
             "https://www.w3.org/ns/did/v1",
+            "https://ns.did.ai/transmute/v1",
             {
               "@base": "did:key:z5TcESXuYUE9aZWYwSdrUEGK1HNQFHyTt4aVpaCTVZcDXQmUheFwfNZmRksaAbBneNm5KyE52SdJeRCN1g6PJmF31GsHWwFiqUDujvasK3wTiDr3vvkYwEJHt7H5RGEKYEp1ErtQtcEBgsgY2DA9JZkHj1J9HZ8MRDTguAhoFtR4aTBQhgnkP4SwVbxDYMEZoF2TMYn3s"
             }
@@ -212,6 +214,7 @@
         "didDocument": {
           "@context": [
             "https://www.w3.org/ns/did/v1",
+            "https://ns.did.ai/transmute/v1",
             {
               "@base": "did:key:z5TcCKZnv3DHqxFGGsCJCtDrxZm9xetBxXeui6j28ToC1sb3Asm6wz73gjb6zvPnYyp5CBVidneM2vMQbq12kKTqMsmG3WdicgMoYyoQk58Qc1WfEyM4etr7NCEbdLMtNyJsZr8gNkLmcodWBStWTXgiivm7AEHgFbCRefE9vEYYKmUwVPUBCpfKgdQyZMsBjUGn6dRi4"
             }
@@ -266,6 +269,7 @@
         "didDocument": {
           "@context": [
             "https://www.w3.org/ns/did/v1",
+            "https://ns.did.ai/transmute/v1",
             {
               "@base": "did:key:z5TcCKZnv3DHqxFGGsCJCtDrxZm9xetBxXeui6j28ToC1sb3Asm6wz73gjb6zvPnYyp5CBVidneM2vMQbq12kKTqMsmG3WdicgMoYyoQk58Qc1WfEyM4etr7NCEbdLMtNyJsZr8gNkLmcodWBStWTXgiivm7AEHgFbCRefE9vEYYKmUwVPUBCpfKgdQyZMsBjUGn6dRi4"
             }
@@ -367,6 +371,7 @@
         "didDocument": {
           "@context": [
             "https://www.w3.org/ns/did/v1",
+            "https://ns.did.ai/transmute/v1",
             {
               "@base": "did:key:z5TcE6iYeTMcajP5d9SW6TJUf8wLxZpBE8SwQVAAuuySxrwqW6A65amZF3iBqAJf8pNvPR8SNrf7EaA6tdrY6nkwTtXTaQdTY6eGhkvMWRU7SjM2P4zwMRwxrc3SpTee3vaXMH2E1Qx6qGfgbQNRWiZifkyxemvT6dZ9RmSkdKJTKCz4Ej66pUfopQx97f51vHC1B2eWn"
             }
@@ -421,6 +426,7 @@
         "didDocument": {
           "@context": [
             "https://www.w3.org/ns/did/v1",
+            "https://ns.did.ai/transmute/v1",
             {
               "@base": "did:key:z5TcE6iYeTMcajP5d9SW6TJUf8wLxZpBE8SwQVAAuuySxrwqW6A65amZF3iBqAJf8pNvPR8SNrf7EaA6tdrY6nkwTtXTaQdTY6eGhkvMWRU7SjM2P4zwMRwxrc3SpTee3vaXMH2E1Qx6qGfgbQNRWiZifkyxemvT6dZ9RmSkdKJTKCz4Ej66pUfopQx97f51vHC1B2eWn"
             }
@@ -522,6 +528,7 @@
         "didDocument": {
           "@context": [
             "https://www.w3.org/ns/did/v1",
+            "https://ns.did.ai/transmute/v1",
             {
               "@base": "did:key:z5TcCrTSnzJQ6ekqP4XHryiZZkumpB3GP4bJD4pUbjFjDoZFPc5vKSKsB6LaR797qPe9LShEYd2pERtk8axX4MPsRnoome2XcwyGYW2xJVcExZEm1bk5SMpAiNq4A74jAyaxs1VmyoiiAaY46ZBm4DQHwAsaevJGScFSZ8yt1WZrregFwRgHNW9xpfU9XxPnXhREwQ3rk"
             }
@@ -576,6 +583,7 @@
         "didDocument": {
           "@context": [
             "https://www.w3.org/ns/did/v1",
+            "https://ns.did.ai/transmute/v1",
             {
               "@base": "did:key:z5TcCrTSnzJQ6ekqP4XHryiZZkumpB3GP4bJD4pUbjFjDoZFPc5vKSKsB6LaR797qPe9LShEYd2pERtk8axX4MPsRnoome2XcwyGYW2xJVcExZEm1bk5SMpAiNq4A74jAyaxs1VmyoiiAaY46ZBm4DQHwAsaevJGScFSZ8yt1WZrregFwRgHNW9xpfU9XxPnXhREwQ3rk"
             }
@@ -677,6 +685,7 @@
         "didDocument": {
           "@context": [
             "https://www.w3.org/ns/did/v1",
+            "https://ns.did.ai/transmute/v1",
             {
               "@base": "did:key:z5TcCTdPUeZ87o8eRcjtL8dERotem6FLHQkNCHoPUjkszUavbbA2nbWSBEAzWjhFGg4UMYqwLYHFXKyUB17Gg4k3aDFg4Tf46iwvX838jCgPAig9dNt1KqSgU1cX86LpZWpgV7G6Ez3E5EUXYZ3paaffkHvFZSf6pwnFCp2nKCyxTV6PeC19tYtvVGieyQM1mWbkak1Mi"
             }
@@ -731,6 +740,7 @@
         "didDocument": {
           "@context": [
             "https://www.w3.org/ns/did/v1",
+            "https://ns.did.ai/transmute/v1",
             {
               "@base": "did:key:z5TcCTdPUeZ87o8eRcjtL8dERotem6FLHQkNCHoPUjkszUavbbA2nbWSBEAzWjhFGg4UMYqwLYHFXKyUB17Gg4k3aDFg4Tf46iwvX838jCgPAig9dNt1KqSgU1cX86LpZWpgV7G6Ez3E5EUXYZ3paaffkHvFZSf6pwnFCp2nKCyxTV6PeC19tYtvVGieyQM1mWbkak1Mi"
             }
