@@ -34,6 +34,7 @@
         "didDocument": {
           "@context": [
             "https://www.w3.org/ns/did/v1",
+            "https://ns.did.ai/transmute/v1",
             {
               "@base": "did:key:zJss7xG657npJqTZwxK45hjdX55aT9SbSbwvSURgbYZEoepdsYVGLtnLrmgGYpGH525wbYKWAwto2BWovBuJcveCZUK2UjEb3pJi7ume5yhhWj3qZrqGdHjBDxrt1CHb5wNu16GpiqRNKNXFXt8TskvNkr7CrhizbKqeUH43je19bUjXGVRwJH2ja"
             }
@@ -78,6 +79,7 @@
         "didDocument": {
           "@context": [
             "https://www.w3.org/ns/did/v1",
+            "https://ns.did.ai/transmute/v1",
             {
               "@base": "did:key:zJss7xG657npJqTZwxK45hjdX55aT9SbSbwvSURgbYZEoepdsYVGLtnLrmgGYpGH525wbYKWAwto2BWovBuJcveCZUK2UjEb3pJi7ume5yhhWj3qZrqGdHjBDxrt1CHb5wNu16GpiqRNKNXFXt8TskvNkr7CrhizbKqeUH43je19bUjXGVRwJH2ja"
             }
@@ -149,6 +151,7 @@
         "didDocument": {
           "@context": [
             "https://www.w3.org/ns/did/v1",
+            "https://ns.did.ai/transmute/v1",
             {
               "@base": "did:key:zJss7wxyAnWsTAPcEUJTt2qfjxw6gvY9cZ9y5zzRs6nuDNtZGgFNX6HF2CTUG2GQdHuvjoLEzKw86LyfrCgVHzYU735jDp3D8HdwgENDsFeQYGpT8nrFWdRch5VuuawdUvj6sUBanEjtbo2nS3PkGtV4wii6gF3J5nBUKwVdvo7KoooM4Vx6sMEXX"
             }
@@ -193,6 +196,7 @@
         "didDocument": {
           "@context": [
             "https://www.w3.org/ns/did/v1",
+            "https://ns.did.ai/transmute/v1",
             {
               "@base": "did:key:zJss7wxyAnWsTAPcEUJTt2qfjxw6gvY9cZ9y5zzRs6nuDNtZGgFNX6HF2CTUG2GQdHuvjoLEzKw86LyfrCgVHzYU735jDp3D8HdwgENDsFeQYGpT8nrFWdRch5VuuawdUvj6sUBanEjtbo2nS3PkGtV4wii6gF3J5nBUKwVdvo7KoooM4Vx6sMEXX"
             }
@@ -264,6 +268,7 @@
         "didDocument": {
           "@context": [
             "https://www.w3.org/ns/did/v1",
+            "https://ns.did.ai/transmute/v1",
             {
               "@base": "did:key:zJss7wb6SLseudff89rDXUqoEDozSUBu6ay7wrDLYkinmdnSqq1wYPauQnqM9ThF4dBVHoCrnaCt8xQSGHdKjpjQbgkHvLMH9yFZYq1isnXHheHuDWzWKvpmVbVXDBayMMruJmBfStoE9bbVRt4TVNY4qXBdSsZ7RCTAEXtMNUbbL1iQucSZ7K3aU"
             }
@@ -308,6 +313,7 @@
         "didDocument": {
           "@context": [
             "https://www.w3.org/ns/did/v1",
+            "https://ns.did.ai/transmute/v1",
             {
               "@base": "did:key:zJss7wb6SLseudff89rDXUqoEDozSUBu6ay7wrDLYkinmdnSqq1wYPauQnqM9ThF4dBVHoCrnaCt8xQSGHdKjpjQbgkHvLMH9yFZYq1isnXHheHuDWzWKvpmVbVXDBayMMruJmBfStoE9bbVRt4TVNY4qXBdSsZ7RCTAEXtMNUbbL1iQucSZ7K3aU"
             }
@@ -379,6 +385,7 @@
         "didDocument": {
           "@context": [
             "https://www.w3.org/ns/did/v1",
+            "https://ns.did.ai/transmute/v1",
             {
               "@base": "did:key:zJss7whC16uriMxfzS8QMJcDAARXPmF6EqJ4snxW3C49h7fUNxSq7ZYvRAYeVbnZs4obsuHUXCLsitFLqnYurw9kdXusesVVkMDhfwofjioikC5EPmEkLZ3wFD1H8WBJ6iaF4FtHadei8rv6hbZn39mbqxDF6sSHPiWAv1DoLVpvKKajt4X7GuF7s"
             }
@@ -423,6 +430,7 @@
         "didDocument": {
           "@context": [
             "https://www.w3.org/ns/did/v1",
+            "https://ns.did.ai/transmute/v1",
             {
               "@base": "did:key:zJss7whC16uriMxfzS8QMJcDAARXPmF6EqJ4snxW3C49h7fUNxSq7ZYvRAYeVbnZs4obsuHUXCLsitFLqnYurw9kdXusesVVkMDhfwofjioikC5EPmEkLZ3wFD1H8WBJ6iaF4FtHadei8rv6hbZn39mbqxDF6sSHPiWAv1DoLVpvKKajt4X7GuF7s"
             }
@@ -494,6 +502,7 @@
         "didDocument": {
           "@context": [
             "https://www.w3.org/ns/did/v1",
+            "https://ns.did.ai/transmute/v1",
             {
               "@base": "did:key:zJss7xQxaumG3JviQ6XF4MefAeJrYmD2dGk6BaZSueRx2zFeWNg6aCc5biu1mY72rgj7aNbaGkvtYX1sxx2XFn6PFpar3QKpgNKkikEwp6MhP4GaffSadvVxiCzb7XrT6VpK5osS6YmgzksSd7ugNvf8TeUEN2EK2v7rjzVYhg9tEMBHGhq8ByCE2"
             }
@@ -538,6 +547,7 @@
         "didDocument": {
           "@context": [
             "https://www.w3.org/ns/did/v1",
+            "https://ns.did.ai/transmute/v1",
             {
               "@base": "did:key:zJss7xQxaumG3JviQ6XF4MefAeJrYmD2dGk6BaZSueRx2zFeWNg6aCc5biu1mY72rgj7aNbaGkvtYX1sxx2XFn6PFpar3QKpgNKkikEwp6MhP4GaffSadvVxiCzb7XrT6VpK5osS6YmgzksSd7ugNvf8TeUEN2EK2v7rjzVYhg9tEMBHGhq8ByCE2"
             }

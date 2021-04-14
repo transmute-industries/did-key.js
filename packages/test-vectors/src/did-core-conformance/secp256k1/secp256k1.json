@@ -34,6 +34,7 @@
         "didDocument": {
           "@context": [
             "https://www.w3.org/ns/did/v1",
+            "https://ns.did.ai/transmute/v1",
             {
               "@base": "did:key:zQ3shU9mxTYfMTLceuppoNM5siowHvw3xBk21r855kwgNHNAX"
             }
@@ -75,6 +76,7 @@
         "didDocument": {
           "@context": [
             "https://www.w3.org/ns/did/v1",
+            "https://ns.did.ai/transmute/v1",
             {
               "@base": "did:key:zQ3shU9mxTYfMTLceuppoNM5siowHvw3xBk21r855kwgNHNAX"
             }
@@ -143,6 +145,7 @@
         "didDocument": {
           "@context": [
             "https://www.w3.org/ns/did/v1",
+            "https://ns.did.ai/transmute/v1",
             {
               "@base": "did:key:zQ3shoB1GSdwvLCXGqksPpapZ6awvitNNxznBixJQQqNqvEJa"
             }
@@ -184,6 +187,7 @@
         "didDocument": {
           "@context": [
             "https://www.w3.org/ns/did/v1",
+            "https://ns.did.ai/transmute/v1",
             {
               "@base": "did:key:zQ3shoB1GSdwvLCXGqksPpapZ6awvitNNxznBixJQQqNqvEJa"
             }
@@ -252,6 +256,7 @@
         "didDocument": {
           "@context": [
             "https://www.w3.org/ns/did/v1",
+            "https://ns.did.ai/transmute/v1",
             {
               "@base": "did:key:zQ3shv2aBSoR42QcXHRK8ARMMGxeizSyGdrWb9XRDkD3fT9qu"
             }
@@ -293,6 +298,7 @@
         "didDocument": {
           "@context": [
             "https://www.w3.org/ns/did/v1",
+            "https://ns.did.ai/transmute/v1",
             {
               "@base": "did:key:zQ3shv2aBSoR42QcXHRK8ARMMGxeizSyGdrWb9XRDkD3fT9qu"
             }
@@ -361,6 +367,7 @@
         "didDocument": {
           "@context": [
             "https://www.w3.org/ns/did/v1",
+            "https://ns.did.ai/transmute/v1",
             {
               "@base": "did:key:zQ3sho1cPJPYQ4pJQaCyTUf2SJZs9sr6rDoArmmfhjV6kEbfj"
             }
@@ -402,6 +409,7 @@
         "didDocument": {
           "@context": [
             "https://www.w3.org/ns/did/v1",
+            "https://ns.did.ai/transmute/v1",
             {
               "@base": "did:key:zQ3sho1cPJPYQ4pJQaCyTUf2SJZs9sr6rDoArmmfhjV6kEbfj"
             }
@@ -470,6 +478,7 @@
         "didDocument": {
           "@context": [
             "https://www.w3.org/ns/did/v1",
+            "https://ns.did.ai/transmute/v1",
             {
               "@base": "did:key:zQ3shdDefcHPSP8pmEzb2f1fr3FbzdZXEoCvyAtaD8jSL1kYB"
             }
@@ -511,6 +520,7 @@
         "didDocument": {
           "@context": [
             "https://www.w3.org/ns/did/v1",
+            "https://ns.did.ai/transmute/v1",
             {
               "@base": "did:key:zQ3shdDefcHPSP8pmEzb2f1fr3FbzdZXEoCvyAtaD8jSL1kYB"
             }
