@@ -8,7 +8,7 @@
     "url": "https://github.com/transmute-industries/did-key.js.git",
     "directory": "packages/bls12381"
   },
-  "version": "0.2.1-unstable.35",
+  "version": "0.2.1-unstable.36",
   "license": "Apache-2.0",
   "main": "dist/index.js",
   "typings": "dist/index.d.ts",
@@ -30,7 +30,7 @@
     "prepare": "tsdx build"
   },
   "devDependencies": {
-    "@transmute/did-key-test-vectors": "^0.2.1-unstable.35",
+    "@transmute/did-key-test-vectors": "^0.2.1-unstable.36",
     "tsdx": "^0.13.2",
     "tslib": "^2.0.0",
     "typescript": "^3.9.5"
