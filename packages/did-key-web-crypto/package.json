@@ -2,7 +2,7 @@
   "name": "@transmute/did-key-web-crypto",
   "author": "Orie Steele",
   "module": "dist/did-key-web-crypto.esm.js",
-  "version": "0.2.1-unstable.38",
+  "version": "0.2.1-unstable.39",
   "homepage": "https://github.com/transmute-industries/did-key.js/tree/master/packages/did-key-web-crypto",
   "repository": {
     "type": "git",
