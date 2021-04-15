@@ -1,2 +1,4 @@
+import * as driver from './driver';
+
 export * from './KeyPair';
-export * as driver from './driver'
+export { driver };
