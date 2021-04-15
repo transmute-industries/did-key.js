@@ -8,7 +8,7 @@ const keyTypes = [
   'bls12381_g1',
   'bls12381_g2',
   'bls12381_g1andg2',
-  // Not supported:
+  // Not supported, see: https://github.com/transmute-industries/did-key.js/issues/73
   // 'p-256',
   // 'p-384',
   // 'p-521'
