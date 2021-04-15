@@ -13,6 +13,19 @@ const keyTypes = [
   'p-521'
 ];
 
+const fixContext = (fixture: any) => {
+  const fixtureWithExtendedContext = { ...fixture };
+  // Add extended did core context in @context
+  const contexts = fixtureWithExtendedContext.didDocument['@context'];
+  if (
+    Array.isArray(contexts) &&
+    !contexts.includes('https://ns.did.ai/transmute/v1')
+  ) {
+    contexts.splice(1, 0, 'https://ns.did.ai/transmute/v1');
+  }
+  return fixtureWithExtendedContext;
+};
+
 keyTypes.map((k) => {
   const keyTypeFixture = didCoreConformance[k].key;
   describe(k, () => {
@@ -34,12 +47,14 @@ keyTypes.map((k) => {
         it(did, async () => {
           let result = await resolver.resolve(did);
           expect(result).toEqual(
-            keyFixture.resolution['application/did+ld+json']
+            fixContext(keyFixture.resolution['application/did+ld+json'])
           );
           result = await resolver.resolve(did, {
             accept: 'application/did+json',
           });
-          expect(result).toEqual(keyFixture.resolution['application/did+json']);
+          expect(result).toEqual(
+            fixContext(keyFixture.resolution['application/did+json'])
+          );
         });
       }
     });
