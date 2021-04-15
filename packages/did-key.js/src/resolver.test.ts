@@ -1,7 +1,20 @@
 import { didCoreConformance } from '@transmute/did-key-test-vectors';
 import { resolver } from './resolver';
 
-Object.keys(didCoreConformance).map((k) => {
+const keyTypes = [
+  'ed25519',
+  'x25519',
+  'secp256k1',
+  'bls12381_g1',
+  'bls12381_g2',
+  'bls12381_g1andg2',
+  // Not supported, see: https://github.com/transmute-industries/did-key.js/issues/73
+  // 'p-256',
+  // 'p-384',
+  // 'p-521'
+];
+
+keyTypes.map((k) => {
   const keyTypeFixture = didCoreConformance[k].key;
   describe(k, () => {
     keyTypeFixture.forEach((keyFixture: any) => {

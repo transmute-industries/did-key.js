@@ -16,7 +16,7 @@
     "release": "lerna publish",
     "release:canary": "lerna publish --canary",
     "shove": "git add -A; git commit -m 'chore(ci): test ci'; git push origin master",
-    "build:demo": "lerna run node15:build --stream"
+    "build:demo": "lerna run build --stream"
   },
   "husky": {
     "hooks": {

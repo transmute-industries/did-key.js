@@ -26,14 +26,13 @@ export const resolver = {
     }
     const idchar: any = didUrl.split('did:key:').pop();
     const encodedType = idchar.substring(0, 3);
-    try {
+    if (prefixToDriverMap[encodedType]) {
       const result = await prefixToDriverMap[encodedType].resolve(
         didUrl,
         resolutionMetaData
       );
       return result;
-    } catch (e) {
-      console.error(e);
+    } else {
       throw new Error('Unknown DID Key type: ' + encodedType);
     }
   },
