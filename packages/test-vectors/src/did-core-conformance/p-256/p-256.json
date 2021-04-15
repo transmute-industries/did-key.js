@@ -27,10 +27,12 @@
         "didDocument": {
           "@context": [
             "https://www.w3.org/ns/did/v1",
-            "https://ns.did.ai/transmute/v1"
+            {
+              "@base": "did:key:zrusAFgBbf84b8mBz8Cmy8UoFWKV52EaeRnK86vnLo4Z5QoRypE6hXVPN2urevZMAMtcTaCDFLWBaE1Q3jmdb1FHgve"
+            }
           ],
           "id": "did:key:zrusAFgBbf84b8mBz8Cmy8UoFWKV52EaeRnK86vnLo4Z5QoRypE6hXVPN2urevZMAMtcTaCDFLWBaE1Q3jmdb1FHgve",
-          "verificationMethod": [
+          "publicKey": [
             {
               "id": "#zrusAFgBbf84b8mBz8Cmy8UoFWKV52EaeRnK86vnLo4Z5QoRypE6hXVPN2urevZMAMtcTaCDFLWBaE1Q3jmdb1FHgve",
               "type": "JsonWebKey2020",
@@ -49,10 +51,10 @@
           "assertionMethod": [
             "#zrusAFgBbf84b8mBz8Cmy8UoFWKV52EaeRnK86vnLo4Z5QoRypE6hXVPN2urevZMAMtcTaCDFLWBaE1Q3jmdb1FHgve"
           ],
-          "capabilityInvocation": [
+          "capabilityDelegation": [
             "#zrusAFgBbf84b8mBz8Cmy8UoFWKV52EaeRnK86vnLo4Z5QoRypE6hXVPN2urevZMAMtcTaCDFLWBaE1Q3jmdb1FHgve"
           ],
-          "capabilityDelegation": [
+          "capabilityInvocation": [
             "#zrusAFgBbf84b8mBz8Cmy8UoFWKV52EaeRnK86vnLo4Z5QoRypE6hXVPN2urevZMAMtcTaCDFLWBaE1Q3jmdb1FHgve"
           ],
           "keyAgreement": [
@@ -66,36 +68,7 @@
       },
       "application/did+ld+json": {
         "@context": "https://w3id.org/did-resolution/v1",
-        "didDocument": {
-          "@context": [
-            "https://www.w3.org/ns/did/v1",
-            "https://ns.did.ai/transmute/v1"
-          ],
-          "id": "did:key:zrusAFgBbf84b8mBz8Cmy8UoFWKV52EaeRnK86vnLo4Z5QoRypE6hXVPN2urevZMAMtcTaCDFLWBaE1Q3jmdb1FHgve",
-          "verificationMethod": [
-            {
-              "id": "#zrusAFgBbf84b8mBz8Cmy8UoFWKV52EaeRnK86vnLo4Z5QoRypE6hXVPN2urevZMAMtcTaCDFLWBaE1Q3jmdb1FHgve",
-              "type": "JsonWebKey2020",
-              "controller": "did:key:zrusAFgBbf84b8mBz8Cmy8UoFWKV52EaeRnK86vnLo4Z5QoRypE6hXVPN2urevZMAMtcTaCDFLWBaE1Q3jmdb1FHgve",
-              "publicKeyBase58": "3m5KFNv9LgHyajqGJNEEz5JbqAPS4KHwKQu28g7vLC8xXw4MTyJusqsZMkSN2sYQbK5tvbnruySsWjBXJuQkZMva"
-            }
-          ],
-          "authentication": [
-            "#zrusAFgBbf84b8mBz8Cmy8UoFWKV52EaeRnK86vnLo4Z5QoRypE6hXVPN2urevZMAMtcTaCDFLWBaE1Q3jmdb1FHgve"
-          ],
-          "assertionMethod": [
-            "#zrusAFgBbf84b8mBz8Cmy8UoFWKV52EaeRnK86vnLo4Z5QoRypE6hXVPN2urevZMAMtcTaCDFLWBaE1Q3jmdb1FHgve"
-          ],
-          "capabilityInvocation": [
-            "#zrusAFgBbf84b8mBz8Cmy8UoFWKV52EaeRnK86vnLo4Z5QoRypE6hXVPN2urevZMAMtcTaCDFLWBaE1Q3jmdb1FHgve"
-          ],
-          "capabilityDelegation": [
-            "#zrusAFgBbf84b8mBz8Cmy8UoFWKV52EaeRnK86vnLo4Z5QoRypE6hXVPN2urevZMAMtcTaCDFLWBaE1Q3jmdb1FHgve"
-          ],
-          "keyAgreement": [
-            "#zrusAFgBbf84b8mBz8Cmy8UoFWKV52EaeRnK86vnLo4Z5QoRypE6hXVPN2urevZMAMtcTaCDFLWBaE1Q3jmdb1FHgve"
-          ]
-        },
+        "didDocument": {},
         "didDocumentMetadata": { "content-type": "application/did+ld+json" },
         "didResolutionMetadata": {}
       }
@@ -129,10 +102,12 @@
         "didDocument": {
           "@context": [
             "https://www.w3.org/ns/did/v1",
-            "https://ns.did.ai/transmute/v1"
+            {
+              "@base": "did:key:zrurwcJZss4ruepVNu1H3xmSirvNbzgBk9qrCktB6kaewXnJAhYWwtP3bxACqBpzjZdN7TyHNzzGGSSH5qvZsSDir9z"
+            }
           ],
           "id": "did:key:zrurwcJZss4ruepVNu1H3xmSirvNbzgBk9qrCktB6kaewXnJAhYWwtP3bxACqBpzjZdN7TyHNzzGGSSH5qvZsSDir9z",
-          "verificationMethod": [
+          "publicKey": [
             {
               "id": "#zrurwcJZss4ruepVNu1H3xmSirvNbzgBk9qrCktB6kaewXnJAhYWwtP3bxACqBpzjZdN7TyHNzzGGSSH5qvZsSDir9z",
               "type": "JsonWebKey2020",
@@ -151,10 +126,10 @@
           "assertionMethod": [
             "#zrurwcJZss4ruepVNu1H3xmSirvNbzgBk9qrCktB6kaewXnJAhYWwtP3bxACqBpzjZdN7TyHNzzGGSSH5qvZsSDir9z"
           ],
-          "capabilityInvocation": [
+          "capabilityDelegation": [
             "#zrurwcJZss4ruepVNu1H3xmSirvNbzgBk9qrCktB6kaewXnJAhYWwtP3bxACqBpzjZdN7TyHNzzGGSSH5qvZsSDir9z"
           ],
-          "capabilityDelegation": [
+          "capabilityInvocation": [
             "#zrurwcJZss4ruepVNu1H3xmSirvNbzgBk9qrCktB6kaewXnJAhYWwtP3bxACqBpzjZdN7TyHNzzGGSSH5qvZsSDir9z"
           ],
           "keyAgreement": [
@@ -168,36 +143,7 @@
       },
       "application/did+ld+json": {
         "@context": "https://w3id.org/did-resolution/v1",
-        "didDocument": {
-          "@context": [
-            "https://www.w3.org/ns/did/v1",
-            "https://ns.did.ai/transmute/v1"
-          ],
-          "id": "did:key:zrurwcJZss4ruepVNu1H3xmSirvNbzgBk9qrCktB6kaewXnJAhYWwtP3bxACqBpzjZdN7TyHNzzGGSSH5qvZsSDir9z",
-          "verificationMethod": [
-            {
-              "id": "#zrurwcJZss4ruepVNu1H3xmSirvNbzgBk9qrCktB6kaewXnJAhYWwtP3bxACqBpzjZdN7TyHNzzGGSSH5qvZsSDir9z",
-              "type": "JsonWebKey2020",
-              "controller": "did:key:zrurwcJZss4ruepVNu1H3xmSirvNbzgBk9qrCktB6kaewXnJAhYWwtP3bxACqBpzjZdN7TyHNzzGGSSH5qvZsSDir9z",
-              "publicKeyBase58": "3YRwdf868zp2t8c4oT4XdYfCihMsfR1zrVYyXS5SS4FwQ7wftDfoY5nohvhdgSk9LxyfzjTLzffJPmHgFBqizX9v"
-            }
-          ],
-          "authentication": [
-            "#zrurwcJZss4ruepVNu1H3xmSirvNbzgBk9qrCktB6kaewXnJAhYWwtP3bxACqBpzjZdN7TyHNzzGGSSH5qvZsSDir9z"
-          ],
-          "assertionMethod": [
-            "#zrurwcJZss4ruepVNu1H3xmSirvNbzgBk9qrCktB6kaewXnJAhYWwtP3bxACqBpzjZdN7TyHNzzGGSSH5qvZsSDir9z"
-          ],
-          "capabilityInvocation": [
-            "#zrurwcJZss4ruepVNu1H3xmSirvNbzgBk9qrCktB6kaewXnJAhYWwtP3bxACqBpzjZdN7TyHNzzGGSSH5qvZsSDir9z"
-          ],
-          "capabilityDelegation": [
-            "#zrurwcJZss4ruepVNu1H3xmSirvNbzgBk9qrCktB6kaewXnJAhYWwtP3bxACqBpzjZdN7TyHNzzGGSSH5qvZsSDir9z"
-          ],
-          "keyAgreement": [
-            "#zrurwcJZss4ruepVNu1H3xmSirvNbzgBk9qrCktB6kaewXnJAhYWwtP3bxACqBpzjZdN7TyHNzzGGSSH5qvZsSDir9z"
-          ]
-        },
+        "didDocument": {},
         "didDocumentMetadata": {
           "content-type": "application/did+ld+json"
         },
