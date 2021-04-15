@@ -56,6 +56,6 @@
     "typescript": "^4.2.3"
   },
   "dependencies": {
-    "@transmute/web-crypto-key-pair": "^0.0.4-unstable.13"
+    "@transmute/web-crypto-key-pair": "^0.6.1-unstable.18"
   }
 }
