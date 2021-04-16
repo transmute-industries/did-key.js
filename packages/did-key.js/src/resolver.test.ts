@@ -26,6 +26,20 @@ const fixContext = (fixture: any) => {
   return fixtureWithExtendedContext;
 };
 
+const fixKeysArrayName = (fixture: any) => {
+  // Rename publicKey to verificationMethod
+  const fixtureWithVerificationMethodsArray = { ...fixture };
+  if (fixtureWithVerificationMethodsArray.didDocument.publicKey) {
+    fixtureWithVerificationMethodsArray.didDocument = {
+      ...fixtureWithVerificationMethodsArray.didDocument,
+      verificationMethod:
+        fixtureWithVerificationMethodsArray.didDocument.publicKey,
+    };
+    delete fixtureWithVerificationMethodsArray.didDocument.publicKey;
+  }
+  return fixtureWithVerificationMethodsArray;
+};
+
 keyTypes.map((k) => {
   const keyTypeFixture = didCoreConformance[k].key;
   describe(k, () => {
@@ -47,13 +61,17 @@ keyTypes.map((k) => {
         it(did, async () => {
           let result = await resolver.resolve(did);
           expect(result).toEqual(
-            fixContext(keyFixture.resolution['application/did+ld+json'])
+            fixKeysArrayName(
+              fixContext(keyFixture.resolution['application/did+ld+json'])
+            )
           );
           result = await resolver.resolve(did, {
             accept: 'application/did+json',
           });
           expect(result).toEqual(
-            fixContext(keyFixture.resolution['application/did+json'])
+            fixKeysArrayName(
+              fixContext(keyFixture.resolution['application/did+json'])
+            )
           );
         });
       }
