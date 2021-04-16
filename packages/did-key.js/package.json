@@ -2,7 +2,7 @@
   "name": "@transmute/did-key.js",
   "author": "Orie Steele",
   "module": "dist/did-key.js.esm.js",
-  "version": "0.2.1-unstable.40",
+  "version": "0.2.1-unstable.41",
   "license": "Apache-2.0",
   "publishConfig": {
     "access": "public"
@@ -24,17 +24,17 @@
     "prepare": "tsdx build"
   },
   "devDependencies": {
-    "@transmute/did-key-test-vectors": "^0.2.1-unstable.40",
+    "@transmute/did-key-test-vectors": "^0.2.1-unstable.41",
     "tsdx": "^0.13.2",
     "tslib": "^2.0.0",
     "typescript": "^3.9.5"
   },
   "dependencies": {
-    "@transmute/did-key-bls12381": "^0.2.1-unstable.40",
-    "@transmute/did-key-ed25519": "^0.2.1-unstable.40",
-    "@transmute/did-key-secp256k1": "^0.2.1-unstable.40",
-    "@transmute/did-key-web-crypto": "^0.2.1-unstable.40",
-    "@transmute/did-key-x25519": "^0.2.1-unstable.40"
+    "@transmute/did-key-bls12381": "^0.2.1-unstable.41",
+    "@transmute/did-key-ed25519": "^0.2.1-unstable.41",
+    "@transmute/did-key-secp256k1": "^0.2.1-unstable.41",
+    "@transmute/did-key-web-crypto": "^0.2.1-unstable.41",
+    "@transmute/did-key-x25519": "^0.2.1-unstable.41"
   },
   "homepage": "https://github.com/transmute-industries/did-key.js/tree/master/packages/did-key.js",
   "repository": {
