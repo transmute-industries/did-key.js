@@ -35,7 +35,7 @@ const keyToDidDoc = async (
     contentType
   );
   let verificationRelationships: any = {
-    publicKey: [externalKeyRepresentation],
+    verificationMethod: [externalKeyRepresentation],
   };
 
   if (didKeyPairInstance.verifier) {
