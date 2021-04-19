@@ -3,6 +3,14 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## 0.2.1-unstable.42 (2021-04-19)
+
+**Note:** Version bump only for package create-react-app-sanity
+
+
+
+
+
 ## 0.2.1-unstable.41 (2021-04-16)
 
 **Note:** Version bump only for package create-react-app-sanity
