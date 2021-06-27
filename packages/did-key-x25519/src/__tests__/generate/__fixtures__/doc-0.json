@@ -1,0 +1,42 @@
+{
+  "didDocument": {
+    "@context": [
+      "https://www.w3.org/ns/did/v1",
+      "https://w3id.org/security/suites/jws-2020/v1"
+    ],
+    "id": "did:key:z6LSmj99jDmtGRf67cjCwaavf1oEdEwMcWZ8mh9Q7yTjWrP3",
+    "verificationMethod": [
+      {
+        "id": "did:key:z6LSmj99jDmtGRf67cjCwaavf1oEdEwMcWZ8mh9Q7yTjWrP3#z6LSmj99jDmtGRf67cjCwaavf1oEdEwMcWZ8mh9Q7yTjWrP3",
+        "type": "JsonWebKey2020",
+        "controller": "did:key:z6LSmj99jDmtGRf67cjCwaavf1oEdEwMcWZ8mh9Q7yTjWrP3",
+        "publicKeyJwk": {
+          "kty": "OKP",
+          "crv": "X25519",
+          "x": "lVdVtPzTGXvkWLaSuxk-WFvOSxnVThxrEoRPJLrkCko"
+        }
+      }
+    ],
+    "keyAgreement": [
+      "did:key:z6LSmj99jDmtGRf67cjCwaavf1oEdEwMcWZ8mh9Q7yTjWrP3#z6LSmj99jDmtGRf67cjCwaavf1oEdEwMcWZ8mh9Q7yTjWrP3"
+    ]
+  },
+  "keys": [
+    {
+      "id": "did:key:z6LSmj99jDmtGRf67cjCwaavf1oEdEwMcWZ8mh9Q7yTjWrP3#z6LSmj99jDmtGRf67cjCwaavf1oEdEwMcWZ8mh9Q7yTjWrP3",
+      "type": "JsonWebKey2020",
+      "controller": "did:key:z6LSmj99jDmtGRf67cjCwaavf1oEdEwMcWZ8mh9Q7yTjWrP3",
+      "publicKeyJwk": {
+        "kty": "OKP",
+        "crv": "X25519",
+        "x": "lVdVtPzTGXvkWLaSuxk-WFvOSxnVThxrEoRPJLrkCko"
+      },
+      "privateKeyJwk": {
+        "kty": "OKP",
+        "crv": "X25519",
+        "x": "lVdVtPzTGXvkWLaSuxk-WFvOSxnVThxrEoRPJLrkCko",
+        "d": "WisfN-zJ-38n4ao9qk1m2cPlSkwNzVOkpcrN-vUFeMs"
+      }
+    }
+  ]
+}
