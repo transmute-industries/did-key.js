@@ -1,5 +1,5 @@
 import { LdKeyPairStatic, LdKeyPairInstance } from '@transmute/ld-key-pair';
-import { getResolver } from '.';
+import { getResolver } from './getResolver';
 import { getSerialized } from './getSerialized';
 
 const getKeys = async (key: LdKeyPairInstance) => {

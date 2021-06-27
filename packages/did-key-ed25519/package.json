@@ -47,8 +47,9 @@
     "@size-limit/preset-small-lib": "^4.12.0",
     "@transmute/credentials-context": "^0.6.1-unstable.36",
     "@transmute/did-context": "^0.6.1-unstable.36",
-    "@transmute/ed25519-signature-2018": "^0.6.1-unstable.36",
+    "@transmute/ed25519-signature-2018": "^0.7.0-unstable.0",
     "@transmute/jose-ld": "^0.6.1-unstable.36",
+    "@transmute/json-web-signature": "^0.7.0-unstable.0",
     "@transmute/security-context": "^0.6.1-unstable.36",
     "@transmute/vc.js": "^0.2.1-unstable.12",
     "axios": "^0.21.1",
@@ -61,6 +62,6 @@
   },
   "dependencies": {
     "@transmute/did-key-common": "^0.2.1-unstable.42",
-    "@transmute/ed25519-key-pair": "^0.6.1-unstable.36"
+    "@transmute/ed25519-key-pair": "^0.6.1-unstable.37"
   }
 }
