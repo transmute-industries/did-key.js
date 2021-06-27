@@ -26,9 +26,9 @@ const fingerprintToKeys = async (
 
 const inferRelationships = (verificationMethod: LdVerificationMethod[]) => {
   const relationships: any = {};
-  verificationMethod.forEach(vm => {
+  verificationMethod.forEach((vm) => {
     const types = getRelationships(vm);
-    types.forEach(t => {
+    types.forEach((t) => {
       relationships[t] = relationships[t]
         ? [...relationships[t], vm.id]
         : [vm.id];

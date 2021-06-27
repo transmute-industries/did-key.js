@@ -19,7 +19,7 @@ export const getSerialized = async (
   privateKey = false
 ) => {
   const verificationMethod = await Promise.all(
-    keys.map(async key => {
+    keys.map(async (key) => {
       const jsonWebKey = await key.export({
         type: 'JsonWebKey2020',
         privateKey,

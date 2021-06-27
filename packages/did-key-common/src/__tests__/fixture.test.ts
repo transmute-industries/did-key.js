@@ -5,11 +5,11 @@ import { getResolver, getGenerator } from '../';
 
 fixture.forEach((f: any) => {
   describe(f.name, () => {
-    Object.keys(f.data).forEach(did => {
+    Object.keys(f.data).forEach((did) => {
       const contentTypes = Object.keys(
         f.data[did]
       ) as DidDocumentRepresentation[];
-      contentTypes.forEach(ct => {
+      contentTypes.forEach((ct) => {
         describe(ct, () => {
           it(`can resolve ${did}`, async () => {
             const resolve = getResolver(f.KeyPair);
@@ -30,9 +30,9 @@ fixture.forEach((f: any) => {
               expect(keys.length).toBe(didDocument.verificationMethod.length);
 
               await Promise.all(
-                keys.map(async k => {
+                keys.map(async (k) => {
                   const vmForK: any = didDocument.verificationMethod.find(
-                    vm => {
+                    (vm) => {
                       return vm.id === k.id;
                     }
                   );
