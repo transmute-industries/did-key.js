@@ -21,6 +21,40 @@ const { didDocument, keys } = await ed25519.generate(
 );
 ```
 
+### Export
+
+```ts
+import { Ed25519KeyPair } from '@transmute/did-key-ed25519';
+const k = await Ed25519KeyPair.generate({
+  secureRandom: () => {
+    return Buffer.from(
+      '4f66b355aa7b0980ff901f2295b9c562ac3061be4df86703eb28c612faae6578',
+      'hex'
+    );
+  },
+});
+const exportedKeyPair = await k.export({
+  type: 'JsonWebKey2020',
+  privateKey: true,
+});
+// {
+//   "id": "did:key:z6Mkk7yqnGF3YwTrLpqrW6PGsKci7dNqh1CjnvMbzrMerSeL#z6Mkk7yqnGF3YwTrLpqrW6PGsKci7dNqh1CjnvMbzrMerSeL",
+//   "type": "JsonWebKey2020",
+//   "controller": "did:key:z6Mkk7yqnGF3YwTrLpqrW6PGsKci7dNqh1CjnvMbzrMerSeL",
+//   "publicKeyJwk": {
+//     "kty": "OKP",
+//     "crv": "Ed25519",
+//     "x": "VDXDwuGKVq91zxU6q7__jLDUq8_C5cuxECgd-1feFTE"
+//   },
+//   "privateKeyJwk": {
+//     "kty": "OKP",
+//     "crv": "Ed25519",
+//     "x": "VDXDwuGKVq91zxU6q7__jLDUq8_C5cuxECgd-1feFTE",
+//     "d": "T2azVap7CYD_kB8ilbnFYqwwYb5N-GcD6yjGEvquZXg"
+//   }
+// }
+```
+
 ### Resolve
 
 ```ts
