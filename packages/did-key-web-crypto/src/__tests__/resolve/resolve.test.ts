@@ -12,4 +12,3 @@ documents.forEach((document: any) => {
     });
   });
 });
-    

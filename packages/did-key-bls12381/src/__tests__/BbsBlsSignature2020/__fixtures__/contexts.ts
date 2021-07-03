@@ -1,6 +1,6 @@
-import did from "@transmute/did-context";
-import sec from "@transmute/security-context";
-import cre from "@transmute/credentials-context";
+import did from '@transmute/did-context';
+import sec from '@transmute/security-context';
+import cre from '@transmute/credentials-context';
 
 export const contexts: any = {
   [cre.constants.CREDENTIALS_CONTEXT_V1_URL]: cre.contexts.get(
@@ -18,7 +18,7 @@ export const contexts: any = {
   [sec.constants.BLS12381_2020_V1_URL]: sec.contexts.get(
     sec.constants.BLS12381_2020_V1_URL
   ),
-  "https://w3id.org/security/bbs/v1": sec.contexts.get(
+  'https://w3id.org/security/bbs/v1': sec.contexts.get(
     sec.constants.BLS12381_2020_V1_URL
-  )
+  ),
 };
