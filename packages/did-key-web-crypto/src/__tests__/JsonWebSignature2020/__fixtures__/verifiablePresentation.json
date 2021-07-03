@@ -1,0 +1,36 @@
+{
+  "@context": [
+    "https://www.w3.org/2018/credentials/v1",
+    "https://w3id.org/security/suites/jws-2020/v1"
+  ],
+  "type": ["VerifiablePresentation"],
+  "holder": "did:key:z82Lko9khHxoBWbrLghrAvXECFzU1raPvff9ahT4osfYpNCCkY973EoR85FMyxvQCPbLfeK",
+  "verifiableCredential": [
+    {
+      "@context": [
+        "https://www.w3.org/2018/credentials/v1",
+        "https://w3id.org/security/suites/jws-2020/v1"
+      ],
+      "id": "http://example.gov/credentials/3732",
+      "type": ["VerifiableCredential"],
+      "issuer": "did:key:z82Lko9khHxoBWbrLghrAvXECFzU1raPvff9ahT4osfYpNCCkY973EoR85FMyxvQCPbLfeK",
+      "issuanceDate": "2020-03-10T04:24:12Z",
+      "credentialSubject": { "id": "did:example:ebfeb1f712ebc6f1c276e12ec21" },
+      "proof": {
+        "type": "JsonWebSignature2020",
+        "created": "2020-03-10T04:24:12Z",
+        "jws": "eyJhbGciOiJFUzM4NCIsImI2NCI6ZmFsc2UsImNyaXQiOlsiYjY0Il19..LYIIAQ9xcqElCxHVggmye3dMLbig0q-6L0bTqAsgrd0mh1wbFg3qTtDyxuL831vcXl0Th47NYeRfWk9oRbu4oZWr0N9iI0ViqnIbCkGEkjdXOOMAS7k6XyfuDThN4ZAs",
+        "proofPurpose": "assertionMethod",
+        "verificationMethod": "did:key:z82Lko9khHxoBWbrLghrAvXECFzU1raPvff9ahT4osfYpNCCkY973EoR85FMyxvQCPbLfeK#z82Lko9khHxoBWbrLghrAvXECFzU1raPvff9ahT4osfYpNCCkY973EoR85FMyxvQCPbLfeK"
+      }
+    }
+  ],
+  "proof": {
+    "type": "JsonWebSignature2020",
+    "created": "2020-03-10T04:24:12Z",
+    "challenge": "123",
+    "jws": "eyJhbGciOiJFUzM4NCIsImI2NCI6ZmFsc2UsImNyaXQiOlsiYjY0Il19..LGGLviXtxQdESuIVoPCWDaGmnAQ2Y3CLgJx3PcOQp2FMKfX9hKr7m7erce4glc2_cs_g8QyWPir8T_j3u2v7eraX7b626k4HxKljASqPakHm2oapLK77WEMSn7cjoXWp",
+    "proofPurpose": "authentication",
+    "verificationMethod": "did:key:z82Lko9khHxoBWbrLghrAvXECFzU1raPvff9ahT4osfYpNCCkY973EoR85FMyxvQCPbLfeK#z82Lko9khHxoBWbrLghrAvXECFzU1raPvff9ahT4osfYpNCCkY973EoR85FMyxvQCPbLfeK"
+  }
+}

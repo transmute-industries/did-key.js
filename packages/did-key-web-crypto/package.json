@@ -1,0 +1,63 @@
+{
+  "name": "@transmute/did-key-web-crypto",
+  "author": "Orie Steele",
+  "module": "dist/did-key-web-crypto.esm.js",
+  "version": "0.1.0",
+  "license": "Apache-2.0",
+  "main": "dist/index.js",
+  "typings": "dist/index.d.ts",
+  "publishConfig": {
+    "access": "public"
+  },
+  "homepage": "https://github.com/transmute-industries/did-key.js/tree/master/packages/did-key-web-crypto",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/transmute-industries/did-key.js.git",
+    "directory": "packages/did-key-web-crypto"
+  },
+  "files": [
+    "dist",
+    "src"
+  ],
+  "engines": {
+    "node": ">=14"
+  },
+  "size-limit": [
+    {
+      "path": "dist/did-key-web-crypto.cjs.production.min.js",
+      "limit": "10 KB"
+    },
+    {
+      "path": "dist/did-key-web-crypto.esm.js",
+      "limit": "10 KB"
+    }
+  ],
+  "scripts": {
+    "start": "tsdx watch",
+    "build": "tsdx build",
+    "test": "tsdx test",
+    "lint": "tsdx lint src --fix",
+    "prepare": "tsdx build",
+    "size": "size-limit",
+    "analyze": "size-limit --why"
+  },
+  "devDependencies": {
+    "@size-limit/preset-small-lib": "^4.12.0",
+    "@transmute/did-context": "^0.6.1-unstable.36",
+    "@transmute/credentials-context": "^0.6.1-unstable.36",
+    "@transmute/security-context": "^0.6.1-unstable.36",
+    "@transmute/vc.js": "^0.2.1-unstable.12",
+    "@transmute/jose-ld": "^0.6.1-unstable.36",
+    "@transmute/json-web-signature": "^0.7.0-unstable.0",
+    "axios": "^0.21.1",
+    "size-limit": "^4.12.0",
+    "ts-jest": "^27.0.3",
+    "tsdx": "^0.14.1",
+    "tslib": "^2.3.0",
+    "typescript": "^4.3.4"
+  },
+  "dependencies": {
+    "@transmute/did-key-common": "^0.2.1-unstable.42",
+    "@transmute/web-crypto-key-pair": "^0.7.0-unstable.1"
+  }
+}
