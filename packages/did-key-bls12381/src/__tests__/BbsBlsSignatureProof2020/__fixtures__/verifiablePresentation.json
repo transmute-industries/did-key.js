@@ -1,0 +1,38 @@
+{
+  "@context": [
+    "https://www.w3.org/2018/credentials/v1",
+    "https://w3id.org/security/suites/bls12381-2020/v1"
+  ],
+  "type": ["VerifiablePresentation"],
+  "holder": "did:key:z5TcEUwEFkVuVhRpBinQrCgAtSmtQxyajQvpjma5TnWedYqJNXKYvS3UA4rrAkqfMm9VnhiZAf9gpqj7DJDsUJTAJkisUNbenUy64kitTduKihxQb4ScGb1XfRHzMMJWBQa7o7ar46ACzdfW4oqzpnj8gqLH2fjQF82LQACATNc3pXem8chkM7vEQKHKcK2HHK8tbVdfP",
+  "verifiableCredential": [
+    {
+      "@context": [
+        "https://www.w3.org/2018/credentials/v1",
+        "https://w3id.org/security/suites/bls12381-2020/v1"
+      ],
+      "id": "http://example.gov/credentials/3732",
+      "type": "VerifiableCredential",
+      "credentialSubject": "did:example:ebfeb1f712ebc6f1c276e12ec21",
+      "issuanceDate": "2021-06-19T18:53:11Z",
+      "issuer": "did:key:z5TcEUwEFkVuVhRpBinQrCgAtSmtQxyajQvpjma5TnWedYqJNXKYvS3UA4rrAkqfMm9VnhiZAf9gpqj7DJDsUJTAJkisUNbenUy64kitTduKihxQb4ScGb1XfRHzMMJWBQa7o7ar46ACzdfW4oqzpnj8gqLH2fjQF82LQACATNc3pXem8chkM7vEQKHKcK2HHK8tbVdfP",
+      "proof": {
+        "type": "BbsBlsSignatureProof2020",
+        "created": "2021-07-03T14:20:07Z",
+        "nonce": "KXZwD4sxounzrwHYAeA6TC3UGf9Dc6tYFt3R5ECejcLSQBA5YR/Di00G97wWNtLQIGI=",
+        "proofPurpose": "assertionMethod",
+        "proofValue": "AAgA/6tD5oIp/Y/bfe+aNq4XSkUW9+qwBiyUD/I2rV6KzkalOcvd3OBIYz2vDusQIm0ArYF6MRS4LCctyYfYgvEUZJf6HH/cTueCo1au9yx0gIwtE7dp8UemcpD19pkFh5Ve2JEYeWBovBz5busi6F7AxT83JxY7/YyOqjBsvTH7Jfn8SuOzvhh842Sa6svKF2SdkAAAAHSrqunXrKPeVsEDiYLpT8B3l7aJ0ao2AIUrpq3Ul339oIXVOsMRS3TOkYXbKZEGdMgAAAACN2y0pDB7XuCXcs7vDlW+Sm7AdJ07X6jykGjFgZHoON0O07ZCa65jPFVh4QPsgbqREPxPLAy6wERpuCYJ1aYL/q8OkMg/AeYKoD+/m32KGhG2tnN9fG4iJPZX6pwZ2Qbkw84tH450wDE8S71bUcfCVwAAAAIaHoZ3siP8o4aGaE031utRrlK8vojpzdAJePjgkwrlMmIwK79y6BRinvHXGwUE89+MFJ7WrBask+wqZuUkEt4d",
+        "verificationMethod": "did:key:z5TcEUwEFkVuVhRpBinQrCgAtSmtQxyajQvpjma5TnWedYqJNXKYvS3UA4rrAkqfMm9VnhiZAf9gpqj7DJDsUJTAJkisUNbenUy64kitTduKihxQb4ScGb1XfRHzMMJWBQa7o7ar46ACzdfW4oqzpnj8gqLH2fjQF82LQACATNc3pXem8chkM7vEQKHKcK2HHK8tbVdfP#zUC7DS4KhgobfZMRQNxGWnzutbeDhPitk9ykTAG7PxA1E3oD6UTGZRsdpVW729ViC1ddSNnqJJDm1QAQThYQ94F75cb8NstpHqAQLE175ZymdsWGfNT7H4pdhPhbziV6Vh98izV"
+      }
+    }
+  ],
+  "proof": {
+    "type": "BbsBlsSignature2020",
+    "created": "2021-07-03T14:55:04Z",
+    "challenge": "nonce-123",
+    "domain": "example.com",
+    "proofPurpose": "authentication",
+    "proofValue": "opXPvkfzC+SwOxxVK1y6P0u/G6XX0glQMooKc9/sLFTupLpAxbOR5LcQaAgZMarBTMTsT0JKV0bRTpeqdK5+dVKhJ0lSn9EfOJqiQFGrd8EH6oPXikXgEplgd6OJc371w+wPZhIsebV7DVN+qn3BFQ==",
+    "verificationMethod": "did:key:z5TcEUwEFkVuVhRpBinQrCgAtSmtQxyajQvpjma5TnWedYqJNXKYvS3UA4rrAkqfMm9VnhiZAf9gpqj7DJDsUJTAJkisUNbenUy64kitTduKihxQb4ScGb1XfRHzMMJWBQa7o7ar46ACzdfW4oqzpnj8gqLH2fjQF82LQACATNc3pXem8chkM7vEQKHKcK2HHK8tbVdfP#zUC7DS4KhgobfZMRQNxGWnzutbeDhPitk9ykTAG7PxA1E3oD6UTGZRsdpVW729ViC1ddSNnqJJDm1QAQThYQ94F75cb8NstpHqAQLE175ZymdsWGfNT7H4pdhPhbziV6Vh98izV"
+  }
+}
