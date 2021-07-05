@@ -28,6 +28,6 @@
     "@commitlint/config-conventional": "^9.1.1",
     "@transmute/credentials-context": "^0.6.1-unstable.36",
     "husky": "^4.2.5",
-    "lerna": "^3.22.0"  
+    "lerna": "^3.22.0"
   }
 }
