@@ -15,8 +15,7 @@
     "publish:unstable": "lerna publish prerelease --preid unstable --yes",
     "release": "lerna publish",
     "release:canary": "lerna publish --canary",
-    "shove": "git add -A; git commit -m 'chore(ci): test ci'; git push origin master",
-    "build:demo": "lerna run build --stream"
+    "build:website": "lerna run build:website --stream"
   },
   "husky": {
     "hooks": {
@@ -27,6 +26,7 @@
   "devDependencies": {
     "@commitlint/cli": "^9.1.1",
     "@commitlint/config-conventional": "^9.1.1",
+    "@transmute/credentials-context": "^0.6.1-unstable.36",
     "husky": "^4.2.5",
     "lerna": "^3.22.0"
   }

@@ -1,0 +1,22 @@
+{
+  "name": "@transmute/did-key-test-vectors",
+  "homepage": "https://github.com/transmute-industries/did-key.js/tree/master/packages/test-vectors",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/transmute-industries/did-key.js.git",
+    "directory": "packages/test-vectors"
+  },
+  "publishConfig": {
+    "access": "public"
+  },
+  "contributors": [
+    "Orie Steele (https://github.com/OR13)"
+  ],
+  "version": "0.3.0-unstable.0",
+  "license": "Apache-2.0",
+  "main": "src/index.js",
+  "types": "typings.d.ts",
+  "engines": {
+    "node": ">=10"
+  }
+}

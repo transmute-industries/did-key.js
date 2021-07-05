@@ -1,117 +1,38 @@
-const cbor = require('borc');
+import { ResolutionOptions, ResolutionResponse } from './types';
+import { getDidDocument } from './getDidDocument';
+import { factory, DidDocument } from '@did-core/data-model';
+import { representation } from '@did-core/did-ld-json';
+import { getContext } from './getContext';
+import { documentLoader } from './documentLoader';
+import { LdKeyPairStatic } from '@transmute/ld-key-pair';
+export const getResolver = (KeyPairClass: LdKeyPairStatic) => {
+  return async (
+    did: string,
+    options: ResolutionOptions = { accept: 'application/did+ld+json' }
+  ): Promise<ResolutionResponse> => {
+    const didDocumentEntries = await getDidDocument(
+      did,
+      KeyPairClass,
+      options.accept
+    );
 
-export const getVerificationMethod = (
-  instance: any,
-  contentType: string = 'application/did+ld+json'
-) => {
-  switch (contentType) {
-    case 'application/did+json': {
-      return instance.toJsonWebKeyPair();
-    }
-    case 'application/did+cbor': {
-      return instance.toJsonWebKeyPair();
-    }
-    case 'application/did+ld+json': {
-      return instance.toKeyPair();
-    }
-  }
-  throw new Error(
-    'This implementation of did:key does not support: ' + contentType
-  );
-};
+    const context = getContext(didDocumentEntries);
+    // console.log(JSON.stringify(context, null));
 
-const supportedContentTypes = [
-  'application/did+json',
-  'application/did+ld+json',
-  'application/did+cbor',
-];
-
-export const keyToDidDoc = async (
-  didKeyPairInstance: any,
-  contentType: string = 'application/did+ld+json'
-) => {
-  if (supportedContentTypes.indexOf(contentType) === -1) {
-    throw new Error('Unsupported DID Document representation. ' + contentType);
-  }
-  const did = `did:key:${didKeyPairInstance.fingerprint()}`;
-  const externalKeyRepresentation = getVerificationMethod(
-    didKeyPairInstance,
-    contentType
-  );
-  let verificationRelationships: any = {
-    verificationMethod: [externalKeyRepresentation],
-  };
-
-  if (didKeyPairInstance.verifier) {
-    verificationRelationships = {
-      ...verificationRelationships,
-      authentication: [externalKeyRepresentation.id],
-      assertionMethod: [externalKeyRepresentation.id],
-      capabilityInvocation: [externalKeyRepresentation.id],
-      capabilityDelegation: [externalKeyRepresentation.id],
-    };
-  }
-
-  if (didKeyPairInstance.deriveSecret) {
-    verificationRelationships = {
-      ...verificationRelationships,
-      keyAgreement: [externalKeyRepresentation.id],
-    };
-  }
-
-  if (didKeyPairInstance.type === 'Ed25519VerificationKey2018') {
-    const kek = await didKeyPairInstance.toX25519KeyPair(false);
-    const externalKeyRepresentation2 = getVerificationMethod(kek, contentType);
-    verificationRelationships = {
-      ...verificationRelationships,
-      verificationMethod: [
-        ...verificationRelationships.verificationMethod,
-        externalKeyRepresentation2,
-      ],
-      keyAgreement: [externalKeyRepresentation2.id],
-    };
-  }
-  const didDocument = {
-    '@context': [
-      'https://www.w3.org/ns/did/v1',
-      'https://ns.did.ai/transmute/v1',
-      {
-        '@base': did,
+    const didDocument: DidDocument = factory.build({
+      entries: {
+        '@context': context,
+        ...didDocumentEntries,
       },
-    ],
-    id: did,
-    ...verificationRelationships,
-  };
+    });
 
-  return didDocument;
-};
+    const serialized: Buffer = await didDocument
+      .addRepresentation({ 'application/did+json': representation })
+      .addRepresentation({ 'application/did+ld+json': representation })
+      .produce(options.accept, documentLoader);
 
-// resolve ( did, did-resolution-input-metadata )
-//      -> ( did-resolution-metadata, did-document, did-document-metadata )
-export const getResolve = (DidKeyPairClass: any) => {
-  const resolve = async (
-    didUri: string,
-    resolutionMetaData: any = { accept: 'application/did+ld+json' }
-  ) => {
-    const fingerprint = didUri
-      .split('#')[0]
-      .split('did:key:')
-      .pop();
-    const publicKey = await DidKeyPairClass.fromFingerprint({ fingerprint });
-    const didDocument = await keyToDidDoc(publicKey, resolutionMetaData.accept);
-
-    const didResolutionResponse = {
-      '@context': 'https://w3id.org/did-resolution/v1',
-      didDocument,
-      didDocumentMetadata: {
-        'content-type': resolutionMetaData.accept,
-      },
-      didResolutionMetadata: {},
+    return {
+      didDocument: JSON.parse(serialized.toString('utf-8')),
     };
-    if (resolutionMetaData.accept === 'application/did+cbor') {
-      return cbor.encode(didResolutionResponse);
-    }
-    return didResolutionResponse;
   };
-  return resolve;
 };

@@ -2,33 +2,28 @@
 
 ![CI](https://github.com/transmute-industries/did-key.js/workflows/CI/badge.svg) ![CD](https://github.com/transmute-industries/did-key.js/workflows/CD/badge.svg)
 
-<p align="center">
-  <img src="./transmute-banner.png"/>
-</p>
-
 ### [DID Key Method Specification](https://github.com/w3c-ccg/did-method-key)
 
 `did:key` is a [DID Method](https://w3c.github.io/did-core/) which is offline friendly, cryptographically self certifying, requires no trust of blockchain or certificate authoritites and is ideal for ephemeral use.
 
 🚧 Under Construction.
 
-Demos:
+#### [https://did.key.transmute.industries](https://did.key.transmute.industries).
 
-- Web App: [https://did.key.transmute.industries](https://did.key.transmute.industries).
-
-NIST Curves are only supported in node 15.
+Because `did:key` is just a deterministic transformation of public key bytes
+, you really ought to never resolve it over a network.
 
 #### [did-key.js](./packages/did-key.js)
 
-If you want to resolve all did keys, you need to install all of them:
-
 ```
-npm i @transmute/did-key.js@latest @transmute/did-key-ed25519@latest @transmute/did-key-x25519@latest @transmute/did-key-bls12381@latest @transmute/did-key-secp256k1@latest @transmute/did-key-p384@latest --save
+npm i @transmute/did-key.js@latest
 ```
 
-Use the imports below if you only want to support 1 did key type.
+This module contains all did-key implementations we current support.
 
-#### [Ed25519](./packages/ed25519)
+Unless you really intend to use all of them, we suggest installing just the ones you need.
+
+#### [Ed25519](./packages/did-key-ed25519)
 
 `did:key:z6Mk...`
 
@@ -36,7 +31,7 @@ Use the imports below if you only want to support 1 did key type.
 npm i @transmute/did-key-ed25519@latest --save
 ```
 
-#### [X25519](./packages/x25519)
+#### [X25519](./packages/did-key-x25519)
 
 `did:key:z6LS...`
 
@@ -44,15 +39,17 @@ npm i @transmute/did-key-ed25519@latest --save
 npm i @transmute/did-key-x25519@latest --save
 ```
 
-#### [Bls12381](./packages/bls12381)
+#### [Bls12381](./packages/did-key-bls12381)
 
-`did:key:zUC7...`
+`did:key:z5Tc...` -> G1 + G2
+`did:key:z3tE...` -> G1
+`did:key:zUC7...` -> G2
 
 ```
 npm i @transmute/did-key-bls12381@latest --save
 ```
 
-#### [Secp256k1](./packages/secp256k1)
+#### [Secp256k1](./packages/did-key-secp256k1)
 
 `did:key:zQ3s...`
 
@@ -60,19 +57,15 @@ npm i @transmute/did-key-bls12381@latest --save
 npm i @transmute/did-key-secp256k1@latest --save
 ```
 
-#### [P-384](./packages/p384)
+#### [Secp256r1, Secp384r1, Secp521r1](./packages/did-key-web-crypto)
 
-`did:key:zUew...`
+`did:key:zDna...` -> Secp256r1 / P-256
+`did:key:z82L...` -> Secp384r1 / P-384
+`did:key:z2J9...` -> Secp521r1 / P-521
 
 ```
-npm i @transmute/did-key-p384@latest --save
+npm i @transmute/did-key-web-crypto@latest --save
 ```
-
-### Alternatives
-
-- [digitalbazaar/did-method-key-js](https://github.com/digitalbazaar/did-method-key-js)
-- [digitalbazaar/crypto-ld](https://github.com/digitalbazaar/crypto-ld)
-- [mattrglobal/bls12381-key-pair](https://github.com/mattrglobal/bls12381-key-pair)
 
 ## Release process
 
@@ -104,48 +97,15 @@ Stable releases are triggered by a dev locally
 - A PR is made to fix bug D. When it's merged a release is made: v0.1.1-unstable-0
 - etc...
 
-### Deployment
+### Alternatives
 
-Because `did:key` is just a deterministic transformer of public key bytes...
+- [digitalbazaar/did-method-key-js](https://github.com/digitalbazaar/did-method-key-js)
+- [digitalbazaar/crypto-ld](https://github.com/digitalbazaar/crypto-ld)
+- [mattrglobal/bls12381-key-pair](https://github.com/mattrglobal/bls12381-key-pair)
 
-You really ought to never resolve it over a network.
-
-However, it can be useful for testing purposes.
-
-See the [workbench](./packages/workbench) and [resolver](./packages/resolver) modules.
-
-#####
-
-1.  Create a new glitch.com project.
-2.  Allow git pushes for the project.
-
-Tools > Terminal
-
-```
-git config receive.denyCurrentBranch updateInstead
-```
-
-3. Get the project git url
-
-Tools > Import & Export > Project_Git_URL
-
-4. Set the project as a submodule
-
-```
-git submodule add <Project_Git_URL> glitch-hosting
-```
-
-5. Make some changes and push
-
-6. Refresh glitch project to see changes.
-
-Tools > Terminal
-
-```
-refresh
-```
-
-7. Setup npm scripts to automate deployments according to your preferences.
+<p align="center">
+  <img src="./transmute-banner.png"/>
+</p>
 
 ### License
 

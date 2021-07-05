@@ -1,0 +1,140 @@
+{
+  "type": "ed25519",
+  "caseNumber": 1,
+  "seed": "9085d2bef69286a6cbb51623c8fa258629945cd55ca705cc4e66700396894e0c",
+  "application/did+json": {
+    "didDocument": {
+      "@context": [
+        "https://www.w3.org/ns/did/v1",
+        "https://w3id.org/security/suites/jws-2020/v1"
+      ],
+      "id": "did:key:z6Mkvhngx56dHQmTbHcekuEXwC6cqhehED7eBYix7vhRqLTD",
+      "verificationMethod": [
+        {
+          "id": "did:key:z6Mkvhngx56dHQmTbHcekuEXwC6cqhehED7eBYix7vhRqLTD#z6Mkvhngx56dHQmTbHcekuEXwC6cqhehED7eBYix7vhRqLTD",
+          "type": "JsonWebKey2020",
+          "controller": "did:key:z6Mkvhngx56dHQmTbHcekuEXwC6cqhehED7eBYix7vhRqLTD",
+          "publicKeyJwk": {
+            "kty": "OKP",
+            "crv": "Ed25519",
+            "x": "8XPFhXEoznIHpJuLzeXeKrOOfBeN20WJ3qMCGGJLiNw"
+          }
+        },
+        {
+          "id": "did:key:z6Mkvhngx56dHQmTbHcekuEXwC6cqhehED7eBYix7vhRqLTD#z6LSk5pNkeqHCybFaHupY9bQiGmrbM5MhRgj4HLi9Padso2t",
+          "type": "JsonWebKey2020",
+          "controller": "did:key:z6Mkvhngx56dHQmTbHcekuEXwC6cqhehED7eBYix7vhRqLTD",
+          "publicKeyJwk": {
+            "kty": "OKP",
+            "crv": "X25519",
+            "x": "fOvtsK5M5Pzx1maV9MeoCQBxG_Af4Ua8FvPXiJF0pRU"
+          }
+        }
+      ],
+      "assertionMethod": [
+        "did:key:z6Mkvhngx56dHQmTbHcekuEXwC6cqhehED7eBYix7vhRqLTD#z6Mkvhngx56dHQmTbHcekuEXwC6cqhehED7eBYix7vhRqLTD"
+      ],
+      "authentication": [
+        "did:key:z6Mkvhngx56dHQmTbHcekuEXwC6cqhehED7eBYix7vhRqLTD#z6Mkvhngx56dHQmTbHcekuEXwC6cqhehED7eBYix7vhRqLTD"
+      ],
+      "capabilityInvocation": [
+        "did:key:z6Mkvhngx56dHQmTbHcekuEXwC6cqhehED7eBYix7vhRqLTD#z6Mkvhngx56dHQmTbHcekuEXwC6cqhehED7eBYix7vhRqLTD"
+      ],
+      "capabilityDelegation": [
+        "did:key:z6Mkvhngx56dHQmTbHcekuEXwC6cqhehED7eBYix7vhRqLTD#z6Mkvhngx56dHQmTbHcekuEXwC6cqhehED7eBYix7vhRqLTD"
+      ],
+      "keyAgreement": [
+        "did:key:z6Mkvhngx56dHQmTbHcekuEXwC6cqhehED7eBYix7vhRqLTD#z6LSk5pNkeqHCybFaHupY9bQiGmrbM5MhRgj4HLi9Padso2t"
+      ]
+    },
+    "keys": [
+      {
+        "id": "did:key:z6Mkvhngx56dHQmTbHcekuEXwC6cqhehED7eBYix7vhRqLTD#z6Mkvhngx56dHQmTbHcekuEXwC6cqhehED7eBYix7vhRqLTD",
+        "type": "JsonWebKey2020",
+        "controller": "did:key:z6Mkvhngx56dHQmTbHcekuEXwC6cqhehED7eBYix7vhRqLTD",
+        "publicKeyJwk": {
+          "kty": "OKP",
+          "crv": "Ed25519",
+          "x": "8XPFhXEoznIHpJuLzeXeKrOOfBeN20WJ3qMCGGJLiNw"
+        },
+        "privateKeyJwk": {
+          "kty": "OKP",
+          "crv": "Ed25519",
+          "x": "8XPFhXEoznIHpJuLzeXeKrOOfBeN20WJ3qMCGGJLiNw",
+          "d": "kIXSvvaShqbLtRYjyPolhimUXNVcpwXMTmZwA5aJTgw"
+        }
+      },
+      {
+        "id": "did:key:z6Mkvhngx56dHQmTbHcekuEXwC6cqhehED7eBYix7vhRqLTD#z6LSk5pNkeqHCybFaHupY9bQiGmrbM5MhRgj4HLi9Padso2t",
+        "type": "JsonWebKey2020",
+        "controller": "did:key:z6Mkvhngx56dHQmTbHcekuEXwC6cqhehED7eBYix7vhRqLTD",
+        "publicKeyJwk": {
+          "kty": "OKP",
+          "crv": "X25519",
+          "x": "fOvtsK5M5Pzx1maV9MeoCQBxG_Af4Ua8FvPXiJF0pRU"
+        },
+        "privateKeyJwk": {
+          "kty": "OKP",
+          "crv": "X25519",
+          "x": "fOvtsK5M5Pzx1maV9MeoCQBxG_Af4Ua8FvPXiJF0pRU",
+          "d": "SCch8GNRPgyhvEafhyyNHuduFt3nAQ1o4JPpgqDqx18"
+        }
+      }
+    ]
+  },
+  "application/did+ld+json": {
+    "keys": [
+      {
+        "id": "did:key:z6Mkvhngx56dHQmTbHcekuEXwC6cqhehED7eBYix7vhRqLTD#z6Mkvhngx56dHQmTbHcekuEXwC6cqhehED7eBYix7vhRqLTD",
+        "type": "Ed25519VerificationKey2018",
+        "controller": "did:key:z6Mkvhngx56dHQmTbHcekuEXwC6cqhehED7eBYix7vhRqLTD",
+        "publicKeyBase58": "HFXeMprBwsGzUnmx5LGh66Yd28NqpKsHVXp2HejQv7fq",
+        "privateKeyBase58": "3tbBnG26X3dzH3cJdDt4M1157ovmq3B9VgJSEZQLfbM8mdkzCpYmaToACTs3vNCbMi4zpvUPHV39VX3sccFMGPF1"
+      },
+      {
+        "id": "did:key:z6Mkvhngx56dHQmTbHcekuEXwC6cqhehED7eBYix7vhRqLTD#z6LSk5pNkeqHCybFaHupY9bQiGmrbM5MhRgj4HLi9Padso2t",
+        "type": "X25519KeyAgreementKey2019",
+        "controller": "did:key:z6Mkvhngx56dHQmTbHcekuEXwC6cqhehED7eBYix7vhRqLTD",
+        "publicKeyBase58": "9QeDEM2R7WsWUuY41W5TPgZNkCYEzpWaBJd2evw7ARG8",
+        "privateKeyBase58": "5rexsVdp1m8aPRP4pEUcFeZiDaM3ssH9t6fdHGDSS3Ft"
+      }
+    ],
+    "didDocument": {
+      "@context": [
+        "https://www.w3.org/ns/did/v1",
+        "https://w3id.org/security/suites/ed25519-2018/v1",
+        "https://w3id.org/security/suites/x25519-2019/v1"
+      ],
+      "id": "did:key:z6Mkvhngx56dHQmTbHcekuEXwC6cqhehED7eBYix7vhRqLTD",
+      "verificationMethod": [
+        {
+          "id": "did:key:z6Mkvhngx56dHQmTbHcekuEXwC6cqhehED7eBYix7vhRqLTD#z6Mkvhngx56dHQmTbHcekuEXwC6cqhehED7eBYix7vhRqLTD",
+          "type": "Ed25519VerificationKey2018",
+          "controller": "did:key:z6Mkvhngx56dHQmTbHcekuEXwC6cqhehED7eBYix7vhRqLTD",
+          "publicKeyBase58": "HFXeMprBwsGzUnmx5LGh66Yd28NqpKsHVXp2HejQv7fq"
+        },
+        {
+          "id": "did:key:z6Mkvhngx56dHQmTbHcekuEXwC6cqhehED7eBYix7vhRqLTD#z6LSk5pNkeqHCybFaHupY9bQiGmrbM5MhRgj4HLi9Padso2t",
+          "type": "X25519KeyAgreementKey2019",
+          "controller": "did:key:z6Mkvhngx56dHQmTbHcekuEXwC6cqhehED7eBYix7vhRqLTD",
+          "publicKeyBase58": "9QeDEM2R7WsWUuY41W5TPgZNkCYEzpWaBJd2evw7ARG8"
+        }
+      ],
+      "assertionMethod": [
+        "did:key:z6Mkvhngx56dHQmTbHcekuEXwC6cqhehED7eBYix7vhRqLTD#z6Mkvhngx56dHQmTbHcekuEXwC6cqhehED7eBYix7vhRqLTD"
+      ],
+      "authentication": [
+        "did:key:z6Mkvhngx56dHQmTbHcekuEXwC6cqhehED7eBYix7vhRqLTD#z6Mkvhngx56dHQmTbHcekuEXwC6cqhehED7eBYix7vhRqLTD"
+      ],
+      "capabilityInvocation": [
+        "did:key:z6Mkvhngx56dHQmTbHcekuEXwC6cqhehED7eBYix7vhRqLTD#z6Mkvhngx56dHQmTbHcekuEXwC6cqhehED7eBYix7vhRqLTD"
+      ],
+      "capabilityDelegation": [
+        "did:key:z6Mkvhngx56dHQmTbHcekuEXwC6cqhehED7eBYix7vhRqLTD#z6Mkvhngx56dHQmTbHcekuEXwC6cqhehED7eBYix7vhRqLTD"
+      ],
+      "keyAgreement": [
+        "did:key:z6Mkvhngx56dHQmTbHcekuEXwC6cqhehED7eBYix7vhRqLTD#z6LSk5pNkeqHCybFaHupY9bQiGmrbM5MhRgj4HLi9Padso2t"
+      ]
+    }
+  }
+}

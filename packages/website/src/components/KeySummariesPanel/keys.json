@@ -1,0 +1,30 @@
+[
+  {
+    "name": "Ed25519",
+    "description": "For use with Edwards-curve Digital Signature Algorithm (EdDSA)."
+  },
+  {
+    "name": "X25519",
+    "description": "Also known as Curve25519, for use with Elliptic-curve Diffie–Hellman (ECDH)."
+  },
+  {
+    "name": "Secp256k1",
+    "description": "Made popular by Bitcoin, for use with Elliptic Curve Digital Signature Algorithm (ECDSA)."
+  },
+  {
+    "name": "Bls12381",
+    "description": "Made popular by Zcash and Ethereum, a pairing friendly curve supporting signature aggregation."
+  },
+  {
+    "name": "Secp256r1",
+    "description": "Also known as NIST P-256, included in NSA Suite B, supported by WebCrypto."
+  },
+  {
+    "name": "Secp384r1",
+    "description": "Also known as NIST P-384, included in NSA Suite B, supported by WebCrypto."
+  },
+  {
+    "name": "Secp521r1",
+    "description": "Also known as NIST P-521, NOT included in NSA Suite B."
+  }
+]

@@ -1,0 +1,39 @@
+html {
+  background: #151726;
+}
+
+body {
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  background: #151726;
+}
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+    monospace;
+}
+
+#tsparticles {
+  height: 500px;
+}
+
+.Generate {
+  padding: 16px;
+}
+
+.Resolve {
+  padding: 16px;
+}
+
+.ace_content,
+.ace_gutter {
+  background: #151726;
+}
+
+.ace_gutter-layer {
+  background: #151726;
+}

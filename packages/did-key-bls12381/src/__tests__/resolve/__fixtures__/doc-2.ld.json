@@ -1,0 +1,27 @@
+{
+  "@context": [
+    "https://www.w3.org/ns/did/v1",
+    "https://w3id.org/security/suites/bls12381-2020/v1"
+  ],
+  "id": "did:key:zUC7DS4KhgobfZMRQNxGWnzutbeDhPitk9ykTAG7PxA1E3oD6UTGZRsdpVW729ViC1ddSNnqJJDm1QAQThYQ94F75cb8NstpHqAQLE175ZymdsWGfNT7H4pdhPhbziV6Vh98izV",
+  "verificationMethod": [
+    {
+      "id": "did:key:zUC7DS4KhgobfZMRQNxGWnzutbeDhPitk9ykTAG7PxA1E3oD6UTGZRsdpVW729ViC1ddSNnqJJDm1QAQThYQ94F75cb8NstpHqAQLE175ZymdsWGfNT7H4pdhPhbziV6Vh98izV#zUC7DS4KhgobfZMRQNxGWnzutbeDhPitk9ykTAG7PxA1E3oD6UTGZRsdpVW729ViC1ddSNnqJJDm1QAQThYQ94F75cb8NstpHqAQLE175ZymdsWGfNT7H4pdhPhbziV6Vh98izV",
+      "type": "Bls12381G2Key2020",
+      "controller": "did:key:zUC7DS4KhgobfZMRQNxGWnzutbeDhPitk9ykTAG7PxA1E3oD6UTGZRsdpVW729ViC1ddSNnqJJDm1QAQThYQ94F75cb8NstpHqAQLE175ZymdsWGfNT7H4pdhPhbziV6Vh98izV",
+      "publicKeyBase58": "ybWSe19NJwVCzSHRLrJhbJHJT7QgiBRpamgHv6hCVASQgsVdrmUV23YRsA9Tfi5zJANxFtMwdWcSWppGynuPFf4QaXziLC2v4aJiBMLu9vNQJU7WC8eXXbHdXXkCv8zGEPB"
+    }
+  ],
+  "assertionMethod": [
+    "did:key:zUC7DS4KhgobfZMRQNxGWnzutbeDhPitk9ykTAG7PxA1E3oD6UTGZRsdpVW729ViC1ddSNnqJJDm1QAQThYQ94F75cb8NstpHqAQLE175ZymdsWGfNT7H4pdhPhbziV6Vh98izV#zUC7DS4KhgobfZMRQNxGWnzutbeDhPitk9ykTAG7PxA1E3oD6UTGZRsdpVW729ViC1ddSNnqJJDm1QAQThYQ94F75cb8NstpHqAQLE175ZymdsWGfNT7H4pdhPhbziV6Vh98izV"
+  ],
+  "authentication": [
+    "did:key:zUC7DS4KhgobfZMRQNxGWnzutbeDhPitk9ykTAG7PxA1E3oD6UTGZRsdpVW729ViC1ddSNnqJJDm1QAQThYQ94F75cb8NstpHqAQLE175ZymdsWGfNT7H4pdhPhbziV6Vh98izV#zUC7DS4KhgobfZMRQNxGWnzutbeDhPitk9ykTAG7PxA1E3oD6UTGZRsdpVW729ViC1ddSNnqJJDm1QAQThYQ94F75cb8NstpHqAQLE175ZymdsWGfNT7H4pdhPhbziV6Vh98izV"
+  ],
+  "capabilityInvocation": [
+    "did:key:zUC7DS4KhgobfZMRQNxGWnzutbeDhPitk9ykTAG7PxA1E3oD6UTGZRsdpVW729ViC1ddSNnqJJDm1QAQThYQ94F75cb8NstpHqAQLE175ZymdsWGfNT7H4pdhPhbziV6Vh98izV#zUC7DS4KhgobfZMRQNxGWnzutbeDhPitk9ykTAG7PxA1E3oD6UTGZRsdpVW729ViC1ddSNnqJJDm1QAQThYQ94F75cb8NstpHqAQLE175ZymdsWGfNT7H4pdhPhbziV6Vh98izV"
+  ],
+  "capabilityDelegation": [
+    "did:key:zUC7DS4KhgobfZMRQNxGWnzutbeDhPitk9ykTAG7PxA1E3oD6UTGZRsdpVW729ViC1ddSNnqJJDm1QAQThYQ94F75cb8NstpHqAQLE175ZymdsWGfNT7H4pdhPhbziV6Vh98izV#zUC7DS4KhgobfZMRQNxGWnzutbeDhPitk9ykTAG7PxA1E3oD6UTGZRsdpVW729ViC1ddSNnqJJDm1QAQThYQ94F75cb8NstpHqAQLE175ZymdsWGfNT7H4pdhPhbziV6Vh98izV"
+  ]
+}

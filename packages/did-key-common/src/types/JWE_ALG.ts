@@ -1,1 +1,0 @@
-export type ECDH_ES_A256KW = 'ECDH-ES+A256KW';

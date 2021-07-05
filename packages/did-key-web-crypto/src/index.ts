@@ -1,4 +1,6 @@
-import * as driver from './driver';
+import { getGenerator, getResolver } from '@transmute/did-key-common';
+import { WebCryptoKey } from '@transmute/web-crypto-key-pair';
 
-export * from './KeyPair';
-export { driver };
+export { WebCryptoKey };
+export const generate = getGenerator(WebCryptoKey);
+export const resolve = getResolver(WebCryptoKey);
