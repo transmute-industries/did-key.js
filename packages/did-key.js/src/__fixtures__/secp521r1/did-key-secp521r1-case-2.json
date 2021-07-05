@@ -1,0 +1,108 @@
+{
+  "type": "secp521r1",
+  "caseNumber": 2,
+  "seed": "4093566b154c13ecd5587bc81a02570bf79e5bbdf87b01539325bfdbd7a3820b",
+  "application/did+json": {
+    "didDocument": {
+      "@context": [
+        "https://www.w3.org/ns/did/v1",
+        "https://w3id.org/security/suites/jws-2020/v1"
+      ],
+      "id": "did:key:z2J9gcGLhaVg3YdqyRfbJPmyz5Y4qAMa7WrZ2hCm9htRWA9MHG1XX9A39FByJudQF1YQyMFNq6pmTocECZJaqL1dRWtL9isL",
+      "verificationMethod": [
+        {
+          "id": "did:key:z2J9gcGLhaVg3YdqyRfbJPmyz5Y4qAMa7WrZ2hCm9htRWA9MHG1XX9A39FByJudQF1YQyMFNq6pmTocECZJaqL1dRWtL9isL#z2J9gcGLhaVg3YdqyRfbJPmyz5Y4qAMa7WrZ2hCm9htRWA9MHG1XX9A39FByJudQF1YQyMFNq6pmTocECZJaqL1dRWtL9isL",
+          "type": "JsonWebKey2020",
+          "controller": "did:key:z2J9gcGLhaVg3YdqyRfbJPmyz5Y4qAMa7WrZ2hCm9htRWA9MHG1XX9A39FByJudQF1YQyMFNq6pmTocECZJaqL1dRWtL9isL",
+          "publicKeyJwk": {
+            "kty": "EC",
+            "crv": "P-521",
+            "x": "AEjUyAkaCf0CrIHxmXoMVWxvMCFLpf_RwxHp-5Fd1jqIC3Iyi5Y-bJZ_dDgmlsl7WmngegfpvLmf6KuErfNEj0-7",
+            "y": "AJkD3qcwpQleKiNtiUxz9BgCvupq9svLBVaSY7xYMlTh_nKeu4Wj_CdcaAZ_UEcA7gfn7cGczKyXxo-CC4ZbuHz_"
+          }
+        }
+      ],
+      "assertionMethod": [
+        "did:key:z2J9gcGLhaVg3YdqyRfbJPmyz5Y4qAMa7WrZ2hCm9htRWA9MHG1XX9A39FByJudQF1YQyMFNq6pmTocECZJaqL1dRWtL9isL#z2J9gcGLhaVg3YdqyRfbJPmyz5Y4qAMa7WrZ2hCm9htRWA9MHG1XX9A39FByJudQF1YQyMFNq6pmTocECZJaqL1dRWtL9isL"
+      ],
+      "authentication": [
+        "did:key:z2J9gcGLhaVg3YdqyRfbJPmyz5Y4qAMa7WrZ2hCm9htRWA9MHG1XX9A39FByJudQF1YQyMFNq6pmTocECZJaqL1dRWtL9isL#z2J9gcGLhaVg3YdqyRfbJPmyz5Y4qAMa7WrZ2hCm9htRWA9MHG1XX9A39FByJudQF1YQyMFNq6pmTocECZJaqL1dRWtL9isL"
+      ],
+      "capabilityInvocation": [
+        "did:key:z2J9gcGLhaVg3YdqyRfbJPmyz5Y4qAMa7WrZ2hCm9htRWA9MHG1XX9A39FByJudQF1YQyMFNq6pmTocECZJaqL1dRWtL9isL#z2J9gcGLhaVg3YdqyRfbJPmyz5Y4qAMa7WrZ2hCm9htRWA9MHG1XX9A39FByJudQF1YQyMFNq6pmTocECZJaqL1dRWtL9isL"
+      ],
+      "capabilityDelegation": [
+        "did:key:z2J9gcGLhaVg3YdqyRfbJPmyz5Y4qAMa7WrZ2hCm9htRWA9MHG1XX9A39FByJudQF1YQyMFNq6pmTocECZJaqL1dRWtL9isL#z2J9gcGLhaVg3YdqyRfbJPmyz5Y4qAMa7WrZ2hCm9htRWA9MHG1XX9A39FByJudQF1YQyMFNq6pmTocECZJaqL1dRWtL9isL"
+      ],
+      "keyAgreement": [
+        "did:key:z2J9gcGLhaVg3YdqyRfbJPmyz5Y4qAMa7WrZ2hCm9htRWA9MHG1XX9A39FByJudQF1YQyMFNq6pmTocECZJaqL1dRWtL9isL#z2J9gcGLhaVg3YdqyRfbJPmyz5Y4qAMa7WrZ2hCm9htRWA9MHG1XX9A39FByJudQF1YQyMFNq6pmTocECZJaqL1dRWtL9isL"
+      ]
+    },
+    "keys": [
+      {
+        "id": "did:key:z2J9gcGLhaVg3YdqyRfbJPmyz5Y4qAMa7WrZ2hCm9htRWA9MHG1XX9A39FByJudQF1YQyMFNq6pmTocECZJaqL1dRWtL9isL#z2J9gcGLhaVg3YdqyRfbJPmyz5Y4qAMa7WrZ2hCm9htRWA9MHG1XX9A39FByJudQF1YQyMFNq6pmTocECZJaqL1dRWtL9isL",
+        "type": "JsonWebKey2020",
+        "controller": "did:key:z2J9gcGLhaVg3YdqyRfbJPmyz5Y4qAMa7WrZ2hCm9htRWA9MHG1XX9A39FByJudQF1YQyMFNq6pmTocECZJaqL1dRWtL9isL",
+        "publicKeyJwk": {
+          "kty": "EC",
+          "crv": "P-521",
+          "x": "AEjUyAkaCf0CrIHxmXoMVWxvMCFLpf_RwxHp-5Fd1jqIC3Iyi5Y-bJZ_dDgmlsl7WmngegfpvLmf6KuErfNEj0-7",
+          "y": "AJkD3qcwpQleKiNtiUxz9BgCvupq9svLBVaSY7xYMlTh_nKeu4Wj_CdcaAZ_UEcA7gfn7cGczKyXxo-CC4ZbuHz_"
+        },
+        "privateKeyJwk": {
+          "kty": "EC",
+          "crv": "P-521",
+          "d": "ARH4hqL04xkyfubumQWqz6_q-hOzlZtMkgKMOJU9xL7TMji2zpupyzcQcr60by7ynRm2I81l_Ila8nloGl9tRiq_",
+          "x": "AEjUyAkaCf0CrIHxmXoMVWxvMCFLpf_RwxHp-5Fd1jqIC3Iyi5Y-bJZ_dDgmlsl7WmngegfpvLmf6KuErfNEj0-7",
+          "y": "AJkD3qcwpQleKiNtiUxz9BgCvupq9svLBVaSY7xYMlTh_nKeu4Wj_CdcaAZ_UEcA7gfn7cGczKyXxo-CC4ZbuHz_"
+        }
+      }
+    ]
+  },
+  "application/did+ld+json": {
+    "keys": [
+      {
+        "id": "did:key:z2J9gcGLhaVg3YdqyRfbJPmyz5Y4qAMa7WrZ2hCm9htRWA9MHG1XX9A39FByJudQF1YQyMFNq6pmTocECZJaqL1dRWtL9isL#z2J9gcGLhaVg3YdqyRfbJPmyz5Y4qAMa7WrZ2hCm9htRWA9MHG1XX9A39FByJudQF1YQyMFNq6pmTocECZJaqL1dRWtL9isL",
+        "type": "P521Key2021",
+        "controller": "did:key:z2J9gcGLhaVg3YdqyRfbJPmyz5Y4qAMa7WrZ2hCm9htRWA9MHG1XX9A39FByJudQF1YQyMFNq6pmTocECZJaqL1dRWtL9isL",
+        "publicKeyBase58": "6AFGd7DaVQhvSK2J1ScLxSZvHq3ExEJsEYBuQ6Qa2Bb88NfZAKi4mCKbzzYeuqV282TBtqjM6oRyJLhXS21EPy7fDWi",
+        "privateKeyBase58": "RBFimwc9Dz98w2zTVFDeLudAEDxuZc3vqx8oPoxH6LfQeQcZZ7pJU8G5egZVnpg6UtFkzcvcY4sa22LXXCw68E39G"
+      }
+    ],
+    "didDocument": {
+      "@context": [
+        "https://www.w3.org/ns/did/v1",
+        "https://w3id.org/security/suites/jws-2020/v1"
+      ],
+      "id": "did:key:z2J9gcGLhaVg3YdqyRfbJPmyz5Y4qAMa7WrZ2hCm9htRWA9MHG1XX9A39FByJudQF1YQyMFNq6pmTocECZJaqL1dRWtL9isL",
+      "verificationMethod": [
+        {
+          "id": "did:key:z2J9gcGLhaVg3YdqyRfbJPmyz5Y4qAMa7WrZ2hCm9htRWA9MHG1XX9A39FByJudQF1YQyMFNq6pmTocECZJaqL1dRWtL9isL#z2J9gcGLhaVg3YdqyRfbJPmyz5Y4qAMa7WrZ2hCm9htRWA9MHG1XX9A39FByJudQF1YQyMFNq6pmTocECZJaqL1dRWtL9isL",
+          "type": "JsonWebKey2020",
+          "controller": "did:key:z2J9gcGLhaVg3YdqyRfbJPmyz5Y4qAMa7WrZ2hCm9htRWA9MHG1XX9A39FByJudQF1YQyMFNq6pmTocECZJaqL1dRWtL9isL",
+          "publicKeyJwk": {
+            "kty": "EC",
+            "crv": "P-521",
+            "x": "AEjUyAkaCf0CrIHxmXoMVWxvMCFLpf_RwxHp-5Fd1jqIC3Iyi5Y-bJZ_dDgmlsl7WmngegfpvLmf6KuErfNEj0-7",
+            "y": "AJkD3qcwpQleKiNtiUxz9BgCvupq9svLBVaSY7xYMlTh_nKeu4Wj_CdcaAZ_UEcA7gfn7cGczKyXxo-CC4ZbuHz_"
+          }
+        }
+      ],
+      "assertionMethod": [
+        "did:key:z2J9gcGLhaVg3YdqyRfbJPmyz5Y4qAMa7WrZ2hCm9htRWA9MHG1XX9A39FByJudQF1YQyMFNq6pmTocECZJaqL1dRWtL9isL#z2J9gcGLhaVg3YdqyRfbJPmyz5Y4qAMa7WrZ2hCm9htRWA9MHG1XX9A39FByJudQF1YQyMFNq6pmTocECZJaqL1dRWtL9isL"
+      ],
+      "authentication": [
+        "did:key:z2J9gcGLhaVg3YdqyRfbJPmyz5Y4qAMa7WrZ2hCm9htRWA9MHG1XX9A39FByJudQF1YQyMFNq6pmTocECZJaqL1dRWtL9isL#z2J9gcGLhaVg3YdqyRfbJPmyz5Y4qAMa7WrZ2hCm9htRWA9MHG1XX9A39FByJudQF1YQyMFNq6pmTocECZJaqL1dRWtL9isL"
+      ],
+      "capabilityInvocation": [
+        "did:key:z2J9gcGLhaVg3YdqyRfbJPmyz5Y4qAMa7WrZ2hCm9htRWA9MHG1XX9A39FByJudQF1YQyMFNq6pmTocECZJaqL1dRWtL9isL#z2J9gcGLhaVg3YdqyRfbJPmyz5Y4qAMa7WrZ2hCm9htRWA9MHG1XX9A39FByJudQF1YQyMFNq6pmTocECZJaqL1dRWtL9isL"
+      ],
+      "capabilityDelegation": [
+        "did:key:z2J9gcGLhaVg3YdqyRfbJPmyz5Y4qAMa7WrZ2hCm9htRWA9MHG1XX9A39FByJudQF1YQyMFNq6pmTocECZJaqL1dRWtL9isL#z2J9gcGLhaVg3YdqyRfbJPmyz5Y4qAMa7WrZ2hCm9htRWA9MHG1XX9A39FByJudQF1YQyMFNq6pmTocECZJaqL1dRWtL9isL"
+      ],
+      "keyAgreement": [
+        "did:key:z2J9gcGLhaVg3YdqyRfbJPmyz5Y4qAMa7WrZ2hCm9htRWA9MHG1XX9A39FByJudQF1YQyMFNq6pmTocECZJaqL1dRWtL9isL#z2J9gcGLhaVg3YdqyRfbJPmyz5Y4qAMa7WrZ2hCm9htRWA9MHG1XX9A39FByJudQF1YQyMFNq6pmTocECZJaqL1dRWtL9isL"
+      ]
+    }
+  }
+}
