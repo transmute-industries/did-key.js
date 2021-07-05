@@ -1,23 +1,23 @@
 {
   "files": {
-    "main.css": "/static/css/main.ba2c6591.chunk.css",
-    "main.js": "/static/js/main.88b5e2ae.chunk.js",
-    "main.js.map": "/static/js/main.88b5e2ae.chunk.js.map",
-    "runtime-main.js": "/static/js/runtime-main.fceee2cc.js",
-    "runtime-main.js.map": "/static/js/runtime-main.fceee2cc.js.map",
-    "static/js/2.0b82bc6b.chunk.js": "/static/js/2.0b82bc6b.chunk.js",
-    "static/js/2.0b82bc6b.chunk.js.map": "/static/js/2.0b82bc6b.chunk.js.map",
-    "index.html": "/index.html",
-    "precache-manifest.57db438f473f8eccb8325e4f3f547095.js": "/precache-manifest.57db438f473f8eccb8325e4f3f547095.js",
-    "service-worker.js": "/service-worker.js",
-    "static/css/main.ba2c6591.chunk.css.map": "/static/css/main.ba2c6591.chunk.css.map",
-    "static/js/2.0b82bc6b.chunk.js.LICENSE.txt": "/static/js/2.0b82bc6b.chunk.js.LICENSE.txt",
-    "static/media/logo.svg": "/static/media/logo.33b194d8.svg"
+    "main.css": "/transmute-industries/did-key.js/tree/master/packages/website/static/css/main.5baacb6a.chunk.css",
+    "main.js": "/transmute-industries/did-key.js/tree/master/packages/website/static/js/main.c5c22beb.chunk.js",
+    "main.js.map": "/transmute-industries/did-key.js/tree/master/packages/website/static/js/main.c5c22beb.chunk.js.map",
+    "runtime-main.js": "/transmute-industries/did-key.js/tree/master/packages/website/static/js/runtime-main.9b4501fb.js",
+    "runtime-main.js.map": "/transmute-industries/did-key.js/tree/master/packages/website/static/js/runtime-main.9b4501fb.js.map",
+    "static/js/2.8f9bde62.chunk.js": "/transmute-industries/did-key.js/tree/master/packages/website/static/js/2.8f9bde62.chunk.js",
+    "static/js/2.8f9bde62.chunk.js.map": "/transmute-industries/did-key.js/tree/master/packages/website/static/js/2.8f9bde62.chunk.js.map",
+    "static/js/3.a6fa1305.chunk.js": "/transmute-industries/did-key.js/tree/master/packages/website/static/js/3.a6fa1305.chunk.js",
+    "static/js/3.a6fa1305.chunk.js.map": "/transmute-industries/did-key.js/tree/master/packages/website/static/js/3.a6fa1305.chunk.js.map",
+    "index.html": "/transmute-industries/did-key.js/tree/master/packages/website/index.html",
+    "static/css/main.5baacb6a.chunk.css.map": "/transmute-industries/did-key.js/tree/master/packages/website/static/css/main.5baacb6a.chunk.css.map",
+    "static/js/2.8f9bde62.chunk.js.LICENSE.txt": "/transmute-industries/did-key.js/tree/master/packages/website/static/js/2.8f9bde62.chunk.js.LICENSE.txt",
+    "static/media/logo-with-text-white.44c37cf6.svg": "/transmute-industries/did-key.js/tree/master/packages/website/static/media/logo-with-text-white.44c37cf6.svg"
   },
   "entrypoints": [
-    "static/js/runtime-main.fceee2cc.js",
-    "static/js/2.0b82bc6b.chunk.js",
-    "static/css/main.ba2c6591.chunk.css",
-    "static/js/main.88b5e2ae.chunk.js"
+    "static/js/runtime-main.9b4501fb.js",
+    "static/js/2.8f9bde62.chunk.js",
+    "static/css/main.5baacb6a.chunk.css",
+    "static/js/main.c5c22beb.chunk.js"
   ]
 }
