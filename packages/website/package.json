@@ -29,9 +29,7 @@
   },
   "scripts": {
     "start": "react-scripts start",
-    "postinstall": "npm run build",
-    "build": "NODE_OPTIONS=--max_old_space_size=8192 react-scripts build",
-    "test": "react-scripts test",
+    "build:website": "NODE_OPTIONS=--max_old_space_size=8192 react-scripts build",
     "eject": "react-scripts eject"
   },
   "eslintConfig": {

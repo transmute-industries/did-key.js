@@ -41,7 +41,7 @@ describe.skip('fixtures', () => {
           });
           fixture = {
             ...fixture,
-            ['application/did+json']: gen,
+            'application/did+json': gen,
           };
 
           const conv = await did.convert(gen.keys, {
@@ -49,7 +49,7 @@ describe.skip('fixtures', () => {
           });
           fixture = {
             ...fixture,
-            ['application/did+ld+json']: conv,
+            'application/did+ld+json': conv,
           };
 
           const fixturePath = path.resolve(

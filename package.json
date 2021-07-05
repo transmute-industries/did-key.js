@@ -15,8 +15,7 @@
     "publish:unstable": "lerna publish prerelease --preid unstable --yes",
     "release": "lerna publish",
     "release:canary": "lerna publish --canary",
-    "shove": "git add -A; git commit -m 'chore(ci): test ci'; git push origin master",
-    "build:demo": "lerna run build --stream"
+    "build:website": "lerna run build:website --stream"
   },
   "husky": {
     "hooks": {
