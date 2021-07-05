@@ -1,0 +1,32 @@
+name: Website
+
+on:
+  push:
+    branches:
+      - master
+
+jobs:
+  release-unstable:
+    # Don't run on any commit that features [skip ci] in the commit message
+    if: "! contains(github.event.head_commit.message, '[skip ci]')"
+    name: Publish website
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+
+      - name: Use Node 14
+        uses: actions/setup-node@v1
+        with:
+          node-version: 14.x
+
+      - name: Install
+        run: npm install
+
+      - name: Build Website
+        run: npm run build:website
+
+      - name: Deploy GitHub Pages
+        uses: peaceiris/actions-gh-pages@v3
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: ./packages/website/build
