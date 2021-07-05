@@ -1,14 +1,14 @@
 import React from 'react';
 import { withRouter } from 'react-router-dom';
 
-import { Box, Button } from '@material-ui/core';
+import { Box, Button, Typography } from '@material-ui/core';
 import { RepresentationToggleButton } from '../components/RepresentationToggleButton';
 import { AceEditor } from '../components/AceEditor';
 import { Theme } from '../components/Theme';
 
 import { resolve, download } from '../utils';
 import { useHistory } from 'react-router-dom';
-
+import ArrowBackIcon from '@material-ui/icons/ArrowBack';
 const Page = ({ match }) => {
   const { did } = match.params;
   const history = useHistory();
@@ -38,14 +38,17 @@ const Page = ({ match }) => {
     <Theme>
       <div className="Resolve">
         <div style={{ marginBottom: '8px' }}>
-          <Button
-            color={'primary'}
-            onClick={() => {
-              history.push('/');
-            }}
-          >
-            Home
-          </Button>
+          <Typography>
+            <Button
+              color={'primary'}
+              onClick={() => {
+                history.push('/');
+              }}
+              startIcon={<ArrowBackIcon />}
+            >
+              Home
+            </Button>
+          </Typography>
         </div>
 
         <div style={{ maxWidth: '90%' }}>
@@ -58,8 +61,8 @@ const Page = ({ match }) => {
             </Box>
             <Box>
               <Button
-                color={'primary'}
-                variant={'contained'}
+                color={'secondary'}
+                variant={'outlined'}
                 onClick={handleDownload}
               >
                 Download

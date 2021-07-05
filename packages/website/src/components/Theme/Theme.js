@@ -181,10 +181,10 @@ export const theme = createMuiTheme({
       color: 'rgba(0,0,0,0.54)',
     },
     body1: {
-      fontSize: '1em',
+      fontSize: '1.25em',
     },
     body2: {
-      fontSize: '1.25em',
+      fontSize: '1.1em',
     },
     button: {
       fontSize: '1em',

@@ -37,7 +37,7 @@ export const KeySummariesPanel = () => {
         <Grid container spacing={3}>
           {keys.map((k) => {
             return (
-              <Grid key={k.name} item xs={4}>
+              <Grid key={k.name} item xs={12} sm={4} md={3}>
                 <KeyCard data={k} />
               </Grid>
             );

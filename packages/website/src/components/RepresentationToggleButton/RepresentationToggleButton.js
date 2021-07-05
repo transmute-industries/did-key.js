@@ -6,9 +6,11 @@ import ToggleButtonGroup from '@material-ui/lab/ToggleButtonGroup';
 export function RepresentationToggleButton({
   representation,
   setRepresentation,
+  onChange,
 }) {
   const handleChange = (event, newRepresentation) => {
     setRepresentation(newRepresentation);
+    onChange(newRepresentation);
   };
 
   return (

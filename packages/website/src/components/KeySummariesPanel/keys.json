@@ -17,14 +17,14 @@
   },
   {
     "name": "Secp256r1",
-    "description": "Also known as NIST P-256, supported by WebCrypto and OAuth."
+    "description": "Also known as NIST P-256, included in NSA Suite B, supported by WebCrypto."
   },
   {
     "name": "Secp384r1",
-    "description": "Also known as NIST P-384, supported by WebCrypto and OAuth."
+    "description": "Also known as NIST P-384, included in NSA Suite B, supported by WebCrypto."
   },
   {
     "name": "Secp521r1",
-    "description": "Also known as NIST P-521, supported by WebCrypto and OAuth."
+    "description": "Also known as NIST P-521, NOT included in NSA Suite B."
   }
 ]

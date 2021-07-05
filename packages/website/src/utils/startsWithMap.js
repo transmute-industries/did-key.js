@@ -7,19 +7,23 @@ import * as web from '@transmute/did-key-web-crypto';
 export const typeMap = {
   ed25519,
   x25519,
-  secp256r1: web,
-  secp384r1: web,
-  secp521r1: web,
 
   secp256k1,
   bls12381,
+
+  secp256r1: web,
+  secp384r1: web,
+  secp521r1: web,
 };
 
 export const startsWithMap = {
   'did:key:z6Mk': ed25519,
   'did:key:z6LS': x25519,
 
-  // broke
   'did:key:zQ3s': secp256k1,
   'did:key:z5Tc': bls12381,
+
+  'did:key:zDna': web,
+  'did:key:z82L': web,
+  'did:key:z2J9': web,
 };

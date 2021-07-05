@@ -29,7 +29,7 @@ export const Footer = () => {
           <Link href="https://www.transmute.industries/" color={'secondary'}>
             www.transmute.industries
           </Link>
-          <Typography className={classes.description}>
+          <Typography className={classes.description} variant={'body2'}>
             Transmute secures critical trade data related to suppliers, products
             and shipments to give customers a competitive edge in the
             increasingly dynamic global marketplace.
@@ -42,7 +42,7 @@ export const Footer = () => {
           <Link href="https://www.w3.org/TR/did-core" color={'secondary'}>
             W3C Decentralized Identifiers
           </Link>
-          <Typography className={classes.description}>
+          <Typography className={classes.description} variant={'body2'}>
             Decentralized identifiers (DIDs) are a new type of identifier that
             enables verifiable, decentralized digital identity. A DID refers to
             any subject (e.g., a person, organization, thing, data model,
@@ -58,7 +58,7 @@ export const Footer = () => {
           <Link href="https://www.w3.org/TR/vc-data-model/" color={'secondary'}>
             W3C Verifiable Credentials
           </Link>
-          <Typography className={classes.description}>
+          <Typography className={classes.description} variant={'body2'}>
             Verifiable Credentials (VCs) are a data model for expressing
             cryptographically verifiable claims. These claims are often issued
             or presented by Decentralized Identifiers.

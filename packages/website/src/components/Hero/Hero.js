@@ -1,5 +1,5 @@
 import { makeStyles } from '@material-ui/core/styles';
-import { Typography, Link } from '@material-ui/core';
+import { Typography, Link, Hidden } from '@material-ui/core';
 
 import logo from '../../assets/logo-with-text-white.svg';
 
@@ -18,15 +18,17 @@ export const Hero = () => {
   return (
     <div
       style={{
-        width: '50%',
+        width: '70%',
         margin: 'auto',
         textAlign: 'center',
         paddingTop: '7%',
       }}
     >
-      <Typography className={classes.title} variant={'h1'} gutterBottom>
-        DID Method Key
-      </Typography>
+      <Hidden smDown>
+        <Typography className={classes.title} variant={'h1'} gutterBottom>
+          DID Method Key
+        </Typography>
+      </Hidden>
 
       <Typography className={classes.description} variant={'h6'} gutterBottom>
         <strong>did:key</strong> is a{' '}
