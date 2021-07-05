@@ -11,7 +11,7 @@ import { getSeed, generate, download } from '../utils';
 
 const queryString = require('query-string');
 
-const noSupportForSeed = ['secp256r1'];
+const noSupportForSeed = ['secp256r1', 'secp384r1', 'secp521r1'];
 
 const Page = ({ match }) => {
   const search = queryString.parse(window.location.search);
@@ -51,7 +51,7 @@ const Page = ({ match }) => {
   }, [history, did]);
 
   React.useEffect(() => {
-    if (!noSupportForSeed.includes(type) && seed === '') {
+    if (seed === '') {
       handleNewSeed();
     }
   }, [type, seed, handleNewSeed]);
@@ -68,7 +68,12 @@ const Page = ({ match }) => {
     <Theme>
       <div className="Generate">
         <div style={{ marginBottom: '8px' }}>
-          <Button href={`/`} color={'primary'}>
+          <Button
+            onClick={() => {
+              history.push('/');
+            }}
+            color={'primary'}
+          >
             Home
           </Button>
         </div>

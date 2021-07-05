@@ -1,12 +1,26 @@
 import { typeMap } from './startsWithMap';
 
-const noSupportForSeed = ['secp256r1'];
+const noSupportForSeed = ['secp256r1', 'secp384r1', 'secp521r1'];
 
 const getOptionsForType = (type) => {
   if (type === 'secp256r1') {
     return {
       kty: 'EC',
       crvOrSize: 'P-256',
+    };
+  }
+
+  if (type === 'secp384r1') {
+    return {
+      kty: 'EC',
+      crvOrSize: 'P-384',
+    };
+  }
+
+  if (type === 'secp521r1') {
+    return {
+      kty: 'EC',
+      crvOrSize: 'P-521',
     };
   }
 };

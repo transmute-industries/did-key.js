@@ -58,6 +58,6 @@
   },
   "dependencies": {
     "@transmute/did-key-common": "^0.2.1-unstable.42",
-    "@transmute/web-crypto-key-pair": "^0.7.0-unstable.1"
+    "@transmute/web-crypto-key-pair": "^0.7.0-unstable.2"
   }
 }
