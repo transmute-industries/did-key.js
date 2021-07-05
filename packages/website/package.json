@@ -2,7 +2,7 @@
   "name": "website",
   "version": "0.3.0-unstable.0",
   "private": true,
-  "homepage": "https://github.com/transmute-industries/did-key.js/tree/master/packages/website",
+  "homepage": "https://did.key.transmute.industries",
   "repository": {
     "type": "git",
     "url": "https://github.com/transmute-industries/did-key.js.git",
