@@ -1,9 +1,5 @@
-import { startsWithMap } from './startsWithMap';
+import * as didKey from '@transmute/did-key.js';
 
 export const resolve = async (did, representation) => {
-  const startsWith = did.substring(0, 12);
-  if (!startsWithMap[startsWith]) {
-    throw new Error('Unsupported startsWith: ' + startsWith);
-  }
-  return startsWithMap[startsWith].resolve(did, { accept: representation });
+  return didKey.resolve(did, { accept: representation });
 };

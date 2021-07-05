@@ -10,7 +10,9 @@ export function RepresentationToggleButton({
 }) {
   const handleChange = (event, newRepresentation) => {
     setRepresentation(newRepresentation);
-    onChange(newRepresentation);
+    if (onChange) {
+      onChange(newRepresentation);
+    }
   };
 
   return (
