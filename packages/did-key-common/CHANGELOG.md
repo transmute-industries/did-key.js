@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.3.0-unstable.0](https://github.com/transmute-industries/did-key.js/compare/v0.2.1-unstable.42...v0.3.0-unstable.0) (2021-07-05)
+
+
+### Features
+
+* update did-key-common ([725b558](https://github.com/transmute-industries/did-key.js/commit/725b5584e5b6c0c22bf36d600734fb6b5eedc5b0))
+
+
+
+
+
 ## 0.2.1-unstable.42 (2021-04-19)
 
 **Note:** Version bump only for package @transmute/did-key-common
