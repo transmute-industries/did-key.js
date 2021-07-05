@@ -41,9 +41,9 @@ npm i @transmute/did-key-x25519@latest --save
 
 #### [Bls12381](./packages/did-key-bls12381)
 
-`did:key:z5Tc...` -> G1 + G2
-`did:key:z3tE...` -> G1
-`did:key:zUC7...` -> G2
+- `did:key:z5Tc...` -> G1 + G2
+- `did:key:z3tE...` -> G1
+- `did:key:zUC7...` -> G2
 
 ```
 npm i @transmute/did-key-bls12381@latest --save
@@ -59,9 +59,9 @@ npm i @transmute/did-key-secp256k1@latest --save
 
 #### [Secp256r1, Secp384r1, Secp521r1](./packages/did-key-web-crypto)
 
-`did:key:zDna...` -> Secp256r1 / P-256
-`did:key:z82L...` -> Secp384r1 / P-384
-`did:key:z2J9...` -> Secp521r1 / P-521
+- `did:key:zDna...` -> Secp256r1 / P-256
+- `did:key:z82L...` -> Secp384r1 / P-384
+- `did:key:z2J9...` -> Secp521r1 / P-521
 
 ```
 npm i @transmute/did-key-web-crypto@latest --save
