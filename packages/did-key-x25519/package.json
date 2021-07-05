@@ -2,7 +2,7 @@
   "name": "@transmute/did-key-x25519",
   "author": "Orie Steele",
   "module": "dist/did-key-x25519.esm.js",
-  "version": "0.3.0-unstable.0",
+  "version": "0.3.0-unstable.1",
   "license": "Apache-2.0",
   "main": "dist/index.js",
   "typings": "dist/index.d.ts",
@@ -52,7 +52,7 @@
     "typescript": "^4.3.4"
   },
   "dependencies": {
-    "@transmute/did-key-common": "^0.3.0-unstable.0",
+    "@transmute/did-key-common": "^0.3.0-unstable.1",
     "@transmute/x25519-key-pair": "^0.7.0-unstable.1"
   }
 }
