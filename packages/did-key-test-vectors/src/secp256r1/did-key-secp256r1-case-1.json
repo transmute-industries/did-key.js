@@ -1,0 +1,103 @@
+{
+  "type": "secp256r1",
+  "caseNumber": 1,
+  "seed": "9085d2bef69286a6cbb51623c8fa258629945cd55ca705cc4e66700396894e0c",
+  "application/did+json": {
+    "didDocument": {
+      "@context": [
+        "https://www.w3.org/ns/did/v1",
+        "https://w3id.org/security/suites/jws-2020/v1"
+      ],
+      "id": "did:key:zDnaepBYkr1JXYhfxAoVJJpXJsH5cTNYHfpcVQ6JKKiD4DGY7",
+      "verificationMethod": [
+        {
+          "id": "did:key:zDnaepBYkr1JXYhfxAoVJJpXJsH5cTNYHfpcVQ6JKKiD4DGY7#zDnaepBYkr1JXYhfxAoVJJpXJsH5cTNYHfpcVQ6JKKiD4DGY7",
+          "type": "JsonWebKey2020",
+          "controller": "did:key:zDnaepBYkr1JXYhfxAoVJJpXJsH5cTNYHfpcVQ6JKKiD4DGY7",
+          "publicKeyJwk": {
+            "kty": "EC",
+            "crv": "P-256",
+            "x": "YObkCagS4lm4_Nkx_dC7Km63KnVVDhMFt4FmntYcxfg",
+            "y": "cJ9jR-XqBNQad96oPkZvjTf32NRcxCd4PiP7Ne9wF1E"
+          }
+        }
+      ],
+      "assertionMethod": [
+        "did:key:zDnaepBYkr1JXYhfxAoVJJpXJsH5cTNYHfpcVQ6JKKiD4DGY7#zDnaepBYkr1JXYhfxAoVJJpXJsH5cTNYHfpcVQ6JKKiD4DGY7"
+      ],
+      "authentication": [
+        "did:key:zDnaepBYkr1JXYhfxAoVJJpXJsH5cTNYHfpcVQ6JKKiD4DGY7#zDnaepBYkr1JXYhfxAoVJJpXJsH5cTNYHfpcVQ6JKKiD4DGY7"
+      ],
+      "capabilityInvocation": [
+        "did:key:zDnaepBYkr1JXYhfxAoVJJpXJsH5cTNYHfpcVQ6JKKiD4DGY7#zDnaepBYkr1JXYhfxAoVJJpXJsH5cTNYHfpcVQ6JKKiD4DGY7"
+      ],
+      "capabilityDelegation": [
+        "did:key:zDnaepBYkr1JXYhfxAoVJJpXJsH5cTNYHfpcVQ6JKKiD4DGY7#zDnaepBYkr1JXYhfxAoVJJpXJsH5cTNYHfpcVQ6JKKiD4DGY7"
+      ],
+      "keyAgreement": [
+        "did:key:zDnaepBYkr1JXYhfxAoVJJpXJsH5cTNYHfpcVQ6JKKiD4DGY7#zDnaepBYkr1JXYhfxAoVJJpXJsH5cTNYHfpcVQ6JKKiD4DGY7"
+      ]
+    },
+    "keys": [
+      {
+        "id": "did:key:zDnaepBYkr1JXYhfxAoVJJpXJsH5cTNYHfpcVQ6JKKiD4DGY7#zDnaepBYkr1JXYhfxAoVJJpXJsH5cTNYHfpcVQ6JKKiD4DGY7",
+        "type": "JsonWebKey2020",
+        "controller": "did:key:zDnaepBYkr1JXYhfxAoVJJpXJsH5cTNYHfpcVQ6JKKiD4DGY7",
+        "publicKeyJwk": {
+          "kty": "EC",
+          "crv": "P-256",
+          "x": "YObkCagS4lm4_Nkx_dC7Km63KnVVDhMFt4FmntYcxfg",
+          "y": "cJ9jR-XqBNQad96oPkZvjTf32NRcxCd4PiP7Ne9wF1E"
+        },
+        "privateKeyJwk": {
+          "kty": "EC",
+          "crv": "P-256",
+          "d": "oKaJHmziJageiQGLMfgrE722LyoQWi-A7lpSuB5IcgE",
+          "x": "YObkCagS4lm4_Nkx_dC7Km63KnVVDhMFt4FmntYcxfg",
+          "y": "cJ9jR-XqBNQad96oPkZvjTf32NRcxCd4PiP7Ne9wF1E"
+        }
+      }
+    ]
+  },
+  "application/did+ld+json": {
+    "keys": [
+      {
+        "id": "did:key:zDnaepBYkr1JXYhfxAoVJJpXJsH5cTNYHfpcVQ6JKKiD4DGY7#zDnaepBYkr1JXYhfxAoVJJpXJsH5cTNYHfpcVQ6JKKiD4DGY7",
+        "type": "P256Key2021",
+        "controller": "did:key:zDnaepBYkr1JXYhfxAoVJJpXJsH5cTNYHfpcVQ6JKKiD4DGY7",
+        "publicKeyBase58": "21DDTCyUrpE8VYeAeSJQwCxfNQZR9uT6MTEzsktd8qVV1",
+        "privateKeyBase58": "Bp7Wxog9jJPEh6gahgkp3Df5Liafn9yQDrUn6tQiUjy2"
+      }
+    ],
+    "didDocument": {
+      "@context": [
+        "https://www.w3.org/ns/did/v1",
+        "https://w3id.org/security/suites/multikey-2021/v1"
+      ],
+      "id": "did:key:zDnaepBYkr1JXYhfxAoVJJpXJsH5cTNYHfpcVQ6JKKiD4DGY7",
+      "verificationMethod": [
+        {
+          "id": "did:key:zDnaepBYkr1JXYhfxAoVJJpXJsH5cTNYHfpcVQ6JKKiD4DGY7#zDnaepBYkr1JXYhfxAoVJJpXJsH5cTNYHfpcVQ6JKKiD4DGY7",
+          "type": "P256Key2021",
+          "controller": "did:key:zDnaepBYkr1JXYhfxAoVJJpXJsH5cTNYHfpcVQ6JKKiD4DGY7",
+          "publicKeyBase58": "21DDTCyUrpE8VYeAeSJQwCxfNQZR9uT6MTEzsktd8qVV1"
+        }
+      ],
+      "assertionMethod": [
+        "did:key:zDnaepBYkr1JXYhfxAoVJJpXJsH5cTNYHfpcVQ6JKKiD4DGY7#zDnaepBYkr1JXYhfxAoVJJpXJsH5cTNYHfpcVQ6JKKiD4DGY7"
+      ],
+      "authentication": [
+        "did:key:zDnaepBYkr1JXYhfxAoVJJpXJsH5cTNYHfpcVQ6JKKiD4DGY7#zDnaepBYkr1JXYhfxAoVJJpXJsH5cTNYHfpcVQ6JKKiD4DGY7"
+      ],
+      "capabilityInvocation": [
+        "did:key:zDnaepBYkr1JXYhfxAoVJJpXJsH5cTNYHfpcVQ6JKKiD4DGY7#zDnaepBYkr1JXYhfxAoVJJpXJsH5cTNYHfpcVQ6JKKiD4DGY7"
+      ],
+      "capabilityDelegation": [
+        "did:key:zDnaepBYkr1JXYhfxAoVJJpXJsH5cTNYHfpcVQ6JKKiD4DGY7#zDnaepBYkr1JXYhfxAoVJJpXJsH5cTNYHfpcVQ6JKKiD4DGY7"
+      ],
+      "keyAgreement": [
+        "did:key:zDnaepBYkr1JXYhfxAoVJJpXJsH5cTNYHfpcVQ6JKKiD4DGY7#zDnaepBYkr1JXYhfxAoVJJpXJsH5cTNYHfpcVQ6JKKiD4DGY7"
+      ]
+    }
+  }
+}

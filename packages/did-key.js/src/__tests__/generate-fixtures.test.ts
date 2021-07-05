@@ -19,7 +19,7 @@ const seeds = [
   '4093566b154c13ecd5587bc81a02570bf79e5bbdf87b01539325bfdbd7a3820b',
 ];
 
-describe('fixtures', () => {
+describe.skip('fixtures', () => {
   types.forEach((type) => {
     describe(type, () => {
       seeds.forEach((seed) => {

@@ -102,29 +102,22 @@
     "didDocument": {
       "@context": [
         "https://www.w3.org/ns/did/v1",
-        "https://w3id.org/security/suites/jws-2020/v1"
+        "https://w3id.org/security/suites/ed25519-2018/v1",
+        "https://w3id.org/security/suites/x25519-2019/v1"
       ],
       "id": "did:key:z6Mkvhngx56dHQmTbHcekuEXwC6cqhehED7eBYix7vhRqLTD",
       "verificationMethod": [
         {
           "id": "did:key:z6Mkvhngx56dHQmTbHcekuEXwC6cqhehED7eBYix7vhRqLTD#z6Mkvhngx56dHQmTbHcekuEXwC6cqhehED7eBYix7vhRqLTD",
-          "type": "JsonWebKey2020",
+          "type": "Ed25519VerificationKey2018",
           "controller": "did:key:z6Mkvhngx56dHQmTbHcekuEXwC6cqhehED7eBYix7vhRqLTD",
-          "publicKeyJwk": {
-            "kty": "OKP",
-            "crv": "Ed25519",
-            "x": "8XPFhXEoznIHpJuLzeXeKrOOfBeN20WJ3qMCGGJLiNw"
-          }
+          "publicKeyBase58": "HFXeMprBwsGzUnmx5LGh66Yd28NqpKsHVXp2HejQv7fq"
         },
         {
           "id": "did:key:z6Mkvhngx56dHQmTbHcekuEXwC6cqhehED7eBYix7vhRqLTD#z6LSk5pNkeqHCybFaHupY9bQiGmrbM5MhRgj4HLi9Padso2t",
-          "type": "JsonWebKey2020",
+          "type": "X25519KeyAgreementKey2019",
           "controller": "did:key:z6Mkvhngx56dHQmTbHcekuEXwC6cqhehED7eBYix7vhRqLTD",
-          "publicKeyJwk": {
-            "kty": "OKP",
-            "crv": "X25519",
-            "x": "fOvtsK5M5Pzx1maV9MeoCQBxG_Af4Ua8FvPXiJF0pRU"
-          }
+          "publicKeyBase58": "9QeDEM2R7WsWUuY41W5TPgZNkCYEzpWaBJd2evw7ARG8"
         }
       ],
       "assertionMethod": [

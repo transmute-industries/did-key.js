@@ -90,7 +90,7 @@ export const generate = (
   type: string,
   generateOptions: generateFromSeedOptions | generateFromRandomOptions,
   resolutionOptions: {
-    accept: 'application/did+json' | 'applications/did+ld+json';
+    accept: 'application/did+json' | 'application/did+ld+json';
   }
 ): Promise<DidGeneration> => {
   if (!(typeMap as any)[type]) {
@@ -132,7 +132,7 @@ export const convert = async (
     accept: 'application/did+json' | 'application/did+ld+json';
   }
 ): Promise<DidGeneration> => {
-  const { didDocument } = await resolve(keys[0].controller, {
+  const oldRepresentation = await resolve(keys[0].controller, {
     accept: 'application/did+json',
   });
   const newRepresentation = await resolve(
@@ -141,11 +141,16 @@ export const convert = async (
   );
   const converted = (await Promise.all(
     keys.map(async (k: any) => {
-      const KeyPair = getKeyPairClassFromKey(k) as any;
-      let k1 = await KeyPair.from(k);
       const vm = newRepresentation.didDocument.verificationMethod.find((v) => {
         return v.id === k.id;
       });
+      const vmAsJson = oldRepresentation.didDocument.verificationMethod.find(
+        (v) => {
+          return v.id === k.id;
+        }
+      );
+      const KeyPair = getKeyPairClassFromKey(vmAsJson) as any;
+      let k1 = await KeyPair.from(k);
       let k2 = await k1.export({
         type: vm.type,
         privateKey: true,
@@ -154,7 +159,7 @@ export const convert = async (
     })
   )) as DidKey[];
 
-  return { keys: converted, didDocument };
+  return { keys: converted, didDocument: newRepresentation.didDocument };
 };
 
 export const resolve = (

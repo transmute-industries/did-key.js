@@ -72,20 +72,15 @@
     "didDocument": {
       "@context": [
         "https://www.w3.org/ns/did/v1",
-        "https://w3id.org/security/suites/jws-2020/v1"
+        "https://w3id.org/security/suites/secp256k1-2019/v1"
       ],
       "id": "did:key:zQ3shjRPgHQQbTtXyofk1ygghRJ75RZpXmWBMY1BKnhyz7zKp",
       "verificationMethod": [
         {
           "id": "did:key:zQ3shjRPgHQQbTtXyofk1ygghRJ75RZpXmWBMY1BKnhyz7zKp#zQ3shjRPgHQQbTtXyofk1ygghRJ75RZpXmWBMY1BKnhyz7zKp",
-          "type": "JsonWebKey2020",
+          "type": "EcdsaSecp256k1VerificationKey2019",
           "controller": "did:key:zQ3shjRPgHQQbTtXyofk1ygghRJ75RZpXmWBMY1BKnhyz7zKp",
-          "publicKeyJwk": {
-            "kty": "EC",
-            "crv": "secp256k1",
-            "x": "RwiZITTa2Dcmq-V1j-5tgPUshOLO31FbsnhVS-7lskc",
-            "y": "3o1-UCc3ABh757P58gDISSc4hOj9qyfSGl3SGGA7xdc"
-          }
+          "publicKeyBase58": "yUEfSFw89FK6Za4bbboebhjdmodZUx8pc5RXVNJruWU6"
         }
       ],
       "assertionMethod": [

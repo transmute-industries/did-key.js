@@ -57,19 +57,15 @@
     "didDocument": {
       "@context": [
         "https://www.w3.org/ns/did/v1",
-        "https://w3id.org/security/suites/jws-2020/v1"
+        "https://w3id.org/security/suites/x25519-2019/v1"
       ],
       "id": "did:key:z6LSnrqxLHTe4L7yZP1r6BfGS69GfEorkxADKzZzB9igQKEC",
       "verificationMethod": [
         {
           "id": "did:key:z6LSnrqxLHTe4L7yZP1r6BfGS69GfEorkxADKzZzB9igQKEC#z6LSnrqxLHTe4L7yZP1r6BfGS69GfEorkxADKzZzB9igQKEC",
-          "type": "JsonWebKey2020",
+          "type": "X25519KeyAgreementKey2019",
           "controller": "did:key:z6LSnrqxLHTe4L7yZP1r6BfGS69GfEorkxADKzZzB9igQKEC",
-          "publicKeyJwk": {
-            "kty": "OKP",
-            "crv": "X25519",
-            "x": "piw5XSMkceDeklaHQZXPBLQySyAwF8eZ-vddihdURS0"
-          }
+          "publicKeyBase58": "CBfnoyemxsQETze5ZY9K7Vvnp6Gk4Lz4T1rJgh59gwTS"
         }
       ],
       "keyAgreement": [

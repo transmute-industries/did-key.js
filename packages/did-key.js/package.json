@@ -51,6 +51,7 @@
     "typescript": "^4.3.4"
   },
   "dependencies": {
+    "@transmute/did-key-test-vectors": "0.2.1-unstable.42",
     "@transmute/did-key-ed25519": "0.1.0",
     "@transmute/did-key-x25519": "0.1.0",
     "@transmute/did-key-secp256k1": "0.1.0",
