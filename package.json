@@ -4,7 +4,7 @@
   "scripts": {
     "clean:lock": "npx lerna exec 'rm -rf package-lock.json node_modules'",
     "install:clean": "npx lerna clean -y && rm -rf node_modules && npm i",
-    "install:ci": "npm install --ignore-scripts && lerna link && lerna bootstrap --since origin/master --include-dependencies",
+    "install:ci": "npm install --ignore-scripts && lerna link && lerna bootstrap --since origin/main --include-dependencies",
     "bootstrap": "lerna bootstrap",
     "lint": "lerna run lint --stream",
     "test": "lerna run test --stream",
@@ -28,6 +28,6 @@
     "@commitlint/config-conventional": "^9.1.1",
     "@transmute/credentials-context": "^0.6.1-unstable.36",
     "husky": "^4.2.5",
-    "lerna": "^3.22.0"  
+    "lerna": "^3.22.0"
   }
 }

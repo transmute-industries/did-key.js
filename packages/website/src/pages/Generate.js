@@ -1,7 +1,7 @@
 import React from 'react';
 import { withRouter } from 'react-router-dom';
 
-import { Box, Button, Typography } from '@material-ui/core';
+import { Grid, Button, Typography } from '@material-ui/core';
 import { RepresentationToggleButton } from '../components/RepresentationToggleButton';
 import { AceEditor } from '../components/AceEditor';
 import { Theme } from '../components/Theme';
@@ -106,53 +106,61 @@ const Page = ({ match }) => {
   return (
     <Theme>
       <div className="Generate">
-        <div style={{ marginBottom: '8px', flexDirection: 'column' }}>
+        <div
+          style={{
+            marginBottom: '16px',
+            flexDirection: 'column',
+          }}
+        >
+          <Button
+            onClick={() => {
+              history.push('/');
+            }}
+            color={'primary'}
+            startIcon={<ArrowBackIcon />}
+          >
+            Home
+          </Button>
           <Typography style={{ color: orange['500'] }}>
-            <Button
-              onClick={() => {
-                history.push('/');
-              }}
-              color={'primary'}
-              startIcon={<ArrowBackIcon />}
-            >
-              Home
-            </Button>{' '}
             Seeds and keys <strong>must remain private</strong>. Do not share
             them.
           </Typography>
         </div>
 
-        <div style={{ maxWidth: '90%' }}>
-          <Box display="flex">
-            <Box flexGrow={1}>
+        <Grid container>
+          <Grid item>
+            <div style={{ marginBottom: '16px' }}>
               <RepresentationToggleButton
                 representation={representation}
                 setRepresentation={setRepresentation}
                 onChange={handleRepresentationChange}
               />
-              <Button style={{ marginLeft: '8px' }} onClick={handleGenerate}>
-                Re-generate
-              </Button>
-              <Button style={{ marginLeft: '8px' }} onClick={handleDownload}>
-                Download
-              </Button>
-            </Box>
-            <Box>
-              <Button
-                color={'secondary'}
-                variant={'outlined'}
-                onClick={handleResolve}
-              >
-                Resolve
-              </Button>
-            </Box>
-          </Box>
-          <div style={{ marginTop: '16px' }}>
-            <Typography variant={'h4'} color={'secondary'} gutterBottom>
-              {type} keys
-            </Typography>
-            <AceEditor value={editor} />
-          </div>
+            </div>
+          </Grid>
+          <Grid item>
+            <Button style={{ marginLeft: '8px' }} onClick={handleGenerate}>
+              Re-generate
+            </Button>
+            <Button style={{ marginLeft: '8px' }} onClick={handleDownload}>
+              Download
+            </Button>
+          </Grid>
+          <Grid item>
+            <Button
+              color={'secondary'}
+              variant={'outlined'}
+              onClick={handleResolve}
+            >
+              Resolve
+            </Button>
+          </Grid>
+        </Grid>
+
+        <div style={{ marginTop: '16px' }}>
+          <Typography variant={'h4'} color={'secondary'} gutterBottom>
+            {type} keys
+          </Typography>
+          <AceEditor value={editor} />
         </div>
       </div>
     </Theme>

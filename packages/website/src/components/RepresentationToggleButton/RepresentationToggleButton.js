@@ -25,6 +25,7 @@ export function RepresentationToggleButton({
       <ToggleButton
         value="application/did+json"
         aria-label="json"
+        size={'small'}
         style={{ textTransform: 'lowercase' }}
       >
         application/did+json
@@ -32,6 +33,7 @@ export function RepresentationToggleButton({
       <ToggleButton
         value="application/did+ld+json"
         aria-label="jsonld"
+        size={'small'}
         style={{ textTransform: 'lowercase' }}
       >
         application/did+ld+json

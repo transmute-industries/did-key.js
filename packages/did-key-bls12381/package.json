@@ -9,7 +9,7 @@
   "publishConfig": {
     "access": "public"
   },
-  "homepage": "https://github.com/transmute-industries/did-key.js/tree/master/packages/did-key-bls12381",
+  "homepage": "https://github.com/transmute-industries/did-key.js/tree/main/packages/did-key-bls12381",
   "repository": {
     "type": "git",
     "url": "https://github.com/transmute-industries/did-key.js.git",
