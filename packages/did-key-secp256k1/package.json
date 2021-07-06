@@ -2,7 +2,7 @@
   "name": "@transmute/did-key-secp256k1",
   "author": "Orie Steele",
   "module": "dist/did-key-secp256k1.esm.js",
-  "version": "0.3.0-unstable.1",
+  "version": "0.3.0-unstable.2",
   "license": "Apache-2.0",
   "main": "dist/index.js",
   "typings": "dist/index.d.ts",
@@ -57,7 +57,7 @@
     "typescript": "^4.3.4"
   },
   "dependencies": {
-    "@transmute/did-key-common": "^0.3.0-unstable.1",
+    "@transmute/did-key-common": "^0.3.0-unstable.2",
     "@transmute/secp256k1-key-pair": "^0.7.0-unstable.2"
   }
 }

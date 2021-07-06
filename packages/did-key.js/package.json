@@ -2,7 +2,7 @@
   "name": "@transmute/did-key.js",
   "author": "Orie Steele",
   "module": "dist/did-key.js.esm.js",
-  "version": "0.3.0-unstable.1",
+  "version": "0.3.0-unstable.2",
   "license": "Apache-2.0",
   "main": "dist/index.js",
   "typings": "dist/index.d.ts",
@@ -51,11 +51,11 @@
     "typescript": "^4.3.4"
   },
   "dependencies": {
-    "@transmute/did-key-bls12381": "^0.3.0-unstable.1",
-    "@transmute/did-key-ed25519": "^0.3.0-unstable.1",
-    "@transmute/did-key-secp256k1": "^0.3.0-unstable.1",
-    "@transmute/did-key-test-vectors": "^0.3.0-unstable.1",
-    "@transmute/did-key-web-crypto": "^0.3.0-unstable.1",
-    "@transmute/did-key-x25519": "^0.3.0-unstable.1"
+    "@transmute/did-key-bls12381": "^0.3.0-unstable.2",
+    "@transmute/did-key-ed25519": "^0.3.0-unstable.2",
+    "@transmute/did-key-secp256k1": "^0.3.0-unstable.2",
+    "@transmute/did-key-test-vectors": "^0.3.0-unstable.2",
+    "@transmute/did-key-web-crypto": "^0.3.0-unstable.2",
+    "@transmute/did-key-x25519": "^0.3.0-unstable.2"
   }
 }
