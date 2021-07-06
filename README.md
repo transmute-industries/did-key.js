@@ -73,7 +73,7 @@ npm i @transmute/did-key-web-crypto@latest --save
 
 Unstable releases are automatic, from CD:
 
-- On every commit to master an unstable release is pushed. An unstable release is a release with a tag of the form: vA.B.C-unstable.X. Everytime a PR is merged, X is incremented.
+- On every commit to main an unstable release is pushed. An unstable release is a release with a tag of the form: vA.B.C-unstable.X. Everytime a PR is merged, X is incremented.
 - If "skip-ci" is present in the commit message, the aforementioned behavior is skipped
 
 ### Stable releases

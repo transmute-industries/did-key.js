@@ -1,6 +1,6 @@
 {
   "name": "@transmute/did-key-test-vectors",
-  "homepage": "https://github.com/transmute-industries/did-key.js/tree/master/packages/test-vectors",
+  "homepage": "https://github.com/transmute-industries/did-key.js/tree/main/packages/test-vectors",
   "repository": {
     "type": "git",
     "url": "https://github.com/transmute-industries/did-key.js.git",

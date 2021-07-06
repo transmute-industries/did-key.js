@@ -1,7 +1,7 @@
 import React from 'react';
 import { withRouter } from 'react-router-dom';
 
-import { Box, Button, Typography } from '@material-ui/core';
+import { Grid, Button, Typography } from '@material-ui/core';
 import { RepresentationToggleButton } from '../components/RepresentationToggleButton';
 import { AceEditor } from '../components/AceEditor';
 import { Theme } from '../components/Theme';
@@ -51,27 +51,37 @@ const Page = ({ match }) => {
           </Typography>
         </div>
 
-        <div style={{ maxWidth: '90%' }}>
-          <Box display="flex">
-            <Box flexGrow={1}>
+        <Grid container>
+          <Grid item>
+            <div style={{ marginBottom: '16px' }}>
               <RepresentationToggleButton
                 representation={representation}
                 setRepresentation={setRepresentation}
               />
-            </Box>
-            <Box>
-              <Button
-                color={'secondary'}
-                variant={'outlined'}
-                onClick={handleDownload}
-              >
-                Download
-              </Button>
-            </Box>
-          </Box>
-          <div style={{ marginTop: '16px' }}>
-            <AceEditor value={editor} />
-          </div>
+            </div>
+          </Grid>
+          <Grid item>
+            <Button
+              color={'secondary'}
+              variant={'outlined'}
+              onClick={handleDownload}
+              style={{ marginLeft: '8px' }}
+            >
+              Download
+            </Button>{' '}
+          </Grid>
+        </Grid>
+
+        <div style={{ marginTop: '16px' }}>
+          <Typography
+            variant={'h4'}
+            color={'secondary'}
+            style={{ marginBottom: '32px' }}
+          >
+            DID Document
+          </Typography>
+
+          <AceEditor value={editor} />
         </div>
       </div>
     </Theme>

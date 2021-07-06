@@ -17,7 +17,8 @@ const useStyles = makeStyles((theme) => ({
   description: {
     color: theme.palette.text.secondary,
     padding: '8px 0px',
-    minHeight: '64px',
+    marginTop: '12px',
+    minHeight: '96px',
   },
 }));
 

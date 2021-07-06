@@ -6,10 +6,10 @@ jobs:
     steps:
       - name: Begin CI...
         uses: actions/checkout@v2
-      # We need to fetch master so that "lerna run test --since origin/master" works
+      # We need to fetch main so that "lerna run test --since origin/main" works
       # https://github.com/actions/checkout/issues/118
       - run: |
-          git fetch --no-tags --prune --depth=1 origin +refs/heads/master:refs/remotes/origin/master
+          git fetch --no-tags --prune --depth=1 origin +refs/heads/main:refs/remotes/origin/main
       - name: Use Node 14
         uses: actions/setup-node@v1
         with:
@@ -18,7 +18,7 @@ jobs:
         run: npm run install:ci
 
       - name: Lint
-        run: npm run lint -- --since origin/master
+        run: npm run lint -- --since origin/main
 
       - name: Test
-        run: npm run test -- --since origin/master
+        run: npm run test -- --since origin/main
