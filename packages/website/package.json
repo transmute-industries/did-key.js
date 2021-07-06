@@ -1,8 +1,8 @@
 {
   "name": "website",
-  "version": "0.3.0-unstable.0",
+  "version": "0.3.0-unstable.1",
   "private": true,
-  "homepage": "https://github.com/transmute-industries/did-key.js/tree/main/packages/website",
+  "homepage": "https://did.key.transmute.industries",
   "repository": {
     "type": "git",
     "url": "https://github.com/transmute-industries/did-key.js.git",
@@ -15,7 +15,7 @@
     "@testing-library/jest-dom": "^5.14.1",
     "@testing-library/react": "^11.2.7",
     "@testing-library/user-event": "^12.8.3",
-    "@transmute/did-key.js": "^0.3.0-unstable.0",
+    "@transmute/did-key.js": "^0.3.0-unstable.1",
     "brace": "^0.11.1",
     "query-string": "^7.0.1",
     "react": "^17.0.2",
