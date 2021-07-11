@@ -30,6 +30,7 @@
   "scripts": {
     "start": "react-scripts start",
     "build:website": "CI=false NODE_OPTIONS=--max_old_space_size=8192 react-scripts build",
+    "postbuild:website": "cp ./build/index.html ./build/404.html",
     "eject": "react-scripts eject"
   },
   "eslintConfig": {
