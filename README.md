@@ -97,6 +97,32 @@ Stable releases are triggered by a dev locally
 - A PR is made to fix bug D. When it's merged a release is made: v0.1.1-unstable-0
 - etc...
 
+### Usage
+
+To install all packages run
+
+```bash
+npm install
+```
+
+To install a specific package (and its dependencies) run
+
+```bash
+npm run install:only @transmute/did-key-x25519
+```
+
+To run tests in every packages run
+
+```bash
+npm run test
+```
+
+To test a specific package run
+
+```bash
+npm run test:only @transmute/did-key-x25519
+```
+
 ### Alternatives
 
 - [digitalbazaar/did-method-key-js](https://github.com/digitalbazaar/did-method-key-js)
