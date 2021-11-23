@@ -24,6 +24,7 @@ export const startsWithMap = {
 
   'did:key:zQ3s': secp256k1,
   'did:key:z5Tc': bls12381,
+  'did:key:zUC7': bls12381,
 
   'did:key:zDna': web,
   'did:key:z82L': web,
