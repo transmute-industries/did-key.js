@@ -85,7 +85,7 @@ export const MethodSummaryPanel = () => {
                     <ErrorOutlineOutlinedIcon style={{ color: yellow[800] }} />
                   </ListItemIcon>
                   <ListItemText
-                    primary="None standard"
+                    primary="Non standard"
                     secondary={'W3C CCG draft, subject to change'}
                   />
                 </ListItem>
