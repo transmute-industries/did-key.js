@@ -3,7 +3,7 @@ import * as secp256k1 from '@transmute/did-key-secp256k1';
 import * as x25519 from '@transmute/did-key-x25519';
 import * as bls12381 from '@transmute/did-key-bls12381';
 import * as web from '@transmute/did-key-web-crypto';
-
+import base64url from 'base64url';
 export { ed25519, x25519, secp256k1, bls12381, web };
 
 export const typeMap = {
@@ -31,11 +31,29 @@ export const startsWithMap = {
   'did:key:z2J9': web,
 };
 
-type generateFromSeedOptions = { secureRandom: () => Buffer };
 type generateFromRandomOptions = {
   kty: 'EC' | 'OKP';
   crvOrSize: 'P-256' | 'P-384' | 'P-521';
+  secureRandom: () => Buffer;
 };
+
+export type curveName_ed25519 = 'ed25519';
+export type curveName_secp256k1 = 'secp256k1';
+export type curveName_secp256r1 = 'secp256r1';
+export type curveName_secp384r1 = 'secp384r1';
+export type curveName_secp521r1 = 'secp521r1';
+
+export interface ResolutionOptions {
+  accept: 'application/did+json' | 'application/did+ld+json';
+}
+export type GenerateKeyType =
+  | curveName_ed25519
+  | curveName_secp256k1
+  | curveName_secp256r1
+  | curveName_secp384r1
+  | curveName_secp521r1;
+
+export interface GenerateOptions {}
 
 interface KeyCommonProps {
   id: string;
@@ -87,12 +105,62 @@ export const getOptionsForType = (type: string) => {
   throw new Error('No options for type: ' + type);
 };
 
+export const generate2 = async (options: any): Promise<DidGeneration> => {
+  const { keys } = await generate(
+    options.type,
+    {
+      secureRandom: () => {
+        return Buffer.from(options.seed, 'hex');
+      },
+    },
+    options
+  );
+  const [key]: any = keys;
+  const { publicKeyJwk } = key;
+  const kid =
+    options.kid || publicKeyJwk.kid || keys[0].controller.split(':').pop();
+
+  const jwk = {
+    kid,
+    // '@context': options.didDocument['@context'],
+    // service: options.didDocument.service,
+    ...publicKeyJwk,
+  };
+  const did = `did:jwk:${base64url.encode(JSON.stringify(jwk))}`;
+
+  const didUrl = did; // + '#' + kid;
+  const newDoc: any = {
+    // '@context': options.didDocument['@context'],
+    id: did,
+    verificationMethod: [
+      {
+        id: didUrl,
+        type: 'JsonWebKey2020',
+        controller: did,
+        publicKeyJwk: jwk,
+      },
+    ],
+    authentication: [didUrl],
+    capabilityInvocation: [didUrl],
+    capabilityDelegation: [didUrl],
+    keyAgreement: [didUrl],
+    // service: (options.didDocument.service || []).map((s: any) => {
+    //   return { ...s, id: did + s.id };
+    // }),
+  };
+  const newKeys = [key].map((k) => {
+    return { id: didUrl, controller: did, ...k };
+  });
+  return {
+    keys: newKeys,
+    didDocument: JSON.parse(JSON.stringify(newDoc)),
+  };
+};
+
 export const generate = (
   type: string,
-  generateOptions: generateFromSeedOptions | generateFromRandomOptions,
-  resolutionOptions: {
-    accept: 'application/did+json' | 'application/did+ld+json';
-  }
+  generateOptions: GenerateOptions,
+  resolutionOptions: ResolutionOptions
 ): Promise<DidGeneration> => {
   if (!(typeMap as any)[type]) {
     throw new Error('did-key.js does not support: ' + type);
