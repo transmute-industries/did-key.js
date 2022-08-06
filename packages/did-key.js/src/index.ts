@@ -167,7 +167,7 @@ const generate2 = async (options: any): Promise<DidJwkGeneration> => {
 
 const resolve2 = async (did: string): Promise<DidResolution> => {
   const publicKeyJwk = JSON.parse(
-    Buffer.from(did.replace('did:jwk:', ''), 'base64').toString()
+    Buffer.from(did.split('#')[0].replace('did:jwk:', ''), 'base64').toString()
   );
   const didUrl = did + '#0';
   const verificationMethod = {
@@ -271,7 +271,10 @@ export const resolve = (
   if (!(startsWithMap as any)[startsWith]) {
     throw new Error('did-key.js does not support: ' + startsWith + '...');
   }
-  return (startsWithMap as any)[startsWith].resolve(did, resolutionOptions);
+  return (startsWithMap as any)[startsWith].resolve(
+    did.split('#')[0],
+    resolutionOptions
+  );
 };
 
 export const jwk = {
