@@ -156,8 +156,8 @@ const generate2 = async (options: any): Promise<DidJwkGeneration> => {
     //   return { ...s, id: did + s.id };
     // }),
   };
-  const newKeys: JwkKeyPair[] = [key].map((k, i) => {
-    return { id: didUrl + '#' + i, controller: did, ...k } as JwkKeyPair;
+  const newKeys: JwkKeyPair[] = [key].map((k) => {
+    return { ...k, id: didUrl, controller: did } as JwkKeyPair;
   });
   return {
     keys: newKeys,
@@ -165,8 +165,31 @@ const generate2 = async (options: any): Promise<DidJwkGeneration> => {
   };
 };
 
+const resolve2 = async (did: string): Promise<DidResolution> => {
+  const publicKeyJwk = JSON.parse(
+    Buffer.from(did.replace('did:jwk:', ''), 'base64').toString()
+  );
+  const didUrl = did + '#0';
+  const verificationMethod = {
+    id: didUrl,
+    type: 'JsonWebKey2020',
+    controller: did,
+    publicKeyJwk,
+  };
+  const didDocument: any = {
+    id: did,
+    verificationMethod: [verificationMethod],
+    authentication: [didUrl],
+    capabilityInvocation: [didUrl],
+    capabilityDelegation: [didUrl],
+    keyAgreement: [didUrl],
+  };
+  return { didDocument };
+};
+
 export const jwk = {
   generate: generate2,
+  resolve: resolve2,
 };
 
 export const key = {
@@ -253,7 +276,7 @@ export const resolve = (
   did: string,
   resolutionOptions: {
     accept: 'application/did+json' | 'application/did+ld+json';
-  }
+  } = { accept: 'application/did+json' }
 ): Promise<DidResolution> => {
   const startsWith = did.substring(0, 12);
   if (!(startsWithMap as any)[startsWith]) {

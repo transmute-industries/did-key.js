@@ -10,7 +10,6 @@ describe('did:jwk', () => {
     it(t, async () => {
       const { keys, didDocument } = await did.jwk.generate({
         type: t,
-        method: 'jwk',
         accept: 'application/did+json',
         secureRandom: () => {
           return crypto.randomBytes(32);

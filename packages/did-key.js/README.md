@@ -26,4 +26,8 @@ const { keys, didDocument } = await did.jwk.generate({
   accept: 'application/did+json',
 });
 // did:jwk:eyJrdHkiOiJFQyIsImNydiI6InNlY3AyN...
+
+const { didDocument } = await did.jwk.resolve(
+  'did:jwk:eyJrdHkiOiJPS1AiLCJjcnYiOiJYMjU1MTkiLCJ4Ijoid1VhYVM2RHd5YVAtOHZTX2FBTERmV3o2XzZRT2RkVUJBcV9MVjZMakFIOCJ9'
+);
 ```
