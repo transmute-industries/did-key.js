@@ -187,17 +187,6 @@ const resolve2 = async (did: string): Promise<DidResolution> => {
   return { didDocument };
 };
 
-export const jwk = {
-  generate: generate2,
-  resolve: resolve2,
-};
-
-export const key = {
-  generate: (options: any) => {
-    return generate(options.type, options, options);
-  },
-};
-
 export const generate = (
   type: string,
   generateOptions: GenerateOptions,
@@ -283,4 +272,16 @@ export const resolve = (
     throw new Error('did-key.js does not support: ' + startsWith + '...');
   }
   return (startsWithMap as any)[startsWith].resolve(did, resolutionOptions);
+};
+
+export const jwk = {
+  generate: generate2,
+  resolve: resolve2,
+};
+
+export const key = {
+  generate: (options: any) => {
+    return generate(options.type, options, options);
+  },
+  resolve,
 };
