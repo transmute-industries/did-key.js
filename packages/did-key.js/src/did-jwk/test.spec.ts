@@ -1,6 +1,6 @@
 import * as did from '../index';
 
-it('can generate old way', async () => {
+it('method generator interface', async () => {
   const k0 = await did.jwk.generate({
     type: 'ed25519',
     method: 'jwk',

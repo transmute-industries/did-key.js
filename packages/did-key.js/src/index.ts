@@ -169,6 +169,12 @@ export const jwk = {
   generate: generate2,
 };
 
+export const key = {
+  generate: (options: any) => {
+    return generate(options.type, options, options);
+  },
+};
+
 export const generate = (
   type: string,
   generateOptions: GenerateOptions,
