@@ -56,6 +56,7 @@
     "@transmute/did-key-secp256k1": "^0.3.0-unstable.8",
     "@transmute/did-key-test-vectors": "^0.3.0-unstable.8",
     "@transmute/did-key-web-crypto": "^0.3.0-unstable.8",
-    "@transmute/did-key-x25519": "^0.3.0-unstable.8"
+    "@transmute/did-key-x25519": "^0.3.0-unstable.8",
+    "base64url": "^3.0.1"
   }
 }
