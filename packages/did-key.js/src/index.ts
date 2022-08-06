@@ -8,14 +8,19 @@ export { ed25519, x25519, secp256k1, bls12381, web };
 
 export const typeMap = {
   ed25519,
+  Ed25519: ed25519,
   x25519,
+  X25519: x25519,
 
   secp256k1,
   bls12381,
 
   secp256r1: web,
+  'P-256': web,
   secp384r1: web,
+  'P-384': web,
   secp521r1: web,
+  'P-521': web,
 };
 
 export const startsWithMap = {
@@ -78,25 +83,33 @@ type DidKey = JwkKeyPair | LdKeyPair;
 type DidDocument = { id: string; verificationMethod: any[] };
 type DidResolution = { didDocument: DidDocument };
 type DidGeneration = { didDocument: DidDocument; keys: DidKey[] };
+type DidJwkGeneration = { didDocument: DidDocument; keys: JwkKeyPair[] };
 
-export const noSupportForSeed = ['secp256r1', 'secp384r1', 'secp521r1'];
+export const noSupportForSeed = [
+  'secp256r1',
+  'secp384r1',
+  'secp521r1',
+  'P-256',
+  'P-384',
+  'P-521',
+];
 
 export const getOptionsForType = (type: string) => {
-  if (type === 'secp256r1') {
+  if (type === 'secp256r1' || type === 'P-256') {
     return {
       kty: 'EC',
       crvOrSize: 'P-256',
     };
   }
 
-  if (type === 'secp384r1') {
+  if (type === 'secp384r1' || type === 'P-384') {
     return {
       kty: 'EC',
       crvOrSize: 'P-384',
     };
   }
 
-  if (type === 'secp521r1') {
+  if (type === 'secp521r1' || type === 'P-521') {
     return {
       kty: 'EC',
       crvOrSize: 'P-521',
@@ -105,30 +118,25 @@ export const getOptionsForType = (type: string) => {
   throw new Error('No options for type: ' + type);
 };
 
-export const generate2 = async (options: any): Promise<DidGeneration> => {
+const generate2 = async (options: any): Promise<DidJwkGeneration> => {
   const { keys } = await generate(
     options.type,
     {
-      secureRandom: () => {
-        return Buffer.from(options.seed, 'hex');
-      },
+      secureRandom: options.secureRandom,
     },
     options
   );
   const [key]: any = keys;
   const { publicKeyJwk } = key;
-  const kid =
-    options.kid || publicKeyJwk.kid || keys[0].controller.split(':').pop();
 
   const jwk = {
-    kid,
     // '@context': options.didDocument['@context'],
     // service: options.didDocument.service,
     ...publicKeyJwk,
   };
   const did = `did:jwk:${base64url.encode(JSON.stringify(jwk))}`;
 
-  const didUrl = did; // + '#' + kid;
+  const didUrl = did + '#0';
   const newDoc: any = {
     // '@context': options.didDocument['@context'],
     id: did,
@@ -148,13 +156,17 @@ export const generate2 = async (options: any): Promise<DidGeneration> => {
     //   return { ...s, id: did + s.id };
     // }),
   };
-  const newKeys = [key].map((k) => {
-    return { id: didUrl, controller: did, ...k };
+  const newKeys: JwkKeyPair[] = [key].map((k, i) => {
+    return { id: didUrl + '#' + i, controller: did, ...k } as JwkKeyPair;
   });
   return {
     keys: newKeys,
     didDocument: JSON.parse(JSON.stringify(newDoc)),
   };
+};
+
+export const jwk = {
+  generate: generate2,
 };
 
 export const generate = (

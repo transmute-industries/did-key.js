@@ -1,18 +1,15 @@
 import * as did from '../index';
 
 it('can generate old way', async () => {
-  const k0 = await did.generate2({
+  const k0 = await did.jwk.generate({
     type: 'ed25519',
     method: 'jwk',
     accept: 'application/did+json',
-    seed: '4e61bc1918ea6a47ae3307331be7798196a1a8e7cfe4b6e8f7c9a5f36017d929',
-    kid: 'key-0',
-    didDocument: {
-      '@context': [
-        'https://www.w3.org/ns/did/v1',
-        'https://w3id.org/security/suites/jws-2020/v1',
-      ],
-      service: [{ id: '#agent', serviceEndpoint: 'https://api.example.com' }],
+    secureRandom: () => {
+      return Buffer.from(
+        '4e61bc1918ea6a47ae3307331be7798196a1a8e7cfe4b6e8f7c9a5f36017d929',
+        'hex'
+      );
     },
   });
 
@@ -38,16 +35,15 @@ it('can generate old way', async () => {
     ],
     didDocument: {
       id:
-        'did:jwk:eyJraWQiOiJrZXktMCIsImt0eSI6Ik9LUCIsImNydiI6IkVkMjU1MTkiLCJ4Ijoia1lVeEpkeGNxb0tiZkpLalRQRW1iaWZOckRCdnVRdW9HeW5od21yNEJTQSJ9',
+        'did:jwk:eyJrdHkiOiJPS1AiLCJjcnYiOiJFZDI1NTE5IiwieCI6ImtZVXhKZHhjcW9LYmZKS2pUUEVtYmlmTnJEQnZ1UXVvR3luaHdtcjRCU0EifQ',
       verificationMethod: [
         {
           id:
-            'did:jwk:eyJraWQiOiJrZXktMCIsImt0eSI6Ik9LUCIsImNydiI6IkVkMjU1MTkiLCJ4Ijoia1lVeEpkeGNxb0tiZkpLalRQRW1iaWZOckRCdnVRdW9HeW5od21yNEJTQSJ9',
+            'did:jwk:eyJrdHkiOiJPS1AiLCJjcnYiOiJFZDI1NTE5IiwieCI6ImtZVXhKZHhjcW9LYmZKS2pUUEVtYmlmTnJEQnZ1UXVvR3luaHdtcjRCU0EifQ#0',
           type: 'JsonWebKey2020',
           controller:
-            'did:jwk:eyJraWQiOiJrZXktMCIsImt0eSI6Ik9LUCIsImNydiI6IkVkMjU1MTkiLCJ4Ijoia1lVeEpkeGNxb0tiZkpLalRQRW1iaWZOckRCdnVRdW9HeW5od21yNEJTQSJ9',
+            'did:jwk:eyJrdHkiOiJPS1AiLCJjcnYiOiJFZDI1NTE5IiwieCI6ImtZVXhKZHhjcW9LYmZKS2pUUEVtYmlmTnJEQnZ1UXVvR3luaHdtcjRCU0EifQ',
           publicKeyJwk: {
-            kid: 'key-0',
             kty: 'OKP',
             crv: 'Ed25519',
             x: 'kYUxJdxcqoKbfJKjTPEmbifNrDBvuQuoGynhwmr4BSA',
@@ -55,16 +51,16 @@ it('can generate old way', async () => {
         },
       ],
       authentication: [
-        'did:jwk:eyJraWQiOiJrZXktMCIsImt0eSI6Ik9LUCIsImNydiI6IkVkMjU1MTkiLCJ4Ijoia1lVeEpkeGNxb0tiZkpLalRQRW1iaWZOckRCdnVRdW9HeW5od21yNEJTQSJ9',
+        'did:jwk:eyJrdHkiOiJPS1AiLCJjcnYiOiJFZDI1NTE5IiwieCI6ImtZVXhKZHhjcW9LYmZKS2pUUEVtYmlmTnJEQnZ1UXVvR3luaHdtcjRCU0EifQ#0',
       ],
       capabilityInvocation: [
-        'did:jwk:eyJraWQiOiJrZXktMCIsImt0eSI6Ik9LUCIsImNydiI6IkVkMjU1MTkiLCJ4Ijoia1lVeEpkeGNxb0tiZkpLalRQRW1iaWZOckRCdnVRdW9HeW5od21yNEJTQSJ9',
+        'did:jwk:eyJrdHkiOiJPS1AiLCJjcnYiOiJFZDI1NTE5IiwieCI6ImtZVXhKZHhjcW9LYmZKS2pUUEVtYmlmTnJEQnZ1UXVvR3luaHdtcjRCU0EifQ#0',
       ],
       capabilityDelegation: [
-        'did:jwk:eyJraWQiOiJrZXktMCIsImt0eSI6Ik9LUCIsImNydiI6IkVkMjU1MTkiLCJ4Ijoia1lVeEpkeGNxb0tiZkpLalRQRW1iaWZOckRCdnVRdW9HeW5od21yNEJTQSJ9',
+        'did:jwk:eyJrdHkiOiJPS1AiLCJjcnYiOiJFZDI1NTE5IiwieCI6ImtZVXhKZHhjcW9LYmZKS2pUUEVtYmlmTnJEQnZ1UXVvR3luaHdtcjRCU0EifQ#0',
       ],
       keyAgreement: [
-        'did:jwk:eyJraWQiOiJrZXktMCIsImt0eSI6Ik9LUCIsImNydiI6IkVkMjU1MTkiLCJ4Ijoia1lVeEpkeGNxb0tiZkpLalRQRW1iaWZOckRCdnVRdW9HeW5od21yNEJTQSJ9',
+        'did:jwk:eyJrdHkiOiJPS1AiLCJjcnYiOiJFZDI1NTE5IiwieCI6ImtZVXhKZHhjcW9LYmZKS2pUUEVtYmlmTnJEQnZ1UXVvR3luaHdtcjRCU0EifQ#0',
       ],
     },
   });
