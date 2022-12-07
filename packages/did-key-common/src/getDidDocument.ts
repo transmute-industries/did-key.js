@@ -11,11 +11,6 @@ const fingerprintToKeys = async (
     fingerprint,
   });
 
-  // handle ed25519 to x25519
-  if (key.getDerivedKeyPairs) {
-    return await key.getDerivedKeyPairs();
-  }
-
   // handle pairing friendly curves
   if (key.getPairedKeyPairs) {
     return await key.getPairedKeyPairs();
