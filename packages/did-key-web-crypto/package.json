@@ -48,7 +48,7 @@
     "@transmute/jose-ld": "^0.6.1-unstable.36",
     "@transmute/json-web-signature": "^0.7.0-unstable.0",
     "@transmute/security-context": "^0.6.1-unstable.36",
-    "@transmute/vc.js": "^0.2.1-unstable.12",
+    "@transmute/vc.js": "^0.7.0-unstable.66",
     "axios": "^0.21.1",
     "size-limit": "^4.12.0",
     "ts-jest": "^27.0.3",
