@@ -8,13 +8,12 @@ import { LdKeyPairStatic } from '@transmute/ld-key-pair';
 export const getResolver = (KeyPairClass: LdKeyPairStatic) => {
   return async (
     did: string,
-    options: ResolutionOptions = { accept: 'application/did+ld+json' }
+    options: ResolutionOptions = {
+      accept: 'application/did+ld+json',
+      enableEncryptionKeyDerivation: false,
+    }
   ): Promise<ResolutionResponse> => {
-    const didDocumentEntries = await getDidDocument(
-      did,
-      KeyPairClass,
-      options.accept
-    );
+    const didDocumentEntries = await getDidDocument(did, KeyPairClass, options);
 
     const context = getContext(didDocumentEntries);
     // console.log(JSON.stringify(context, null));

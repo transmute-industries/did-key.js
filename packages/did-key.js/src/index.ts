@@ -50,6 +50,7 @@ export type curveName_secp521r1 = 'secp521r1';
 
 export interface ResolutionOptions {
   accept: 'application/did+json' | 'application/did+ld+json';
+  enableEncryptionKeyDerivation?: boolean;
 }
 export type GenerateKeyType =
   | curveName_ed25519
@@ -229,10 +230,13 @@ export const convert = async (
   keys: DidKey[],
   resolutionOptions: {
     accept: 'application/did+json' | 'application/did+ld+json';
+    enableEncryptionKeyDerivation?: boolean;
   }
 ): Promise<DidGeneration> => {
   const oldRepresentation = await resolve(keys[0].controller, {
     accept: 'application/did+json',
+    enableEncryptionKeyDerivation:
+      resolutionOptions.enableEncryptionKeyDerivation,
   });
   const newRepresentation = await resolve(
     keys[0].controller,
@@ -265,6 +269,7 @@ export const resolve = (
   did: string,
   resolutionOptions: {
     accept: 'application/did+json' | 'application/did+ld+json';
+    enableEncryptionKeyDerivation?: boolean;
   } = { accept: 'application/did+json' }
 ): Promise<DidResolution> => {
   const startsWith = did.substring(0, 12);

@@ -16,16 +16,6 @@
             "crv": "Ed25519",
             "x": "O2onvM62pC1io6jQKm8Nc2UyFXcd4kOmOsBIoYtZ2ik"
           }
-        },
-        {
-          "id": "did:key:z6MkiTBz1ymuepAQ4HEHYSF1H8quG5GLVVQR3djdX3mDooWp#z6LShs9GGnqk85isEBzzshkuVWrVKsRp24GnDuHk8QWkARMW",
-          "type": "JsonWebKey2020",
-          "controller": "did:key:z6MkiTBz1ymuepAQ4HEHYSF1H8quG5GLVVQR3djdX3mDooWp",
-          "publicKeyJwk": {
-            "kty": "OKP",
-            "crv": "X25519",
-            "x": "W_Vcc7guviK-gPNDBmevVw-uJVamQV5rMNQGUwCqlH0"
-          }
         }
       ],
       "assertionMethod": [
@@ -39,16 +29,12 @@
       ],
       "capabilityDelegation": [
         "did:key:z6MkiTBz1ymuepAQ4HEHYSF1H8quG5GLVVQR3djdX3mDooWp#z6MkiTBz1ymuepAQ4HEHYSF1H8quG5GLVVQR3djdX3mDooWp"
-      ],
-      "keyAgreement": [
-        "did:key:z6MkiTBz1ymuepAQ4HEHYSF1H8quG5GLVVQR3djdX3mDooWp#z6LShs9GGnqk85isEBzzshkuVWrVKsRp24GnDuHk8QWkARMW"
       ]
     },
     "application/did+ld+json": {
       "@context": [
         "https://www.w3.org/ns/did/v1",
-        "https://w3id.org/security/suites/ed25519-2018/v1",
-        "https://w3id.org/security/suites/x25519-2019/v1"
+        "https://w3id.org/security/suites/ed25519-2018/v1"
       ],
       "id": "did:key:z6MkiTBz1ymuepAQ4HEHYSF1H8quG5GLVVQR3djdX3mDooWp",
       "verificationMethod": [
@@ -57,12 +43,6 @@
           "type": "Ed25519VerificationKey2018",
           "controller": "did:key:z6MkiTBz1ymuepAQ4HEHYSF1H8quG5GLVVQR3djdX3mDooWp",
           "publicKeyBase58": "4zvwRjXUKGfvwnParsHAS3HuSVzV5cA4McphgmoCtajS"
-        },
-        {
-          "id": "did:key:z6MkiTBz1ymuepAQ4HEHYSF1H8quG5GLVVQR3djdX3mDooWp#z6LShs9GGnqk85isEBzzshkuVWrVKsRp24GnDuHk8QWkARMW",
-          "type": "X25519KeyAgreementKey2019",
-          "controller": "did:key:z6MkiTBz1ymuepAQ4HEHYSF1H8quG5GLVVQR3djdX3mDooWp",
-          "publicKeyBase58": "7By6kV2t2d188odEM4ExAve1UithKT6dLva4dwsDT3ak"
         }
       ],
       "assertionMethod": [
@@ -76,9 +56,6 @@
       ],
       "capabilityDelegation": [
         "did:key:z6MkiTBz1ymuepAQ4HEHYSF1H8quG5GLVVQR3djdX3mDooWp#z6MkiTBz1ymuepAQ4HEHYSF1H8quG5GLVVQR3djdX3mDooWp"
-      ],
-      "keyAgreement": [
-        "did:key:z6MkiTBz1ymuepAQ4HEHYSF1H8quG5GLVVQR3djdX3mDooWp#z6LShs9GGnqk85isEBzzshkuVWrVKsRp24GnDuHk8QWkARMW"
       ]
     }
   }

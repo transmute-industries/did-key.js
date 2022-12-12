@@ -1,18 +1,19 @@
-import { DidDocument, DidDocumentRepresentation } from './types';
+import { DidDocument, ResolutionOptions } from './types';
 import { getRelationships } from './getRelationships';
 import { LdKeyPairStatic, LdVerificationMethod } from '@transmute/ld-key-pair';
 import { getSerialized } from './getSerialized';
 
 const fingerprintToKeys = async (
   KeyPair: LdKeyPairStatic,
-  fingerprint: string
+  fingerprint: string,
+  enableEncryptionKeyDerivation?: boolean
 ) => {
   const key = await KeyPair.fromFingerprint({
     fingerprint,
   });
 
   // handle ed25519 to x25519
-  if (key.getDerivedKeyPairs) {
+  if (enableEncryptionKeyDerivation && key.getDerivedKeyPairs) {
     return await key.getDerivedKeyPairs();
   }
 
@@ -40,13 +41,17 @@ const inferRelationships = (verificationMethod: LdVerificationMethod[]) => {
 export const getDidDocument = async (
   did: string,
   KeyPair: LdKeyPairStatic,
-  representation: DidDocumentRepresentation
+  options: ResolutionOptions
 ): Promise<DidDocument> => {
   const fingerprint = did.split(':')[2].split('#')[0];
-  const keys = await fingerprintToKeys(KeyPair, fingerprint);
+  const keys = await fingerprintToKeys(
+    KeyPair,
+    fingerprint,
+    options.enableEncryptionKeyDerivation
+  );
   const verificationMethod = await getSerialized(
     keys,
-    representation,
+    options.accept,
     false // do not export private keys into a did document
   );
 
