@@ -2,7 +2,7 @@
   "name": "@transmute/did-key-common",
   "author": "Orie Steele",
   "module": "dist/did-key-common.esm.js",
-  "version": "0.3.0-unstable.9",
+  "version": "0.3.0-unstable.10",
   "license": "Apache-2.0",
   "main": "dist/index.js",
   "typings": "dist/index.d.ts",
