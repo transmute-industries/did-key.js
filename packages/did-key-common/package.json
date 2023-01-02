@@ -42,7 +42,7 @@
     }
   ],
   "devDependencies": {
-    "@size-limit/preset-small-lib": "^4.12.0",
+    "@size-limit/preset-small-lib": "^8.1.0",
     "@transmute/bls12381-key-pair": "^0.6.1-unstable.36",
     "@transmute/ed25519-key-pair": "^0.6.1-unstable.36",
     "@transmute/secp256k1-key-pair": "^0.6.1-unstable.36",
