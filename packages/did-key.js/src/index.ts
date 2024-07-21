@@ -3,6 +3,8 @@ import * as secp256k1 from '@transmute/did-key-secp256k1';
 import * as x25519 from '@transmute/did-key-x25519';
 import * as bls12381 from '@transmute/did-key-bls12381';
 import * as web from '@transmute/did-key-web-crypto';
+import * as ebsi from '@malachit/did-key-jwk-jcs-pub';
+
 import base64url from 'base64url';
 export { ed25519, x25519, secp256k1, bls12381, web };
 
@@ -30,6 +32,9 @@ export const startsWithMap = {
   'did:key:zQ3s': secp256k1,
   'did:key:z5Tc': bls12381,
   'did:key:zUC7': bls12381,
+
+  'did:key:zBhB': ebsi,
+  'did:key:z2dm': ebsi,
 
   'did:key:zDna': web,
   'did:key:z82L': web,
